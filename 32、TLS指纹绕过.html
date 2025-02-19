@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-<title>三十二、TLS指纹绕过 - js node</title>
+<title>三十二、TLS指纹和JA3指纹绕过 - js node</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 <meta name="generator" content="mkdocs-1.6.1, mkdocs-gitbook-1.0.7">
@@ -105,7 +105,7 @@
 <li class="chapter" data-path="31%E3%80%81rpc.html">
 <a href="31%E3%80%81rpc.html">三十一、RPC</a>
 <li class="chapter active" data-path="32%E3%80%81TLS%E6%8C%87%E7%BA%B9%E7%BB%95%E8%BF%87.html">
-<a href="32%E3%80%81TLS%E6%8C%87%E7%BA%B9%E7%BB%95%E8%BF%87.html">三十二、TLS指纹绕过</a>
+<a href="32%E3%80%81TLS%E6%8C%87%E7%BA%B9%E7%BB%95%E8%BF%87.html">三十二、TLS指纹和JA3指纹绕过</a>
 <li class="chapter" data-path="33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">
 <a href="33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">三十三、高级逆向</a>
 <li class="chapter" data-path="34%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">
@@ -174,7 +174,7 @@ Theme by GitBook
 
 
 
-<h1 id="tls">三十二、TLS指纹绕过</h1>
+<h1 id="tlsja3">三十二、TLS指纹和JA3指纹绕过</h1>
 <p><strong>什么是TLS指纹校验?</strong>
 客户端   http    服务端
 客户端     https = TLS/SSL + http   服务端
@@ -184,6 +184,261 @@ Theme by GitBook
 <p>​                    第2次 http(数据)</p>
 <p><strong>视频资料</strong>
 https://www.bilibili.com/video/BV16u4y1j7eN?vd_source=87cd9028314be53c0d99d132ffe7796d&amp;spm_id_from=333.788.player.switch&amp;p=2</p>
+<h2 id="_1">一、常见指纹</h2>
+<h3 id="1ja3">1、JA3 指纹</h3>
+<p><strong>JA3</strong> 是一种用于生成 TLS 客户端指纹的方法。它通过收集 TLS 握手过程中的几个关键字段来创建一个独特的指纹，这些字段包括：</p>
+<ul>
+<li><strong>SSL 版本</strong></li>
+<li><strong>接受的密码套件（Accepted Ciphers）</strong></li>
+<li><strong>扩展列表（Extensions）</strong></li>
+<li><strong>椭圆曲线（Elliptic Curves，如果适用）</strong></li>
+<li><strong>椭圆曲线格式（EC Point Formats，如果适用）</strong></li>
+</ul>
+<p>这些信息被组合并进行哈希处理，生成一个固定的字符串，这个字符串就是 JA3 指纹。由于不同应用程序在建立TLS连接时会请求特定版本的协议、支持的加密算法等，这使得每个应用都有可能拥有独一无二的 JA3 指纹。因此，JA3 指纹可以帮助识别出特定的应用程序或客户端，即便它们使用了代理或其他手段试图隐藏自己的身份。</p>
+<h3 id="2tls">2、TLS指纹</h3>
+<p>术语“TLS 指纹”通常指的是更广泛的概念，它可以包含 JA3 以及其他基于 TLS 协议特性的指纹技术。TLS 指纹不仅限于客户端，也可以用于服务器。例如：</p>
+<ul>
+<li><strong>服务端的证书链</strong>：可以通过分析服务器提供的证书链来识别服务器的身份。</li>
+<li><strong>TLS 实现细节</strong>：如使用的具体 TLS 版本、支持的加密套件、TLS 扩展等。</li>
+</ul>
+<p>TLS 指纹技术可以用来识别客户端和服务器的独特配置，有助于发现伪装流量、异常活动或是特定软件的行为模式。</p>
+<h3 id="3-ja3-tls">3、区分 JA3 和 TLS 指纹</h3>
+<ul>
+<li><strong>关注点不同</strong>：JA3 主要专注于客户端的 TLS 握手特征，而 TLS 指纹则是一个更为宽泛的概念，既适用于客户端也适用于服务器。</li>
+<li><strong>数据来源不同</strong>：JA3 使用的是客户端发起的 TLS 连接中的初始握手数据，而 TLS 指纹可能还会考虑整个会话期间的所有交互，包括但不限于证书交换、密钥协商等。</li>
+<li><strong>应用场景差异</strong>：虽然两者都可以用来增强安全性，但 JA3 更多地用于检测和分类来自已知应用的流量，而 TLS 指纹的应用范围更广，可用于多种目的，比如验证服务器身份、监测潜在的安全威胁等。</li>
+</ul>
+<p>总的来说，尽管 JA3 指纹是 TLS 指纹的一部分，但它特别针对的是客户端的行为特征，而 TLS 指纹涵盖的内容更加广泛，包括客户端和服务器双方的信息。理解这两者的区别有助于更好地利用它们进行网络安全监控和管理。</p>
+<h3 id="4">4、其它指纹</h3>
+<p>在网络流量分析和网络安全领域，除了JA3和TLS指纹之外，还有多种其他类型的指纹技术用于识别和跟踪网络连接中的客户端或服务器特征。这些指纹技术有助于更全面地了解网络活动的性质，识别潜在的安全威胁，并采取相应的措施。以下是一些常见的指纹类型：</p>
+<ul>
+<li>
+<p><strong>HTTP 指纹</strong></p>
+</li>
+<li>
+<p><strong>描述</strong>: HTTP指纹通过分析HTTP请求头（如User-Agent, Accept-Language, Accept-Encoding等）来识别客户端。</p>
+</li>
+<li>
+<p><strong>用途</strong>: 可以用来区分不同浏览器、操作系统以及应用程序版本。</p>
+</li>
+<li>
+<p><strong>TCP/IP 指纹</strong></p>
+</li>
+<li>
+<p><strong>描述</strong>: TCP/IP指纹基于TCP协议的行为特征，如窗口大小、MSS（最大报文段长度）、TTL（生存时间）值等。</p>
+</li>
+<li>
+<p><strong>用途</strong>: 帮助识别操作系统类型及版本，因为不同的操作系统实现TCP/IP协议栈的方式有所不同。</p>
+</li>
+<li>
+<p><strong>DNS 指纹</strong></p>
+</li>
+<li>
+<p><strong>描述</strong>: DNS指纹是通过分析DNS查询行为（如查询频率、响应模式等）来识别特定的应用程序或服务。</p>
+</li>
+<li>
+<p><strong>用途</strong>: 常用于发现恶意软件通信或其他异常网络行为。</p>
+</li>
+<li>
+<p><strong>User-Agent 字符串</strong></p>
+</li>
+<li>
+<p><strong>描述</strong>: User-Agent字符串包含在HTTP请求头中，提供了关于发起请求的客户端信息，包括浏览器类型、版本、操作系统等。</p>
+</li>
+<li>
+<p><strong>用途</strong>: 广泛应用于网站优化、内容适配以及安全分析中。</p>
+</li>
+<li>
+<p><strong>HTML Canvas 指纹</strong></p>
+</li>
+<li>
+<p><strong>描述</strong>: HTML Canvas指纹利用了HTML5 Canvas API生成图像时的不同渲染结果，由于不同设备和浏览器对Canvas的支持程度和渲染方式存在差异，因此可以形成独特的指纹。</p>
+</li>
+<li>
+<p><strong>用途</strong>: 主要用于追踪用户，尽管这种方法可能侵犯隐私，但在某些情况下被用于广告定向投放等。</p>
+</li>
+<li>
+<p><strong>WebRTC 指纹</strong></p>
+</li>
+<li>
+<p><strong>描述</strong>: WebRTC是一种支持浏览器之间实时通信的技术，其指纹可以通过获取本地IP地址、候选端口范围等信息进行构建。</p>
+</li>
+<li>
+<p><strong>用途</strong>: 可用于增强用户识别能力，但也可能成为隐私泄露的风险点。</p>
+</li>
+<li>
+<p><strong>字体指纹</strong></p>
+</li>
+<li>
+<p><strong>描述</strong>: 字体指纹基于系统上安装的字体列表及其属性（如名称、样式、大小等），每个系统的字体配置往往是独一无二的。</p>
+</li>
+<li>
+<p><strong>用途</strong>: 作为一种辅助手段用于提高用户识别精度。</p>
+</li>
+<li>
+<p><strong>屏幕分辨率与色彩深度</strong></p>
+</li>
+<li>
+<p><strong>描述</strong>: 这些信息通常可以从JavaScript中读取，反映了用户的显示器设置情况。</p>
+</li>
+<li>
+<p><strong>用途</strong>: 结合其他指纹数据一起使用，以增加唯一性。</p>
+</li>
+<li>
+<p><strong>插件和扩展指纹</strong></p>
+</li>
+<li>
+<p><strong>描述</strong>: 浏览器插件和扩展也可以作为指纹的一部分，因为它们的存在与否及其版本号能够提供额外的信息。</p>
+</li>
+<li>
+<p><strong>用途</strong>: 同样用于增强用户识别的准确性。</p>
+</li>
+</ul>
+<h3 id="5">5、采集时如何区分是什么指纹？</h3>
+<p>在Python中进行HTTP请求时，识别当前连接的JA3或TLS指纹并不是直接通过代码实现的。JA3和TLS指纹实际上是外部观察者（如网络监控工具）基于客户端与服务器之间的TLS握手信息生成的指纹。这些指纹用于识别客户端的行为特征，例如使用的加密套件、协议版本等。</p>
+<p>不过，如果你想要了解你的Python应用在发起HTTPS请求时可能产生的JA3指纹或者更广泛的TLS指纹特征，你可以采取以下几种方法：</p>
+<h3 id="1-wireshark">方法 1: 使用 Wireshark 或类似的网络分析工具</h3>
+<p>Wireshark 是一个强大的网络协议分析工具，可以捕获并分析网络流量。你可以用它来捕获你的Python应用发出的TLS握手数据包，并手动计算JA3指纹或其他TLS指纹。</p>
+<ol>
+<li><strong>安装 Wireshark</strong>:</li>
+<li>根据你的操作系统下载并安装 Wireshark。</li>
+<li><strong>启动 Wireshark 并开始捕获</strong>:</li>
+<li>在 Wireshark 中选择正确的网络接口开始捕获数据包。</li>
+<li>运行你的Python脚本发起HTTPS请求。</li>
+<li>停止捕获后，在Wireshark中过滤出相关的TLS握手数据包（使用过滤器如 <code>tls</code>）。</li>
+<li><strong>分析 TLS 握手信息</strong>:</li>
+<li>查看捕获的数据包，找到Client Hello消息，提取其中的TLS版本、加密套件列表、扩展等信息。</li>
+<li>使用在线工具或自己编写脚本来根据 JA3 规则生成指纹。</li>
+</ol>
+<h3 id="2-mitmproxy">方法 2: 使用 mitmproxy</h3>
+<p><code>mitmproxy</code> 是一个支持拦截、修改和回放HTTP/HTTPS流量的交互式SSL/TLS代理。它可以用来查看和修改你的Python应用发出的所有请求，包括详细的TLS握手信息。</p>
+<ol>
+<li><strong>安装 mitmproxy</strong>:</li>
+</ol>
+<p><code>pip install mitmproxy</code></p>
+<ol>
+<li>
+<p><strong>启动 mitmproxy</strong>:</p>
+</li>
+<li>
+<p>运行 <code>mitmproxy</code> 或 <code>mitmdump</code> 来启动代理服务器，默认监听在 <code>127.0.0.1:8080</code>。</p>
+</li>
+<li>
+<p><strong>配置 Python 应用使用 mitmproxy</strong>:</p>
+</li>
+<li>
+<p>修改你的Python应用以使用这个代理。例如，如果你使用<code>requests</code>库：</p>
+<p><code>python
+ import requests
+ proxies = {
+     'http': 'http://127.0.0.1:8080',
+     'https': 'http://127.0.0.1:8080',
+ }
+ response = requests.get('https://example.com', proxies=proxies)
+ print(response.text)</code></p>
+</li>
+<li>
+<p><strong>查看 TLS 握手信息</strong>:</p>
+</li>
+<li>
+<p>在 <code>mitmproxy</code> 界面中，你可以看到所有经过代理的请求及其详细信息，包括TLS握手细节。</p>
+</li>
+<li>
+<p>代码</p>
+</li>
+</ol>
+<p>showtls.py   用于打印指纹</p>
+<p>```python
+   from mitmproxy import tls
+   import hashlib</p>
+<p>def ja3_fingerprint(tls_data):
+       """
+       生成 JA3 指纹
+       :param tls_data: 包含 TLS Client Hello 数据的对象
+       :return: JA3 指纹字符串
+       """
+       # 提取必要的字段
+       tls_version = f"{tls_data.client_hello.version // 256}.{tls_data.client_hello.version % 256}"
+       cipher_suites = "-".join([str(hex(c)) for c in tls_data.client_hello.cipher_suites])
+       extensions = "-".join([str(ext.type) for ext in tls_data.client_hello.extensions])</p>
+<pre><code>   elliptic_curves = ""
+   ec_point_formats = ""
+
+   for ext in tls_data.client_hello.extensions:
+       if ext.type == 10:  # supported_groups (elliptic curves)
+           elliptic_curves = "-".join([str(group) for group in ext.supported_groups]) if ext.supported_groups else ""
+       elif ext.type == 11:  # ec_point_formats
+           ec_point_formats = "-".join([str(fmt) for fmt in ext.ec_point_formats]) if ext.ec_point_formats else ""
+
+   # 组合成 JA3 字符串
+   raw_ja3 = ",".join([
+       tls_version,
+       cipher_suites,
+       extensions,
+       elliptic_curves,
+       ec_point_formats
+   ])
+
+   # 计算 MD5 哈希值
+   ja3_hash = hashlib.md5(raw_ja3.encode()).hexdigest()
+
+   return f"JA3: {raw_ja3} -&gt; Hash: {ja3_hash}"
+</code></pre>
+<p># 处理 TLS 客户端握手事件
+   class Events:
+       def clienthello(self, data: tls.ClientHelloData):
+           print(ja3_fingerprint(data))</p>
+<p># 注册事件处理器
+   addons = [
+       Events()
+   ]
+   ```</p>
+<p>运行命令</p>
+<pre><code>mitmdump -s showtls.py
+</code></pre>
+<p>Main.py  运行请求的代码</p>
+<p>```python
+   import requests
+   from urllib3.exceptions import InsecureRequestWarning
+   import urllib3</p>
+<p># 禁用不安全请求警告
+   urllib3.disable_warnings(InsecureRequestWarning)</p>
+<p>proxies = {
+       'http': 'http://127.0.0.1:8080',
+       'https': 'http://127.0.0.1:8080',
+   }</p>
+<p>response = requests.get('https://ascii2d.net/',headers={'user-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac os x 10_15_7) ApplewebKit/537.36 (KHTML, like Gecko)Chrome/96.0.4664.93 safari/537.36'}, proxies=proxies)
+   print(response.text)
+   ```</p>
+<h3 id="3-ssltls">方法 3: 直接检查 SSL/TLS 设置</h3>
+<p>虽然不能直接“读取”你的应用的JA3或TLS指纹，但你可以检查并调整你的应用所使用的SSL/TLS设置，这将影响最终生成的指纹。</p>
+<ul>
+<li>如果你使用<code>requests</code>库，可以通过自定义<code>Session</code>对象中的<code>ssl</code></li>
+</ul>
+<p>配置来改变一些参数：</p>
+<p>```python
+  import ssl
+  from requests.adapters import HTTPAdapter
+  from urllib3.poolmanager import PoolManager</p>
+<p>class TlsAdapter(HTTPAdapter):
+      def init_poolmanager(self, connections, maxsize, block=False):
+          ctx = ssl.create_default_context()
+          ctx.set_ciphers('DEFAULT:@SECLEVEL=1')  # 示例：更改默认的加密套件
+          self.poolmanager = PoolManager(
+              num_pools=connections,
+              maxsize=maxsize,
+              block=block,
+              ssl_version=ssl.PROTOCOL_TLSv1_2,  # 可以选择特定的TLS版本
+              ssl_context=ctx)</p>
+<p>session = requests.session()
+  adapter = TlsAdapter()
+  session.mount('https://', adapter)</p>
+<p>response = session.get('https://example.com')
+  print(response.content)
+  ```</p>
+<p><strong>总结</strong></p>
+<p>直接从Python代码内部无法直接获取到JA3或TLS指纹，因为这些指纹是基于外部观察者对TLS握手过程的分析得出的。但是，通过上述方法，你可以间接地了解到你的应用程序在发起HTTPS请求时可能产生的TLS指纹特性。对于安全测试或调试目的，这种方法可以帮助你更好地理解如何调整你的应用以适应特定的安全需求。</p>
+<h2 id="tlsja3_1">二、TLS指纹和Ja3指纹绕过</h2>
 <h3 id="1">1、案例</h3>
 <ul>
 <li>网站：https://ascii2d.net/</li>
@@ -214,7 +469,7 @@ print(res.text)
 <p><img alt="image-20250218173055279" src="imgs/32%E3%80%81TLS%E6%8C%87%E7%BA%B9%E7%BB%95%E8%BF%87.assets/image-20250218173055279.png" /></p>
 <h4 id="4-tls">(4) 查看代码/浏览器发送请求的TLS指纹</h4>
 <p><img alt="image-20250218173618501" src="imgs/32%E3%80%81TLS%E6%8C%87%E7%BA%B9%E7%BB%95%E8%BF%87.assets/image-20250218173618501.png" /></p>
-<h3 id="2tls">2、绕过TLS指纹</h3>
+<h3 id="2tls_1">2、绕过TLS指纹</h3>
 <h4 id="1_2">(1) 方式一</h4>
 <p>urllib3解决（有的可能不过，因为还会检测别的值）</p>
 <p>requests发送请求依赖于 -&gt; urllib3  那么当前代码中生成指纹的位置</p>
