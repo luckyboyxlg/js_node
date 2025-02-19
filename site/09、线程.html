@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>九、线程 - js node</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="generator" content="mkdocs-1.6.1, mkdocs-gitbook-1.0.7">
+
+<link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta rel="next" href="" />
+<link href="./css/style.min.css" rel="stylesheet"> 
+</head>
+
+<body>
+<div class="book">
+<div class="book-summary">
+<div id="book-search-input" role="search">
+<input type="text" placeholder="Type to search" />
+</div> <!-- end of book-search-input -->
+
+<nav role="navigation">
+<ul class="summary">
+<li>
+<a href="index.html" target="_blank" class="custom-link">js node</a>
+</li>
+<li class="divider"></li>
+<li class="chapter" data-path="index.html">
+<a href="index.html">Welcome to MkDocs</a>
+<li class="chapter" data-path="01%E3%80%81html.html">
+<a href="01%E3%80%81html.html">一、HTML</a>
+<li class="chapter" data-path="02%E3%80%81CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8.html">
+<a href="02%E3%80%81CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8.html">二、CSS层叠样式表</a>
+<li class="chapter" data-path="03%E3%80%81%E6%AD%A3%E5%88%99.html">
+<a href="03%E3%80%81%E6%AD%A3%E5%88%99.html">三、正则</a>
+<li class="chapter" data-path="04%E3%80%81BS4%E8%A7%A3%E6%9E%90%E5%AE%8C%E6%95%B4.html">
+<a href="04%E3%80%81BS4%E8%A7%A3%E6%9E%90%E5%AE%8C%E6%95%B4.html">四、beautifulsoup</a>
+<li class="chapter" data-path="05%E3%80%81xpath.html">
+<a href="05%E3%80%81xpath.html">五、xpath</a>
+<li class="chapter" data-path="06%E3%80%81%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E4%B8%8Eurllib%26requests.html">
+<a href="06%E3%80%81%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E4%B8%8Eurllib%26requests.html">六、爬虫入门</a>
+<li class="chapter" data-path="07%E3%80%81urllib%E4%B8%8Erequests.html">
+<a href="07%E3%80%81urllib%E4%B8%8Erequests.html">七、urllib与requests</a>
+<li class="chapter" data-path="08%E3%80%81%E5%A4%9A%E8%BF%9B%E7%A8%8B.html">
+<a href="08%E3%80%81%E5%A4%9A%E8%BF%9B%E7%A8%8B.html">八、多进程</a>
+<li class="chapter active" data-path="09%E3%80%81%E7%BA%BF%E7%A8%8B.html">
+<a href="09%E3%80%81%E7%BA%BF%E7%A8%8B.html">九、线程</a>
+<li class="chapter" data-path="10%E3%80%81%E5%8D%8F%E7%A8%8B.html">
+<a href="10%E3%80%81%E5%8D%8F%E7%A8%8B.html">十、携程</a>
+<li class="chapter" data-path="11%E3%80%81selenium.html">
+<a href="11%E3%80%81selenium.html">十一、selenium</a>
+<li class="chapter" data-path="12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.html">
+<a href="12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.html">十二、MySQL数据库</a>
+<li class="chapter" data-path="13%E3%80%81Mongodb.html">
+<a href="13%E3%80%81Mongodb.html">十三、Mongodb</a>
+<li class="chapter" data-path="14%E3%80%81redis.html">
+<a href="14%E3%80%81redis.html">十四、Redis数据库</a>
+<li class="chapter" data-path="15%E3%80%81%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.html">
+<a href="15%E3%80%81%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.html">十五、面向对象</a>
+<li class="chapter" data-path="16-Scrapy01-%E6%A1%86%E6%9E%B6%E5%88%9D%E8%AE%A4%E8%AF%86.html">
+<a href="16-Scrapy01-%E6%A1%86%E6%9E%B6%E5%88%9D%E8%AE%A4%E8%AF%86.html">十六、Scrapy框架初认识</a>
+<li class="chapter" data-path="16-Scrapy02%E6%B7%B1%E5%85%A5%E4%BD%BF%E7%94%A8-%E5%AD%98%E5%82%A8.html">
+<a href="16-Scrapy02%E6%B7%B1%E5%85%A5%E4%BD%BF%E7%94%A8-%E5%AD%98%E5%82%A8.html">十六、Scrapy深入使用-存储</a>
+<li class="chapter" data-path="16-Scrapy03-%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86%E4%BB%A5%E5%8F%8A%E5%88%86%E9%A1%B5.html">
+<a href="16-Scrapy03-%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86%E4%BB%A5%E5%8F%8A%E5%88%86%E9%A1%B5.html">十六、scrapy模拟登陆&amp;分页</a>
+<li class="chapter" data-path="16-Scrapy04-%E4%B8%AD%E9%97%B4%E4%BB%B6.html">
+<a href="16-Scrapy04-%E4%B8%AD%E9%97%B4%E4%BB%B6.html">十六、Scrapy中间件</a>
+<li class="chapter" data-path="16-Scrapy05-%E5%88%86%E9%A1%B5%E6%8A%93%E5%8F%96.html">
+<a href="16-Scrapy05-%E5%88%86%E9%A1%B5%E6%8A%93%E5%8F%96.html">十六、scrapy的crawlspider爬虫</a>
+<li class="chapter" data-path="16-Scrapy06-scrapy_redis.html">
+<a href="16-Scrapy06-scrapy_redis.html">十六、scrapy_redis</a>
+<li class="chapter" data-path="17%E3%80%81js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html">
+<a href="17%E3%80%81js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html">十七、js数据类型</a>
+<li class="chapter" data-path="18%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%8E%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6.html">
+<a href="18%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%8E%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6.html">十八、js运算符与流程控制</a>
+<li class="chapter" data-path="19%E3%80%81js%E6%95%B0%E7%BB%84.html">
+<a href="19%E3%80%81js%E6%95%B0%E7%BB%84.html">十九、js数组</a>
+<li class="chapter" data-path="20%E3%80%81js%E5%AD%97%E7%AC%A6%E4%B8%B2.html">
+<a href="20%E3%80%81js%E5%AD%97%E7%AC%A6%E4%B8%B2.html">二十、js字符串</a>
+<li class="chapter" data-path="21%E3%80%81js%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%97%B6%E9%97%B4.html">
+<a href="21%E3%80%81js%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%97%B6%E9%97%B4.html">二十一、js对象与时间</a>
+<li class="chapter" data-path="22%E3%80%81%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89.html">
+<a href="22%E3%80%81%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89.html">二十二、js函数</a>
+<li class="chapter" data-path="23%E3%80%81js%E8%BF%9B%E9%98%B6.html">
+<a href="23%E3%80%81js%E8%BF%9B%E9%98%B6.html">二十三、Javascript进阶</a>
+<li class="chapter" data-path="24%E3%80%81BOM%E6%93%8D%E4%BD%9C.html">
+<a href="24%E3%80%81BOM%E6%93%8D%E4%BD%9C.html">二十四、浏览器对象模型BOM</a>
+<li class="chapter" data-path="25%E3%80%81DOM%E6%93%8D%E4%BD%9C.html">
+<a href="25%E3%80%81DOM%E6%93%8D%E4%BD%9C.html">二十五、DOM操作</a>
+<li class="chapter" data-path="26%E3%80%81jQuery%E6%93%8D%E4%BD%9C.html">
+<a href="26%E3%80%81jQuery%E6%93%8D%E4%BD%9C.html">二十六、jQuery</a>
+<li class="chapter" data-path="27%E3%80%81%E9%80%86%E5%90%9101.html">
+<a href="27%E3%80%81%E9%80%86%E5%90%9101.html">二十七、JS逆向01</a>
+<li class="chapter" data-path="28%E3%80%81%E9%80%86%E5%90%9102.html">
+<a href="28%E3%80%81%E9%80%86%E5%90%9102.html">二十八、逆向02</a>
+<li class="chapter" data-path="29%E3%80%81%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html">
+<a href="29%E3%80%81%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html">二十九、微信小程序逆向开发</a>
+<li class="chapter" data-path="30%E3%80%81%E7%BD%91%E6%98%93%E6%BB%91%E5%9D%97.html">
+<a href="30%E3%80%81%E7%BD%91%E6%98%93%E6%BB%91%E5%9D%97.html">三十、网易易盾</a>
+<li class="chapter" data-path="31%E3%80%81rpc.html">
+<a href="31%E3%80%81rpc.html">三十一、RPC</a>
+<li class="chapter" data-path="32%E3%80%81TLS%E6%8C%87%E7%BA%B9%E7%BB%95%E8%BF%87.html">
+<a href="32%E3%80%81TLS%E6%8C%87%E7%BA%B9%E7%BB%95%E8%BF%87.html">三十二、TLS指纹绕过</a>
+<li class="chapter" data-path="33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">
+<a href="33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">三十三、高级逆向</a>
+<li class="chapter" data-path="34%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">
+<a href="34%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">三十四、高级逆向</a>
+<li class="chapter" data-path="%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B%E7%AC%94%E8%AE%B0.html">
+<a href="%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B%E7%AC%94%E8%AE%B0.html">逆向实战案例笔记</a>
+<li class="header">Pyexecjs与npm配置</li>
+
+<li>
+<a href="pyexecjs%E4%B8%8Enpm%E9%85%8D%E7%BD%AE/execjs%E4%BB%8B%E7%BB%8D%E4%BB%A5%E5%8F%8A%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8.html" class="">Execjs介绍以及安装和使用</a>
+</li>
+
+<li>
+<a href="pyexecjs%E4%B8%8Enpm%E9%85%8D%E7%BD%AE/%E4%B8%80%E6%AC%A1%E6%80%A7%E8%A7%A3%E5%86%B3%E6%8E%89npm%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5%E7%9A%84%E9%97%AE%E9%A2%98.html" class="">更换npm为国内镜像</a>
+</li>
+
+<li class="header">补环境</li>
+
+<li>
+<a href="%E8%A1%A5%E7%8E%AF%E5%A2%83/1%E3%80%81%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8E%E4%BA%8B%E4%BB%B6.html" class="">补环境</a>
+</li>
+
+<li>
+<a href="%E8%A1%A5%E7%8E%AF%E5%A2%83/2%E3%80%81Proxy%E4%BB%A3%E7%90%86%E5%99%A8.html" class="">Proxy代理</a>
+</li>
+
+<li>
+<a href="%E8%A1%A5%E7%8E%AF%E5%A2%83/3%E3%80%81vm2%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83.html" class="">3、vm2运行环境</a>
+</li>
+
+<li class="divider"></li>
+
+
+
+<li><a href="http://www.mkdocs.org">
+Published with MkDocs
+</a></li>
+
+<li><a href="https://github.com/GitbookIO/theme-default">
+Theme by GitBook
+</a></li>
+</ul>
+
+</nav>
+
+</div> <!-- end of book-summary -->
+
+<div class="book-body">
+<div class="body-inner">
+<div class="book-header" role="navigation">
+
+<!-- Title -->
+<h1>
+<i class="fa fa-circle-o-notch fa-spin"></i>
+<a href="." ></a>
+</h1>
+
+</div> <!-- end of book-header -->
+
+<div class="page-wrapper" tabindex="-1" role="main">
+<div class="page-inner">
+<div id="book-search-results">
+<div class="search-noresults">
+
+<section class="normal markdown-section">
+
+
+
+<h1 id="_1">九、线程</h1>
+<h2 id="_2">一、线程</h2>
+<h3 id="1">1、概念</h3>
+<ul>
+<li>线程</li>
+</ul>
+<p>在一个进程的内部，要同时干多件事，就需要同时运行多个“子任务”，我们把进程内的这些“子任务”叫做线程</p>
+<p>是操作系统能够进行运算调度的最小单位。它被包含在进程之中，是进程中的实际运作单位。一条线程指的是进程中一个单一顺序的控制流，一个进程中可以并发多个线程，每条线程并行执行不同的任务。在Unix System V及SunOS中也被称为轻量进程（lightweight processes），但轻量进程更多指内核线程（kernel thread），而把用户线程（user thread）称为线程</p>
+<p>线程通常叫做轻型的进程。线程是共享内存空间的并发执行的多任务，每一个线程都共享一个进程的资源</p>
+<p>线程是最小的执行单元，而进程由至少一个线程组成。如何调度进程和线程，完全由操作系统决定，程序自己不能决定什么时候执行，执行多长时间</p>
+<ul>
+<li>多线程</li>
+</ul>
+<p>是指从软件或者硬件上实现多个线程并发执行的技术。具有多线程能力的计算机因有硬件支持而能够在同一时间执行多于一个线程，进而提升整体处理性能。具有这种能力的系统包括对称多处理机、多核心处理器以及芯片级多处理（Chip-level multithreading）或同时多线程（Simultaneous multithreading）处理器。</p>
+<ul>
+<li>主线程：</li>
+</ul>
+<p>​ 任何进程都会有一个默认的主线程  如果主线程死掉  子线也程也死掉   所以 子线程依赖于主线程</p>
+<ul>
+<li>GIL</li>
+</ul>
+<p>其他语言，CPU 是多核是支持多个线程同时执行。但在 Python 中，无论是单核还是多核，同时只能由一个线程在执行。其根源是 GIL 的存在。</p>
+<p>GIL 的全称是 Global Interpreter Lock(全局解释器锁)，来源是 Python 设计之初的考虑，为了数据安全所做的决定。某个线程想要执行，必须先拿到 GIL，我们可以把 GIL 看作是“通行证”，并且在一个 Python 进程中，GIL 只有一个。拿不到通行证的线程，就不允许进入 CPU 执行。
+  而目前 Python 的解释器有多种，例如：</p>
+<ul>
+<li><strong>CPython</strong>：CPython 是用C语言实现的 Python 解释器。 作为官方实现，它是最广泛使用的 Python 解释器。</li>
+<li><strong>PyPy</strong>：PyPy 是用RPython实现的解释器。RPython 是 Python 的子集， 具有静态类型。这个解释器的特点是即时编译，支持多重后端（C, CLI, JVM）。PyPy 旨在提高性能，同时保持最大兼容性（参考 CPython 的实现）。</li>
+<li><strong>Jython</strong>：Jython 是一个将 Python 代码编译成 Java 字节码的实现，运行在JVM (Java Virtual Machine) 上。另外，它可以像是用 Python 模块一样，导入 并使用任何Java类。</li>
+<li><strong>IronPython</strong>：IronPython 是一个针对 .NET 框架的 Python 实现。它 可以用 Python 和 .NET framewor k的库，也能将 Python 代码暴露给 .NET 框架中的其他语言。</li>
+</ul>
+<p>GIL 只在 CPython 中才有，而在 PyPy 和 Jython 中是没有 GIL 的。</p>
+<p>在使用互斥锁解决代码中的资源竞争问题时，当一个线程执行时，会将全局共享的资源上锁，当线程执行完成后，将锁解开，释放资源，其他线程才能够使用。</p>
+<p>每次释放 GIL锁，线程进行锁竞争、切换线程，会消耗资源。这就导致打印线程执行时长，会发现耗时更长的原因。</p>
+<p>并且由于 GIL 锁存在，Python 里一个进程永远只能同时执行一个线程(拿到 GIL 的线程才能执行)，这就是为什么在多核CPU上，Python 的多线程效率并不高的根本原因。</p>
+<ul>
+<li>模块</li>
+</ul>
+<p>_thread模块：低级模块</p>
+<p>threading模块：高级模块，对_thread进行了封装</p>
+<h3 id="2_thread">2、使用_thread 模块 去创建线程</h3>
+<ul>
+<li>导入模块</li>
+</ul>
+<p>import  _thread</p>
+<ul>
+<li>开启线程</li>
+</ul>
+<p>_thread.start_new_thread(函数名,参数) </p>
+<ul>
+<li>注意：</li>
+<li>参数必须为元组类型</li>
+<li>如果主线程执行完毕 子线程就会死掉</li>
+<li>
+<p>如果线程不需要传参数的时候  也必须传递一个空元组占位</p>
+</li>
+<li>
+<p>实例</p>
+</li>
+</ul>
+<p>```python
+  import win32api
+  import _thread #引入线程的模块   比较老的模块  新的 threading</p>
+<p>def run(i):
+      win32api.MessageBox(0,"您的{}号大宝贝上线了".format(i),"来自凤姐以及陆源凯的问候",2)</p>
+<p>for i in range(5):
+      _thread.start_new_thread(run,(i,)) #发起多个线程  传参的情况  参数为元组
+      # _thread.start_new_thread(run,()) #发起多个线程  不传参 页需要俩个参数 第二个为空元组
+  print('会先执行我')
+  #如果主线程 不死  那么 所有的次线程 就都会正常执行
+  while True:
+      pass
+  ```</p>
+<p>提高效率</p>
+<p>```python
+  import _thread
+  import time</p>
+<p>def run():
+      for i in range(10):
+          print(i,'------------')
+          time.sleep(1)
+  """
+  for i in range(5): #50秒
+      run()
+  """</p>
+<p>for i in range(5):
+      _thread.start_new_thread(run,()) #发起五个线程去执行  时间大大缩短</p>
+<p>for i in range(10): #循环10秒  计算 线程执行完毕所需要的时间  类似与一个劫停
+      time.sleep(1)
+  print('xxxx')
+  ```</p>
+<h3 id="3threading">3、threading创建线程</h3>
+<ul>
+<li>导入模块</li>
+</ul>
+<p>import threading</p>
+<ul>
+<li>threading创建线程的方式</li>
+</ul>
+<p>myThread = threading.Thread(target=函数名[,args=(参数,),name="你指定的线程名称"])</p>
+<p>参数</p>
+<ul>
+<li>target：指定线程执行的函数</li>
+<li>name：指定当前线程的名称</li>
+<li>
+<p>args：传递个子线程的参数 ,(元组形式)</p>
+</li>
+<li>
+<p>开启线程</p>
+</li>
+</ul>
+<p>myThread.start()</p>
+<ul>
+<li>线程等待</li>
+</ul>
+<p>myThread.join()</p>
+<ul>
+<li>
+<p>返回当前线程对象</p>
+</li>
+<li>
+<p>threading.current_thread()</p>
+</li>
+<li>
+<p>threading.currentThread()</p>
+</li>
+<li>
+<p>获取当前线程的名称</p>
+</li>
+<li>
+<p>threading.current_thread().name</p>
+</li>
+<li>
+<p>threading.currentThread().getName()</p>
+</li>
+<li>
+<p>设置线程名</p>
+</li>
+</ul>
+<p>setName()</p>
+<p><code>python
+  Thread(target=fun).setName('name')</code></p>
+<ul>
+<li>返回主线程对象</li>
+</ul>
+<p>threading.main_thread()　　  </p>
+<ul>
+<li>获取当前活着的所有线程总数，包括主线程main</li>
+</ul>
+<p>threading.active_count() 或 threading.activeCount()　</p>
+<ul>
+<li>
+<p>判断线程是不是活的，即线程是否已经结束    </p>
+</li>
+<li>
+<p>Thread.is_alive()</p>
+</li>
+<li>
+<p>Thread.isAlive()</p>
+</li>
+<li>
+<p>线程守护</p>
+</li>
+</ul>
+<p>设置子线程是否随主线程一起结束</p>
+<p>有一个布尔值的参数，默认为False，该方法设置子线程是否随主线程一起结束   True一起结束</p>
+<p>Thread.setDaemon(True)    </p>
+<p>还有个要特别注意的：必须在start() 方法调用之前设置</p>
+<p><code>python
+  if __name__ == '__main__':
+      t = Thread(target=fun, args=(1,))
+      t.setDaemon(True)
+      t.start()
+      print('over')</code></p>
+<ul>
+<li>获取当前所有的线程名称</li>
+</ul>
+<p><code>python
+  threading.enumerate()  # 返回当前包含所有线程的列表</code></p>
+<h3 id="4">4、启动线程实现多任务</h3>
+<pre><code class="language-python">import time
+import threading
+
+def run1():
+    # 获取线程名字
+    print(&quot;启动%s子线程……&quot;%(threading.current_thread().name))
+    for i in range(5):
+        print(&quot;lucky is a good man&quot;)
+        time.sleep(1)
+
+def run2(name, word):
+    print(&quot;启动%s子线程……&quot; % (threading.current_thread().name))
+    for i in range(5):
+        print(&quot;%s is a %s man&quot;%(name, word))
+        time.sleep(1)
+
+if __name__ == &quot;__main__&quot;:
+    t1 = time.clock()
+    # 主进程中默认有一个线程，称为主线程(父线程)
+    # 主线程一般作为调度而存在，不具体实现业务逻辑
+
+    # 创建子线程
+    # name参数可以设置线程的名称，如果不设置按顺序设置为Thread-n
+    th1 = threading.Thread(target=run1, name=&quot;th1&quot;)
+    th2 = threading.Thread(target=run2, args=(&quot;lucky&quot;, &quot;nice&quot;))
+
+    #启动
+    th1.start()
+    th2.start()
+
+    #等待子线程结束
+    th1.join()
+    th2.join()
+
+    t2 = time.clock()
+    print(&quot;耗时：%.2f&quot;%(t2-t1))
+</code></pre>
+<h3 id="5">5、线程间共享数据</h3>
+<p>概述</p>
+<p>​   多线程和多进程最大的不同在于，多进程中，同一个变量，各自有一份拷贝存在每个进程中，互不影响。而多线程中，所有变量都由所有线程共享。所以，任何一个变量都可以被任意一个线程修改，因此，线程之间共享数</p>
+<p>据最大的危险在于多个线程同时修改一个变量，容易把内容改乱了。</p>
+<pre><code class="language-python">import time
+import threading
+
+money = 0
+
+def run1():
+    global money
+    money = 1
+    print(&quot;run1-----------&quot;, money)
+    print(&quot;启动%s子线程……&quot;%(threading.current_thread().name))
+    for i in range(5):
+        print(&quot;lucky is a good man&quot;)
+        time.sleep(1)
+
+def run2(name, word):
+    print(&quot;run2-----------&quot;, money)
+    print(&quot;启动%s子线程……&quot; % (threading.current_thread().name))
+    for i in range(5):
+        print(&quot;%s is a %s man&quot;%(name, word))
+        time.sleep(1)
+
+if __name__ == &quot;__main__&quot;:
+    t1 = time.clock()
+
+    th1 = threading.Thread(target=run1, name=&quot;th1&quot;)
+    th2 = threading.Thread(target=run2, args=(&quot;lucky&quot;, &quot;nice&quot;))
+
+    th1.start()
+    th2.start()
+    th1.join()
+    th2.join()
+
+    t2 = time.clock()
+    print(&quot;耗时：%.2f&quot;%(t2-t1))
+    print(&quot;main-----------&quot;, money)
+</code></pre>
+<h3 id="6lock">6、Lock线程锁(多线程内存错乱问题)</h3>
+<ul>
+<li>概述</li>
+</ul>
+<p>Lock锁是线程模块中的一个类，有两个主要方法：acquire()和release() 当调用acquire()方法时，它锁定锁的执行并阻塞锁的执行，直到其他线程调用release()方法将其设置为解锁状态。锁帮助我们有效地访问程序中的共享资源，以防止数据损坏，它遵循互斥，因为一次只能有一个线程访问特定的资源。</p>
+<ul>
+<li>作用</li>
+</ul>
+<p>避免线程冲突</p>
+<ul>
+<li>
+<p><strong>锁：</strong>确保了这段代码只能由一个线程从头到尾的完整执行阻止了多线程的并发执行,包含锁的某段代码实际上只能以单线程模式执行,所以效率大大的降低了 由于可以存在多个锁,不同线程持有不同的锁,并试图获取其他的锁, 可能造成死锁,导致多个线程只能挂起,只能靠操作系统强行终止</p>
+</li>
+<li>
+<p>注意：</p>
+</li>
+<li>
+<p>当前线程锁定以后 后面的线程会等待（线程等待/线程阻塞） </p>
+</li>
+<li>需要release 解锁以后才正常</li>
+<li>
+<p>不能重复锁定</p>
+</li>
+<li>
+<p>内存错乱实例</p>
+</li>
+</ul>
+<p>```python
+  import threading
+  import time</p>
+<p>i = 1
+  def fun1():
+      global i
+      time.sleep(3)
+      for x in range(1000000):
+          i += x
+          i -= x
+      print('fun1-----', i)</p>
+<p>def fun2():
+      global i
+      time.sleep(3)
+      for x in range(1000000):
+          i += x
+          i -= x
+      print('fun2----', i)</p>
+<p>t1 = threading.Thread(target=fun1)
+  t2 = threading.Thread(target=fun2)
+  t1.start()
+  t2.start()
+  t1.join()
+  t2.join()
+  print('mian----',i)
+  ```</p>
+<p>问题：两个线程对同一数据同时进行读写，可能造成数据值的不对，我们必须保证一个线程在修改money时其他的线程一定不能修改，线程锁解决数据混乱问题</p>
+<ul>
+<li>线程锁Lock使用方法</li>
+</ul>
+<p><code>python
+  import threading
+  # 创建一个锁
+  lock = threading.Lock()
+  lock.acquire()   #进行锁定  锁定成功返回True
+  lock.release()    #进行解锁</code></p>
+<ul>
+<li>Lock锁的使用:</li>
+</ul>
+<p>```python
+  import threading
+  import time</p>
+<p>i = 1
+  def fun1():
+      global i
+      time.sleep(3)
+      for x in range(1000000):
+          i += x
+          i -= x
+      print('fun1-----', i)</p>
+<p>def fun2():
+      global i
+      time.sleep(3)
+      for x in range(1000000):
+          i += x
+          i -= x
+      print('fun2----', i)</p>
+<p>t1 = threading.Thread(target=fun1)
+  t2 = threading.Thread(target=fun2)
+  t1.start()
+  t2.start()
+  t1.join()
+  t2.join()
+  print('mian----',i)
+  ```</p>
+<p>在上面的程序中,lock是一个锁对象,全局变量abce是一个共享资源,sumOne()和sumTwo()函数扮作两个线程,在sumOne()函数中共享资源abce首先被锁定,然后增加了1,然后abce被释放。sumTwo()函数执行类似操作。 两个函数sumOne()和sumTwo()不能同时访问共享资源abce，一次只能一个访问共享资源。</p>
+<ul>
+<li>解决资源混乱</li>
+</ul>
+<p>```python
+  import threading</p>
+<p>Lock = threading.Lock()
+  i = 1
+  def fun1():
+      global i
+      if Lock.acquire():  # 判断是否上锁  锁定成功
+          for x in range(1000000):
+              i += x
+              i -= x
+          Lock.release()
+      print('fun1-----', i)</p>
+<p>def fun2():
+      global i
+      if Lock.acquire():  # 判断是否上锁  锁定成功
+          for x in range(1000000):
+              i += x
+              i -= x
+          Lock.release()
+      print('fun2----', i)</p>
+<p>t1 = threading.Thread(target=fun1)
+  t2 = threading.Thread(target=fun2)
+  t1.start()
+  t2.start()
+  t1.join()
+  t2.join()
+  print('mian----',i)
+  ```</p>
+<ul>
+<li>线程锁的简写（不需要手动解锁）</li>
+</ul>
+<p><code>with lock:
+    代码段</code></p>
+<p>实例（将上面上锁的代码段更改为）</p>
+<p><code>python
+  def run2():
+      for i in range(1000000):
+          #简写，功能与上面一致
+          with lock:
+              ...</code></p>
+<p>结果一样</p>
+<h3 id="7timer">7、Timer定时执行</h3>
+<ul>
+<li>概述</li>
+</ul>
+<p>Timer是Thread的子类，可以指定时间间隔后在执行某个操作</p>
+<ul>
+<li>使用</li>
+</ul>
+<p>```python
+  import threading</p>
+<p>def go():
+      print("走我了")</p>
+<p># t = threading.Timer(秒数,函数名)
+  t = threading.Timer(3,go)
+  t.start()
+  print('我是主线程的代码')
+  ```</p>
+<h3 id="8threadpool">8、threadpool线程池</h3>
+<ul>
+<li>
+<p>启动大量线程</p>
+</li>
+<li>
+<p>安装</p>
+</li>
+</ul>
+<p>pip install threadpool</p>
+<ul>
+<li>
+<p>使用</p>
+</li>
+<li>
+<p>引入threadpool模块</p>
+<p>import threadpool</p>
+</li>
+<li>
+<p>定义线程函数</p>
+</li>
+<li>
+<p>创建线程池</p>
+<p>threadpool.ThreadPool()</p>
+<p>控制线程的并发数</p>
+<p>pool = threadpool.ThreadPool(5)  </p>
+</li>
+<li>
+<p>创建需要线程池处理的任务</p>
+<p>equests = threadpool.makeRequests(go,name_list) </p>
+</li>
+<li>
+<p>将创建的多个任务put到线程池中,threadpool.putRequest</p>
+<p><code>for i in Requests: pool.putRequest(i)</code></p>
+<p>或：</p>
+<p><code>[pool.putRequest(i) for i in requests]</code></p>
+</li>
+<li>
+<p>等待所有线程 执行完毕 在继续往下 执行   </p>
+<p>threadpool.wait() </p>
+</li>
+<li>
+<p>threadpool线程池的使用</p>
+</li>
+<li>
+<p>方式一</p>
+<p>```python
+import time
+import threadpool</p>
+<h1 id="_3">线程池 统一管理 线程</h1>
+<p>def go(str):
+    print("hello", str)
+    time.sleep(2)</p>
+<p>name_list = ["lucky", "卢yuan凯", "姚青", "刘佳俊", "何必喆"]
+pool = threadpool.ThreadPool(5)  # 控制线程的并发数
+start = time.time()
+requests = threadpool.makeRequests(go, name_list)  # 设置参数 转换成线程池对象
+for i in requests: pool.putRequest(i)
+pool.wait()
+```</p>
+</li>
+<li>
+<p>方式二</p>
+<p><code>python
+...
+[pool.putRequest(req) for req in requests]
+pool.wait()  # 等待所有线程 执行完毕 在继续往下 执行
+print('运行的秒数', time.time() - start)</code></p>
+</li>
+<li>
+<p>线程池多个参数的情况</p>
+</li>
+</ul>
+<p>当函数有多个参数的情况，函数调用时第一个解包list，第二个解包dict，所以可以这样</p>
+<p>```python
+   import threadpool
+   def hello(m, n, o):
+       """"""
+       print "m = %s, n = %s, o = %s"%(m, n, o)</p>
+<p>if <strong>name</strong> == '<strong>main</strong>':
+      # 方法1<br />
+       lst_vars_1 = ['1', '2', '3']
+       lst_vars_2 = ['4', '5', '6']
+       func_var = [(lst_vars_1, None), (lst_vars_2, None)]
+       # 方法2
+       dict_vars_1 = {'m':'1', 'n':'2', 'o':'3'}
+       dict_vars_2 = {'m':'4', 'n':'5', 'o':'6'}
+       func_var = [(None, dict_vars_1), (None, dict_vars_2)]    </p>
+<pre><code>   pool = threadpool.ThreadPool(2)
+   requests = threadpool.makeRequests(hello, func_var)
+   [pool.putRequest(req) for req in requests]
+   pool.wait()
+</code></pre>
+<p>```</p>
+<h3 id="9threadpoolexecutor">9、线程池ThreadPoolExecutor</h3>
+<ul>
+<li>模<strong>块</strong></li>
+</ul>
+<p>concurrent.futures</p>
+<ul>
+<li><strong>导入</strong>  Executor[ɪɡˈzekjətər]</li>
+</ul>
+<p><code>python
+  from concurrent.futures import ThreadPoolExecutor</code></p>
+<ul>
+<li>
+<p><strong>方法</strong></p>
+</li>
+<li>
+<p>submit(fun[, args])  传入放入线程池的函数以及传参</p>
+</li>
+<li>map(fun[, iterable_args])  统一管理</li>
+</ul>
+<p><strong>区别</strong>：</p>
+<ul>
+<li>
+<p>submit与map参数不同  submit每次都需要提交一个目标函数和对应参数 map只需要提交一次目标函数 目标函数的参数 放在一个可迭代对象（列表、字典...）里就可以</p>
+</li>
+<li>
+<p><strong>使用</strong></p>
+</li>
+</ul>
+<p>```python
+  from concurrent.futures import ThreadPoolExecutor
+  import time
+  # import threadpool
+  #线程池 统一管理 线程</p>
+<p>def go(str):
+      print("hello",str)
+      time.sleep(2)</p>
+<p>name_list = ["lucky","卢yuan凯","姚青","刘佳俊","何必喆"]
+  pool = ThreadPoolExecutor(5)  #控制线程的并发数
+  ```</p>
+<ul>
+<li>
+<p>线程池运行的方式</p>
+<ul>
+<li>方式一</li>
+</ul>
+<p>```python</p>
+<h1 id="_4">逐一传参扔进线程池</h1>
+<p>for i in name_list:
+    pool.submit(go, i)
+```</p>
+<p>简写</p>
+<p><code>python
+all_task = [pool.submit(go, i) for i in name_list]</code></p>
+<ul>
+<li>方式二</li>
+</ul>
+<p>```python</p>
+<h1 id="_5">统一放入进程池使用</h1>
+<p>pool.map(go, name_list)</p>
+<h1 id="_6">多个参数</h1>
+<h1 id="poolmapgo-name_list1-name_list2">pool.map(go, name_list1, name_list2...)</h1>
+<p>```</p>
+<p><strong>map(fn, *iterables, timeout=None)</strong>
+fn： 第一个参数 fn 是需要线程执行的函数；</p>
+<p>iterables：第二个参数接受一个可迭代对象；</p>
+<p>timeout： 第三个参数 timeout 跟 wait() 的 timeout 一样，但由于 map 是返回线程执行的结果，如果 timeout小于线程执行时间会抛异常 TimeoutError。</p>
+<p><strong>注意：</strong>使用 map 方法，无需提前使用 submit 方法，map 方法与 python 高阶函数 map 的含义相同，都是将序列中的每个元素都执行同一个函数。 </p>
+</li>
+<li>
+<p><strong>获取返回值</strong></p>
+</li>
+<li>
+<p>方式一</p>
+<p>```python
+import random
+from concurrent.futures import ThreadPoolExecutor, as_completed
+import time</p>
+<h1 id="import-threadpool">import threadpool</h1>
+<h1 id="_7">线程池 统一管理 线程</h1>
+<p>def go(str):
+    print("hello", str)
+    time.sleep(random.randint(1, 4))
+    return str</p>
+<p>name_list = ["lucky","卢yuan凯","姚青","刘佳俊","何必喆"]
+pool = ThreadPoolExecutor(5)  #控制线程的并发数</p>
+<h1 id="_8">统一放入进程池使用</h1>
+<p>all_task = [pool.submit(go, i) for i in name_list]</p>
+<p>for future in as_completed(all_task):
+    print("finish the task")
+    obj_data = future.result()
+    print("obj_data is ", obj_data)
+```</p>
+<p><strong>as_completed</strong></p>
+<p>当子线程中的任务执行完后，使用 result() 获取返回结果</p>
+<p>该方法是一个生成器，在没有任务完成的时候，会一直阻塞，除非设置了 timeout。 当有某个任务完成的时候，会yield这个任务，就能执行for循环下面的语句，然后继续阻塞住，循环到所有任务结束，同时，先完成的任务会先返回给主线程</p>
+</li>
+<li>
+<p>方式二</p>
+<p><code>python
+for result in pool.map(go, name_list):
+    print("task:{}".format(result))</code></p>
+</li>
+<li>
+<p>wait 等待线程执行完毕 在继续向下执行</p>
+</li>
+</ul>
+<p>```python
+  from concurrent.futures import ThreadPoolExecutor, wait
+  import time</p>
+<p># 参数times用来模拟下载的时间
+  def down_video(times):
+      time.sleep(times)
+      print("down video {}s finished".format(times))
+      return times</p>
+<p>executor = ThreadPoolExecutor(max_workers=2)
+  # 通过submit函数提交执行的函数到线程池中，submit函数立即返回，不阻塞
+  task1 = executor.submit(down_video, 3)
+  task2 = executor.submit(down_video, 1)
+  # done方法用于判定某个任务是否完成
+  print("任务1是否已经完成：", task1.done())
+  # time.sleep(4)
+  print(wait([task1, task2]))
+  print('wait')
+  print("任务1是否已经完成：", task1.done())
+  print("任务1是否已经完成：", task2.done())
+  # result方法可以获取task的执行结果
+  print(task1.result())
+  ```</p>
+<ul>
+<li><strong>线程池与线程对比</strong></li>
+</ul>
+<p>线程池是在程序运行开始，创建好的n个线程，并且这n个线程挂起等待任务的到来。而多线程是在任务到来得时候进行创建，然后执行任务。
+  线程池中的线程执行完之后不会回收线程，会继续将线程放在等待队列中；多线程程序在每次任务完成之后会回收该线程。
+  由于线程池中线程是创建好的，所以在效率上相对于多线程会高很多。
+  线程池也在高并发的情况下有着较好的性能；不容易挂掉。多线程在创建线程数较多的情况下，很容易挂掉。</p>
+<h3 id="10queue">10、队列模块queue</h3>
+<ul>
+<li>导入队列模块</li>
+</ul>
+<p>import queue</p>
+<ul>
+<li>概述</li>
+</ul>
+<p>queue是python标准库中的线程安全的队列（FIFO）实现,提供了一个适用于多线程编程的先进先出的数据结构，即队列，用来在生产者和消费者线程之间的信息传递</p>
+<ul>
+<li>基本FIFO队列</li>
+</ul>
+<p>queue.Queue(maxsize=0)</p>
+<p>FIFO即First in First Out,先进先出。Queue提供了一个基本的FIFO容器，使用方法很简单,<strong>maxsize是个整数</strong>，指明了队列中能存放的数据个数的上限。一旦达到上限，插入会导致阻塞，直到队列中的数据被消费掉。如果<strong>maxsize小于或者等于0</strong>，队列大小没有限制。</p>
+<p>举个栗子：</p>
+<p>```python
+  import queue</p>
+<p>q = queue.Queue()</p>
+<p>for i in range(5):
+      q.put(i)</p>
+<p>while not q.empty():
+      print q.get()
+  ```</p>
+<ul>
+<li>
+<p>一些常用方法 </p>
+</li>
+<li>
+<p>task_done()</p>
+<p>​   意味着之前入队的一个任务已经完成。由队列的消费者线程调用。每一个get()调用得到一个任务，接下来的task_done()调用告诉队列该任务已经处理完毕。</p>
+<p>​   如果当前一个join()正在阻塞，它将在队列中的所有任务都处理完时恢复执行（即每一个由put()调用入队的任务都有一个对应的task_done()调用）。</p>
+</li>
+<li>
+<p>join()</p>
+</li>
+</ul>
+<p>​ 阻塞调用线程，直到队列中的所有任务被处理掉。</p>
+<p>​ 只要有数据被加入队列，未完成的任务数就会增加。当消费者线程调用task_done()（意味着有消费者取得任务并完成任务），未完成的任务数就会减少。当未完成的任务数降到0，join()解除阻塞。</p>
+<ul>
+<li>
+<p>put(item[, block[, timeout]])</p>
+<p>将item放入队列中。</p>
+<ul>
+<li>如果可选的参数block为True且timeout为空对象（默认的情况，阻塞调用，无超时）。</li>
+<li>如果timeout是个正整数，阻塞调用进程最多timeout秒，如果一直无空空间可用，抛出Full异常（带超时的阻塞调用）。</li>
+<li>如果block为False，如果有空闲空间可用将数据放入队列，否则立即抛出Full异常</li>
+<li>其非阻塞版本为<code>put_nowait</code>等同于<code>put(item, False)</code></li>
+</ul>
+</li>
+<li>
+<p>get([block[, timeout]])</p>
+</li>
+</ul>
+<p>​ 从队列中移除并返回一个数据。block跟timeout参数同<code>put</code>方法</p>
+<p>​ 其非阻塞方法为 <code>get_nowait()</code> 相当与 <code>get(False)</code></p>
+<ul>
+<li>empty()</li>
+</ul>
+<p>​       如果队列为空，返回True,反之返回False</p>
+<h3 id="11">11、线程生产者与消费者</h3>
+<ul>
+<li>实例</li>
+</ul>
+<p>```python
+  import threading
+  import queue
+  import time
+  import random</p>
+<p>#生产
+  class  creatorThread(threading.Thread):
+      def  <strong>init</strong>(self,index,myqueue):
+          threading.Thread.<strong>init</strong>(self)
+          self.index=index   #索引
+          self.myqueue=myqueue  #队列
+      def run(self):
+          while True:
+              time.sleep(3) #三秒生产一个
+              num=random.randint(1,1000000) #随机数
+              self.myqueue.put("input 生产者"+str(self.index)+"硅胶娃娃"+str(num))
+              print("input 生产者"+str(self.index)+"硅胶娃娃"+str(num))</p>
+<p>#消费
+  class  buyerThread(threading.Thread):
+      def  <strong>init</strong>(self,index,myqueue):
+          threading.Thread.<strong>init</strong>(self)
+          self.index=index   #索引
+          self.myqueue=myqueue  #队列
+      def run(self):
+          while True:
+              time.sleep(1)
+              item=self.myqueue.get()#抓取数据
+              print("客户",self.index,"买到物品",item)</p>
+<p>myqueue=queue.Queue(10) #0代表无限，10最大容量
+  for i  in range(3):
+      creatorThread(i,myqueue).start()  #生产者
+  for i  in range(8):
+      buyerThread(i,myqueue).start()   #消费者
+  ```</p>
+<h3 id="12">12、案例</h3>
+<p>http://www.boxofficecn.com/boxofficecn</p>
+<p>我们抓取从1994年到2021年的电影票房.</p>
+<pre><code class="language-python">import requests
+from lxml import etree
+from concurrent.futures import ThreadPoolExecutor
+
+
+def get_page_source(url):
+    resp = requests.get(url)
+    resp.encoding = 'utf-8'
+    return resp.text
+
+
+def parse_html(html):
+    try:
+        tree = etree.HTML(html)
+        trs = tree.xpath(&quot;//table/tbody/tr&quot;)[1:]
+        result = []
+        for tr in trs:
+            year = tr.xpath(&quot;./td[2]//text()&quot;)
+            year = year[0] if year else &quot;&quot;
+            name = tr.xpath(&quot;./td[3]//text()&quot;)
+            name = name[0] if name else &quot;&quot;
+            money = tr.xpath(&quot;./td[4]//text()&quot;)
+            money = money[0] if money else &quot;&quot;
+            d = (year, name, money)
+            if any(d):
+                result.append(d)
+        return result
+    except Exception as e:
+        print(e)  # 调bug专用
+
+
+def download_one(url, f):
+    page_source = get_page_source(url)
+    data = parse_html(page_source)
+    for item in data:
+        f.write(&quot;,&quot;.join(item))
+        f.write(&quot;\n&quot;)
+
+
+def main():
+    f = open(&quot;movie.csv&quot;, mode=&quot;w&quot;, encoding='utf-8')
+    lst = [str(i) for i in range(1994, 2022)]
+    with ThreadPoolExecutor(10) as t:
+        # 方案一
+        # for year in lst:
+        #     url = f&quot;http://www.boxofficecn.com/boxoffice{year}&quot;
+        #     # download_one(url, f)
+        #     t.submit(download_one, url, f)
+
+        # 方案二
+        t.map(download_one, (f&quot;http://www.boxofficecn.com/boxoffice{year}&quot; for year in lst), (f for i in range(len(lst))))
+
+
+if __name__ == '__main__':
+    main()
+</code></pre>
+<h2 id="vs">二、进程VS线程</h2>
+<ul>
+<li>多任务的实现原理</li>
+</ul>
+<p>首先，要实现多任务，通常我们会设计Master-Worker模式，Master负责分配任务，Worker负责执行任务，因此，多任务环境下，通常是一个Master，多个Worker。</p>
+<p>如果用多进程实现Master-Worker，主进程就是Master，其他进程就是Worker。</p>
+<p>如果用多线程实现Master-Worker，主线程就是Master，其他线程就是Worker。</p>
+<ul>
+<li>多进程</li>
+</ul>
+<p>主进程就是Master，其他进程就是Worker</p>
+<ul>
+<li>
+<p>优点</p>
+<p>稳定性高：多进程模式最大的优点就是稳定性高，因为一个子进程崩溃了，不会影响主进程和其他子进程。（当然主进程挂了所有进程就全挂了，但是Master进程只负责分配任务，挂掉的概率低）著名的Apache最早就是采用多进程模式。</p>
+</li>
+<li>
+<p>缺点</p>
+<p>创建进程的代价大：在Unix/Linux系统下，用fork调用还行，在Windows下创建进程开销巨大</p>
+<p>操作系统能同时运行的进程数也是有限的：在内存和CPU的限制下，如果有几千个进程同时运行，操作系统连调度都会成问题</p>
+</li>
+<li>
+<p>多线程</p>
+</li>
+</ul>
+<p>主线程就是Master，其他线程就是Worker</p>
+<ul>
+<li>
+<p>优点</p>
+<p>多线程模式通常比多进程快一点，但是也快不到哪去</p>
+<p>在Windows下，多线程的效率比多进程要高</p>
+</li>
+<li>
+<p>缺点</p>
+<p>任何一个线程挂掉都可能直接造成整个进程崩溃：所有线程共享进程的内存。在Windows上，如果一个线程执行的代码出了问题，你经常可以看到这样的提示：“该程序执行了非法操作，即将关闭”，其实往往是某个线程出了问题，但是操作系统会强制结束整个进程</p>
+</li>
+<li>
+<p>计算密集型 vs IO密集型</p>
+</li>
+<li>
+<p>计算密集型（多进程适合计算密集型任务）</p>
+<p>要进行大量的计算，消耗CPU资源，比如计算圆周率、对视频进行高清解码等等，全靠CPU的运算能力。这种计算密集型任务虽然也可以用多任务完成，但是任务越多，花在任务切换的时间就越多，CPU执行任务的效率就越低，所以，要最高效地利用CPU，计算密集型任务同时进行的数量应当等于CPU的核心数</p>
+</li>
+<li>
+<p>IO密集型 （线程适合IO密集型任务）</p>
+<p>涉及到网络、磁盘IO的任务都是IO密集型任务，这类任务的特点是CPU消耗很少，任务的大部分时间都在等待IO操作完成（因为IO的速度远远低于CPU和内存的速度）。对于IO密集型任务，任务越多，CPU效率越高，但也有一个限度。常见的大部分任务都是IO密集型任务，比如Web应用</p>
+</li>
+</ul>
+<p>多线程存在GIL锁，同一时刻只能有一条线程执行；在多进程中，每一个进程都有独立的GIL，不会发生GIL冲突；但在这个例子中，爬虫属于IO密集型，多进程适用于CPU计算密集型，所以用时较长，速度慢于多线程并发。</p>
+
+
+</section>
+</div> <!-- end of search-noresults -->
+<div class="search-results">
+<div class="has-results">
+
+<h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+<ul class="search-results-list"></ul>
+
+</div> <!-- end of has-results -->
+<div class="no-results">
+
+<h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+
+</div> <!-- end of no-results -->
+</div> <!-- end of search-results -->
+</div> <!-- end of book-search-results -->
+
+</div> <!-- end of page-inner -->
+</div> <!-- end of page-wrapper -->
+
+</div> <!-- end of body-inner -->
+
+</div> <!-- end of book-body -->
+<script src="./js/main.js"></script>
+<script src="search/main.js"></script>
+<script src="./js/gitbook.min.js"></script>
+<script src="./js/theme.min.js"></script>
+</body>
+</html>

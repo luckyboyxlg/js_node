@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>补环境 - js node</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="generator" content="mkdocs-1.6.1, mkdocs-gitbook-1.0.7">
+
+<link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta rel="next" href="" />
+<link href="../css/style.min.css" rel="stylesheet"> 
+</head>
+
+<body>
+<div class="book">
+<div class="book-summary">
+<div id="book-search-input" role="search">
+<input type="text" placeholder="Type to search" />
+</div> <!-- end of book-search-input -->
+
+<nav role="navigation">
+<ul class="summary">
+<li>
+<a href="../index.html" target="_blank" class="custom-link">js node</a>
+</li>
+<li class="divider"></li>
+<li class="chapter" data-path="index.html">
+<a href="../index.html">Welcome to MkDocs</a>
+<li class="chapter" data-path="01%E3%80%81html.html">
+<a href="../01%E3%80%81html.html">一、HTML</a>
+<li class="chapter" data-path="02%E3%80%81CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8.html">
+<a href="../02%E3%80%81CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8.html">二、CSS层叠样式表</a>
+<li class="chapter" data-path="03%E3%80%81%E6%AD%A3%E5%88%99.html">
+<a href="../03%E3%80%81%E6%AD%A3%E5%88%99.html">三、正则</a>
+<li class="chapter" data-path="04%E3%80%81BS4%E8%A7%A3%E6%9E%90%E5%AE%8C%E6%95%B4.html">
+<a href="../04%E3%80%81BS4%E8%A7%A3%E6%9E%90%E5%AE%8C%E6%95%B4.html">四、beautifulsoup</a>
+<li class="chapter" data-path="05%E3%80%81xpath.html">
+<a href="../05%E3%80%81xpath.html">五、xpath</a>
+<li class="chapter" data-path="06%E3%80%81%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E4%B8%8Eurllib%26requests.html">
+<a href="../06%E3%80%81%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E4%B8%8Eurllib%26requests.html">六、爬虫入门</a>
+<li class="chapter" data-path="07%E3%80%81urllib%E4%B8%8Erequests.html">
+<a href="../07%E3%80%81urllib%E4%B8%8Erequests.html">七、urllib与requests</a>
+<li class="chapter" data-path="08%E3%80%81%E5%A4%9A%E8%BF%9B%E7%A8%8B.html">
+<a href="../08%E3%80%81%E5%A4%9A%E8%BF%9B%E7%A8%8B.html">八、多进程</a>
+<li class="chapter" data-path="09%E3%80%81%E7%BA%BF%E7%A8%8B.html">
+<a href="../09%E3%80%81%E7%BA%BF%E7%A8%8B.html">九、线程</a>
+<li class="chapter" data-path="10%E3%80%81%E5%8D%8F%E7%A8%8B.html">
+<a href="../10%E3%80%81%E5%8D%8F%E7%A8%8B.html">十、携程</a>
+<li class="chapter" data-path="11%E3%80%81selenium.html">
+<a href="../11%E3%80%81selenium.html">十一、selenium</a>
+<li class="chapter" data-path="12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.html">
+<a href="../12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.html">十二、MySQL数据库</a>
+<li class="chapter" data-path="13%E3%80%81Mongodb.html">
+<a href="../13%E3%80%81Mongodb.html">十三、Mongodb</a>
+<li class="chapter" data-path="14%E3%80%81redis.html">
+<a href="../14%E3%80%81redis.html">十四、Redis数据库</a>
+<li class="chapter" data-path="15%E3%80%81%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.html">
+<a href="../15%E3%80%81%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.html">十五、面向对象</a>
+<li class="chapter" data-path="16-Scrapy01-%E6%A1%86%E6%9E%B6%E5%88%9D%E8%AE%A4%E8%AF%86.html">
+<a href="../16-Scrapy01-%E6%A1%86%E6%9E%B6%E5%88%9D%E8%AE%A4%E8%AF%86.html">十六、Scrapy框架初认识</a>
+<li class="chapter" data-path="16-Scrapy02%E6%B7%B1%E5%85%A5%E4%BD%BF%E7%94%A8-%E5%AD%98%E5%82%A8.html">
+<a href="../16-Scrapy02%E6%B7%B1%E5%85%A5%E4%BD%BF%E7%94%A8-%E5%AD%98%E5%82%A8.html">十六、Scrapy深入使用-存储</a>
+<li class="chapter" data-path="16-Scrapy03-%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86%E4%BB%A5%E5%8F%8A%E5%88%86%E9%A1%B5.html">
+<a href="../16-Scrapy03-%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86%E4%BB%A5%E5%8F%8A%E5%88%86%E9%A1%B5.html">十六、scrapy模拟登陆&amp;分页</a>
+<li class="chapter" data-path="16-Scrapy04-%E4%B8%AD%E9%97%B4%E4%BB%B6.html">
+<a href="../16-Scrapy04-%E4%B8%AD%E9%97%B4%E4%BB%B6.html">十六、Scrapy中间件</a>
+<li class="chapter" data-path="16-Scrapy05-%E5%88%86%E9%A1%B5%E6%8A%93%E5%8F%96.html">
+<a href="../16-Scrapy05-%E5%88%86%E9%A1%B5%E6%8A%93%E5%8F%96.html">十六、scrapy的crawlspider爬虫</a>
+<li class="chapter" data-path="16-Scrapy06-scrapy_redis.html">
+<a href="../16-Scrapy06-scrapy_redis.html">十六、scrapy_redis</a>
+<li class="chapter" data-path="17%E3%80%81js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html">
+<a href="../17%E3%80%81js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html">十七、js数据类型</a>
+<li class="chapter" data-path="18%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%8E%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6.html">
+<a href="../18%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%8E%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6.html">十八、js运算符与流程控制</a>
+<li class="chapter" data-path="19%E3%80%81js%E6%95%B0%E7%BB%84.html">
+<a href="../19%E3%80%81js%E6%95%B0%E7%BB%84.html">十九、js数组</a>
+<li class="chapter" data-path="20%E3%80%81js%E5%AD%97%E7%AC%A6%E4%B8%B2.html">
+<a href="../20%E3%80%81js%E5%AD%97%E7%AC%A6%E4%B8%B2.html">二十、js字符串</a>
+<li class="chapter" data-path="21%E3%80%81js%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%97%B6%E9%97%B4.html">
+<a href="../21%E3%80%81js%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%97%B6%E9%97%B4.html">二十一、js对象与时间</a>
+<li class="chapter" data-path="22%E3%80%81%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89.html">
+<a href="../22%E3%80%81%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89.html">二十二、js函数</a>
+<li class="chapter" data-path="23%E3%80%81js%E8%BF%9B%E9%98%B6.html">
+<a href="../23%E3%80%81js%E8%BF%9B%E9%98%B6.html">二十三、Javascript进阶</a>
+<li class="chapter" data-path="24%E3%80%81BOM%E6%93%8D%E4%BD%9C.html">
+<a href="../24%E3%80%81BOM%E6%93%8D%E4%BD%9C.html">二十四、浏览器对象模型BOM</a>
+<li class="chapter" data-path="25%E3%80%81DOM%E6%93%8D%E4%BD%9C.html">
+<a href="../25%E3%80%81DOM%E6%93%8D%E4%BD%9C.html">二十五、DOM操作</a>
+<li class="chapter" data-path="26%E3%80%81jQuery%E6%93%8D%E4%BD%9C.html">
+<a href="../26%E3%80%81jQuery%E6%93%8D%E4%BD%9C.html">二十六、jQuery</a>
+<li class="chapter" data-path="27%E3%80%81%E9%80%86%E5%90%9101.html">
+<a href="../27%E3%80%81%E9%80%86%E5%90%9101.html">二十七、JS逆向01</a>
+<li class="chapter" data-path="28%E3%80%81%E9%80%86%E5%90%9102.html">
+<a href="../28%E3%80%81%E9%80%86%E5%90%9102.html">二十八、逆向02</a>
+<li class="chapter" data-path="29%E3%80%81%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html">
+<a href="../29%E3%80%81%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html">二十九、微信小程序逆向开发</a>
+<li class="chapter" data-path="30%E3%80%81%E7%BD%91%E6%98%93%E6%BB%91%E5%9D%97.html">
+<a href="../30%E3%80%81%E7%BD%91%E6%98%93%E6%BB%91%E5%9D%97.html">三十、网易易盾</a>
+<li class="chapter" data-path="31%E3%80%81rpc.html">
+<a href="../31%E3%80%81rpc.html">三十一、RPC</a>
+<li class="chapter" data-path="32%E3%80%81TLS%E6%8C%87%E7%BA%B9%E7%BB%95%E8%BF%87.html">
+<a href="../32%E3%80%81TLS%E6%8C%87%E7%BA%B9%E7%BB%95%E8%BF%87.html">三十二、TLS指纹绕过</a>
+<li class="chapter" data-path="33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">
+<a href="../33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">三十三、高级逆向</a>
+<li class="chapter" data-path="34%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">
+<a href="../34%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">三十四、高级逆向</a>
+<li class="chapter" data-path="%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B%E7%AC%94%E8%AE%B0.html">
+<a href="../%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B%E7%AC%94%E8%AE%B0.html">逆向实战案例笔记</a>
+<li class="header">Pyexecjs与npm配置</li>
+
+<li>
+<a href="../pyexecjs%E4%B8%8Enpm%E9%85%8D%E7%BD%AE/execjs%E4%BB%8B%E7%BB%8D%E4%BB%A5%E5%8F%8A%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8.html" class="">Execjs介绍以及安装和使用</a>
+</li>
+
+<li>
+<a href="../pyexecjs%E4%B8%8Enpm%E9%85%8D%E7%BD%AE/%E4%B8%80%E6%AC%A1%E6%80%A7%E8%A7%A3%E5%86%B3%E6%8E%89npm%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5%E7%9A%84%E9%97%AE%E9%A2%98.html" class="">更换npm为国内镜像</a>
+</li>
+
+<li class="header">补环境</li>
+
+<li>
+<a href="1%E3%80%81%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8E%E4%BA%8B%E4%BB%B6.html" class="active">补环境</a>
+</li>
+
+<li>
+<a href="2%E3%80%81Proxy%E4%BB%A3%E7%90%86%E5%99%A8.html" class="">Proxy代理</a>
+</li>
+
+<li>
+<a href="3%E3%80%81vm2%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83.html" class="">3、vm2运行环境</a>
+</li>
+
+<li class="divider"></li>
+
+
+
+<li><a href="http://www.mkdocs.org">
+Published with MkDocs
+</a></li>
+
+<li><a href="https://github.com/GitbookIO/theme-default">
+Theme by GitBook
+</a></li>
+</ul>
+
+</nav>
+
+</div> <!-- end of book-summary -->
+
+<div class="book-body">
+<div class="body-inner">
+<div class="book-header" role="navigation">
+
+<!-- Title -->
+<h1>
+<i class="fa fa-circle-o-notch fa-spin"></i>
+<a href="." ></a>
+</h1>
+
+</div> <!-- end of book-header -->
+
+<div class="page-wrapper" tabindex="-1" role="main">
+<div class="page-inner">
+<div id="book-search-results">
+<div class="search-noresults">
+
+<section class="normal markdown-section">
+
+
+
+<h1 id="_1">补环境</h1>
+<p>pycharm设置</p>
+<p><img alt="image-20240218141152452" src="1%E3%80%81%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8E%E4%BA%8B%E4%BB%B6.assets/9uTVwcxb3mCXqrG.png" /></p>
+<h2 id="_2">一、浏览器与事件</h2>
+<h3 id="1dombom">1、DOM与BOM</h3>
+<p>在 Web 开发中，JavaScript（JS）中的 DOM（文档对象模型）和 BOM（浏览器对象模型）是两个重要的概念，它们分别代表了网页文档结构和浏览器窗口的抽象表示。它们的主要区别在于它们所表示的对象以及它们的作用范围。</p>
+<p><strong>DOM（文档对象模型）：</strong></p>
+<p>DOM 是指文档对象模型（Document Object Model），它是 HTML 和 XML 文档的编程接口，提供了对文档的结构化表述，并定义了一种方式可以对结构进行访问、操作和更新。</p>
+<p>主要作用：
+- 将 HTML 或 XML 文档以树形结构表示，每个节点都是一个对象，可以通过 JS 脚本来访问和操作。
+- 提供了对文档中元素、属性、文本内容等的增、删、改、查等操作，从而实现了对文档的动态修改。
+- 允许开发者对文档进行事件处理和交互操作，例如监听用户的点击事件、表单提交事件等。</p>
+<p><strong>BOM（浏览器对象模型）：</strong></p>
+<p>BOM 是指浏览器对象模型（Browser Object Model），它提供了与浏览器窗口交互的对象和方法，包括对浏览器窗口的访问、控制和修改。</p>
+<p>主要作用：
+- 提供了对浏览器窗口和浏览器本身的操作，例如打开新窗口、关闭窗口、获取窗口尺寸等。
+- 提供了对浏览器的历史记录的访问和控制，例如前进、后退、跳转等。
+- 提供了与浏览器交互的一些方法，例如弹出对话框、确认框、提示框等。</p>
+<p><strong>区别：</strong></p>
+<ol>
+<li>
+<p><strong>对象范围：</strong> DOM 是文档对象模型，主要操作和处理的是网页文档中的元素节点、文本节点等内容；而 BOM 是浏览器对象模型，主要操作和处理的是浏览器窗口、浏览器本身及其属性。</p>
+</li>
+<li>
+<p><strong>作用对象：</strong> DOM 主要用于操作网页文档的结构和内容，例如 HTML 元素、文本内容等；而 BOM 主要用于操作浏览器窗口，例如控制窗口尺寸、打开新窗口等。</p>
+</li>
+<li>
+<p><strong>功能区别：</strong> DOM 主要用于访问和操作网页文档中的元素节点，提供了对文档结构的动态修改和交互操作；BOM 主要用于与浏览器窗口交互，提供了对浏览器窗口和浏览器功能的控制。</p>
+</li>
+</ol>
+<p>常用浏览器事件与DOM事件，包括鼠标事件、键盘事件、框架/对象事件、表单事件、剪贴板事件、打印事件、拖动事件、媒体事件、动画事件、过渡事件。</p>
+<h3 id="2">2、各种事件</h3>
+<h4 id="1">(1) 加载相关</h4>
+<ul>
+<li>onbeforeunload: 该事将离开页面 (刷新或关闭)时触发onload: 文档加载完成后触发.</li>
+<li>onunload: 当窗口卸载其内容和资源时触发</li>
+<li>onerror: 当发生lavaScript运行时错误与资源加载失败时触发</li>
+<li>onabort: 发送到window的中I上abort事件的事件处理程序，不适用于Firefox 2或Safari.</li>
+</ul>
+<h4 id="2-dom">(2) DOM事件之过度相关</h4>
+<ul>
+<li>atransitionend: 该事件在CSS完成过渡后触发。</li>
+</ul>
+<h4 id="3">(3) 窗口相关</h4>
+<ul>
+<li>onblur: 窗口失去焦点时触发</li>
+<li>onfocus: 窗口获得焦点时触发</li>
+<li>onresize: 窗口大小发生改变时触发</li>
+<li>onscroll:窗口发生滚动时触发。</li>
+<li>onmessage: 窗口对象接收消息事件时触发</li>
+<li>onchange: 窗口内表单元素的内容改变时触发</li>
+<li>oninput: 窗口内表单元素获取用户输入时触发.</li>
+<li>onreset: 窗口内表单重置时触发.</li>
+<li>onselect: 窗口内表单元素中文本被选中时触发onsubmit: 窗口内表单中submit按钮被按下触</li>
+<li>onhashchange: 当窗口的锚点哈希值发生变化时触发</li>
+</ul>
+<h4 id="4">(4) 鼠标事件</h4>
+<ul>
+<li>onclick: 鼠标单击事件</li>
+<li>onmouseover: 鼠标移入事件</li>
+<li>onmouseout: 鼠标移出事件</li>
+<li>onmousedown:  鼠标按下事件</li>
+<li>onmouseup : 鼠标松开事件</li>
+<li>onmousemove : 鼠标移动事件</li>
+</ul>
+<h4 id="5">(5) 键盘事件</h4>
+<ul>
+<li>onkeydown: 键盘按下</li>
+<li>onkeyup: 键盘松开</li>
+</ul>
+<h4 id="6">(6) 表单事件</h4>
+<ul>
+<li>onchange: 处理表单元素值变化事件。</li>
+<li>onsubmit: 处理表单提交事件。</li>
+<li>onreset: 处理表单重置事件。</li>
+<li>oninput: 处理表单输入事件。</li>
+<li>onselect: 处理选择表单元素事件。</li>
+<li>onfocus: 处理表单元素获得焦点事件。</li>
+<li>onblur: 处理表单元素失去焦点事件。</li>
+</ul>
+<h4 id="7">(7）编辑事件</h4>
+<ul>
+<li>oncopy :  复制（拷贝）时触发</li>
+<li>onselect:  页面内容被选取时触发</li>
+<li>oncontextmenu:  按下鼠标右键时触发</li>
+</ul>
+<h4 id="8-animation-events">(8) 动画事件 (Animation Events)</h4>
+<ul>
+<li>animationstart: 处理动画开始事件。</li>
+<li>animationend: 处理动画结束事件。</li>
+<li>animationiteration: 处理动画迭代事件。</li>
+</ul>
+<h4 id="9">(9) 动画相关</h4>
+<ul>
+<li>onanimationcancel: 当CSS动画意外中止时，即在任何时候它停止运行而不发送animationend事件时将发送此事件，例如当animation-name被改变，动画被删除等</li>
+<li>onanimationend: 当CSS动画到达其活动周期的末尾时，按照(animation-duration*animation-iteration-count) + animation-delay进行计算，将发送此事件。</li>
+<li>onanimationiteration: 此事件将会在CSS动画到达每次迭代结束时触发，当通过执行最后一个动画步骤完成对动画指令序列的单次传递完成时，迭代结束。</li>
+</ul>
+<h4 id="10">(10) 应用相关</h4>
+<ul>
+<li>onappinstalled: 一旦将Web应用程序成功安装为渐进式Web应用程序，该事件就会被分派。</li>
+<li>onbeforeinstallprompt: 当用户即将被提示安装web应用程序时，该处理程序将在设备上调度，其相关联的事件可以保存以供稍后用于在更适合的时间提示用户。</li>
+</ul>
+<h4 id="11">(11) 设备相关</h4>
+<ul>
+<li>ondevicemotion: 设备状态发生改变时触发</li>
+<li>ondeviceorientation: 设备相对方向发生改变时触发</li>
+<li>ondeviceproximity: 当设备传感器检测到物体变得更接近或更远离设备时触发。</li>
+</ul>
+<h4 id="12-dom">(12) DOM事件之打印相关</h4>
+<ul>
+<li>onafterprint: 该事件在页面已经开始打印，或者打印窗口已经关闭时触发。</li>
+<li>onbeforeprint: 该事件在页面即将开始打印时触发。</li>
+</ul>
+<h4 id="13-dom">(13) DOM事件之拖动相关</h4>
+<ul>
+<li>ondrag: 该事件在元素正在拖动时触发。</li>
+<li>ondragend: 该事件在用户完成元素的拖动时触发。</li>
+<li>ondragenter: 该事件在拖动的元素进入放置目标时触发。</li>
+<li>ondragleave: 该事件在拖动元素离开放置目标时触发。</li>
+<li>ondragover: 该事件在拖动元素在放置目标上时触发。</li>
+<li>ondragstart: 该事件在用户开始拖动元素时触发。</li>
+<li>ondrop: 该事件在拖动元素放置在目标区域时触发。</li>
+</ul>
+<h4 id="14-dom">(14) DOM事件之框架/图像相关</h4>
+<ul>
+<li>onload: 一张页面或一幅图像完成加载。</li>
+<li>onpageshow: 该事件在用户访问页面时触发</li>
+<li>onpagehide: 该事件在用户离开当前网页跳转到另外一个页面时触发</li>
+<li>visibilitychange:document监听事件，浏览器标签页被隐藏或显示的时触发</li>
+<li>ononline: 该事件在浏览器开始在线工作时触发。</li>
+<li>onoffline: 该事件在浏览器开始离线工作时触发。</li>
+<li>onshow: 该事件当<menu>元素在上下文菜单显示时触发。</li>
+<li>ontoggle: 该事件在用户打开或关闭<details>元素时触发。</li>
+</ul>
+<h4 id="15-dom">(15) DOM事件之多媒体相关</h4>
+<ul>
+<li>onabort: 事件在视频/音频终止加载时触发。</li>
+<li>oncanplay: 事件在用户可以开始播放视频/音频时触发。</li>
+<li>oncanplaythrough: 事件在视频/音频可以正常播放且无需停顿和缓冲时触发。</li>
+<li>ondurationchange: 事件在视频/音频的时长发生变化时触发。</li>
+<li>onemptied: 当期播放列表为空时触发</li>
+<li>onended: 事件在视频/音频播放结束时触发。</li>
+<li>onerror: 事件在视频/音频数据加载期间发生错误时触发。</li>
+<li>onloadeddata: 事件在浏览器加载视频/音当前帧时触发触发。</li>
+<li>onloadedmetadata: 事件在指定视频/音频的元数据加载后触发。</li>
+<li>onloadstart: 事件在浏览器开始寻找指定视频/音频触发。</li>
+<li>onpause: 事件在视频/音频暂停时触发。</li>
+<li>onplay: 事件在视频/音频开始播放时触发。</li>
+<li>onplaying: 事件在视频/音频暂停或者在缓冲后准备重新开始播放时触发。</li>
+<li>onprogress: 事件在浏览器下载指定的视频/音频时触发。</li>
+<li>onratechange: 事件在视频/音频的播放速度发送改变时触发。</li>
+<li>onseeked: 事件在用户重新定位视频/音频的播放位置后触发。</li>
+<li>onseeking: 事件在用户开始重新定位视频/音频时触发。</li>
+<li>onstalled: 事件在浏览器获取媒体数据，但媒体数据不可用时触发。</li>
+<li>onsuspend: 事件在浏览器读取媒体数据中止时触发。</li>
+<li>ontimeupdate: 事件在当前的播放位置发送改变时触发。</li>
+<li>onvolumechange: 事件在音量发生改变时触发。</li>
+<li>onwaiting: 事件在视频由于要播放下一帧而需要缓冲时触发。</li>
+</ul>
+<h3 id="3html-dom-eventlistener">3、HTML DOM EventListener  事件监听</h3>
+<p>可以对一个element绑定多个同样的事件  且不会被覆盖</p>
+<ul>
+<li>addEventListener() 方法</li>
+</ul>
+<p>语法</p>
+<p>##### <em>element</em>.addEventListener(<em>event, function, useCapture</em>);</p>
+<p>第一个参数是事件的类型 (如 "click" 或 "mousedown"). </p>
+<p>第二个参数是事件触发后调用的函数。 </p>
+<p>第三个参数是个布尔值用于描述事件是冒泡还是捕获。该参数是可选的。</p>
+<ul>
+<li>
+<p>实例:</p>
+<p>在用户移动鼠标时触发监听事件：</p>
+</li>
+</ul>
+<p>```javascript
+  <!DOCTYPE html></p>
+<html>
+  <head>
+      <meta charset="UTF-8">
+      <title>Title</title>
+
+  </head>
+  <body>
+  给当前的documen添加事件监听 mousemove
+  </body>
+  </html>
+<script>
+      var i = 0
+      document.addEventListener('mousemove', function (arg) {
+          console.log('正在移动', i, arg) /*arg为移动鼠标是传入的对象*/
+          i += 1
+      })
+  </script>
+<p>```</p>
+<ul>
+<li>结果</li>
+</ul>
+<p><img alt="image-20240218160058470" src="1%E3%80%81%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8E%E4%BA%8B%E4%BB%B6.assets/xhUAXMitBly74fc.png" /></p>
+<h3 id="4mousemove">4、补mousemove环境</h3>
+<h4 id="41">4.1 在浏览器中查看当前移动对象</h4>
+<h5 id="1_1">(1) 将当前打印的移动对象设置为全局对象</h5>
+<p><img alt="image-20240218160610525" src="1%E3%80%81%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8E%E4%BA%8B%E4%BB%B6.assets/rt54Ayk2ZzLTxvC.png" /></p>
+<p>结果</p>
+<p><img alt="image-20240218160727338" src="1%E3%80%81%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8E%E4%BA%8B%E4%BB%B6.assets/BVkuPThp9RFMQWd.png" /></p>
+<h5 id="2-temp1">(2) 查看temp1对象</h5>
+<p><img alt="image-20240218160920158" src="1%E3%80%81%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8E%E4%BA%8B%E4%BB%B6.assets/dMwr2NUYSpQ5OjJ.png" /></p>
+<h5 id="3-objectgetownpropertydescriptor">(3) Object.getOwnPropertyDescriptor()</h5>
+<p><strong>作用：</strong> 返回一个对象，该对象描述给定对象上特定属性（即直接存在于对象上而不在对象的原型链中的属性）的配置。返回的对象是可变的，但对其进行更改不会影响原始属性的配置。</p>
+<h5 id="4-temp1istrusted">(4) 查看当前temp1对象中<strong>isTrusted</strong>对象有哪些属性和方法</h5>
+<p><img alt="image-20240218161230072" src="1%E3%80%81%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8E%E4%BA%8B%E4%BB%B6.assets/qlmUL4kAwG2rDpF.png" /></p>
+<h5 id="5-istrusted">(5) 补<strong>isTrusted</strong></h5>
+<ul>
+<li>浏览器中调试查看各属性值  用于后续的补环境</li>
+</ul>
+<p><img alt="image-20240218173956596" src="1%E3%80%81%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8E%E4%BA%8B%E4%BB%B6.assets/pWyNi95vDJh7uPU.png" /></p>
+<ul>
+<li><strong>代码</strong></li>
+</ul>
+<p><code>javascript
+  var Mousemove = function(){
+      // 补isTrusted对象的属性和方法
+      Object.defineProperty(this, 'isTrusted', {
+          configurable: false,
+          enumerable: true,
+          get: function () {
+              return true;
+          },
+          set: undefined
+      })
+      // 补充isTrusted对象中get对象的name属性的值和浏览器中的值保持一致
+      Object.defineProperty(Object.getOwnPropertyDescriptor(this, 'isTrusted').get, 'name', {
+          configurable: true,
+          enumerable:false,
+          value:"get isTrusted",
+          writable:false
+      })
+      // 补充isTrusted对象中get对象的length属性的值和浏览器中的值保持一致
+      Object.defineProperty(Object.getOwnPropertyDescriptor(this, 'isTrusted').get, 'length', {
+          configurable: true,
+          enumerable:false,
+          value:0,
+          writable:false
+      })
+  }
+  // 实例化
+  var temp1 = new Mousemove()
+  console.log(temp1.isTrusted)
+  // 获取当前的get对象的name属性值
+  console.log(Object.getOwnPropertyDescriptor(temp1, 'isTrusted').get)
+  console.log(Object.getOwnPropertyDescriptor(temp1, 'isTrusted').get.name)
+  console.log(Object.getOwnPropertyDescriptor(temp1, 'isTrusted').get.length)</code></p>
+<ul>
+<li>结果对比</li>
+</ul>
+<p>浏览器中</p>
+<p><img alt="image-20240218165718344" src="1%E3%80%81%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8E%E4%BA%8B%E4%BB%B6.assets/ZVPUgvaShEqFApL.png" /></p>
+<p>pycharm</p>
+<p><img alt="image-20240218165740012" src="1%E3%80%81%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8E%E4%BA%8B%E4%BB%B6.assets/FuJdztoQ6Y3aZLh.png" /></p>
+
+
+</section>
+</div> <!-- end of search-noresults -->
+<div class="search-results">
+<div class="has-results">
+
+<h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+<ul class="search-results-list"></ul>
+
+</div> <!-- end of has-results -->
+<div class="no-results">
+
+<h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+
+</div> <!-- end of no-results -->
+</div> <!-- end of search-results -->
+</div> <!-- end of book-search-results -->
+
+</div> <!-- end of page-inner -->
+</div> <!-- end of page-wrapper -->
+
+</div> <!-- end of body-inner -->
+
+</div> <!-- end of book-body -->
+<script src="../js/main.js"></script>
+<script src="../search/main.js"></script>
+<script src="../js/gitbook.min.js"></script>
+<script src="../js/theme.min.js"></script>
+</body>
+</html>

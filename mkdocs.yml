@@ -1,0 +1,5 @@
+site_name: js node
+# repo_url: https://github.com/luckyboyxlg/js_node.git
+use_directory_urls: false
+theme:
+  name: gitbook

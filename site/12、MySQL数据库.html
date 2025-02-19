@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>十二、MySQL数据库 - js node</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="generator" content="mkdocs-1.6.1, mkdocs-gitbook-1.0.7">
+
+<link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta rel="next" href="" />
+<link href="./css/style.min.css" rel="stylesheet"> 
+</head>
+
+<body>
+<div class="book">
+<div class="book-summary">
+<div id="book-search-input" role="search">
+<input type="text" placeholder="Type to search" />
+</div> <!-- end of book-search-input -->
+
+<nav role="navigation">
+<ul class="summary">
+<li>
+<a href="index.html" target="_blank" class="custom-link">js node</a>
+</li>
+<li class="divider"></li>
+<li class="chapter" data-path="index.html">
+<a href="index.html">Welcome to MkDocs</a>
+<li class="chapter" data-path="01%E3%80%81html.html">
+<a href="01%E3%80%81html.html">一、HTML</a>
+<li class="chapter" data-path="02%E3%80%81CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8.html">
+<a href="02%E3%80%81CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8.html">二、CSS层叠样式表</a>
+<li class="chapter" data-path="03%E3%80%81%E6%AD%A3%E5%88%99.html">
+<a href="03%E3%80%81%E6%AD%A3%E5%88%99.html">三、正则</a>
+<li class="chapter" data-path="04%E3%80%81BS4%E8%A7%A3%E6%9E%90%E5%AE%8C%E6%95%B4.html">
+<a href="04%E3%80%81BS4%E8%A7%A3%E6%9E%90%E5%AE%8C%E6%95%B4.html">四、beautifulsoup</a>
+<li class="chapter" data-path="05%E3%80%81xpath.html">
+<a href="05%E3%80%81xpath.html">五、xpath</a>
+<li class="chapter" data-path="06%E3%80%81%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E4%B8%8Eurllib%26requests.html">
+<a href="06%E3%80%81%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E4%B8%8Eurllib%26requests.html">六、爬虫入门</a>
+<li class="chapter" data-path="07%E3%80%81urllib%E4%B8%8Erequests.html">
+<a href="07%E3%80%81urllib%E4%B8%8Erequests.html">七、urllib与requests</a>
+<li class="chapter" data-path="08%E3%80%81%E5%A4%9A%E8%BF%9B%E7%A8%8B.html">
+<a href="08%E3%80%81%E5%A4%9A%E8%BF%9B%E7%A8%8B.html">八、多进程</a>
+<li class="chapter" data-path="09%E3%80%81%E7%BA%BF%E7%A8%8B.html">
+<a href="09%E3%80%81%E7%BA%BF%E7%A8%8B.html">九、线程</a>
+<li class="chapter" data-path="10%E3%80%81%E5%8D%8F%E7%A8%8B.html">
+<a href="10%E3%80%81%E5%8D%8F%E7%A8%8B.html">十、携程</a>
+<li class="chapter" data-path="11%E3%80%81selenium.html">
+<a href="11%E3%80%81selenium.html">十一、selenium</a>
+<li class="chapter active" data-path="12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.html">
+<a href="12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.html">十二、MySQL数据库</a>
+<li class="chapter" data-path="13%E3%80%81Mongodb.html">
+<a href="13%E3%80%81Mongodb.html">十三、Mongodb</a>
+<li class="chapter" data-path="14%E3%80%81redis.html">
+<a href="14%E3%80%81redis.html">十四、Redis数据库</a>
+<li class="chapter" data-path="15%E3%80%81%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.html">
+<a href="15%E3%80%81%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.html">十五、面向对象</a>
+<li class="chapter" data-path="16-Scrapy01-%E6%A1%86%E6%9E%B6%E5%88%9D%E8%AE%A4%E8%AF%86.html">
+<a href="16-Scrapy01-%E6%A1%86%E6%9E%B6%E5%88%9D%E8%AE%A4%E8%AF%86.html">十六、Scrapy框架初认识</a>
+<li class="chapter" data-path="16-Scrapy02%E6%B7%B1%E5%85%A5%E4%BD%BF%E7%94%A8-%E5%AD%98%E5%82%A8.html">
+<a href="16-Scrapy02%E6%B7%B1%E5%85%A5%E4%BD%BF%E7%94%A8-%E5%AD%98%E5%82%A8.html">十六、Scrapy深入使用-存储</a>
+<li class="chapter" data-path="16-Scrapy03-%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86%E4%BB%A5%E5%8F%8A%E5%88%86%E9%A1%B5.html">
+<a href="16-Scrapy03-%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86%E4%BB%A5%E5%8F%8A%E5%88%86%E9%A1%B5.html">十六、scrapy模拟登陆&amp;分页</a>
+<li class="chapter" data-path="16-Scrapy04-%E4%B8%AD%E9%97%B4%E4%BB%B6.html">
+<a href="16-Scrapy04-%E4%B8%AD%E9%97%B4%E4%BB%B6.html">十六、Scrapy中间件</a>
+<li class="chapter" data-path="16-Scrapy05-%E5%88%86%E9%A1%B5%E6%8A%93%E5%8F%96.html">
+<a href="16-Scrapy05-%E5%88%86%E9%A1%B5%E6%8A%93%E5%8F%96.html">十六、scrapy的crawlspider爬虫</a>
+<li class="chapter" data-path="16-Scrapy06-scrapy_redis.html">
+<a href="16-Scrapy06-scrapy_redis.html">十六、scrapy_redis</a>
+<li class="chapter" data-path="17%E3%80%81js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html">
+<a href="17%E3%80%81js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html">十七、js数据类型</a>
+<li class="chapter" data-path="18%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%8E%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6.html">
+<a href="18%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%8E%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6.html">十八、js运算符与流程控制</a>
+<li class="chapter" data-path="19%E3%80%81js%E6%95%B0%E7%BB%84.html">
+<a href="19%E3%80%81js%E6%95%B0%E7%BB%84.html">十九、js数组</a>
+<li class="chapter" data-path="20%E3%80%81js%E5%AD%97%E7%AC%A6%E4%B8%B2.html">
+<a href="20%E3%80%81js%E5%AD%97%E7%AC%A6%E4%B8%B2.html">二十、js字符串</a>
+<li class="chapter" data-path="21%E3%80%81js%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%97%B6%E9%97%B4.html">
+<a href="21%E3%80%81js%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%97%B6%E9%97%B4.html">二十一、js对象与时间</a>
+<li class="chapter" data-path="22%E3%80%81%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89.html">
+<a href="22%E3%80%81%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89.html">二十二、js函数</a>
+<li class="chapter" data-path="23%E3%80%81js%E8%BF%9B%E9%98%B6.html">
+<a href="23%E3%80%81js%E8%BF%9B%E9%98%B6.html">二十三、Javascript进阶</a>
+<li class="chapter" data-path="24%E3%80%81BOM%E6%93%8D%E4%BD%9C.html">
+<a href="24%E3%80%81BOM%E6%93%8D%E4%BD%9C.html">二十四、浏览器对象模型BOM</a>
+<li class="chapter" data-path="25%E3%80%81DOM%E6%93%8D%E4%BD%9C.html">
+<a href="25%E3%80%81DOM%E6%93%8D%E4%BD%9C.html">二十五、DOM操作</a>
+<li class="chapter" data-path="26%E3%80%81jQuery%E6%93%8D%E4%BD%9C.html">
+<a href="26%E3%80%81jQuery%E6%93%8D%E4%BD%9C.html">二十六、jQuery</a>
+<li class="chapter" data-path="27%E3%80%81%E9%80%86%E5%90%9101.html">
+<a href="27%E3%80%81%E9%80%86%E5%90%9101.html">二十七、JS逆向01</a>
+<li class="chapter" data-path="28%E3%80%81%E9%80%86%E5%90%9102.html">
+<a href="28%E3%80%81%E9%80%86%E5%90%9102.html">二十八、逆向02</a>
+<li class="chapter" data-path="29%E3%80%81%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html">
+<a href="29%E3%80%81%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html">二十九、微信小程序逆向开发</a>
+<li class="chapter" data-path="30%E3%80%81%E7%BD%91%E6%98%93%E6%BB%91%E5%9D%97.html">
+<a href="30%E3%80%81%E7%BD%91%E6%98%93%E6%BB%91%E5%9D%97.html">三十、网易易盾</a>
+<li class="chapter" data-path="31%E3%80%81rpc.html">
+<a href="31%E3%80%81rpc.html">三十一、RPC</a>
+<li class="chapter" data-path="32%E3%80%81TLS%E6%8C%87%E7%BA%B9%E7%BB%95%E8%BF%87.html">
+<a href="32%E3%80%81TLS%E6%8C%87%E7%BA%B9%E7%BB%95%E8%BF%87.html">三十二、TLS指纹绕过</a>
+<li class="chapter" data-path="33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">
+<a href="33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">三十三、高级逆向</a>
+<li class="chapter" data-path="34%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">
+<a href="34%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">三十四、高级逆向</a>
+<li class="chapter" data-path="%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B%E7%AC%94%E8%AE%B0.html">
+<a href="%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B%E7%AC%94%E8%AE%B0.html">逆向实战案例笔记</a>
+<li class="header">Pyexecjs与npm配置</li>
+
+<li>
+<a href="pyexecjs%E4%B8%8Enpm%E9%85%8D%E7%BD%AE/execjs%E4%BB%8B%E7%BB%8D%E4%BB%A5%E5%8F%8A%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8.html" class="">Execjs介绍以及安装和使用</a>
+</li>
+
+<li>
+<a href="pyexecjs%E4%B8%8Enpm%E9%85%8D%E7%BD%AE/%E4%B8%80%E6%AC%A1%E6%80%A7%E8%A7%A3%E5%86%B3%E6%8E%89npm%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5%E7%9A%84%E9%97%AE%E9%A2%98.html" class="">更换npm为国内镜像</a>
+</li>
+
+<li class="header">补环境</li>
+
+<li>
+<a href="%E8%A1%A5%E7%8E%AF%E5%A2%83/1%E3%80%81%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8E%E4%BA%8B%E4%BB%B6.html" class="">补环境</a>
+</li>
+
+<li>
+<a href="%E8%A1%A5%E7%8E%AF%E5%A2%83/2%E3%80%81Proxy%E4%BB%A3%E7%90%86%E5%99%A8.html" class="">Proxy代理</a>
+</li>
+
+<li>
+<a href="%E8%A1%A5%E7%8E%AF%E5%A2%83/3%E3%80%81vm2%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83.html" class="">3、vm2运行环境</a>
+</li>
+
+<li class="divider"></li>
+
+
+
+<li><a href="http://www.mkdocs.org">
+Published with MkDocs
+</a></li>
+
+<li><a href="https://github.com/GitbookIO/theme-default">
+Theme by GitBook
+</a></li>
+</ul>
+
+</nav>
+
+</div> <!-- end of book-summary -->
+
+<div class="book-body">
+<div class="body-inner">
+<div class="book-header" role="navigation">
+
+<!-- Title -->
+<h1>
+<i class="fa fa-circle-o-notch fa-spin"></i>
+<a href="." ></a>
+</h1>
+
+</div> <!-- end of book-header -->
+
+<div class="page-wrapper" tabindex="-1" role="main">
+<div class="page-inner">
+<div id="book-search-results">
+<div class="search-noresults">
+
+<section class="normal markdown-section">
+
+
+
+<h1 id="mysql">十二、MySQL数据库</h1>
+<h2 id="mysql_1">一、MySQL数据库的介绍</h2>
+<h3 id="1">1、发展史</h3>
+<p>1996年，MySQL 1.0</p>
+<p>2008年1月16号 Sun公司收购MySQL。</p>
+<p>2009年4月20，Oracle收购Sun公司。</p>
+<p><a href="https://baike.baidu.com/item/MySQL/471251">MySQL</a>是一种<a href="https://baike.baidu.com/item/%E5%BC%80%E6%94%BE%E6%BA%90%E4%BB%A3%E7%A0%81">开放源代码</a>的关系型<a href="https://baike.baidu.com/item/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86">数据库管理</a>系统（RDBMS），使用最常用的数据库管理语言--<a href="https://baike.baidu.com/item/%E7%BB%93%E6%9E%84%E5%8C%96%E6%9F%A5%E8%AF%A2%E8%AF%AD%E8%A8%80">结构化查询语言</a>（SQL）进行数据库管理。</p>
+<p>MySQL是开放源代码的，因此任何人都可以在General Public License的许可下下载并根据个性化的需要对其进行修改。</p>
+<p>MySQL因为其速度、可靠性和适应性而备受关注。大多数人都认为在不需要<a href="https://baike.baidu.com/item/%E4%BA%8B%E5%8A%A1">事务</a>化处理的情况下，MySQL是管理内容最好的选择。</p>
+<h3 id="2mysql">2、MySQL简介</h3>
+<p>MySQL是一个<a href="https://baike.baidu.com/item/%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/696511">关系型数据库管理系统</a>，由瑞典MySQLAB 公司开发，目前属于 <a href="https://baike.baidu.com/item/Oracle">Oracle</a> 旗下产品。MySQL是最流行的<a href="https://baike.baidu.com/item/%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/696511">关系型数据库管理系统</a>之一，在WEB 应用方面，MySQL是最好的 <a href="https://baike.baidu.com/item/RDBMS/1048260">RDBMS</a> (RelationalDatabase Management System，关系数据库管理系统)应用软件MySQL所使用的SQL 语言是用于访问<a href="https://baike.baidu.com/item/%E6%95%B0%E6%8D%AE%E5%BA%93/103728">数据库</a>的最常用标准化语言。MySQL软件采用了双授权政策，分为社区版和商业版，由于其体积小、速度快、总体拥有成本低，尤其是<a href="https://baike.baidu.com/item/%E5%BC%80%E6%94%BE%E6%BA%90%E7%A0%81/7176422">开放源码</a>这一特点，一般中小型网站的开发都选择MySQL 作为网站数据库</p>
+<h3 id="3">3、社区版本和企业版本的区别</h3>
+<p>主要的区别有以下两点。</p>
+<ol>
+<li>企业版只包含稳定之后的功能，社区版包含所有Mysql的最新功能。</li>
+</ol>
+<p>也就是说，社区版是企业版的测试版，但是，前者的功能要比后者多。</p>
+<ol>
+<li>官方的支持服务只针对企业版，用户在使用社区版时出现任何问题，Mysql官方概不负责。</li>
+</ol>
+<p>MySQL如何下载</p>
+<p>进入MySQL官网（https://www.mysql.com）
+查看底部下载-https://dev.mysql.com/downloads/mysql/</p>
+<h2 id="_1">二、数据库的分类</h2>
+<p>关系型与非关系型数据库</p>
+<h3 id="1_1">1、关系型数据库的优势：</h3>
+<ol>
+<li>复杂查询</li>
+</ol>
+<p>可以用SQL语句方便的在一个表以及多个表之间做非常复杂的数据查询</p>
+<ol>
+<li>事物支持</li>
+</ol>
+<p>使得对于安全性能很高的数据访问要求得以实现</p>
+<h3 id="2">2、非关系型数据库的优势：</h3>
+<ol>
+<li>性能</li>
+</ol>
+<p>NOSQL是基于键值对的 可以想象成表中的主键和值的对应关系 不需要经过SQL层的解析 所以性能很高</p>
+<ol>
+<li>可扩展性</li>
+</ol>
+<p>同样也是也因为基于键值对 数据之间没有偶尔性 所以非常容易水平扩展</p>
+<h2 id="navicat">三、安装与Navicat使用</h2>
+<h3 id="1mysql">1、MySQL安装</h3>
+<h4 id="312-installer">3.1.2 installer的安装方式</h4>
+<p>先去mysql官网下载好安装包. (https://dev.mysql.com/downloads/)</p>
+<p><img src="./imgs/12、MySQL数据库.assets/image-20210710114626664.png" alt="image-20210710114626664" style="zoom: 33%;" /></p>
+<p><img src="./imgs/12、MySQL数据库.assets/image-20210710114553371.png" alt="image-20210710114553371" style="zoom:33%;" /></p>
+<p><img src="./imgs/12、MySQL数据库.assets/image-20210710114707734.png" alt="image-20210710114707734" style="zoom:33%;" /></p>
+<p><img src="./imgs/12、MySQL数据库.assets/image-20210710114815804.png" alt="image-20210710114815804" style="zoom:33%;" /></p>
+<p><img src="./imgs/12、MySQL数据库.assets/image-20210710114930711.png" alt="image-20210710114930711" style="zoom:33%;" /></p>
+<p><img src="./imgs/12、MySQL数据库.assets/image-20210710115027365.png" alt="image-20210710115027365" style="zoom:33%;" /></p>
+<p><img src="./imgs/12、MySQL数据库.assets/image-20210710115102924.png" alt="image-20210710115102924" style="zoom:33%;" /></p>
+<p><img src="./imgs/12、MySQL数据库.assets/image-20210710115119749.png" alt="image-20210710115119749" style="zoom:33%;" /></p>
+<h4 id="313">3.1.3 免安装方式(推荐)</h4>
+<p><strong>说明</strong></p>
+<p>MySQL关是一种关系数据库管理系统，所使用的 SQL 语言是用于访问数据库的最常用的
+标准化语言，其特点为体积小、速度快、总体拥有成本低，尤</p>
+<p>其是开放源码这一特点，在 Web
+ 应用方面 MySQL 是最好的 RDBMS(Relational Database</p>
+<p>Management System:关系数据 库管理系统)应用软件之一。</p>
+<p>首先:要先进入mysql官网里(Mysql的官网--&gt;https://www.mysql.com/)，下面是详细步骤:↓</p>
+<h5 id="3131">3.1.3.1、下载安装包</h5>
+<p>（1）进入官网后，点击"Dowload"，然后⻚面往下拉</p>
+<p><img alt="image-20231031103516730" src="imgs/12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.assets/image-20231031103516730.png" /></p>
+<p>（2）接下来看到的⻚面是这样的，红色框框的链接就是 mysql社区版，是免费的mysql版本，然后我们点击这个框框 的链接:↓</p>
+<p><img alt="image-20231031103533054" src="imgs/12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.assets/image-20231031103533054.png" /></p>
+<p>（3）接下来跳转到这个⻚面，在这里，我们只要下载社区 版的Server就可以了:↓</p>
+<p><img src="./imgs/12、MySQL数据库.assets/image-20231031103639185.png" alt="image-20231031103639185" style="zoom:33%;" /></p>
+<p>（4）下载免安装版(windows以外的其他系统除外)</p>
+<p><img alt="image-20231031103653928" src="imgs/12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.assets/image-20231031103653928-20240112173146376.png" /></p>
+<p>这样，安装包就下载好了!  </p>
+<p><strong>注意</strong>：安装的目录应当放在指定位置，，其次，绝对路径 中避免出现中文，推荐首选英文为命名条件!!!!(我的为参 考)</p>
+<p><img alt="image-20231031103719113" src="imgs/12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.assets/image-20231031103719113.png" /></p>
+<h5 id="3132mysql">3.1.3.2、<strong>Mysql</strong>的配置</h5>
+<p>以管理员身份打开命令行<strong>(</strong>如下图所示<strong>)</strong>，一定要是管理员身份，否则由于后续部分命令需要权限，出现错误!</p>
+<p><img alt="image-20231031103745758" src="imgs/12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.assets/image-20231031103745758.png" /></p>
+<p>（1）下转到mysql的bin目录下:</p>
+<p><img alt="image-20231031103757375" src="imgs/12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.assets/image-20231031103757375.png" /></p>
+<p>（2）安装mysql的服务:mysqld --install</p>
+<p><img alt="image-20231031103808994" src="imgs/12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.assets/image-20231031103808994.png" /></p>
+<p>（3）初始化mysql，在这里，初始化会产生一个随机密码,如 下图框框所示，记住这个密码，后面会用到(mysqld --initialize --console)</p>
+<p><img alt="image-20231031103826757" src="imgs/12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.assets/image-20231031103826757.png" /></p>
+<p>（4）开启mysql的服务(net start mysql)</p>
+<p><img alt="image-20231031103839130" src="imgs/12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.assets/image-20231031103839130.png" /></p>
+<p>（5）登录验证，mysql是否安装成功!(要注意上面产生的随 机密码，不包括前面符号前面的空格，否则会登陆失败)，如果 和下图所示一样，则说明你的mysql已经安装成功!注意，， 一定要先开启服务，不然会登陆失败，出现拒绝访问的提示 符!!!</p>
+<p><img alt="image-20231031103851378" src="imgs/12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.assets/image-20231031103851378.png" /></p>
+<p><strong>修改密码:</strong></p>
+<pre><code>由于初始化产生的随机密码太复杂，，不便于我们登 录mysql，因此，我们应当修改一个自己能记住的密码!!
+</code></pre>
+<p><img alt="image-20231031103917145" src="imgs/12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.assets/image-20231031103917145.png" /></p>
+<p>注意<strong>:</strong> 如果当前修改后无法使用<strong>Navicat</strong>无法连 接数据库 可以使用如下方式进行重新修改密码</p>
+<pre><code class="language-sql">ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '123456';
+</code></pre>
+<p>再次登录验证新密码:</p>
+<p><img alt="image-20231031103948283" src="imgs/12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.assets/image-20231031103948283.png" /></p>
+<h5 id="3133">3.1.3.3、<strong>设置系统的全局变量:</strong></h5>
+<pre><code>为了方便登录操作mysql，在这里我们设置一个全局 变量:↓
+</code></pre>
+<p>（1）点击"我的电脑"--&gt;"属性"--&gt;''高级系统设置''--&gt;''环 境变量'',接下来如下图所操作</p>
+<p><img src="./imgs/12、MySQL数据库.assets/image-20231031104025459.png" alt="image-20231031104025459" style="zoom:33%;" /></p>
+<p>（2）把新建的mysql变量添加到Path路径变量中，点击 确定，即完成: </p>
+<p><img src="./imgs/12、MySQL数据库.assets/image-20231031104043703.png" alt="image-20231031104043703" style="zoom:33%;" /></p>
+<p>配置完成之后，每当我们想要用命令行使用mysql 时，只需要win+R，--&gt;输入"cmd"打开命令行，之后输入登录 sql语句即可。</p>
+<p>（3）在mysql目录下创建一个ini或cnf配置文件，在这里 我创建的是ini配置文件，里面写的代码是mysql的一些基本配 置</p>
+<p><img alt="image-20231031104101282" src="imgs/12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.assets/image-20231031104101282.png" /></p>
+<pre><code class="language-sql">[mysqld]
+character-set-server=utf8mb4
+bind-address=0.0.0.0
+port=3306
+default-storage-engine=INNODB
+[mysql]
+default-character-set=utf8mb4
+[client]
+default-character-set=utf8mb4
+</code></pre>
+<p>就这样，一个免安装版的Mysql就安装并配置完成了</p>
+<h5 id="3134">3.1.3.4、可能会出现的问题</h5>
+<p>（1）"由于找不到MSVCR120.dll，无法继续执行代码。重新安装程 序可能会解决此问题" 或者 "由于找不到 VCRUNTIME140_1.dll，无法继续执行代码。重新安装程序可 能会解决此问题"</p>
+<p>（2）命令参考:</p>
+<ul>
+<li>
+<p>安装服务:mysqld --install</p>
+</li>
+<li>
+<p>初始化:mysqld --initialize --console</p>
+</li>
+<li>
+<p>开启服务:net start mysql</p>
+</li>
+<li>
+<p>关闭服务:net stop mysql</p>
+</li>
+<li>
+<p>登录<strong>mysql</strong>:mysql -u root -p</p>
+</li>
+</ul>
+<p>Enter PassWord:(密码)</p>
+<ul>
+<li>
+<p>修改密码:alter user 'root'@'localhost' identified by 'root';(by 接着的是密码)</p>
+</li>
+<li>
+<p>标记删除<strong>mysql</strong>服务:sc delete mysql</p>
+</li>
+</ul>
+<h4 id="314-mysql">3.1.4 Mysql绿色版卸载</h4>
+<h5 id="3141mysql">3.1.4.1、关闭Mysql服务</h5>
+<p>关闭服务可以使用命令行,也可以在「任务管理器」的「服务」里进行关闭，也可以用命令行关闭</p>
+<p>管理员身份运行命令行（cmd）:  <code>net stop mysql</code></p>
+<p><img src="./imgs/12、MySQL数据库.assets/70.jpeg" alt="img" style="zoom: 50%;" /></p>
+<h5 id="3142mysql">3.1.4.2、删除Mysql的注册表</h5>
+<p>(1) Win+R打开运行界面，在输入框中输入 regedit 进入系统注册表窗口</p>
+<p><img alt="" src="imgs/12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.assets/70.png" /></p>
+<p>(2) 分别在以下目录中找到 MySQL 的注册表，鼠标右键直接删除MySQL目录中的 EventMessageFile 和 TypesSupported 两个文件就好了,如果对应的目录中没有,就不用删除了，也可以搜索注册表: 在系统注册表窗口选择「编辑」 — 选择「查找」 — 输入 「MySQL」进行查找,将找到的MySQL目录中的 EventMessageFile 和 TypesSupported 两个文件进行删除</p>
+<pre><code>HKEY_LOCAL_MACHINE/SYSTEM/ControlSet001/Services/Eventlog/Application/MySQLHKEY_LOCAL_MACHINE/SYSTEM/ControlSet002/Services/Eventlog/Application/MySQLHKEY_LOCAL_MACHINE/SYSTEM/CurrentControlSet/Services/Eventlog/Application/MySQL
+</code></pre>
+<h5 id="3143mysql">3.1.4.3、移除Mysql服务</h5>
+<p>(1) 以管理员身份使用命令行(cmd)进入MySQL的 bin 目录下</p>
+<p>(2) 执行移除 MySQL服务的命令 : mysqld -remove</p>
+<p>(3) 当看到有Service successfully removed时，则表示移除Mysql服务成功</p>
+<p><img src="./imgs/12、MySQL数据库.assets/70-20240112173417787.jpeg" style="zoom:85%;" /></p>
+<h5 id="3144mysql">3.1.4.4、删除Mysql文件</h5>
+<p>将Mysql安装目录下的文件全部删除即可</p>
+<p>OK,至此,MySQL绿色版卸载工作全部完成.</p>
+<p><img src="./imgs/12、MySQL数据库.assets/70-20240112173433834.jpeg" alt="img" style="zoom:50%;" /></p>
+<p>接下来是MySQL的图形化界面工具.  推荐用Navicat. 好多年了, 很好用. 安装的时候一路确定. </p>
+<h3 id="2mac">2、Mac安装</h3>
+<h1 id="macmysql">Mac安装MySQL</h1>
+<h3 id="1_2">1、下载</h3>
+<p>https://dev.mysql.com/downloads/mysql/</p>
+<p>下载安装包版本.dmg</p>
+<p>需要注意，当前如果是m芯片 则下载ARM的</p>
+<p><img src="./imgs/12、MySQL数据库.assets/image-20231031112113163.png" alt="image-20231031112113163" style="zoom:50%;" /></p>
+<p>不登录下载</p>
+<p><img src="./imgs/12、MySQL数据库.assets/image-20231031112203124.png" alt="image-20231031112203124" style="zoom:50%;" /></p>
+<h3 id="2_1">2.安装</h3>
+<p>打开下载好的.dmg文件，再点击里面的.pkg文件，之后会弹出对话框，点击【允许】，开始正式安装。</p>
+<p><img src="./imgs/12、MySQL数据库.assets/image-20231031112244179.png" alt="image-20231031112244179" style="zoom:50%;" /></p>
+<p>点击允许</p>
+<p><img src="./imgs/12、MySQL数据库.assets/image-20231031112301121.png" alt="image-20231031112301121" style="zoom:50%;" /></p>
+<p>一路点击继续到Configuration，Configuration页面有两个选择：</p>
+<ul>
+<li>
+<p>使用强密码加密。MySQL 8支持基于SHA256的更强的认证方式，所有新安装的mysql server建议使用这个方式。clients或connectors如果不支持这个方式，就不能连接到这个mysql server。</p>
+</li>
+<li>
+<p>使用传统密码加密。当需要与MySQL 5.x连接器和客户端兼容且客户端升级不可行时，应使用传统身份验证方法</p>
+</li>
+</ul>
+<p><img src="./imgs/12、MySQL数据库.assets/image-20231031112342472.png" alt="image-20231031112342472" style="zoom:50%;" /></p>
+<p>可以根据需求选择密码加密的方式：如果是因为新安装的，就选择强密码加密；如果想要兼容MySQL 5.x的，就选择传统密码加密。</p>
+<p>这里设置8位密码。他建议我们设置有字母、数字和其他符号混合的密码。这里设置的密码用于以后登录，不要忘记了。</p>
+<p>最好密码设置为：12345678</p>
+<p><img src="./imgs/12、MySQL数据库.assets/image-20231031112356483.png" alt="image-20231031112356483" style="zoom:50%;" /></p>
+<p>到这里，我们已经安装完MySQL了。</p>
+<p><img src="./imgs/12、MySQL数据库.assets/image-20231031112431857.png" alt="image-20231031112431857" style="zoom:50%;" /></p>
+<p>打开系统设置，发现MySQL不仅安装成功，还正在运行</p>
+<p><img src="./imgs/12、MySQL数据库.assets/image-20231031112510648.png" alt="image-20231031112510648" style="zoom:50%;" /></p>
+<h3 id="3_1">3. 配置</h3>
+<p>打开～/.zshrc文件，添加如下内容。保存退出。并让环境变量马上生效。最后查看一下mysql的版本，如果出现版本，就说明配置成功。</p>
+<pre><code>vim ~/.zshrc
+</code></pre>
+<p>输入当前内容 配置环境变量</p>
+<pre><code>#mysql
+export MYSQL_HOME=/usr/local/mysql
+export PATH=$MYSQL_HOME/bin:$PATH
+</code></pre>
+<h4 id="4-mysql">4. 进入MySQL</h4>
+<p>使用先前设置的密码登录。</p>
+<p>mysql -u root -p</p>
+<p><img alt="image-20231031112708473" src="imgs/12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.assets/image-20231031112708473.png" /></p>
+<h3 id="3navicat">3、Navicat使用</h3>
+<p><img alt="image-20210710144159210" src="imgs/12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.assets/image-20210710144159210.png" /></p>
+<p><img alt="image-20210710144409473" src="imgs/12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.assets/image-20210710144409473.png" /></p>
+<p><img alt="image-20210710144519309" src="imgs/12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.assets/image-20210710144519309.png" /></p>
+<p><img alt="image-20210710144744253" src="imgs/12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.assets/image-20210710144744253.png" /></p>
+<p>哦了, 至此, Navicat可以操纵你的数据库了. </p>
+<h2 id="mysql_2">四、进入到MySQL数据库</h2>
+<h3 id="1_3">1、简单模式</h3>
+<p>C:\Users\xlg&gt;mysql -uroot -p
+Enter password: <code>******</code></p>
+<h3 id="2_2">2、标准模式</h3>
+<p>C:\Users\xlg&gt;mysql -h127.0.0.1 -uroot -p</p>
+<p>mysql -hlocalhost -uroot -p</p>
+<h3 id="3_2">3、参数所代表的含义：</h3>
+<p>h:host 主机（localhost IPV4 127.0.0.1）</p>
+<p>u:root 用户</p>
+<p>p:password 密码</p>
+<h2 id="mysql_3">五、对于MySQL数据库的操作</h2>
+<h3 id="1_4">1、对于库与表进行操作</h3>
+<ul>
+<li>查看所有的数据库</li>
+</ul>
+<p>show databases;</p>
+<ul>
+<li>选择数据库</li>
+</ul>
+<p>use 库名</p>
+<ul>
+<li>查看当前库下有哪些表</li>
+</ul>
+<p>show tables;</p>
+<ul>
+<li>查看当前所在库</li>
+</ul>
+<p>select database();</p>
+<ul>
+<li>创建数据库</li>
+</ul>
+<p>create database 库名;</p>
+<ul>
+<li>查看创建库信息</li>
+</ul>
+<p>show create database 库名;</p>
+<ul>
+<li>删除库/表
+  drop database 库名;</li>
+</ul>
+<p>drop table 表名;</p>
+<ul>
+<li>创建库并设置字符编码</li>
+</ul>
+<p>create database lucky character set utf8;</p>
+<ul>
+<li>查看表结构</li>
+</ul>
+<p>desc 表名;</p>
+<ul>
+<li>查看创建表语句</li>
+</ul>
+<p>show create table lucky;</p>
+<ul>
+<li>撤销当前命令</li>
+</ul>
+<p>\c</p>
+<ul>
+<li>
+<p>数据库的退出</p>
+</li>
+<li>
+<p>\q</p>
+</li>
+<li>exit</li>
+<li>quit</li>
+</ul>
+<h3 id="2_3">2、注意</h3>
+<ol>
+<li>MySQL命令以英文的分号作为结束</li>
+<li>SQL命令不区分大小写</li>
+<li>在进入到一个数据库中在进入到另外一个的时候 不需要退出数据库 而是使用use再次进行数据库的切换</li>
+<li>windows下表名库名不区分大小写 Linux下严格区分</li>
+<li>MySQL数据库的名称具有唯一性 每个库中的表的名称也具有唯一性(库名或者一个库中的表名不要出现相同的名称)</li>
+<li>当在输入命令的时候输入完以后 添加分号不能执行命令 那么查看一下左侧是否存在引号没有闭合的情况</li>
+</ol>
+<h2 id="_2">六. 表的操作</h2>
+<h3 id="1_5">1、表的概念</h3>
+<p>在所有关系型数据库中, 所有的数据都是以表格的形式进行存储的. 那表格应该如何进行设计呢? 其实这里蕴含了一个映射关系的. </p>
+<p>比如, 我们想要存学生信息. 那我们先思考. 在你未来的规划中, 一个学生应该会有哪些数据存在? </p>
+<p>学生: 学号(唯一标识), 姓名, 生日, 家庭住址, 电话号等信息. OK. 我们抛开数据库不谈. 想要存储这些数据, 表格创建起来的话应该是是这样的:</p>
+<p><img alt="image-20210712100401960" src="imgs/12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.assets/image-20210712100401960.png" /></p>
+<p>OK. 按照这个规则来看. 每一条数据对应的就是一个人的信息. </p>
+<h3 id="2_4">2、创建表</h3>
+<p>创建表有两种方案: </p>
+<ol>
+<li>用SQL语句创建表格</li>
+</ol>
+<p><code>sql
+   create table student(
+        sno int(10) primary key auto_increment,
+       sname varchar(50) not null, 
+       sbirthday date not null,
+       saddress varchar(255),
+       sphone varchar(12),
+       class_name varchar(50)
+   )</code></p>
+<p>数据类型:</p>
+<pre><code>int 整数
+
+double小数
+
+varchar  字符串
+
+date  时间(年月日)
+
+datetime 时间(年月日时分秒)
+
+text 大文本
+</code></pre>
+<p>​    </p>
+<p>约束条件:</p>
+<pre><code>primary key 主键, 全表唯一值. 就像学号. 身份证号. 能够唯一的确定一条数据
+
+auto_increment 主键自增.
+
+not null  不可以为空.
+
+null  可以为空
+
+default 设置默认值
+</code></pre>
+<p>​        </p>
+<ol>
+<li>用Navicat图形化工具来创建</li>
+</ol>
+<p><img alt="image-20210712110029287" src="imgs/12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.assets/image-20210712110029287.png" /></p>
+<p><img alt="image-20210712164027033" src="imgs/12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.assets/image-20210712164027033.png" /></p>
+<p><img alt="image-20210712110221729" src="imgs/12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.assets/image-20210712110221729.png" /></p>
+<h2 id="mysql_4">七、MySQL表的创建</h2>
+<p>字段类型</p>
+<h3 id="1_6">1、数值类型</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">类型</th>
+<th style="text-align: center;">大小</th>
+<th style="text-align: center;">范围(有符号)</th>
+<th style="text-align: center;">范围(无符号)</th>
+<th style="text-align: center;">用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>tinyint</strong></td>
+<td style="text-align: center;">1字节</td>
+<td style="text-align: center;">（-128,127）</td>
+<td style="text-align: center;">（0,255）</td>
+<td style="text-align: center;">小整数值</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>int</strong></td>
+<td style="text-align: center;">4字节</td>
+<td style="text-align: center;">（-2147483648, 2147483647)</td>
+<td style="text-align: center;">(0,4294967295)</td>
+<td style="text-align: center;">大整数值</td>
+</tr>
+<tr>
+<td style="text-align: center;">float</td>
+<td style="text-align: center;">4字节</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">单精度浮点型</td>
+</tr>
+<tr>
+<td style="text-align: center;">double</td>
+<td style="text-align: center;">8字节</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">双精度浮点型</td>
+</tr>
+</tbody>
+</table>
+<p><strong>创建表语句</strong></p>
+<pre><code class="language-mysql">mysql&gt; create table testnum(
+    -&gt; ttinyint tinyint,
+    -&gt; tint int,
+    -&gt; tfloat float(6,2),
+    -&gt; tdouble double(6,2),
+    -&gt; );
+</code></pre>
+<p><strong>创建表的主体结构：</strong></p>
+<blockquote>
+<p>create table if not exists 表名(</p>
+<p>字段名称 字段类型 约束条件 字段说明,</p>
+<p>字段名称 字段类型 约束条件 字段说明,</p>
+<p>...</p>
+<p>)</p>
+</blockquote>
+<p><strong>表插入数据语句</strong></p>
+<p><strong>指定字段名称插入值</strong></p>
+<p>insert into 表名(字段1,字段2...) values(值1,值2...)</p>
+<p><strong>不指定字段插入之</strong></p>
+<p>insert into 表名 values(值1,值2...)</p>
+<h3 id="2_5">2、字符串类型</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">类型</th>
+<th style="text-align: center;">大小</th>
+<th style="text-align: center;">用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>char</strong></td>
+<td style="text-align: center;">0-255字节</td>
+<td style="text-align: center;">定长字符串</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>varchar</strong></td>
+<td style="text-align: center;">0-255字节</td>
+<td style="text-align: center;">变长字符串</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>text</strong></td>
+<td style="text-align: center;">0-65535字节</td>
+<td style="text-align: center;">长文本数据</td>
+</tr>
+<tr>
+<td style="text-align: center;">longtext</td>
+<td style="text-align: center;">0-4294697295字节</td>
+<td style="text-align: center;">极大文本数据</td>
+</tr>
+</tbody>
+</table>
+<p><strong>字符串类型注意事项：</strong></p>
+<p>1) char和varchar的区别</p>
+<ul>
+<li>char执行效率高于varchar （但占用空间大）</li>
+<li>varchar相对于char节省空间</li>
+<li>char和varchar 类型的长度范围都在0-255之间</li>
+<li>varchar类型传入的值小于给定的长度 不会使用空格填充</li>
+</ul>
+<h2 id="insert">七、INSERT 数据的添加</h2>
+<ol>
+<li>指定字段添加值</li>
+</ol>
+<p>insert into 表名(字段1,字段2....) values(值1,值2...)</p>
+<p>insert into user(sex,username) values(0,'lucky');</p>
+<ol>
+<li>不指定字段添加值</li>
+</ol>
+<p>insert into 表名 values(值1,值2...)</p>
+<p>insert into user values(null,0,'lucky','我是lucky老师');</p>
+<ol>
+<li>指定字段添加多个值</li>
+</ol>
+<p>insert into 表名(字段1,字段2....) values(值1,值2...),(值1,值2...)...</p>
+<p>insert into user(sex,username) values(1,'苍苍'),(0,'蒹葭');</p>
+<ol>
+<li>不指定字段添加多个值</li>
+</ol>
+<p>insert into 表名 values(值1,值2...),(值1,值2...)...</p>
+<pre><code>insert into user values(null,1,'xxx','xxx'),(null,0,'xxl','xxl');
+</code></pre>
+<p><strong>注意事项：</strong>
+指定字段与不指定字段在添加值的时候 按照从左至右依次对应给值</p>
+<h2 id="select">八、SELECT查询</h2>
+<ol>
+<li>不指定字段的查询（不建议）</li>
+</ol>
+<p>select * from 表名</p>
+<ol>
+<li>指定字段的数据查询(建议)</li>
+</ol>
+<p>select 字段名1,字段名2... from  表名</p>
+<p>select  username,userinfo from user;</p>
+<ol>
+<li>对查询的字段起别名</li>
+</ol>
+<p>select username as u from user;</p>
+<p>select username  u from user;</p>
+<h2 id="update">九、UPDATE修改</h2>
+<ol>
+<li>修改一个字段的值</li>
+</ol>
+<p>update 表名 set 字段名=值;</p>
+<p>update user set username='帅气的lucky' where id = 3;</p>
+<ol>
+<li>修改多个字段的值</li>
+</ol>
+<p>update 表名 set 字段名1=值1,字段名2=值2...;</p>
+<p>update user set sex=0,userinfo='xxx的个人简介' where id=7;</p>
+<ol>
+<li>给字段的值在原有的基础上改变值</li>
+</ol>
+<p>update user set sex=sex+2;</p>
+<p><strong>注意：</strong></p>
+<p>在进行数据的修改的时候 一定记得给定where条件  如果没有给定where条件 则修改的为整张表当前字段的值</p>
+<h2 id="delete">十、DELETE 删除</h2>
+<p><strong>主体结构：</strong></p>
+<pre><code class="language-mysql">delete from 表名 [where ...]
+</code></pre>
+<p><strong>实例：</strong></p>
+<p>delete from user; 删除user表中所有的数据 </p>
+<p><strong>注意：</strong></p>
+<p>删除 一定注意添加 where 条件   否则会删除整张表中的数据  并且auto_increment自增所记录的值不会改变  所以需要将自增归位</p>
+<p>truncate 表名; 清空表数据 </p>
+<h2 id="where">十一、WHERE条件</h2>
+<p><strong>实例表结构：</strong></p>
+<p>+----------+-------------+------+-----+-----------------------+----------------+
+| Field    | Type        | Null | Key | Default               | Extra          |
++----------+-------------+------+-----+-----------------------+----------------+
+| id       | int(11)     | NO   | PRI | NULL                  | auto_increment |
+| sex      | tinyint(4)  | NO   |     | 1                     |                |
+| username | varchar(20) | YES  |     | NULL                  |                |
+| age      | tinyint(4)  | NO   |     | 18                    |                |
+| userinfo | varchar(50) | NO   |     | 我是帅气的lucky老师啊 |                |
++----------+-------------+------+-----+-----------------------+----------------+</p>
+<h4 id="1_7">(1) 比较运算符</h4>
+<ol>
+<li><code>&gt;</code></li>
+</ol>
+<p>将id大于5 的性别 更改为0 年龄改为20岁</p>
+<p>update user set sex=0,age=20 where id&gt;5;</p>
+<ol>
+<li><code>&lt;</code></li>
+</ol>
+<p>将id小于3 的性别 更改为0 年龄改为23岁</p>
+<p>update user set sex=0,age=23 where id&lt;3;</p>
+<p>查看id小于4的 性别和用户名的字段数据</p>
+<p>select sex,username from user where id&lt;4;</p>
+<ol>
+<li><code>&gt;=</code></li>
+</ol>
+<p>删除 id大于等于6的数据</p>
+<p>delete from user where id&gt;=6;</p>
+<ol>
+<li><code>&lt;=</code></li>
+</ol>
+<p>查询年龄小于等于23的数据</p>
+<p>select * from user where age&lt;=23;</p>
+<ol>
+<li>=</li>
+</ol>
+<p>查询性别为0的数据</p>
+<p>select * from user where sex=0;</p>
+<ol>
+<li><code>!=/&lt;&gt;</code></li>
+</ol>
+<p>查询 用户名不等于lucky的所有数据</p>
+<p>select * from user where username!='lucky';</p>
+<p>select * from user where username&lt;&gt;'lucky';</p>
+<h4 id="2_6">(2) 逻辑运算符</h4>
+<ol>
+<li>and 逻辑与 俩侧为真结果为真</li>
+</ol>
+<p>查询年龄在18到23之间 不包括本身</p>
+<p>select * from user where age&gt;18 and age&lt;23;</p>
+<p>修改年龄为30 id大于1 小于等于2</p>
+<p>update user set age=30 where id&gt;1 and id&lt;=2;</p>
+<ol>
+<li>or 逻辑或运算 俩侧条件满足一侧就可以</li>
+</ol>
+<p>select * from user where age=10 or age=30;</p>
+<p>select * from user where age&gt;=10 or age&lt;=30;</p>
+<h4 id="3-order-by">(3) order by 排序  升序/降序</h4>
+<p>升序</p>
+<p>查询数据 按照年龄升序（默认）</p>
+<p>select * from user order by age;</p>
+<p>select * from user order by age asc;</p>
+<p>查询数据 按照年龄降序</p>
+<p>select * from user order by age desc;</p>
+<h4 id="4-limit">(4) limit 取值</h4>
+<p><strong>结构：</strong></p>
+<p>limit x 取出x条数据</p>
+<p>limit x,y 从x的位置取出y条数据</p>
+<p>取出3条数据</p>
+<p>select * from user limit 3;</p>
+<p>取出年龄最大/最小的一条数据</p>
+<p>select * from user order by age desc limit 1;</p>
+<p>select * from user order by age limit 1;</p>
+<h4 id="6-like">(6) like 模糊查询</h4>
+<ol>
+<li>’%字符‘ 查询以字符结尾的数据</li>
+</ol>
+<p>查询以三字为结束的username的数据</p>
+<p>select * from user where username like '%三';</p>
+<ol>
+<li>'字符%' 查询以字符开头的数据</li>
+</ol>
+<p>select * from user where username like '赵%';</p>
+<ol>
+<li>'%字符%' 查询包含字符的数据</li>
+</ol>
+<p>查询 userinfo中包含lucky的数据</p>
+<p>select * from user where userinfo like '%lucky%';</p>
+<h2 id="_3">十二、 聚合函数</h2>
+<ol>
+<li>count 统计个数</li>
+<li>max 最大值</li>
+<li>min 最小值</li>
+<li>Sum 求和</li>
+<li>avg 求平均数</li>
+</ol>
+<p>select count(*) as count,max(age),min(age),avg(age),sum(age) from user;</p>
+<h2 id="_4">十三、 数据库的导入导出</h2>
+<ul>
+<li>导入</li>
+</ul>
+<p>mysql -uroot -p 库名&lt;demo.sql  </p>
+<ul>
+<li>导出</li>
+</ul>
+<p>mysqldump -uroot -p 库名&gt;demo.sql</p>
+<p>dro</p>
+<h2 id="pythonmysql">十四、Python操作MySQL</h2>
+<p><strong>安装：</strong></p>
+<p>pip install pymysql;</p>
+<p><strong>使用：</strong>
+import pymysql</p>
+<h4 id="1-mysql">(1) 链接MySQL数据库</h4>
+<p>db = pymysql.connect(主机名,用户名,密码,数据库名)</p>
+<pre><code>db = pymysql.connect(host='localhost', user='root', password='123456', database='test')
+</code></pre>
+<h4 id="2_7">(2) 设置字符集</h4>
+<p>db.set_charset('utf8')</p>
+<h4 id="3_3">(3) 创建游标对象</h4>
+<p>cursor = db.cursor()</p>
+<h4 id="4-sql">(4) 执行SQL语句</h4>
+<p>cursor.execute(sql语句)</p>
+<h4 id="5">(5) 获取结果集</h4>
+<p>获取所有</p>
+<p>cursor.fetchall()</p>
+<p>获取一条</p>
+<p>cursor.fetchone()</p>
+<h4 id="6">(6) 获取受影响的行数</h4>
+<p>cursor.rowcount</p>
+<h4 id="7">(7) <strong>事物</strong></h4>
+<p>pymysql默认开启了事物处理 所以在添加数据的时候 需要commit 或者rollback</p>
+<p><strong>实例：</strong></p>
+<pre><code class="language-python">try:
+    sql = 'insert into user values(null,1,&quot;曹操&quot;,100,&quot;曹操第一奸雄&quot;,&quot;魏国&quot;)'
+    print(sql)
+    cursor.execute(sql)
+    db.rollback()
+except:
+    db.commit()
+</code></pre>
+<p>对于支持事务的数据库， 在Python数据库编程中，当游标建立之时，就自动开始了一个隐形的数据库事务。 </p>
+<p>commit()方法游标的所有更新操作，rollback（）方法回滚当前游标的所有操作。每一个方法都开始了一个新的事务。</p>
+<h4 id="8">(8) 关闭数据库连接</h4>
+<p>db.close()</p>
+<h4 id="9-sql">(9) 拼凑正常完整的sql语句</h4>
+<pre><code class="language-python">print(&quot;select name,password from user where name=\&quot;&quot;+username+&quot;\&quot;&quot;)
+print(&quot;select name,password from user where name='&quot;+username+&quot;'&quot;)
+print(&quot;select name,password from user where name='%s'&quot;%(username))
+print(&quot;select name,password from user where name='{}'&quot;.format(username))
+print(f&quot;select name,password from user where name='{username}'&quot;)
+</code></pre>
+
+
+</section>
+</div> <!-- end of search-noresults -->
+<div class="search-results">
+<div class="has-results">
+
+<h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+<ul class="search-results-list"></ul>
+
+</div> <!-- end of has-results -->
+<div class="no-results">
+
+<h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+
+</div> <!-- end of no-results -->
+</div> <!-- end of search-results -->
+</div> <!-- end of book-search-results -->
+
+</div> <!-- end of page-inner -->
+</div> <!-- end of page-wrapper -->
+
+</div> <!-- end of body-inner -->
+
+</div> <!-- end of book-body -->
+<script src="./js/main.js"></script>
+<script src="search/main.js"></script>
+<script src="./js/gitbook.min.js"></script>
+<script src="./js/theme.min.js"></script>
+</body>
+</html>

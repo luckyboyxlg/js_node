@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>十三、Mongodb - js node</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="generator" content="mkdocs-1.6.1, mkdocs-gitbook-1.0.7">
+
+<link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta rel="next" href="" />
+<link href="./css/style.min.css" rel="stylesheet"> 
+</head>
+
+<body>
+<div class="book">
+<div class="book-summary">
+<div id="book-search-input" role="search">
+<input type="text" placeholder="Type to search" />
+</div> <!-- end of book-search-input -->
+
+<nav role="navigation">
+<ul class="summary">
+<li>
+<a href="index.html" target="_blank" class="custom-link">js node</a>
+</li>
+<li class="divider"></li>
+<li class="chapter" data-path="index.html">
+<a href="index.html">Welcome to MkDocs</a>
+<li class="chapter" data-path="01%E3%80%81html.html">
+<a href="01%E3%80%81html.html">一、HTML</a>
+<li class="chapter" data-path="02%E3%80%81CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8.html">
+<a href="02%E3%80%81CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8.html">二、CSS层叠样式表</a>
+<li class="chapter" data-path="03%E3%80%81%E6%AD%A3%E5%88%99.html">
+<a href="03%E3%80%81%E6%AD%A3%E5%88%99.html">三、正则</a>
+<li class="chapter" data-path="04%E3%80%81BS4%E8%A7%A3%E6%9E%90%E5%AE%8C%E6%95%B4.html">
+<a href="04%E3%80%81BS4%E8%A7%A3%E6%9E%90%E5%AE%8C%E6%95%B4.html">四、beautifulsoup</a>
+<li class="chapter" data-path="05%E3%80%81xpath.html">
+<a href="05%E3%80%81xpath.html">五、xpath</a>
+<li class="chapter" data-path="06%E3%80%81%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E4%B8%8Eurllib%26requests.html">
+<a href="06%E3%80%81%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E4%B8%8Eurllib%26requests.html">六、爬虫入门</a>
+<li class="chapter" data-path="07%E3%80%81urllib%E4%B8%8Erequests.html">
+<a href="07%E3%80%81urllib%E4%B8%8Erequests.html">七、urllib与requests</a>
+<li class="chapter" data-path="08%E3%80%81%E5%A4%9A%E8%BF%9B%E7%A8%8B.html">
+<a href="08%E3%80%81%E5%A4%9A%E8%BF%9B%E7%A8%8B.html">八、多进程</a>
+<li class="chapter" data-path="09%E3%80%81%E7%BA%BF%E7%A8%8B.html">
+<a href="09%E3%80%81%E7%BA%BF%E7%A8%8B.html">九、线程</a>
+<li class="chapter" data-path="10%E3%80%81%E5%8D%8F%E7%A8%8B.html">
+<a href="10%E3%80%81%E5%8D%8F%E7%A8%8B.html">十、携程</a>
+<li class="chapter" data-path="11%E3%80%81selenium.html">
+<a href="11%E3%80%81selenium.html">十一、selenium</a>
+<li class="chapter" data-path="12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.html">
+<a href="12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.html">十二、MySQL数据库</a>
+<li class="chapter active" data-path="13%E3%80%81Mongodb.html">
+<a href="13%E3%80%81Mongodb.html">十三、Mongodb</a>
+<li class="chapter" data-path="14%E3%80%81redis.html">
+<a href="14%E3%80%81redis.html">十四、Redis数据库</a>
+<li class="chapter" data-path="15%E3%80%81%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.html">
+<a href="15%E3%80%81%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.html">十五、面向对象</a>
+<li class="chapter" data-path="16-Scrapy01-%E6%A1%86%E6%9E%B6%E5%88%9D%E8%AE%A4%E8%AF%86.html">
+<a href="16-Scrapy01-%E6%A1%86%E6%9E%B6%E5%88%9D%E8%AE%A4%E8%AF%86.html">十六、Scrapy框架初认识</a>
+<li class="chapter" data-path="16-Scrapy02%E6%B7%B1%E5%85%A5%E4%BD%BF%E7%94%A8-%E5%AD%98%E5%82%A8.html">
+<a href="16-Scrapy02%E6%B7%B1%E5%85%A5%E4%BD%BF%E7%94%A8-%E5%AD%98%E5%82%A8.html">十六、Scrapy深入使用-存储</a>
+<li class="chapter" data-path="16-Scrapy03-%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86%E4%BB%A5%E5%8F%8A%E5%88%86%E9%A1%B5.html">
+<a href="16-Scrapy03-%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86%E4%BB%A5%E5%8F%8A%E5%88%86%E9%A1%B5.html">十六、scrapy模拟登陆&amp;分页</a>
+<li class="chapter" data-path="16-Scrapy04-%E4%B8%AD%E9%97%B4%E4%BB%B6.html">
+<a href="16-Scrapy04-%E4%B8%AD%E9%97%B4%E4%BB%B6.html">十六、Scrapy中间件</a>
+<li class="chapter" data-path="16-Scrapy05-%E5%88%86%E9%A1%B5%E6%8A%93%E5%8F%96.html">
+<a href="16-Scrapy05-%E5%88%86%E9%A1%B5%E6%8A%93%E5%8F%96.html">十六、scrapy的crawlspider爬虫</a>
+<li class="chapter" data-path="16-Scrapy06-scrapy_redis.html">
+<a href="16-Scrapy06-scrapy_redis.html">十六、scrapy_redis</a>
+<li class="chapter" data-path="17%E3%80%81js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html">
+<a href="17%E3%80%81js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html">十七、js数据类型</a>
+<li class="chapter" data-path="18%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%8E%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6.html">
+<a href="18%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%8E%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6.html">十八、js运算符与流程控制</a>
+<li class="chapter" data-path="19%E3%80%81js%E6%95%B0%E7%BB%84.html">
+<a href="19%E3%80%81js%E6%95%B0%E7%BB%84.html">十九、js数组</a>
+<li class="chapter" data-path="20%E3%80%81js%E5%AD%97%E7%AC%A6%E4%B8%B2.html">
+<a href="20%E3%80%81js%E5%AD%97%E7%AC%A6%E4%B8%B2.html">二十、js字符串</a>
+<li class="chapter" data-path="21%E3%80%81js%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%97%B6%E9%97%B4.html">
+<a href="21%E3%80%81js%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%97%B6%E9%97%B4.html">二十一、js对象与时间</a>
+<li class="chapter" data-path="22%E3%80%81%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89.html">
+<a href="22%E3%80%81%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89.html">二十二、js函数</a>
+<li class="chapter" data-path="23%E3%80%81js%E8%BF%9B%E9%98%B6.html">
+<a href="23%E3%80%81js%E8%BF%9B%E9%98%B6.html">二十三、Javascript进阶</a>
+<li class="chapter" data-path="24%E3%80%81BOM%E6%93%8D%E4%BD%9C.html">
+<a href="24%E3%80%81BOM%E6%93%8D%E4%BD%9C.html">二十四、浏览器对象模型BOM</a>
+<li class="chapter" data-path="25%E3%80%81DOM%E6%93%8D%E4%BD%9C.html">
+<a href="25%E3%80%81DOM%E6%93%8D%E4%BD%9C.html">二十五、DOM操作</a>
+<li class="chapter" data-path="26%E3%80%81jQuery%E6%93%8D%E4%BD%9C.html">
+<a href="26%E3%80%81jQuery%E6%93%8D%E4%BD%9C.html">二十六、jQuery</a>
+<li class="chapter" data-path="27%E3%80%81%E9%80%86%E5%90%9101.html">
+<a href="27%E3%80%81%E9%80%86%E5%90%9101.html">二十七、JS逆向01</a>
+<li class="chapter" data-path="28%E3%80%81%E9%80%86%E5%90%9102.html">
+<a href="28%E3%80%81%E9%80%86%E5%90%9102.html">二十八、逆向02</a>
+<li class="chapter" data-path="29%E3%80%81%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html">
+<a href="29%E3%80%81%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html">二十九、微信小程序逆向开发</a>
+<li class="chapter" data-path="30%E3%80%81%E7%BD%91%E6%98%93%E6%BB%91%E5%9D%97.html">
+<a href="30%E3%80%81%E7%BD%91%E6%98%93%E6%BB%91%E5%9D%97.html">三十、网易易盾</a>
+<li class="chapter" data-path="31%E3%80%81rpc.html">
+<a href="31%E3%80%81rpc.html">三十一、RPC</a>
+<li class="chapter" data-path="32%E3%80%81TLS%E6%8C%87%E7%BA%B9%E7%BB%95%E8%BF%87.html">
+<a href="32%E3%80%81TLS%E6%8C%87%E7%BA%B9%E7%BB%95%E8%BF%87.html">三十二、TLS指纹绕过</a>
+<li class="chapter" data-path="33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">
+<a href="33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">三十三、高级逆向</a>
+<li class="chapter" data-path="34%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">
+<a href="34%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">三十四、高级逆向</a>
+<li class="chapter" data-path="%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B%E7%AC%94%E8%AE%B0.html">
+<a href="%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B%E7%AC%94%E8%AE%B0.html">逆向实战案例笔记</a>
+<li class="header">Pyexecjs与npm配置</li>
+
+<li>
+<a href="pyexecjs%E4%B8%8Enpm%E9%85%8D%E7%BD%AE/execjs%E4%BB%8B%E7%BB%8D%E4%BB%A5%E5%8F%8A%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8.html" class="">Execjs介绍以及安装和使用</a>
+</li>
+
+<li>
+<a href="pyexecjs%E4%B8%8Enpm%E9%85%8D%E7%BD%AE/%E4%B8%80%E6%AC%A1%E6%80%A7%E8%A7%A3%E5%86%B3%E6%8E%89npm%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5%E7%9A%84%E9%97%AE%E9%A2%98.html" class="">更换npm为国内镜像</a>
+</li>
+
+<li class="header">补环境</li>
+
+<li>
+<a href="%E8%A1%A5%E7%8E%AF%E5%A2%83/1%E3%80%81%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8E%E4%BA%8B%E4%BB%B6.html" class="">补环境</a>
+</li>
+
+<li>
+<a href="%E8%A1%A5%E7%8E%AF%E5%A2%83/2%E3%80%81Proxy%E4%BB%A3%E7%90%86%E5%99%A8.html" class="">Proxy代理</a>
+</li>
+
+<li>
+<a href="%E8%A1%A5%E7%8E%AF%E5%A2%83/3%E3%80%81vm2%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83.html" class="">3、vm2运行环境</a>
+</li>
+
+<li class="divider"></li>
+
+
+
+<li><a href="http://www.mkdocs.org">
+Published with MkDocs
+</a></li>
+
+<li><a href="https://github.com/GitbookIO/theme-default">
+Theme by GitBook
+</a></li>
+</ul>
+
+</nav>
+
+</div> <!-- end of book-summary -->
+
+<div class="book-body">
+<div class="body-inner">
+<div class="book-header" role="navigation">
+
+<!-- Title -->
+<h1>
+<i class="fa fa-circle-o-notch fa-spin"></i>
+<a href="." ></a>
+</h1>
+
+</div> <!-- end of book-header -->
+
+<div class="page-wrapper" tabindex="-1" role="main">
+<div class="page-inner">
+<div id="book-search-results">
+<div class="search-noresults">
+
+<section class="normal markdown-section">
+
+
+
+<h1 id="mongodb">十三、Mongodb</h1>
+<ul>
+<li>下载mongodb的版本，两点注意</li>
+<li>根据业界规则，偶数为稳定版，如1.6.X，奇数为开发版，如1.7.X</li>
+<li>32bit的mongodb最大只能存放2G的数据，64bit就没有限制</li>
+</ul>
+<p><strong>性能</strong></p>
+<p>BSON格式的编码和解码都是非常快速的。它使用了C风格的数据表现形式，这样在各种语言中都可以高效地使用。</p>
+<p>NoSQL(NoSQL = Not Only SQL )，意即"不仅仅是SQL"。</p>
+<p>MongoDB 将数据存储为一个文档，数据结构由键值(key=&gt;value)对组成。MongoDB 文档类似于 JSON 对象。字段值可以包含其他文档，数组及文档数组。</p>
+<h2 id="windows">一、安装(windows)</h2>
+<p>下载mongodb的版本，两点注意</p>
+<ul>
+<li>根据业界规则，偶数为稳定版，如1.6.X，奇数为开发版，如1.7.X</li>
+<li>32bit的mongodb最大只能存放2G的数据，64bit就没有限制</li>
+</ul>
+<p>首先去官网下载MongoDB的安装包, https://www.mongodb.com/try/download/community</p>
+<p><img alt="image-20210728093724660" src="imgs/13%E3%80%81Mongodb.assets/image-20210728093724660.png" /></p>
+<p><img alt="image-20210728093838499" src="imgs/13%E3%80%81Mongodb.assets/image-20210728093838499.png" /></p>
+<p><img alt="image-20210728093906551" src="imgs/13%E3%80%81Mongodb.assets/image-20210728093906551.png" /></p>
+<p><img alt="image-20210728094404958" src="imgs/13%E3%80%81Mongodb.assets/image-20210728094404958.png" /></p>
+<p><img alt="image-20210728094441168" src="imgs/13%E3%80%81Mongodb.assets/image-20210728094441168.png" /></p>
+<p><img alt="image-20210728094521878" src="imgs/13%E3%80%81Mongodb.assets/image-20210728094521878.png" /></p>
+<p><img alt="image-20210728094547434" src="imgs/13%E3%80%81Mongodb.assets/image-20210728094547434.png" /></p>
+<p><img alt="image-20210728094627838" src="imgs/13%E3%80%81Mongodb.assets/image-20210728094627838.png" /></p>
+<p><img alt="image-20210728094653296" src="imgs/13%E3%80%81Mongodb.assets/image-20210728094653296.png" /></p>
+<p><img alt="image-20210728094727302" src="imgs/13%E3%80%81Mongodb.assets/image-20210728094727302.png" /></p>
+<p><img alt="image-20210728094750500" src="imgs/13%E3%80%81Mongodb.assets/image-20210728094750500.png" /></p>
+<p>将mongodb目录下的bin文件夹添加到环境变量</p>
+<p><img alt="image-20210728095340874" src="imgs/13%E3%80%81Mongodb.assets/image-20210728095340874.png" /></p>
+<p><img alt="image-20210728095433900" src="imgs/13%E3%80%81Mongodb.assets/image-20210728095433900.png" /></p>
+<p><img alt="image-20210728095507330" src="imgs/13%E3%80%81Mongodb.assets/image-20210728095507330.png" /></p>
+<p><img alt="image-20210728095631337" src="imgs/13%E3%80%81Mongodb.assets/image-20210728095631337.png" /></p>
+<p><img alt="image-20210728100113133" src="imgs/13%E3%80%81Mongodb.assets/image-20210728100113133.png" /></p>
+<p><img alt="image-20210729195132883" src="imgs/13%E3%80%81Mongodb.assets/image-20210729195132883.png" /></p>
+<p><img alt="image-20210729195203348" src="imgs/13%E3%80%81Mongodb.assets/image-20210729195203348.png" /></p>
+<p>对于mac的安装可以使用homebrew安装.  或参考这里https://www.runoob.com/mongodb/mongodb-osx-install.html</p>
+<h2 id="mongodb_1">一、MongoDB  概念解析</h2>
+<table>
+<thead>
+<tr>
+<th>SQL术语/概念</th>
+<th>MongoDB术语/概念</th>
+<th>解释/说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>database</td>
+<td>database</td>
+<td>数据库</td>
+</tr>
+<tr>
+<td>table</td>
+<td>collection</td>
+<td>数据库表/集合</td>
+</tr>
+<tr>
+<td>row</td>
+<td>document</td>
+<td>数据记录行/文档</td>
+</tr>
+<tr>
+<td>column</td>
+<td>field</td>
+<td>数据字段/域</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_1">二、数据类型</h2>
+<ul>
+<li>下表为MongoDB中常用的几种数据类型：</li>
+<li>Object ID：文档ID</li>
+<li>String：字符串，最常用，必须是有效的UTF-8</li>
+<li>Boolean：存储一个布尔值，true或false</li>
+<li>Integer：整数可以是32位或64位，这取决于服务器</li>
+<li>Double：存储浮点值</li>
+<li>Arrays：数组或列表，多个值存储到一个键</li>
+<li>Object：用于嵌入式的文档，即一个值为一个文档</li>
+<li>Null：存储Null值</li>
+<li>Timestamp：时间戳</li>
+<li>Date：存储当前日期或时间的UNIX时间格式</li>
+</ul>
+<h4 id="_2">需要注意的是：</h4>
+<ol>
+<li>文档中的键/值对是有序的。</li>
+<li>文档中的值不仅可以是在双引号里面的字符串,还可以是其他几种数据类型（甚至可以是整个嵌入的文档)。</li>
+<li>MongoDB区分类型和大小写。</li>
+<li>MongoDB的文档不能有重复的键。</li>
+<li>文档的键是字符串。除了少数例外情况，键可以使用任意UTF-8字符。</li>
+</ol>
+<h4 id="_3">文档键命名规范：</h4>
+<ul>
+<li>.和$有特别的意义，只有在特定环境下才能使用。</li>
+<li>以下划线"_"开头的键是保留的(不是严格要求的)。</li>
+</ul>
+<h2 id="mongodb_2">四、连接Mongodb</h2>
+<h5 id="1-cd-mongobin">(1) cd mongo安装的目录/bin</h5>
+<p>输入 mongod.exe     --dbpath=路径</p>
+<h5 id="2-windows-mongobin">(2) 重新启动一个Windows的终端  再次进入到 <strong>mongo安装的目录/bin</strong></h5>
+<p>​   cd   mongo安装的目录/bin</p>
+<p>​   mongo.exe   #此刻 进入到Mongodb数据库了</p>
+<h2 id="_4">五、 对于库的操作</h2>
+<h5 id="1">(1)  查看所有的库</h5>
+<p>​   show dbs</p>
+<h5 id="2">(2) 选择数据库 (如果使用的数据库存在 则使用 不存在 则创建)</h5>
+<p>​   use 库名 </p>
+<p>​   注意:</p>
+<p>​       新创建的数据库 默认你是看不到的 可以使用db/db.getName() 去查看当前所在的库   往新的库里创建集合</p>
+<h5 id="3">(3) 查看当前所在的数据库</h5>
+<pre><code class="language-python">1. db
+2. db.getName()
+</code></pre>
+<h5 id="4">(4) 创建集合(也就是创建表)</h5>
+<ol>
+<li>db.createCollection("集合名")</li>
+</ol>
+<p>remo例如：db.createCollection("user") #创建一个user的集合 在当前的库里</p>
+<ol>
+<li>db.集合名.insert(文档)  #如果 当前的集合名不存在 那么就创建该集合 并插入文档(数据) </li>
+</ol>
+<p>注意：</p>
+<pre><code class="language-python">1. 在库里对于文档 集合的操作 统一使用db. (db代表当前的库)
+2. 严格区分大小写
+</code></pre>
+<h5 id="5">(5) 查看当前库下的所有集合</h5>
+<p>​   show collections</p>
+<h5 id="6">(6) 删除集合</h5>
+<p>​   db.集合名.drop()</p>
+<h2 id="insertsave">六、INSERT/SAVE文档的添加</h2>
+<h5 id="1-insert-insert">(1) 使用insert      如果是添加数据 建议使用 insert</h5>
+<p>​   db.集合名.insert(文档) #如果是添加数据 建议使用 insert</p>
+<p>插入多条数据:</p>
+<p>​   db.集合名.insert([文档]) #注意 一定要加[] 否则可能只会把 第一条文档插入进去</p>
+<pre><code>db.user.insert({'name':'lisi', 'age': 20})
+
+db.user.insert([{'name':'lisi', 'age': 20},{'name': 'wangwu', 'age': 30}])
+</code></pre>
+<p>3.2 版本后还有以下几种语法可用于插入文档:</p>
+<ul>
+<li><strong>db.collection.insertOne</strong>():向指定集合中插入一条文档数z据</li>
+<li><strong>db.collection.insertMany</strong>():向指定集合中插入多条文档数据</li>
+</ul>
+<pre><code>db.user.insertOne({'name':'lisi', 'age': 20})
+
+db.user.insertMany([{'name':'lisi', 'age': 20},{'name': 'wangwu', 'age': 30}])
+</code></pre>
+<h5 id="2-save">(2) 使用save</h5>
+<ol>
+<li>
+<p>db.集合名.save(文档)  #新添加 一个文档 </p>
+</li>
+<li>
+<p>db.集合名.save({_id:ObjectId("59a385d4a356cb252c1dcd73"),文档})  #对原有的数据进行覆盖</p>
+</li>
+</ol>
+<p><code>python
+ db.user.save({_id:ObjectId("59a385d4a356cb252c1dcd73"),name:"王五"})</code></p>
+<h2 id="find">七、FIND 查询</h2>
+<h5 id="1-find">(1) find 查询所有</h5>
+<p>​   db.集合名.find([条件],{key1:1[,[key2:1]]}) #查询所有的数据   代表 显示哪些字段名</p>
+<p>​   db.collection.find(query, {title: 1, by: 1}) // inclusion模式 指定返回的键，不返回其他键</p>
+<p>​   db.collection.find(query, {title: 0, by: 0}) // exclusion模式 指定不返回的键,返回其他键</p>
+<p><strong>注意：</strong></p>
+<p>两种模式不可混用（因为这样的话无法推断其他键是否应返回）</p>
+<pre><code class="language-python">db.collection.find(query, {title: 1, by: 0}) // 错误
+</code></pre>
+<p>_id 键默认返回，需要主动指定 _id:0 才会隐藏</p>
+<p>只能全1或全0，除了在inclusion模式时可以指定_id为0</p>
+<pre><code class="language-python">db.collection.find(query, {_id:0, title: 1, by: 1}) // 正确
+</code></pre>
+<p>实例</p>
+<pre><code>db.user.find({}, {'name': 0})
+db.user.find({'age': 18}, {'name': 1})  # 只返回那么字段
+db.user.find({'age': 18}, {'name': 0})  # 不返回name字段
+</code></pre>
+<h5 id="2-findone">(2) findOne()  查询一条</h5>
+<p>​   db.集合名.findOne([条件],{key1:1[,[key2:1]]}) #查询一条数据  代表 显示哪些字段名</p>
+<pre><code>db.user.findOne({}, {name:1})
+</code></pre>
+<h5 id="3-count">(3) count 统计数据条数</h5>
+<p>​   db.集合名.find([条件]).count()</p>
+<pre><code>db.user.find({}).count()
+</code></pre>
+<h5 id="4-pretty">(4) pretty()  展开来查看</h5>
+<p>​   db.集合名.find([条件]).pretty()</p>
+<pre><code>db.user.find({}).pretty()
+</code></pre>
+<h5 id="5_1">(5) 查询条件的操作符</h5>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">符号</th>
+<th style="text-align: left;">符号说明</th>
+<th>实例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">$gt</td>
+<td style="text-align: left;">大于</td>
+<td>db.user.find({age:{$gt:18}})</td>
+<td>年龄大于18 的</td>
+</tr>
+<tr>
+<td style="text-align: left;">$gte</td>
+<td style="text-align: left;">大于等于</td>
+<td>db.user.find({age:{$gte:18}})</td>
+<td>年龄大于等于18的</td>
+</tr>
+<tr>
+<td style="text-align: left;">$lt</td>
+<td style="text-align: left;">小于</td>
+<td>db.user.find({age:{$lt:18}})</td>
+<td>年龄小于18</td>
+</tr>
+<tr>
+<td style="text-align: left;">$lte</td>
+<td style="text-align: left;">小于等于</td>
+<td>db.user.find({age:{$lte:18}})</td>
+<td>年龄小于等于18</td>
+</tr>
+<tr>
+<td style="text-align: left;">{key:value}</td>
+<td style="text-align: left;">等于</td>
+<td>db.user.find({age:18})</td>
+<td>年龄等于18</td>
+</tr>
+<tr>
+<td style="text-align: left;">{ "_id" : ObjectId("5c2caba840b9441<br />054372217")}</td>
+<td style="text-align: left;">使用id查询</td>
+<td>db.user.find({ "_id" : ObjectId("5c2caba840b944<br />1054372217")})</td>
+<td>查找id为"5c2caba840b94410<br />54372217"文档</td>
+</tr>
+<tr>
+<td style="text-align: left;">/值/</td>
+<td style="text-align: left;">模糊查询</td>
+<td>db.user.find({username:/小/})</td>
+<td>查询年龄中包含小字的文档</td>
+</tr>
+<tr>
+<td style="text-align: left;">/^值/</td>
+<td style="text-align: left;">以...作为开头</td>
+<td>db.user.find({username:/^小/})</td>
+<td>查询username中以小字作为开头的文档</td>
+</tr>
+<tr>
+<td style="text-align: left;">/值$/</td>
+<td style="text-align: left;">以...作为结尾</td>
+<td>db.user.find({username:/小$/})</td>
+<td>查询username中以小字作为结尾的文档</td>
+</tr>
+<tr>
+<td style="text-align: left;">$in</td>
+<td style="text-align: left;">在...内</td>
+<td>db.user.find({age:{$in:[18,20,30]})</td>
+<td>查询年龄在18,20,30的文档</td>
+</tr>
+<tr>
+<td style="text-align: left;">$nin</td>
+<td style="text-align: left;">不在...内</td>
+<td>db.user.find({age:{$nin:[18,20,30]}})</td>
+<td>查询年龄不在 1,20,30的文档</td>
+</tr>
+<tr>
+<td style="text-align: left;">$ne</td>
+<td style="text-align: left;">不等于 !=</td>
+<td>db.user.find({age:{$ne:18}})</td>
+<td>查询年龄不为18的文档</td>
+</tr>
+</tbody>
+</table>
+<h5 id="6-and">(6) AND 查询</h5>
+<pre><code class="language-python">db.col.find({key1:value1, key2:value2})pretty()
+</code></pre>
+<p>db.集合名.find({条件一，条件二,,,})</p>
+<p>例如： </p>
+<pre><code>db.user.find({name:&quot;张三&quot;,age:{$gt:10}}) #查询name为张三的 且 年龄 大于10岁的
+
+db.user.find({name:&quot;张三&quot;,age:10})        #查询name为张三的 且 年龄为10岁的
+
+db.user.find({name:&quot;张三&quot;,age:{$gte:10,$lte:28}})  #name为张三  年龄 大于等于10  小于等于28
+</code></pre>
+<h5 id="7-or">(7) OR  查询</h5>
+<p>db.集合名.find({$or:[{条件一},{条件二},,,]})</p>
+<p>例如：</p>
+<pre><code>db.user.find({$or:[{name:&quot;张三&quot;},{name:&quot;赵六&quot;}]})   #查询name为张三 或者为赵六的所有数据
+</code></pre>
+<h5 id="8-and-or">(8) AND 和 OR 的使用</h5>
+<p>db.集合名.find({条件一,,,$or:[{条件1},{条件2}]})</p>
+<p>例如:</p>
+<pre><code>db.user.find({name:&quot;张三&quot;,$or:[{age:10},{age:28}]})  #name为张三   年龄为10岁或者28岁的所有数据
+</code></pre>
+<h5 id="9-limit">(9) LIMIT  取值</h5>
+<p>db.集合名.find().limit(num)   #从第0个开始取几个</p>
+<p>例如：</p>
+<pre><code>db.user.find().limit(5)   #从0开始取5条数据
+</code></pre>
+<h5 id="10-skip">(10)  skip 跳过几个</h5>
+<p>db.集合名.find().skip(num) #跳过几条数据</p>
+<p>例如:</p>
+<pre><code>db.user.find().skip(2) #从第三条数据 取到最后
+</code></pre>
+<h5 id="11-limit-skip">(11) limit  skip 配合使用</h5>
+<p>db.集合名.find().skip().limit(num) </p>
+<p>例如:</p>
+<pre><code>db.user.find().skip(2).limit(2)  #从第三个开始 取2个
+</code></pre>
+<h5 id="12-sort">(12) SORT 排序</h5>
+<p>在MongoDB中使用使用sort()方法对数据进行排序，sort()方法可以通过参数指定排序的字段，并使用 1 和 -1 来指定排序的方式，其中 1 为升序排列，而-1是用于降序排列。</p>
+<p>db.集合名.find().sort({key:1|-1})  #升序或者降序</p>
+<p>例如: </p>
+<pre><code>db.user.find().sort({age:1})  #查询所有数据 按照年龄 升序
+
+db.user.find().sort({age:-1})  #查询所有数据 按照年龄 降序
+</code></pre>
+<h2 id="update">八、UPDATE 文档的修改</h2>
+<p><strong>结构：</strong></p>
+<pre><code class="language-python">db.collection.update(
+   &lt;query&gt;,
+   &lt;update&gt;,
+   {
+     upsert: &lt;boolean&gt;,
+     multi: &lt;boolean&gt;,
+     writeConcern: &lt;document&gt;
+   }
+)u
+</code></pre>
+<ul>
+<li><strong>query </strong>: update的查询条件，类似sql update查询内where后面的。</li>
+<li><strong>update </strong>: update的对象和一些更新的操作符（如$,$inc...）等，也可以理解为sql update查询内set后面的</li>
+<li><strong>upsert </strong>: 可选，这个参数的意思是，如果不存在update的记录，是否插入objNew,true为插入，默认是false，不插入。</li>
+<li><strong>multi </strong>: 可选，mongodb 默认是false,只更新找到的第一条记录，如果这个参数为true,就把按条件查出来多条记录全部更新</li>
+</ul>
+<h5 id="1-set-inc">(1) 更新操作符  <code>$set直接修改   $inc累加修改</code></h5>
+<ul>
+<li>db.集合名.update(条件,数据,{multi:true}) 更改</li>
+</ul>
+<p>```sql
+  db.user.update({name:"张三"},{$inc:{age:5}}) #修改name为张三的文档  将age在原有的基础上 加5</p>
+<p>db.user.update({name:"张三"},{$set:{age:5}}) #修改name为张三的文档  将age的值 修改为5</p>
+<p>db.user.update({name:"张三"},{$set:{age:5}},{multi:true}) #将所有name为张三的文档 的年龄 全部修改为 5
+  ```</p>
+<ul>
+<li>只更新第一条记录：</li>
+</ul>
+<p><code>sql
+  db.col.update({"count" : {$gt:1}} , { $set : {"test2" : "OK"}});</code></p>
+<ul>
+<li>全部更新：</li>
+</ul>
+<p><code>sql
+  db.col.update({"count" : {$gt: 3 }} , {$set : {"test2" : "OK"} },false,true);</code></p>
+<ul>
+<li>只添加第一条：</li>
+</ul>
+<p><code>sql
+  db.col.update({ "count" : { $gt : 4 }} , {$set : {"test5" : "OK"} },true,false );</code></p>
+<p>3.2版本以后</p>
+<p>updateOne()  更新一条</p>
+<pre><code>db.user.updateOne({'name':'lisi'}, {$inc:{'age':5}})
+</code></pre>
+<p>updateMany(query,update) 更新多条 </p>
+<pre><code>db.user.updateMany({'name':'lisi'}, {$inc:{'age':5}})
+</code></pre>
+<h2 id="remove">九、REMOVE 文档的删除</h2>
+<p><strong>主体结构</strong></p>
+<pre><code class="language-python">db.collection.remove(
+   &lt;query&gt;,
+   {
+     justOne: &lt;boolean&gt;,
+     writeConcern: &lt;document&gt;
+   }
+)
+</code></pre>
+<h5 id="1_1">(1)参数说明：</h5>
+<ul>
+<li><strong>query </strong>:（可选）删除的文档的条件。</li>
+<li><strong>justOne </strong>: （可选）如果设为 true 或 1，则只删除一个文档。</li>
+<li><strong>writeConcern </strong>:（可选）抛出异常的级别。</li>
+</ul>
+<h5 id="2_1">(2) 主体结构</h5>
+<p><strong>db.集合名.remove(条件)</strong> #默认将所有都匹配到的数据进行删除</p>
+<p><strong>db.集合名.remove(条件,1)</strong> #只删除 第一个匹配到的数据</p>
+<p><strong>db.集合名.remove(条件,,{justOne:true})</strong> #只删除 第一个匹配到的数据</p>
+<p>示例</p>
+<pre><code class="language-sql">b.user.remove({'age':{$gt: 30}})  # 删除年龄大于30的所有数据
+b.user.remove({'age':{$gt: 30}}, 1)  # 删除年龄大于30的一条数据
+db.col.remove({})  清空集合 &quot;col&quot; 的数据
+</code></pre>
+<h5 id="3-32">(3) 3.2 版本后还有以下几种语法可用于删除文档:</h5>
+<p>remove() 方法已经过时了，现在官方推荐使用 </p>
+<p>deleteOne() 删除一条</p>
+<pre><code class="language-sql">db.user.deleteOne({'age':{$gt: 0}})
+</code></pre>
+<p>deleteMany() 删除多条</p>
+<pre><code class="language-sql">db.user.deleteMany({'age':{$gt: 0}})
+</code></pre>
+<h2 id="_5">十、数据库删除与退出</h2>
+<h5 id="1_2">(1) 数据库删除</h5>
+<ol>
+<li>删除之前 最好use一下</li>
+<li>db.dropDatabase()</li>
+</ol>
+<h5 id="2_2">(2) 数据库的退出</h5>
+<p>exit</p>
+<h2 id="pythonmongodb">十一、Python操作MongoDB</h2>
+<h3 id="1-pymongo">1、导入 pymongo</h3>
+<p><code>from pymongo import MongoClient</code></p>
+<h3 id="2-27017">2、连接服务器 端口号 27017</h3>
+<h5 id="1-mongodb">(1) 连接MongoDB</h5>
+<p>连接MongoDB我们需要使用PyMongo库里面的MongoClient，一般来说传入MongoDB的IP及端口即可，第一个参数为地址host，第二个参数为端口port，端口如果不传默认是27017。</p>
+<h5 id="2_3">(2) 代码</h5>
+<pre><code class="language-python">conn = MongoClient(&quot;localhost&quot;)
+
+MongoClient(host='127.0.0.1',port=27017)
+</code></pre>
+<h3 id="3_1">3、连接数据库</h3>
+<h6 id="db-conn">db = conn.数据库名称</h6>
+<h5 id="_6">连接集合</h5>
+<h6 id="collection-dbcollection_name">collection = db.collection_name</h6>
+<h3 id="4_1">4、插入数据</h3>
+<h5 id="1-3x">(1) 在3.x以上 建议 使用</h5>
+<p>insert_one 插入一条数据 </p>
+<p>insert_many() 插入多条数据</p>
+<h5 id="2-id-insert_one">(2) 返回 id  使用insert_one()</h5>
+<p>data.inserted_id</p>
+<p>data.inserted_ids</p>
+<h2 id="5_2">5、查询数据</h2>
+<h5 id="1_3">(1) 查询一条</h5>
+<p>db.user.find_one()</p>
+<h5 id="2_4">(2) 带条件查询</h5>
+<p>db.user.find({"name":"张三"})</p>
+<h5 id="3-id">(3) 查询 id</h5>
+<p><strong>from </strong>bson.objectid <strong>import </strong>ObjectId*#用于ID查询</p>
+<p>data = db.user.find({<strong>"_id"</strong>:ObjectId(<strong>"59a2d304b961661b209f8da1"</strong>)})</p>
+<pre><code class="language-python">data = db.user.find({'_id': ObjectId('59f290b01683f9339214746d')}) #_id': ObjectId('59f290b01683f9339214746d')
+</code></pre>
+<h5 id="5_3">(5) 模糊查询</h5>
+<ul>
+<li>
+<p>{"name":{'$regex':"张"}}</p>
+</li>
+<li>
+<p>{'xxx':re.compile('xxx')}  </p>
+</li>
+</ul>
+<h2 id="6sort-limit-skip">6、sort limit skip</h2>
+<h5 id="1-sort">(1) sort      排序</h5>
+<p>年龄 大于10</p>
+<pre><code class="language-python">data = db.user.find({&quot;age&quot;:{&quot;$gt&quot;:10}}).sort(&quot;age&quot;,1) #年龄 升序 查询  pymongo.ASCENDING   --升序
+
+data = db.user.find({&quot;age&quot;:{&quot;$gt&quot;:10}}).sort(&quot;age&quot;,-1) #年龄 降序 查询    pymongo.DESCENDING --降序
+</code></pre>
+<h5 id="2-limit">(2) limit     取值</h5>
+<h5 id="_7"><strong>取三条数据</strong></h5>
+<pre><code class="language-python">db.user.find().limit(3)
+m= db.user.find({&quot;age&quot;:{&quot;$gt&quot;:10}}).sort(&quot;age&quot;,-1).limit(3)
+</code></pre>
+<h5 id="3-skip">(3) skip      从第几条数据开始取</h5>
+<p>db.user.find().skip(2)</p>
+<h3 id="7update">7、update 修改</h3>
+<p>update()方法其实也是官方不推荐使用的方法，在这里也分了<strong>update_one()</strong>方法和<strong>update_many()</strong>方法，用法更加严格，</p>
+<h5 id="1-update_one">(1) update_one() 第一条符合条件的数据进行更新</h5>
+<p>db.user.update_one({"name":"张三"},{"$set":{"age":99}})</p>
+<h5 id="2-update_many">(2) update_many() 将所有符合条件的数据都更新</h5>
+<p>db.user.update_many({<strong>"name"</strong>:<strong>"张三"</strong>},{<strong>"$set"</strong>:{<strong>"age"</strong>:91}})</p>
+<p><strong>(3)</strong> 其返回结果是UpdateResult类型，然后调用<strong>matched_count</strong>和<strong>modified_count</strong>属性分别可以获得匹配的数据条数和影响的数据条数。</p>
+<ul>
+<li>result.matched_count</li>
+<li>result.modified_count</li>
+</ul>
+<h3 id="8remove">8、remove 删除</h3>
+<p>删除操作比较简单，直接调用remove()方法指定删除的条件即可，符合条件的所有数据均会被删除，</p>
+<h5 id="1_4">(1) 删除一条</h5>
+<p>delete_one()即删除第一条符合条件的数据</p>
+<p>collection.delete_one({“name”:“ Kevin”})</p>
+<h5 id="2_5">(2) 删除多条</h5>
+<p>delete_many()即删除所有符合条件的数据，返回结果是DeleteResult类型</p>
+<p>collection.delete_many({“age”: {$lt:25}})</p>
+<h5 id="4-deleted_count">(4) 可以调用deleted_count属性获取删除的数据条数。</h5>
+<p>result.deleted_count</p>
+<h3 id="9">9、关闭连接</h3>
+<p>conn.close()</p>
+
+
+</section>
+</div> <!-- end of search-noresults -->
+<div class="search-results">
+<div class="has-results">
+
+<h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+<ul class="search-results-list"></ul>
+
+</div> <!-- end of has-results -->
+<div class="no-results">
+
+<h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+
+</div> <!-- end of no-results -->
+</div> <!-- end of search-results -->
+</div> <!-- end of book-search-results -->
+
+</div> <!-- end of page-inner -->
+</div> <!-- end of page-wrapper -->
+
+</div> <!-- end of body-inner -->
+
+</div> <!-- end of book-body -->
+<script src="./js/main.js"></script>
+<script src="search/main.js"></script>
+<script src="./js/gitbook.min.js"></script>
+<script src="./js/theme.min.js"></script>
+</body>
+</html>

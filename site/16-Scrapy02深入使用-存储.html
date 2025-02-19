@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>十六、Scrapy深入使用-存储 - js node</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="generator" content="mkdocs-1.6.1, mkdocs-gitbook-1.0.7">
+
+<link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta rel="next" href="" />
+<link href="./css/style.min.css" rel="stylesheet"> 
+</head>
+
+<body>
+<div class="book">
+<div class="book-summary">
+<div id="book-search-input" role="search">
+<input type="text" placeholder="Type to search" />
+</div> <!-- end of book-search-input -->
+
+<nav role="navigation">
+<ul class="summary">
+<li>
+<a href="index.html" target="_blank" class="custom-link">js node</a>
+</li>
+<li class="divider"></li>
+<li class="chapter" data-path="index.html">
+<a href="index.html">Welcome to MkDocs</a>
+<li class="chapter" data-path="01%E3%80%81html.html">
+<a href="01%E3%80%81html.html">一、HTML</a>
+<li class="chapter" data-path="02%E3%80%81CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8.html">
+<a href="02%E3%80%81CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8.html">二、CSS层叠样式表</a>
+<li class="chapter" data-path="03%E3%80%81%E6%AD%A3%E5%88%99.html">
+<a href="03%E3%80%81%E6%AD%A3%E5%88%99.html">三、正则</a>
+<li class="chapter" data-path="04%E3%80%81BS4%E8%A7%A3%E6%9E%90%E5%AE%8C%E6%95%B4.html">
+<a href="04%E3%80%81BS4%E8%A7%A3%E6%9E%90%E5%AE%8C%E6%95%B4.html">四、beautifulsoup</a>
+<li class="chapter" data-path="05%E3%80%81xpath.html">
+<a href="05%E3%80%81xpath.html">五、xpath</a>
+<li class="chapter" data-path="06%E3%80%81%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E4%B8%8Eurllib%26requests.html">
+<a href="06%E3%80%81%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E4%B8%8Eurllib%26requests.html">六、爬虫入门</a>
+<li class="chapter" data-path="07%E3%80%81urllib%E4%B8%8Erequests.html">
+<a href="07%E3%80%81urllib%E4%B8%8Erequests.html">七、urllib与requests</a>
+<li class="chapter" data-path="08%E3%80%81%E5%A4%9A%E8%BF%9B%E7%A8%8B.html">
+<a href="08%E3%80%81%E5%A4%9A%E8%BF%9B%E7%A8%8B.html">八、多进程</a>
+<li class="chapter" data-path="09%E3%80%81%E7%BA%BF%E7%A8%8B.html">
+<a href="09%E3%80%81%E7%BA%BF%E7%A8%8B.html">九、线程</a>
+<li class="chapter" data-path="10%E3%80%81%E5%8D%8F%E7%A8%8B.html">
+<a href="10%E3%80%81%E5%8D%8F%E7%A8%8B.html">十、携程</a>
+<li class="chapter" data-path="11%E3%80%81selenium.html">
+<a href="11%E3%80%81selenium.html">十一、selenium</a>
+<li class="chapter" data-path="12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.html">
+<a href="12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.html">十二、MySQL数据库</a>
+<li class="chapter" data-path="13%E3%80%81Mongodb.html">
+<a href="13%E3%80%81Mongodb.html">十三、Mongodb</a>
+<li class="chapter" data-path="14%E3%80%81redis.html">
+<a href="14%E3%80%81redis.html">十四、Redis数据库</a>
+<li class="chapter" data-path="15%E3%80%81%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.html">
+<a href="15%E3%80%81%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.html">十五、面向对象</a>
+<li class="chapter" data-path="16-Scrapy01-%E6%A1%86%E6%9E%B6%E5%88%9D%E8%AE%A4%E8%AF%86.html">
+<a href="16-Scrapy01-%E6%A1%86%E6%9E%B6%E5%88%9D%E8%AE%A4%E8%AF%86.html">十六、Scrapy框架初认识</a>
+<li class="chapter active" data-path="16-Scrapy02%E6%B7%B1%E5%85%A5%E4%BD%BF%E7%94%A8-%E5%AD%98%E5%82%A8.html">
+<a href="16-Scrapy02%E6%B7%B1%E5%85%A5%E4%BD%BF%E7%94%A8-%E5%AD%98%E5%82%A8.html">十六、Scrapy深入使用-存储</a>
+<li class="chapter" data-path="16-Scrapy03-%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86%E4%BB%A5%E5%8F%8A%E5%88%86%E9%A1%B5.html">
+<a href="16-Scrapy03-%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86%E4%BB%A5%E5%8F%8A%E5%88%86%E9%A1%B5.html">十六、scrapy模拟登陆&amp;分页</a>
+<li class="chapter" data-path="16-Scrapy04-%E4%B8%AD%E9%97%B4%E4%BB%B6.html">
+<a href="16-Scrapy04-%E4%B8%AD%E9%97%B4%E4%BB%B6.html">十六、Scrapy中间件</a>
+<li class="chapter" data-path="16-Scrapy05-%E5%88%86%E9%A1%B5%E6%8A%93%E5%8F%96.html">
+<a href="16-Scrapy05-%E5%88%86%E9%A1%B5%E6%8A%93%E5%8F%96.html">十六、scrapy的crawlspider爬虫</a>
+<li class="chapter" data-path="16-Scrapy06-scrapy_redis.html">
+<a href="16-Scrapy06-scrapy_redis.html">十六、scrapy_redis</a>
+<li class="chapter" data-path="17%E3%80%81js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html">
+<a href="17%E3%80%81js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html">十七、js数据类型</a>
+<li class="chapter" data-path="18%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%8E%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6.html">
+<a href="18%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%8E%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6.html">十八、js运算符与流程控制</a>
+<li class="chapter" data-path="19%E3%80%81js%E6%95%B0%E7%BB%84.html">
+<a href="19%E3%80%81js%E6%95%B0%E7%BB%84.html">十九、js数组</a>
+<li class="chapter" data-path="20%E3%80%81js%E5%AD%97%E7%AC%A6%E4%B8%B2.html">
+<a href="20%E3%80%81js%E5%AD%97%E7%AC%A6%E4%B8%B2.html">二十、js字符串</a>
+<li class="chapter" data-path="21%E3%80%81js%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%97%B6%E9%97%B4.html">
+<a href="21%E3%80%81js%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%97%B6%E9%97%B4.html">二十一、js对象与时间</a>
+<li class="chapter" data-path="22%E3%80%81%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89.html">
+<a href="22%E3%80%81%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89.html">二十二、js函数</a>
+<li class="chapter" data-path="23%E3%80%81js%E8%BF%9B%E9%98%B6.html">
+<a href="23%E3%80%81js%E8%BF%9B%E9%98%B6.html">二十三、Javascript进阶</a>
+<li class="chapter" data-path="24%E3%80%81BOM%E6%93%8D%E4%BD%9C.html">
+<a href="24%E3%80%81BOM%E6%93%8D%E4%BD%9C.html">二十四、浏览器对象模型BOM</a>
+<li class="chapter" data-path="25%E3%80%81DOM%E6%93%8D%E4%BD%9C.html">
+<a href="25%E3%80%81DOM%E6%93%8D%E4%BD%9C.html">二十五、DOM操作</a>
+<li class="chapter" data-path="26%E3%80%81jQuery%E6%93%8D%E4%BD%9C.html">
+<a href="26%E3%80%81jQuery%E6%93%8D%E4%BD%9C.html">二十六、jQuery</a>
+<li class="chapter" data-path="27%E3%80%81%E9%80%86%E5%90%9101.html">
+<a href="27%E3%80%81%E9%80%86%E5%90%9101.html">二十七、JS逆向01</a>
+<li class="chapter" data-path="28%E3%80%81%E9%80%86%E5%90%9102.html">
+<a href="28%E3%80%81%E9%80%86%E5%90%9102.html">二十八、逆向02</a>
+<li class="chapter" data-path="29%E3%80%81%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html">
+<a href="29%E3%80%81%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html">二十九、微信小程序逆向开发</a>
+<li class="chapter" data-path="30%E3%80%81%E7%BD%91%E6%98%93%E6%BB%91%E5%9D%97.html">
+<a href="30%E3%80%81%E7%BD%91%E6%98%93%E6%BB%91%E5%9D%97.html">三十、网易易盾</a>
+<li class="chapter" data-path="31%E3%80%81rpc.html">
+<a href="31%E3%80%81rpc.html">三十一、RPC</a>
+<li class="chapter" data-path="32%E3%80%81TLS%E6%8C%87%E7%BA%B9%E7%BB%95%E8%BF%87.html">
+<a href="32%E3%80%81TLS%E6%8C%87%E7%BA%B9%E7%BB%95%E8%BF%87.html">三十二、TLS指纹绕过</a>
+<li class="chapter" data-path="33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">
+<a href="33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">三十三、高级逆向</a>
+<li class="chapter" data-path="34%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">
+<a href="34%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">三十四、高级逆向</a>
+<li class="chapter" data-path="%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B%E7%AC%94%E8%AE%B0.html">
+<a href="%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B%E7%AC%94%E8%AE%B0.html">逆向实战案例笔记</a>
+<li class="header">Pyexecjs与npm配置</li>
+
+<li>
+<a href="pyexecjs%E4%B8%8Enpm%E9%85%8D%E7%BD%AE/execjs%E4%BB%8B%E7%BB%8D%E4%BB%A5%E5%8F%8A%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8.html" class="">Execjs介绍以及安装和使用</a>
+</li>
+
+<li>
+<a href="pyexecjs%E4%B8%8Enpm%E9%85%8D%E7%BD%AE/%E4%B8%80%E6%AC%A1%E6%80%A7%E8%A7%A3%E5%86%B3%E6%8E%89npm%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5%E7%9A%84%E9%97%AE%E9%A2%98.html" class="">更换npm为国内镜像</a>
+</li>
+
+<li class="header">补环境</li>
+
+<li>
+<a href="%E8%A1%A5%E7%8E%AF%E5%A2%83/1%E3%80%81%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8E%E4%BA%8B%E4%BB%B6.html" class="">补环境</a>
+</li>
+
+<li>
+<a href="%E8%A1%A5%E7%8E%AF%E5%A2%83/2%E3%80%81Proxy%E4%BB%A3%E7%90%86%E5%99%A8.html" class="">Proxy代理</a>
+</li>
+
+<li>
+<a href="%E8%A1%A5%E7%8E%AF%E5%A2%83/3%E3%80%81vm2%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83.html" class="">3、vm2运行环境</a>
+</li>
+
+<li class="divider"></li>
+
+
+
+<li><a href="http://www.mkdocs.org">
+Published with MkDocs
+</a></li>
+
+<li><a href="https://github.com/GitbookIO/theme-default">
+Theme by GitBook
+</a></li>
+</ul>
+
+</nav>
+
+</div> <!-- end of book-summary -->
+
+<div class="book-body">
+<div class="body-inner">
+<div class="book-header" role="navigation">
+
+<!-- Title -->
+<h1>
+<i class="fa fa-circle-o-notch fa-spin"></i>
+<a href="." ></a>
+</h1>
+
+</div> <!-- end of book-header -->
+
+<div class="page-wrapper" tabindex="-1" role="main">
+<div class="page-inner">
+<div id="book-search-results">
+<div class="search-noresults">
+
+<section class="normal markdown-section">
+
+
+
+<h1 id="scrapy-">十六、Scrapy深入使用-存储</h1>
+<h2 id="scrapy">scrapy的深入使用</h2>
+<h5 id="_1">学习目标：</h5>
+<ol>
+<li>了解 scrapy debug信息</li>
+<li>了解 scrapy shell的使用</li>
+<li>掌握 scrapy的settings.py设置</li>
+<li>掌握 scrapy管道(pipelines.py)的使用</li>
+<li>掌握scrapy下载图片</li>
+</ol>
+<hr />
+<h3 id="1scrapydebug">1、了解scrapy的debug信息</h3>
+<p><img alt="scrapy_debug" src="imgs/16-Scrapy02%E6%B7%B1%E5%85%A5%E4%BD%BF%E7%94%A8-%E5%AD%98%E5%82%A8.assets/1111.png" /></p>
+<h3 id="2scrapyshell">2、了解scrapyShell</h3>
+<p>scrapy shell是scrapy提供的一个终端工具，能够通过它查看scrapy中对象的属性和方法，以及测试xpath</p>
+<p>使用方法：</p>
+<pre><code class="language-linux">scrapy shell http://www.baidu.com
+</code></pre>
+<p>在终端输入上述命令后，能够进入python的交互式终端，此时可以使用：</p>
+<ul>
+<li>response.xpath()：直接测试xpath规则是否正确</li>
+<li>response.url：当前响应的url地址</li>
+<li>response.request.url：当前响应对应的请求的url地址</li>
+<li>response.headers：响应头</li>
+<li>response.body：响应体，也就是html代码，默认是byte类型</li>
+<li>response.request.headers：当前响应的请求头</li>
+<li>response.encoding      获取以及设定编码</li>
+<li>response.css(query) ：CSS 指层叠样式表（Cascading Style Sheets）。 在我们的 CSS 教程中，您将学习如何使用 CSS 同时控制整个站点的样式和布局</li>
+</ul>
+<p><strong>css方法的使用</strong></p>
+<pre><code class="language-python">response.css('css选择器')  返回值是Selector对象
+response.css('css选择器').extract_first()   #获取一个
+response.css('css选择器').extract()  # 获取全部
+response.css('css选择器::attr(属性名)').extract()  # 获取其中某个属性
+response.css('css选择器::text').extract()  #获取标签里的文本
+</code></pre>
+<h3 id="3settingspy">3、settings.py中的设置信息</h3>
+<h5 id="31">3.1 为什么项目中需要配置文件</h5>
+<p>在配置文件中存放一些公共变量，在后续的项目中方便修改，如：本地测试数据库和部署服务器的数据库不一致</p>
+<h5 id="32">3.2 配置文件中的变量使用方法</h5>
+<ol>
+<li>变量名一般全部大写</li>
+<li>导入即可使用</li>
+</ol>
+<h5 id="33-settingspy">3.3 settings.py中的重点字段和含义</h5>
+<ul>
+<li>
+<p>USER_AGENT 设置ua</p>
+</li>
+<li>
+<p>ROBOTSTXT_OBEY 是否遵守robots协议，默认是遵守</p>
+</li>
+<li>
+<p>CONCURRENT_REQUESTS 设置并发请求的数量，默认是16个</p>
+</li>
+<li>
+<p>DOWNLOAD_DELAY 下载延迟，默认无延迟 （下载器在从同一网站下载连续页面之前应等待的时间（以秒为单位）。这可以用来限制爬行速度，以避免对服务器造成太大影响）</p>
+</li>
+<li>
+<p>COOKIES_ENABLED 是否开启cookie，即每次请求带上前一次的cookie，默认是开启的</p>
+</li>
+<li>
+<p>DEFAULT_REQUEST_HEADERS 设置默认请求头，这里加入了USER_AGENT将不起作用</p>
+</li>
+<li>
+<p>SPIDER_MIDDLEWARES 爬虫中间件，设置过程和管道相同</p>
+</li>
+<li>
+<p>DOWNLOADER_MIDDLEWARES 下载中间件</p>
+</li>
+<li>
+<p>LOG_LEVEL 控制终端输出信息的log级别，终端默认显示的是debug级别的log信息</p>
+</li>
+<li>
+<p>LOG_LEVEL = "WARNING"</p>
+<ul>
+<li>CRITICAL  严重</li>
+<li>ERROR  错误</li>
+<li>WARNING  警告</li>
+<li>INFO  消息</li>
+<li>DEBUG   调试</li>
+</ul>
+</li>
+<li>
+<p>LOG_FILE 设置log日志文件的保存路径，如果设置该参数，终端将不再显示信息</p>
+</li>
+</ul>
+<p>LOG_FILE = "./test.log"</p>
+<ul>
+<li>其他设置参考：https://www.jianshu.com/p/df9c0d1e9087</li>
+</ul>
+<h3 id="4pipeline">4、pipeline管道的深入使用</h3>
+<blockquote>
+<p>之前我们在scrapy入门使用一节中学习了管道的基本使用，接下来我们深入的学习scrapy管道的使用</p>
+</blockquote>
+<h4 id="41">4.1 使用终端命令行进行存储</h4>
+<ul>
+<li>代码配置</li>
+</ul>
+<p>/myspider/myspider/spiders/ITSpider.py</p>
+<p>```python
+  class ITSpider(scrapy.Spider):
+      name = 'ITSpider'
+      # allowed_domains = ['www.xxx.com']
+      start_urls = ['https://duanzixing.com/page/1/']</p>
+<pre><code>  # 通过终端写入文件的方式
+  def parse(self, response):
+      article_list = response.xpath('/html/body/section/div/div/article')
+      # 创建列表， 存储数据
+      all_data = []
+      for article in article_list:
+          title = article.xpath('./header/h2/a/text()').extract_first()
+          con = article.xpath('./p[2]/text()').extract_first()
+          dic = {
+              'title': title,
+              'con': con
+          }
+          all_data.append(dic)
+      return all_data
+</code></pre>
+<p>```</p>
+<ul>
+<li>终端命令</li>
+</ul>
+<p>scrapy crawl ITSpider -o ITSpider.csv  </p>
+<p>将文件存储到ITSpider.csv  文件中</p>
+<h4 id="42">4.2 使用管道存储到文件中</h4>
+<h5 id="1-httpsmoviedoubancomchart">(1) 抓取网站：https://movie.douban.com/chart</h5>
+<h5 id="2">(2) 创建工程</h5>
+<ul>
+<li>
+<p>scrapy startproject doubanfile</p>
+</li>
+<li>
+<p>cd doubanfile</p>
+</li>
+<li>
+<p>scrapy genspider db movie.douban.com/chart</p>
+</li>
+</ul>
+<h5 id="3">(3) 抓取需求与实现</h5>
+<p><strong>抓取：</strong></p>
+<ul>
+<li>封面</li>
+<li>电影名称</li>
+<li>主演</li>
+</ul>
+<h5 id="4-settingspy">(4) 配置settings.py</h5>
+<pre><code>LOG_LEVEL = 'ERROR'
+ROBOTSTXT_OBEY = False
+</code></pre>
+<h5 id="5-dbpy">(5) db.py中实现</h5>
+<p>先抓取每一行数据的tr列表</p>
+<pre><code class="language-python">import scrapy
+
+
+class DbSpider(scrapy.Spider):
+    name = 'db'
+    allowed_domains = ['https://movie.douban.com/chart']
+    start_urls = ['https://movie.douban.com/chart']
+
+    def parse(self, resp, **kwargs):
+        print(resp.text)
+        # 先获取到每一行数据的tr
+        tr_list = resp.xpath('//div[@class=&quot;indent&quot;]/div/table/tr[@class=&quot;item&quot;]')
+        print(tr_list)
+</code></pre>
+<p>此刻运行打印</p>
+<p>srapy crawl db</p>
+<p>发现无任何打印，将LOG_LEVEL = 'ERROR' 更改为 INFO  ，发现此刻请求没有权限</p>
+<p><img alt="image-20220907143413102" src="Scrapy02-存储.assets/image-20220907143413102.png" /></p>
+<p>发现问题所在后修改settings.py</p>
+<p>在默认请求头<code>DEFAULT_REQUEST_HEADERS</code>中添加<code>User-Agent</code></p>
+<pre><code class="language-python">DEFAULT_REQUEST_HEADERS = {
+  'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'Accept-Language': 'en',
+  'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36'
+}
+</code></pre>
+<p>再次请求，成功</p>
+<h5 id="6-dbpy">(6) db.py完整实现</h5>
+<pre><code class="language-python">import scrapy
+import re
+
+class DbSpider(scrapy.Spider):
+    name = 'db'
+    allowed_domains = ['https://movie.douban.com/chart']
+    start_urls = ['https://movie.douban.com/chart']
+
+    def parse(self, resp, **kwargs):
+        # print(resp.text)
+        # 先获取到每一行数据的tr
+        tr_list = resp.xpath('//div[@class=&quot;indent&quot;]/div/table/tr[@class=&quot;item&quot;]')
+        for tr in tr_list:
+            # 获取封面
+            img_src = tr.xpath('./td[1]/a/img/@src').extract_first()
+            # 电影名称
+            name = tr.xpath('./td[2]/div[@class=&quot;pl2&quot;]/a//text()').extract_first()
+            # 去除空白字符使用replace替换
+            # name = name.replace('\n', '').replace('\r', '').replace('/', '').replace(' ', '')
+            # 去除空白字符使用正则替换
+            name = re.sub('(/)|(\s)', '', name)
+            # 主演
+            to_star = tr.xpath('./td[2]/div[@class=&quot;pl2&quot;]/p[@class=&quot;pl&quot;]/text()').extract_first()
+</code></pre>
+<h5 id="7-itemspy">(7) 打开items.py文件</h5>
+<p>添加如下代码</p>
+<p>属性名称和当前爬虫db.py中抓到要存储数据的变量一致 否则报错</p>
+<pre><code class="language-python">import scrapy
+
+
+class DoubanfileItem(scrapy.Item):
+    # define the fields for your item here like:
+    # name = scrapy.Field()
+    img_src = scrapy.Field()
+    name = scrapy.Field()
+    to_star = scrapy.Field()
+</code></pre>
+<h5 id="8-dbpy">(8) db.py 再次进行修改</h5>
+<pre><code class="language-python">import scrapy
+import re
+from doubanfile.items import DoubanfileItem
+
+class DbSpider(scrapy.Spider):
+    name = 'db'
+    allowed_domains = ['https://movie.douban.com/chart']
+    start_urls = ['https://movie.douban.com/chart']
+
+    def parse(self, resp, **kwargs):
+        item = DoubanfileItem()  # 实例化item类
+        # print(resp.text)
+        # 先获取到每一行数据的tr
+        tr_list = resp.xpath('//div[@class=&quot;indent&quot;]/div/table/tr[@class=&quot;item&quot;]')
+        for tr in tr_list:
+            # 获取封面
+            item['img_src'] = tr.xpath('./td[1]/a/img/@src').extract_first()
+            # 电影名称
+            name = tr.xpath('./td[2]/div[@class=&quot;pl2&quot;]/a//text()').extract_first()
+            # 去除空白字符使用replace替换
+            # name = name.replace('\n', '').replace('\r', '').replace('/', '').replace(' ', '')
+            # 去除空白字符使用正则替换
+            item['name'] = re.sub('(/)|(\s)', '', name)
+            # 主演
+            item['to_star'] = tr.xpath('./td[2]/div[@class=&quot;pl2&quot;]/p[@class=&quot;pl&quot;]/text()').extract_first()
+            yield item
+</code></pre>
+<p>思考：为什么要使用yield？</p>
+<ol>
+<li>让整个函数变成一个生成器，有什么好处呢？</li>
+<li>遍历这个函数的返回值的时候，挨个把数据读到内存，不会造成内存的瞬间占用过高</li>
+<li>python3中的range和python2中的xrange同理</li>
+</ol>
+<p><strong>注意：yield能够传递的对象只能是：BaseItem,Request,dict,None</strong></p>
+<h5 id="8">(8) 开启管道</h5>
+<p>pipeline中常用的方法：</p>
+<ol>
+<li>process_item(self,item,spider):实现对item数据的处理</li>
+<li>open_spider(self, spider): 在爬虫开启的时候仅执行一次</li>
+<li>close_spider(self, spider): 在爬虫关闭的时候仅执行一次</li>
+</ol>
+<p>settings.py 打开当前注释</p>
+<pre><code class="language-python">ITEM_PIPELINES = {
+   'doubanfile.pipelines.DoubanfilePipeline': 300,
+}
+</code></pre>
+<h5 id="9-pipelinespy">(9) 在pipelines.py代码中完善（设置文件存储）</h5>
+<pre><code class="language-python">class DoubanfilePipeline:
+    f = None
+    def open_spider(self, item):
+        self.f = open('./db.text', 'w')
+    def process_item(self, item, spider):
+        print(item)
+        self.f.write(item['img_src']+'\n')
+        self.f.write(item['name']+'\n')
+        self.f.write(item['to_star']+'\n')
+        return item
+
+    def close_spider(self, item):
+        self.f.close()
+</code></pre>
+<p><strong>注意：</strong></p>
+<p>当前process_item中的return item必须存在，如果当前爬虫存在于多个管道的时候，如果没有return item 则下一个管道不能获取到当前的item数据</p>
+<h4 id="43-mysql">4.3 存储到MySQL数据库中</h4>
+<h5 id="1-httpsmoviedoubancomchart_1">(1) 抓取网站：https://movie.douban.com/chart</h5>
+<h5 id="2_1">(2) 创建工程</h5>
+<ul>
+<li>
+<p>scrapy startproject doubanmysql</p>
+</li>
+<li>
+<p>cd doubanmysql</p>
+</li>
+<li>
+<p>scrapy genspider db movie.douban.com/chart</p>
+</li>
+</ul>
+<h5 id="3_1">(3) 抓取需求与实现</h5>
+<p><strong>抓取：</strong></p>
+<ul>
+<li>封面</li>
+<li>电影名称</li>
+<li>主演</li>
+</ul>
+<h5 id="4-settingspy_1">(4) 配置settings.py</h5>
+<pre><code class="language-python"># 设置日志级别
+LOG_LEVEL = 'ERROR'
+ROBOTSTXT_OBEY = False
+# 设置请求头
+DEFAULT_REQUEST_HEADERS = {
+  'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'Accept-Language': 'en',
+  'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36'
+}
+# 开启管道
+ITEM_PIPELINES = {
+   'doubanmysql.pipelines.DoubanmysqlPipeline': 300,
+}
+</code></pre>
+<h5 id="5">(5) 创建豆瓣数据库</h5>
+<pre><code class="language-sql">create database douban character set utf8;
+use douban
+CREATE TABLE `douban` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `img_src` varchar(200) NOT NULL COMMENT '封面地址',
+  `name` varchar(50) NOT NULL COMMENT '电影名称',
+  `to_star` varchar(250) NOT NULL COMMENT '主演',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
+</code></pre>
+<p><strong>示例SQL语句</strong></p>
+<pre><code class="language-python">insert into info(img_src, name, to_star) values(&quot;https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2673202034.webp&quot;, &quot;尼罗河上的惨案 Death on the Nile&quot;, &quot;肯尼思·布拉纳&quot;, &quot;迈克尔·格林 / 阿加莎·克里斯蒂&quot;, &quot;肯尼思·布拉纳艾玛·麦基/艾米·汉莫/珍妮弗·桑德斯/苏菲·奥康内多/安妮特·贝宁/妮基塔·查达哈/汤姆·巴特曼/亚当·加西亚/汉/爱德华·刘易斯·弗伦奇/拉普洛斯·卡伦福佐斯&quot;)
+</code></pre>
+<h5 id="6-itemspy">(6) items.py</h5>
+<pre><code class="language-python">import scrapy
+
+
+class DoubanmysqlItem(scrapy.Item):
+    # define the fields for your item here like:
+    # name = scrapy.Field()
+    img_src = scrapy.Field()
+    name = scrapy.Field()
+    to_star = scrapy.Field()
+</code></pre>
+<h5 id="7-dbpy">(7) db.py</h5>
+<pre><code class="language-python">import scrapy
+from doubanmysql.items import DoubanmysqlItem
+import re
+
+class DbSpider(scrapy.Spider):
+    name = 'db'
+    allowed_domains = ['movie.douban.com/chart']
+    start_urls = ['http://movie.douban.com/chart/']
+
+    def parse(self, resp, **kwargs):
+        item = DoubanmysqlItem()  # 实例化item类
+        # print(resp.text)
+        # 先获取到每一行数据的tr
+        tr_list = resp.xpath('//div[@class=&quot;indent&quot;]/div/table/tr[@class=&quot;item&quot;]')
+        for tr in tr_list:
+            # 获取封面
+            item['img_src'] = tr.xpath('./td[1]/a/img/@src').extract_first()
+            # 电影名称
+            name = tr.xpath('./td[2]/div[@class=&quot;pl2&quot;]/a//text()').extract_first()
+            # 去除空白字符使用replace替换
+            # name = name.replace('\n', '').replace('\r', '').replace('/', '').replace(' ', '')
+            # 去除空白字符使用正则替换
+            item['name'] = re.sub('(/)|(\s)', '', name)
+            # 主演
+            item['to_star'] = tr.xpath('./td[2]/div[@class=&quot;pl2&quot;]/p[@class=&quot;pl&quot;]/text()').extract_first()
+            yield item
+</code></pre>
+<h5 id="8_1">(8) 管道代码</h5>
+<pre><code class="language-python">from itemadapter import ItemAdapter
+import pymysql
+
+class DoubanmysqlPipeline:
+    db = None
+    cursor = None
+    def open_spider(self, spider):
+        # 判断当前运行的是否为db爬虫，不是db爬虫则下面代码不执行
+        # 当前仅限于一个scrapy下有多个爬虫工程
+        if spider.name == 'db':
+            self.db = pymysql.connect(host='127.0.0.1', port=3306, db='douban', user='root', passwd='123456', charset='utf8')
+            self.cursor = self.db.cursor()
+
+    def process_item(self, item, spider):
+        # 判断当前运行的是否为db爬虫
+        if spider.name == 'db':
+            try:
+                sql = f'insert into douban(img_src, name, to_star) values(&quot;{item[&quot;img_src&quot;]}&quot;, &quot;{item[&quot;name&quot;]}&quot;, &quot;{item[&quot;to_star&quot;]}&quot;)'
+                self.cursor.execute(sql)
+                self.db.commit()
+            except Exception as e:
+                print(e)
+                print(sql)
+                self.db.rollback()
+                return item
+    def close_spider(self, item):
+        # 关闭数据库连接
+        self.db.close()
+</code></pre>
+<h5 id="9">(9) 运行爬虫</h5>
+<p>scrapy crawl db</p>
+<p>查看终端数据是否有报错，如果没有报错查看数据库数据是否存储成功</p>
+<p><img alt="image-20220907153347418" src="imgs/16-Scrapy02%E6%B7%B1%E5%85%A5%E4%BD%BF%E7%94%A8-%E5%AD%98%E5%82%A8.assets/image-20220907153347418.png" /></p>
+<h4 id="44-mongodb">4.4 存储到MongoDB数据库中</h4>
+<h5 id="1-httpsmoviedoubancomchart_2">(1) 抓取网站：https://movie.douban.com/chart</h5>
+<h5 id="2_2">(2) 创建工程</h5>
+<ul>
+<li>
+<p>scrapy startproject doubanmongodb</p>
+</li>
+<li>
+<p>cd doubanmongodb</p>
+</li>
+<li>
+<p>scrapy genspider db movie.douban.com/chart</p>
+</li>
+</ul>
+<h5 id="3_2">(3) 抓取需求与实现</h5>
+<p><strong>抓取：</strong></p>
+<ul>
+<li>封面</li>
+<li>电影名称</li>
+<li>主演</li>
+</ul>
+<h5 id="4-settingspy_2">(4) 配置settings.py</h5>
+<pre><code class="language-python"># 设置日志级别
+LOG_LEVEL = 'ERROR'
+ROBOTSTXT_OBEY = False
+# 设置请求头
+DEFAULT_REQUEST_HEADERS = {
+  'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'Accept-Language': 'en',
+  'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36'
+}
+# 开启管道
+ITEM_PIPELINES = {
+   'doubanmongodb.pipelines.DoubanmongodbPipeline': 300,
+}
+</code></pre>
+<h5 id="5-itemspy">(5) items.py</h5>
+<pre><code class="language-python">import scrapy
+
+
+class DoubanmongodbItem(scrapy.Item):
+    # define the fields for your item here like:
+    # name = scrapy.Field()
+    img_src = scrapy.Field()
+    name = scrapy.Field()
+    to_star = scrapy.Field()
+</code></pre>
+<h5 id="6-dbpy_1">(6) db.py</h5>
+<pre><code class="language-python">import scrapy
+from doubanmongodb.items import DoubanmongodbItem
+import re
+
+
+class DbSpider(scrapy.Spider):
+    name = 'db'
+    allowed_domains = ['movie.douban.com/chart']
+    start_urls = ['http://movie.douban.com/chart/']
+
+    def parse(self, resp, **kwargs):
+        item = DoubanmongodbItem()  # 实例化item类
+        # print(resp.text)
+        # 先获取到每一行数据的tr
+        tr_list = resp.xpath('//div[@class=&quot;indent&quot;]/div/table/tr[@class=&quot;item&quot;]')
+        for tr in tr_list:
+            # 获取封面
+            item['img_src'] = tr.xpath('./td[1]/a/img/@src').extract_first()
+            # 电影名称
+            name = tr.xpath('./td[2]/div[@class=&quot;pl2&quot;]/a//text()').extract_first()
+            # 去除空白字符使用replace替换
+            # name = name.replace('\n', '').replace('\r', '').replace('/', '').replace(' ', '')
+            # 去除空白字符使用正则替换
+            item['name'] = re.sub('(/)|(\s)', '', name)
+            # 主演
+            item['to_star'] = tr.xpath('./td[2]/div[@class=&quot;pl2&quot;]/p[@class=&quot;pl&quot;]/text()').extract_first()
+            yield item
+</code></pre>
+<h5 id="7">(7) 管道代码</h5>
+<pre><code class="language-python">from itemadapter import ItemAdapter
+from pymongo import MongoClient
+
+class DoubanmongodbPipeline:
+    con = None
+    collection = None
+    def open_spider(self, spider):  # 在爬虫开启的时候仅执行一次
+        if spider.name == 'db':
+            self.con = MongoClient(host='127.0.0.1', port=27017) # 实例化mongoclient
+            self.collection = self.con.spider.douban  # 创建数据库名为spider,集合名为douban的集合操作对象
+
+    def process_item(self, item, spider):
+        if spider.name == 'db':
+            # print(spider.name)
+            self.collection.insert_one(dict(item)) # 此时item对象需要先转换为字典,再插入
+        # 不return的情况下，另一个权重较低的pipeline将不会获得item
+        return item
+
+    def close_spider(self, item):
+        # 关闭数据库连接
+        self.con.close()
+</code></pre>
+<p><strong>注意：</strong></p>
+<p>需要开启mongo服务</p>
+<p>mongod.exe  --dbpath=C:/User/xxx/db</p>
+<p>新开终端</p>
+<p>mongo.exe</p>
+<h5 id="8_2">(8) 运行爬虫</h5>
+<p>scrapy crawl db</p>
+<p>查看终端数据是否有报错，如果没有报错查看数据库数据是否存储成功</p>
+<p><img alt="image-20220907154832959" src="imgs/16-Scrapy02%E6%B7%B1%E5%85%A5%E4%BD%BF%E7%94%A8-%E5%AD%98%E5%82%A8.assets/image-20220907154832959.png" /></p>
+<h4 id="45-mysqlmongodb">4.5 数据同时存储到文件、MySQL、MongoDB中</h4>
+<h5 id="1-httpsmoviedoubancomchart_3">(1) 抓取网站：https://movie.douban.com/chart</h5>
+<h5 id="2_3">(2) 创建工程</h5>
+<ul>
+<li>
+<p>scrapy startproject douban</p>
+</li>
+<li>
+<p>cd douban</p>
+</li>
+<li>
+<p>scrapy genspider db movie.douban.com/chart</p>
+</li>
+</ul>
+<h5 id="3_3">(3) 抓取需求与实现</h5>
+<p><strong>抓取：</strong></p>
+<ul>
+<li>封面</li>
+<li>电影名称</li>
+<li>主演</li>
+</ul>
+<h5 id="4-settingspy_3">(4) 配置settings.py</h5>
+<pre><code class="language-python"># 设置日志级别
+LOG_LEVEL = 'ERROR'
+ROBOTSTXT_OBEY = False
+# 设置请求头
+DEFAULT_REQUEST_HEADERS = {
+  'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'Accept-Language': 'en',
+  'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36'
+}
+# 开启管道
+ITEM_PIPELINES = {
+   'douban.pipelines.DoubanPipeline': 300,
+}
+</code></pre>
+<h5 id="5-itemspy_1">(5) items.py</h5>
+<pre><code class="language-python">import scrapy
+
+
+class DoubanItem(scrapy.Item):
+    # define the fields for your item here like:
+    # name = scrapy.Field()
+    img_src = scrapy.Field()
+    name = scrapy.Field()
+    to_star = scrapy.Field()
+</code></pre>
+<h5 id="6-dbpy_2">(6) db.py</h5>
+<pre><code class="language-python">import scrapy
+from douban.items import DoubanItem
+import re
+
+
+class DbSpider(scrapy.Spider):
+    name = 'db'
+    allowed_domains = ['movie.douban.com/chart']
+    start_urls = ['http://movie.douban.com/chart/']
+
+    def parse(self, resp, **kwargs):
+        item = DoubanItem()  # 实例化item类
+        # print(resp.text)
+        # 先获取到每一行数据的tr
+        tr_list = resp.xpath('//div[@class=&quot;indent&quot;]/div/table/tr[@class=&quot;item&quot;]')
+        for tr in tr_list:
+            # 获取封面
+            item['img_src'] = tr.xpath('./td[1]/a/img/@src').extract_first()
+            # 电影名称
+            name = tr.xpath('./td[2]/div[@class=&quot;pl2&quot;]/a//text()').extract_first()
+            # 去除空白字符使用replace替换
+            # name = name.replace('\n', '').replace('\r', '').replace('/', '').replace(' ', '')
+            # 去除空白字符使用正则替换
+            item['name'] = re.sub('(/)|(\s)', '', name)
+            # 主演
+            item['to_star'] = tr.xpath('./td[2]/div[@class=&quot;pl2&quot;]/p[@class=&quot;pl&quot;]/text()').extract_first()
+            yield item
+</code></pre>
+<h5 id="7_1">(7) 管道代码</h5>
+<pre><code class="language-python"># Define your item pipelines here
+#
+# Don't forget to add your pipeline to the ITEM_PIPELINES setting
+# See: https://docs.scrapy.org/en/latest/topics/item-pipeline.html
+
+
+# useful for handling different item types with a single interface
+from itemadapter import ItemAdapter
+import pymysql
+from pymongo import MongoClient
+
+
+class DoubanFilePipeline:
+    '''
+    设置文件存储
+    '''
+    f = None
+    def open_spider(self, item):
+        self.f = open('./db.text', 'w')
+
+    def process_item(self, item, spider):
+        print(item)
+        self.f.write(item['img_src'] + '\n')
+        self.f.write(item['name'] + '\n')
+        self.f.write(item['to_star'] + '\n')
+        return item
+
+    def close_spider(self, item):
+        self.f.close()
+
+class DoubanmysqlPipeline:
+    '''
+    存储到MySQL数据库中
+    '''
+    db = None
+    cursor = None
+    def open_spider(self, spider):
+        # 判断当前运行的是否为db爬虫，不是db爬虫则下面代码不执行
+        # 当前仅限于一个scrapy下有多个爬虫工程
+        if spider.name == 'db':
+            self.db = pymysql.connect(host='127.0.0.1', port=3306, db='douban', user='root', passwd='123456', charset='utf8')
+            self.cursor = self.db.cursor()
+
+    def process_item(self, item, spider):
+        # 判断当前运行的是否为db爬虫
+        if spider.name == 'db':
+            try:
+                sql = f'insert into douban(img_src, name, to_star) values(&quot;{item[&quot;img_src&quot;]}&quot;, &quot;{item[&quot;name&quot;]}&quot;, &quot;{item[&quot;to_star&quot;]}&quot;)'
+                self.cursor.execute(sql)
+                self.db.commit()
+            except Exception as e:
+                print(e)
+                print(sql)
+                self.db.rollback()
+        return item
+    def close_spider(self, item):
+        # 关闭数据库连接
+        self.db.close()
+
+
+class DoubanmongodbPipeline:
+    '''
+    存储到MongoDB数据库中
+    '''
+    con = None
+    collection = None
+    def open_spider(self, spider):  # 在爬虫开启的时候仅执行一次
+        if spider.name == 'db':
+            self.con = MongoClient(host='127.0.0.1', port=27017) # 实例化mongoclient
+            self.collection = self.con.spider.douban  # 创建数据库名为spider,集合名为douban的集合操作对象
+
+    def process_item(self, item, spider):
+        if spider.name == 'db':
+            # print(spider.name)
+            self.collection.insert_one(dict(item)) # 此时item对象需要先转换为字典,再插入
+        # 不return的情况下，另一个权重较低的pipeline将不会获得item
+        return item
+
+    def close_spider(self, item):
+        # 关闭数据库连接
+        self.con.close()
+</code></pre>
+<h5 id="8-settingspy">(8) 修改settings.py 添加管道</h5>
+<pre><code class="language-python">ITEM_PIPELINES = {
+   'douban.pipelines.DoubanFilePipeline': 300,  # 300表示权重
+   'douban.pipelines.DoubanmysqlPipeline': 400,
+   'douban.pipelines.DoubanmongodbPipeline': 500,
+}
+</code></pre>
+<p>您在此设置中分配给类的整数值决定了它们运行的顺序：项目从低值到高值的类。通常将这些数字定义在 0-1000 范围内。</p>
+<p><strong>思考：pipeline在settings中能够开启多个，为什么需要开启多个？</strong></p>
+<ol>
+<li>不同的pipeline可以处理不同爬虫的数据，通过spider.name属性来区分</li>
+<li>不同的pipeline能够对一个或多个爬虫进行不同的数据处理的操作，比如一个进行数据清洗，一个进行数据的保存</li>
+<li>同一个管道类也可以处理不同爬虫的数据，通过spider.name属性来区分</li>
+</ol>
+<h4 id="46-pipeline">4.6 pipeline使用注意点</h4>
+<ol>
+<li>使用之前需要在settings中开启</li>
+<li>pipeline在setting中键表示位置(即pipeline在项目中的位置可以自定义)，值表示距离引擎的远近，越近数据会越先经过</li>
+<li>有多个pipeline的时候，process_item的方法必须return item,否则后一个pipeline取到的数据为None值</li>
+<li>pipeline中process_item的方法必须有，否则item没有办法接受和处理</li>
+<li>process_item方法接受item和spider，其中spider表示当前传递item过来的spider</li>
+<li>open_spider(spider) :能够在爬虫开启的时候执行一次</li>
+<li>close_spider(spider) :能够在爬虫关闭的时候执行一次</li>
+<li>上述俩个方法经常用于爬虫和数据库的交互，在爬虫开启的时候建立和数据库的连接，在爬虫关闭的时候断开和数据库的连接</li>
+</ol>
+<h4 id="47">4.7 总结</h4>
+<ol>
+<li>debug能够展示当前程序的运行状态 </li>
+<li>scrapy shell能够实现xpath的测试和对象属性和方法的尝试</li>
+<li>scrapy的settings.py能够实现各种自定义的配置，比如下载延迟和请求头等</li>
+<li>管道能够实现数据的清洗和保存，能够定义多个管道实现不同的功能，其中有个三个方法</li>
+<li>process_item(self,item,spider):实现对item数据的处理</li>
+<li>open_spider(self, spider): 在爬虫开启的时候仅执行一次</li>
+<li>close_spider(self, spider): 在爬虫关闭的时候仅执行一次</li>
+</ol>
+<h3 id="5_1">5、抓取详情页</h3>
+<h5 id="1">(1) 概述</h5>
+<p>在之前的抓取中我们都是抓取当前再生成spider时候的网址中的数据，那如果我们想要访问当前数据中的子页面的数据，那又该如何操作呢，回忆下我们在前面requests课程中是如何抓取子页面数据的</p>
+<p><strong>思路：</strong></p>
+<ul>
+<li>先对第一层url进行请求</li>
+<li>请求返回数据进行解析循环  找到每一条子页面的url</li>
+<li>找到子页面的url以后进行再次请求</li>
+<li>请求解析子页面请求返回的数据</li>
+<li>结束</li>
+</ul>
+<p>那么在我们scrapy中的思路也是一样的，通过抓取当前第一层页面中解析出来的子页面的数据，在通过scrapy.Rquests进行子页面的请求，那我们了解了当前抓取的思路，就开始我们scrapy子页面的请求与抓取吧</p>
+<h5 id="2-httpsmoviedoubancomchart">(2) 抓取网站：https://movie.douban.com/chart</h5>
+<h5 id="3_4">(3) 创建工程</h5>
+<ul>
+<li>
+<p>scrapy startproject doubandetail</p>
+</li>
+<li>
+<p>cd doubandetail</p>
+</li>
+<li>
+<p>scrapy genspider db movie.douban.com/chart</p>
+</li>
+</ul>
+<h5 id="4">(4) 抓取需求与实现</h5>
+<p><strong>抓取：</strong></p>
+<ul>
+<li>电影名称</li>
+<li>导演</li>
+<li>编剧</li>
+<li>主演</li>
+<li>类型</li>
+<li>制片国家地区</li>
+<li>语言</li>
+<li>剧情简介</li>
+</ul>
+<p>通过第一层匹配到的子页面的url进行请求详情页的url数据</p>
+<p><img alt="image-20220907165307805" src="imgs/16-Scrapy02%E6%B7%B1%E5%85%A5%E4%BD%BF%E7%94%A8-%E5%AD%98%E5%82%A8.assets/image-20220907165307805.png" /></p>
+<h5 id="_2"></h5>
+<h5 id="5-settingspy">(5) 配置settings.py</h5>
+<pre><code class="language-python"># 设置日志级别
+LOG_LEVEL = 'ERROR'
+ROBOTSTXT_OBEY = False
+COOKIES_ENABLED = False  # cookies的中间件将不起作用，下面的cookie起作用
+
+# 设置请求头
+DEFAULT_REQUEST_HEADERS = {
+  'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'Accept-Language': 'en',
+  'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36',
+  'Cookie': '设定cookie 防止反扒'
+}
+# 开启管道
+ITEM_PIPELINES = {
+   'doubandetail.pipelines.DoubandetailPipeline': 300,
+}
+</code></pre>
+<h5 id="6-dbpy_3">(6) db.py</h5>
+<ul>
+<li>
+<p>概述</p>
+<p>因为当前需要对详情页面再次请求以获取详情页数据，请求思路和之前requests一样，只是在这里我们使用 <code>yield scrapy.Request()</code> 进行请求 默认请求方式为get</p>
+</li>
+<li>
+<p>yield scrapy.Request(url, callback=self.parse_deatil)</p>
+</li>
+<li>
+<p>url：为再次请求的URL地址</p>
+</li>
+<li>meta :  实现数据在不同解析函数中传递，meta默认带有部分数据，比如下载延迟、请求深度等（用于解析方法之间的数据传递，常用在一条数据分散在多个不同结构的页面中的情况）</li>
+<li>callback：表示当前的url响应交给哪个函数去处理（默认为parse函数）</li>
+<li>method: 请求方式  指定POST或GET请求</li>
+<li>errback: 报错回调</li>
+<li>dont_filter: 默认为False，会过滤请求的url地址，即请求过的url地址不会继续被请求，对需要重复请求的url地址可以把它设置为True，start_urls中的地址会被反复请求，否则程序不会启动</li>
+<li>headers: 接收一个字典，其中不包括cookies</li>
+<li>cookies: 接收一个字典，专门放置cookies</li>
+<li>
+<p>body：接收json字符串，为post的数据发送payload_post请求</p>
+</li>
+<li>
+<p>meta使用实例</p>
+</li>
+</ul>
+<p>在爬虫文件的parse方法中，增加一个函数parse_detail函数（用来解析另一个页面）：</p>
+<p>```python
+  def parse(self,response):
+      ...
+      yield scrapy.Request(detail_url, callback=self.parse_detail,meta={"item":item})
+  ...</p>
+<p>def parse_detail(self,response):
+      #获取之前传入的item
+      item = resposne.meta["item"]
+  ```</p>
+<p>就相当于，把parse中解析的数据存到了meta字典中，对应的key为item；而在另一个函数（parse_detail）中，通过meta字典中的key：item来提取parse中的数据，从而实现不同页面数据的拼接</p>
+<p>注意：</p>
+<p>meta参数是一个字典
+  meta字典中有一个固定的键proxy，表示代理ip</p>
+<ul>
+<li>代码实现</li>
+</ul>
+<p>```python
+  import scrapy
+  from doubandetail.items import DoubandetailItem
+  import re</p>
+<p>class DbSpider(scrapy.Spider):
+      name = 'db'
+      # 需要注释掉
+      # allowed_domains = ['movie.douban.com/chart']
+      start_urls = ['http://movie.douban.com/chart/']</p>
+<pre><code>  def parse(self, resp, **kwargs):
+      print(resp.text)
+      # 先获取到每一行数据的tr
+      tr_list = resp.xpath('//div[@class="indent"]/div/table/tr[@class="item"]')
+      for tr in tr_list:
+          # 获取每个详情页的url
+          detail_url = tr.xpath('./td[1]/a/@href').extract_first()
+          # 请求子页面
+          print(detail_url)
+          yield scrapy.Request(detail_url, callback=self.parse_deatil)
+
+  # 解析子页面数据
+  def parse_deatil(self, response):
+      # 默认携带我们settings.py中所配置的请求头进行请求
+      # print(response.request.headers)
+      item = DoubandetailItem()
+      item['name'] = response.xpath('//*[@id="content"]/h1/span[1]/text()').extract_first()  # 电影名称
+      item['director'] = response.xpath('//*[@id="info"]/span[1]/span[2]/a/text()').extract_first()  # 导演
+      item['screenwriter'] = ''.join(response.xpath('//*[@id="info"]/span[2]/span[2]//text()').extract())  # 编剧
+      item['to_star'] = ''.join(response.xpath('//*[@id="info"]/span[3]/span[2]//text()').extract())  # 主演
+      item['type'] = '/'.join(response.xpath('//span[@property="v:genre"]//text()').extract())  # 类型
+      item['producer_country'] = response.xpath(
+          "//div[@id='info']/span[text()='制片国家/地区:']/following-sibling::text()[1]").extract_first()  # 制片国家/地区:
+      item['language'] = response.xpath(
+          "//div[@id='info']/span[text()='语言:']/following-sibling::text()[1]").extract_first()  # 语言
+      link_report = response.xpath('//span[@property="v:summary"]//text()').extract_first()  # 剧情简介
+      item['link_report'] = re.sub('(/)|(\s)|(\u3000)|(\'\n\')', '', link_report)
+      print(item)
+      return item
+</code></pre>
+<p>```</p>
+<ul>
+<li>
+<p><strong>注意：</strong></p>
+<p>需要将allowed_domains注释掉，否则详情页url不符合当前允许，所以会出现不请求的问题</p>
+</li>
+</ul>
+<h5 id="7-itemspy_1">(7) items.py</h5>
+<pre><code class="language-python">import scrapy
+
+
+class DoubandetailItem(scrapy.Item):
+    # define the fields for your item here like:
+    # name = scrapy.Field()
+    name = scrapy.Field()  # 电影名称
+    director = scrapy.Field()  # 导演
+    screenwriter = scrapy.Field()  # 编剧
+    to_star = scrapy.Field()  # 主演
+    type = scrapy.Field()  # 类型
+    producer_country = scrapy.Field()  # 制片国家/地区:
+    language = scrapy.Field()  # 语言
+    link_report = scrapy.Field()  # 剧情简介
+</code></pre>
+<h5 id="8_3">(8) 管道代码</h5>
+<pre><code class="language-python"># Define your item pipelines here
+#
+# Don't forget to add your pipeline to the ITEM_PIPELINES setting
+# See: https://docs.scrapy.org/en/latest/topics/item-pipeline.html
+
+
+# useful for handling different item types with a single interface
+from itemadapter import ItemAdapter
+from pymongo import MongoClient
+
+class DoubandetailPipeline:
+    con = None
+    collection = None
+    def open_spider(self, spider):  # 在爬虫开启的时候仅执行一次
+        self.con = MongoClient(host='127.0.0.1', port=27017)  # 实例化mongoclient
+        self.collection = self.con.spider.douban  # 创建数据库名为spider,集合名为douban的集合操作对象
+
+    def process_item(self, item, spider):
+        print(item)
+        self.collection.insert_one(dict(item))  # 此时item对象需要先转换为字典,再插入
+        return item
+
+    def close_spider(self, item):
+        # 关闭数据库连接
+        self.con.close()
+</code></pre>
+<p><strong>注意：</strong></p>
+<p>如果访问频率过高被禁止访问，可以携带登录后的cooki进行访问</p>
+<h3 id="6">6、下载图片</h3>
+<h5 id="1_1">(1) 安装模块</h5>
+<pre><code>pip3 install pillow
+</code></pre>
+<h5 id="2_4">(2) 抓取网址</h5>
+<p>https://desk.zol.com.cn/dongman/</p>
+<h5 id="3_5">(3) 创建工程</h5>
+<ul>
+<li>
+<p>scrapy startproject desk</p>
+</li>
+<li>
+<p>cd desk</p>
+</li>
+<li>
+<p>scrapy genspider img desk.zol.com.cn/dongman</p>
+</li>
+</ul>
+<h5 id="4-settingspy_4">(4) 配置settings.py</h5>
+<pre><code class="language-python"># 设置日志级别
+LOG_LEVEL = 'ERROR'
+ROBOTSTXT_OBEY = False
+# 设置请求头
+DEFAULT_REQUEST_HEADERS = {
+  'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'Accept-Language': 'en',
+  'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36'
+}
+</code></pre>
+<h5 id="5-imgpy">(5) img.py 爬虫代码书写</h5>
+<p>思路：</p>
+<p>抓取到详情页中图片的url地址，交给图片管道进行下载</p>
+<pre><code class="language-python">import scrapy
+from urllib.parse import urljoin
+
+
+class ImgSpider(scrapy.Spider):
+    name = 'img'
+    # allowed_domains = ['desk.zol.com.cn/dongman']
+    start_urls = ['http://desk.zol.com.cn/dongman/']
+
+    def parse(self, resp, **kwargs):
+        # 先抓取到每个图片详情的url
+        url_list = resp.xpath('//ul[@class=&quot;pic-list2  clearfix&quot;]/li/a/@href').extract()
+        # 获取到url列表后 进行循环进行每一个url详情页的请求
+        for url in url_list:
+            # 因为抓取到的url并不完整，需要进行手动拼接
+            # urljoin('https://desk.zol.com.cn/dongman/', '/bizhi/8301_103027_2.html')
+            url = urljoin('https://desk.zol.com.cn/dongman/', url)
+            # 拼凑完发现当前url中有下载exe的url，将其去除
+            if url.find('exe') != -1:
+                continue
+            yield scrapy.Request(url, callback=self.parse_detail)
+
+    # 对详情页进行解析
+    def parse_detail(self, resp):
+        # 获取当前详情页中最大尺寸图片的url
+        max_img_url = resp.xpath('//dd[@id=&quot;tagfbl&quot;]/a/@href').extract()
+        # 判断当前最大图片的url地址，为倒数第二个，如果当前图片列表url长度小于2 则当前证明不是图片的url
+        if len(max_img_url) &gt; 2:
+            max_img_url = urljoin('https://desk.zol.com.cn/', max_img_url[0])
+            # 对url页面进行请求 获取最终大图的页面
+            yield scrapy.Request(max_img_url, callback=self.parse_img_detail)
+
+    def parse_img_detail(self, resp):
+        # 解析出大图的url
+        img_src = resp.xpath(&quot;//img[1]/@src&quot;).extract_first()
+        return {'img_src': img_src}
+</code></pre>
+<p><strong>注意：</strong></p>
+<p>如果抓取过程中遇到如下报错，可能是cryptography 版本问题</p>
+<pre><code>twisted.web._newclient.ResponseNeverReceived: [&lt;twisted.python.failure.Failure OpenSSL.SSL.Error: [('SSL routines', '', 'unsafe legacy renegotiation disabled')]&gt;]
+</code></pre>
+<p>解决：</p>
+<p>pip uninstall cryptography
+pip install cryptography==36.0.2</p>
+<h5 id="6_1">(6) 配置图片管道</h5>
+<p>打开Pipelines文件夹</p>
+<p>因为我们不能再像之前存储文本一样，使用之前的管道类（Pipeline），我们需要用到新的存储图片的管道类ImagesPipeline，因此我们需要先导入该类</p>
+<p>pipelines.py</p>
+<ul>
+<li>导入</li>
+</ul>
+<p><code>python
+  from scrapy.pipelines.images import ImagesPipeline</code></p>
+<ul>
+<li>定义一个Images类</li>
+</ul>
+<p>```python
+  from itemadapter import ItemAdapter
+  from scrapy.pipelines.images import ImagesPipeline
+  import scrapy</p>
+<p>class Imgspipline(ImagesPipeline):
+      # 1. 发送请求(下载图片, 文件, 视频,xxx)
+      def get_media_requests(self, item, info):
+            # 获取到图片的url
+          url = item['img_src']
+          # 进行请求
+          yield scrapy.Request(url=url, meta={"url": url})  # 直接返回一个请求对象即可</p>
+<pre><code>  # 2. 图片存储路径
+  # 在函数定义时，使用了一个独立的*符号，这表示在*符号后面的参数，调用函数时，必须使用key=value的形式进行参数传递。。在Python的标准库中，有不少模块的接口函数的定义都在使用这种方式。
+  def file_path(self, request, response=None, info=None, *, item=None):
+      # 当前获取请求的url的方式有2种
+      # 获取到当前的url 用于处理下载图片的名称
+      file_name = item['img_src'].split("/")[-1]  # 用item拿到url
+      # file_name = request.meta['url'].split("/")[-1]  # 用meta传参获取
+      return file_name
+
+  # 3. 可能需要对item进行更新
+  def item_completed(self, results, item, info):
+      # print('results', results)
+      for r in results:
+          # 获取每个图片的路径
+          print(r[1]['path'])
+      return item  # 一定要return item 把数据传递给下一个管道
+</code></pre>
+<p>```</p>
+<h5 id="7_2">(7) 保存数据</h5>
+<p>接着我们再定义一个保存数据的函数，并设置好存储的文件名，然后存储的路径需要在设置中（setting）文件中，添加IMAGE_STORE设置好存储的路径</p>
+<p>开启图片管道</p>
+<p><strong>settings.py</strong></p>
+<pre><code class="language-python">ITEM_PIPELINES = {
+   'desk.pipelines.DeskPipeline': 300,
+   'desk.pipelines.Imgspipline': 400,  # 开启图片管道
+}
+# 配置存储图片的路径
+IMG_STORE = './imgs'
+</code></pre>
+<h5 id="8_4">(8) 注意</h5>
+<p>用scrapy爬取网页时出现302状态码，这是网页发生了重定向（在此不解释重定向），如何解决这个问题，只需在settings文件中设置MEDIA_ALLOW_REDIRECTS = True。</p>
+
+
+</section>
+</div> <!-- end of search-noresults -->
+<div class="search-results">
+<div class="has-results">
+
+<h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+<ul class="search-results-list"></ul>
+
+</div> <!-- end of has-results -->
+<div class="no-results">
+
+<h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+
+</div> <!-- end of no-results -->
+</div> <!-- end of search-results -->
+</div> <!-- end of book-search-results -->
+
+</div> <!-- end of page-inner -->
+</div> <!-- end of page-wrapper -->
+
+</div> <!-- end of body-inner -->
+
+</div> <!-- end of book-body -->
+<script src="./js/main.js"></script>
+<script src="search/main.js"></script>
+<script src="./js/gitbook.min.js"></script>
+<script src="./js/theme.min.js"></script>
+</body>
+</html>

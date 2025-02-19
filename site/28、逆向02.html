@@ -1,0 +1,1754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>二十八、逆向02 - js node</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="generator" content="mkdocs-1.6.1, mkdocs-gitbook-1.0.7">
+
+<link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta rel="next" href="" />
+<link href="./css/style.min.css" rel="stylesheet"> 
+</head>
+
+<body>
+<div class="book">
+<div class="book-summary">
+<div id="book-search-input" role="search">
+<input type="text" placeholder="Type to search" />
+</div> <!-- end of book-search-input -->
+
+<nav role="navigation">
+<ul class="summary">
+<li>
+<a href="index.html" target="_blank" class="custom-link">js node</a>
+</li>
+<li class="divider"></li>
+<li class="chapter" data-path="index.html">
+<a href="index.html">Welcome to MkDocs</a>
+<li class="chapter" data-path="01%E3%80%81html.html">
+<a href="01%E3%80%81html.html">一、HTML</a>
+<li class="chapter" data-path="02%E3%80%81CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8.html">
+<a href="02%E3%80%81CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8.html">二、CSS层叠样式表</a>
+<li class="chapter" data-path="03%E3%80%81%E6%AD%A3%E5%88%99.html">
+<a href="03%E3%80%81%E6%AD%A3%E5%88%99.html">三、正则</a>
+<li class="chapter" data-path="04%E3%80%81BS4%E8%A7%A3%E6%9E%90%E5%AE%8C%E6%95%B4.html">
+<a href="04%E3%80%81BS4%E8%A7%A3%E6%9E%90%E5%AE%8C%E6%95%B4.html">四、beautifulsoup</a>
+<li class="chapter" data-path="05%E3%80%81xpath.html">
+<a href="05%E3%80%81xpath.html">五、xpath</a>
+<li class="chapter" data-path="06%E3%80%81%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E4%B8%8Eurllib%26requests.html">
+<a href="06%E3%80%81%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E4%B8%8Eurllib%26requests.html">六、爬虫入门</a>
+<li class="chapter" data-path="07%E3%80%81urllib%E4%B8%8Erequests.html">
+<a href="07%E3%80%81urllib%E4%B8%8Erequests.html">七、urllib与requests</a>
+<li class="chapter" data-path="08%E3%80%81%E5%A4%9A%E8%BF%9B%E7%A8%8B.html">
+<a href="08%E3%80%81%E5%A4%9A%E8%BF%9B%E7%A8%8B.html">八、多进程</a>
+<li class="chapter" data-path="09%E3%80%81%E7%BA%BF%E7%A8%8B.html">
+<a href="09%E3%80%81%E7%BA%BF%E7%A8%8B.html">九、线程</a>
+<li class="chapter" data-path="10%E3%80%81%E5%8D%8F%E7%A8%8B.html">
+<a href="10%E3%80%81%E5%8D%8F%E7%A8%8B.html">十、携程</a>
+<li class="chapter" data-path="11%E3%80%81selenium.html">
+<a href="11%E3%80%81selenium.html">十一、selenium</a>
+<li class="chapter" data-path="12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.html">
+<a href="12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.html">十二、MySQL数据库</a>
+<li class="chapter" data-path="13%E3%80%81Mongodb.html">
+<a href="13%E3%80%81Mongodb.html">十三、Mongodb</a>
+<li class="chapter" data-path="14%E3%80%81redis.html">
+<a href="14%E3%80%81redis.html">十四、Redis数据库</a>
+<li class="chapter" data-path="15%E3%80%81%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.html">
+<a href="15%E3%80%81%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.html">十五、面向对象</a>
+<li class="chapter" data-path="16-Scrapy01-%E6%A1%86%E6%9E%B6%E5%88%9D%E8%AE%A4%E8%AF%86.html">
+<a href="16-Scrapy01-%E6%A1%86%E6%9E%B6%E5%88%9D%E8%AE%A4%E8%AF%86.html">十六、Scrapy框架初认识</a>
+<li class="chapter" data-path="16-Scrapy02%E6%B7%B1%E5%85%A5%E4%BD%BF%E7%94%A8-%E5%AD%98%E5%82%A8.html">
+<a href="16-Scrapy02%E6%B7%B1%E5%85%A5%E4%BD%BF%E7%94%A8-%E5%AD%98%E5%82%A8.html">十六、Scrapy深入使用-存储</a>
+<li class="chapter" data-path="16-Scrapy03-%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86%E4%BB%A5%E5%8F%8A%E5%88%86%E9%A1%B5.html">
+<a href="16-Scrapy03-%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86%E4%BB%A5%E5%8F%8A%E5%88%86%E9%A1%B5.html">十六、scrapy模拟登陆&amp;分页</a>
+<li class="chapter" data-path="16-Scrapy04-%E4%B8%AD%E9%97%B4%E4%BB%B6.html">
+<a href="16-Scrapy04-%E4%B8%AD%E9%97%B4%E4%BB%B6.html">十六、Scrapy中间件</a>
+<li class="chapter" data-path="16-Scrapy05-%E5%88%86%E9%A1%B5%E6%8A%93%E5%8F%96.html">
+<a href="16-Scrapy05-%E5%88%86%E9%A1%B5%E6%8A%93%E5%8F%96.html">十六、scrapy的crawlspider爬虫</a>
+<li class="chapter" data-path="16-Scrapy06-scrapy_redis.html">
+<a href="16-Scrapy06-scrapy_redis.html">十六、scrapy_redis</a>
+<li class="chapter" data-path="17%E3%80%81js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html">
+<a href="17%E3%80%81js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html">十七、js数据类型</a>
+<li class="chapter" data-path="18%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%8E%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6.html">
+<a href="18%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%8E%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6.html">十八、js运算符与流程控制</a>
+<li class="chapter" data-path="19%E3%80%81js%E6%95%B0%E7%BB%84.html">
+<a href="19%E3%80%81js%E6%95%B0%E7%BB%84.html">十九、js数组</a>
+<li class="chapter" data-path="20%E3%80%81js%E5%AD%97%E7%AC%A6%E4%B8%B2.html">
+<a href="20%E3%80%81js%E5%AD%97%E7%AC%A6%E4%B8%B2.html">二十、js字符串</a>
+<li class="chapter" data-path="21%E3%80%81js%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%97%B6%E9%97%B4.html">
+<a href="21%E3%80%81js%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%97%B6%E9%97%B4.html">二十一、js对象与时间</a>
+<li class="chapter" data-path="22%E3%80%81%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89.html">
+<a href="22%E3%80%81%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89.html">二十二、js函数</a>
+<li class="chapter" data-path="23%E3%80%81js%E8%BF%9B%E9%98%B6.html">
+<a href="23%E3%80%81js%E8%BF%9B%E9%98%B6.html">二十三、Javascript进阶</a>
+<li class="chapter" data-path="24%E3%80%81BOM%E6%93%8D%E4%BD%9C.html">
+<a href="24%E3%80%81BOM%E6%93%8D%E4%BD%9C.html">二十四、浏览器对象模型BOM</a>
+<li class="chapter" data-path="25%E3%80%81DOM%E6%93%8D%E4%BD%9C.html">
+<a href="25%E3%80%81DOM%E6%93%8D%E4%BD%9C.html">二十五、DOM操作</a>
+<li class="chapter" data-path="26%E3%80%81jQuery%E6%93%8D%E4%BD%9C.html">
+<a href="26%E3%80%81jQuery%E6%93%8D%E4%BD%9C.html">二十六、jQuery</a>
+<li class="chapter" data-path="27%E3%80%81%E9%80%86%E5%90%9101.html">
+<a href="27%E3%80%81%E9%80%86%E5%90%9101.html">二十七、JS逆向01</a>
+<li class="chapter active" data-path="28%E3%80%81%E9%80%86%E5%90%9102.html">
+<a href="28%E3%80%81%E9%80%86%E5%90%9102.html">二十八、逆向02</a>
+<li class="chapter" data-path="29%E3%80%81%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html">
+<a href="29%E3%80%81%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html">二十九、微信小程序逆向开发</a>
+<li class="chapter" data-path="30%E3%80%81%E7%BD%91%E6%98%93%E6%BB%91%E5%9D%97.html">
+<a href="30%E3%80%81%E7%BD%91%E6%98%93%E6%BB%91%E5%9D%97.html">三十、网易易盾</a>
+<li class="chapter" data-path="31%E3%80%81rpc.html">
+<a href="31%E3%80%81rpc.html">三十一、RPC</a>
+<li class="chapter" data-path="32%E3%80%81TLS%E6%8C%87%E7%BA%B9%E7%BB%95%E8%BF%87.html">
+<a href="32%E3%80%81TLS%E6%8C%87%E7%BA%B9%E7%BB%95%E8%BF%87.html">三十二、TLS指纹绕过</a>
+<li class="chapter" data-path="33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">
+<a href="33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">三十三、高级逆向</a>
+<li class="chapter" data-path="34%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">
+<a href="34%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">三十四、高级逆向</a>
+<li class="chapter" data-path="%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B%E7%AC%94%E8%AE%B0.html">
+<a href="%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B%E7%AC%94%E8%AE%B0.html">逆向实战案例笔记</a>
+<li class="header">Pyexecjs与npm配置</li>
+
+<li>
+<a href="pyexecjs%E4%B8%8Enpm%E9%85%8D%E7%BD%AE/execjs%E4%BB%8B%E7%BB%8D%E4%BB%A5%E5%8F%8A%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8.html" class="">Execjs介绍以及安装和使用</a>
+</li>
+
+<li>
+<a href="pyexecjs%E4%B8%8Enpm%E9%85%8D%E7%BD%AE/%E4%B8%80%E6%AC%A1%E6%80%A7%E8%A7%A3%E5%86%B3%E6%8E%89npm%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5%E7%9A%84%E9%97%AE%E9%A2%98.html" class="">更换npm为国内镜像</a>
+</li>
+
+<li class="header">补环境</li>
+
+<li>
+<a href="%E8%A1%A5%E7%8E%AF%E5%A2%83/1%E3%80%81%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8E%E4%BA%8B%E4%BB%B6.html" class="">补环境</a>
+</li>
+
+<li>
+<a href="%E8%A1%A5%E7%8E%AF%E5%A2%83/2%E3%80%81Proxy%E4%BB%A3%E7%90%86%E5%99%A8.html" class="">Proxy代理</a>
+</li>
+
+<li>
+<a href="%E8%A1%A5%E7%8E%AF%E5%A2%83/3%E3%80%81vm2%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83.html" class="">3、vm2运行环境</a>
+</li>
+
+<li class="divider"></li>
+
+
+
+<li><a href="http://www.mkdocs.org">
+Published with MkDocs
+</a></li>
+
+<li><a href="https://github.com/GitbookIO/theme-default">
+Theme by GitBook
+</a></li>
+</ul>
+
+</nav>
+
+</div> <!-- end of book-summary -->
+
+<div class="book-body">
+<div class="body-inner">
+<div class="book-header" role="navigation">
+
+<!-- Title -->
+<h1>
+<i class="fa fa-circle-o-notch fa-spin"></i>
+<a href="." ></a>
+</h1>
+
+</div> <!-- end of book-header -->
+
+<div class="page-wrapper" tabindex="-1" role="main">
+<div class="page-inner">
+<div id="book-search-results">
+<div class="search-noresults">
+
+<section class="normal markdown-section">
+
+
+
+<h1 id="02">二十八、逆向02</h1>
+<h2 id="_1">一、字节</h2>
+<h3 id="1">1、概述</h3>
+<ul>
+<li>一个汉字</li>
+</ul>
+<p>UTF-8编码：一个中文（含繁体）占三个字节，一个中文标点占三个字节。一个英文字母占一个字节，一个英文标点占一个字节。</p>
+<ul>
+<li>官方标准：
+  1字节（Byte)＝8字位＝8个二进制数</li>
+</ul>
+<p>###### 1字位(bit)＝1个二进制数</p>
+<p>也就是1B=8b
+  1KB=1024B
+  1MB=1024KB
+  1GB=1024MB</p>
+<ul>
+<li>
+<p>通常情况下，把B称为字节、b称为字位、KB称为千字节、MB称为兆字节、GB称为吉字节。</p>
+</li>
+<li>
+<p>拓展资料</p>
+</li>
+</ul>
+<p>字节是计算机信息技术用于计量存储容量的一种计量单位，通常情况下一字节等于八位，[1]也表示一些计算机编程语言中的数据类型和语言字符。</p>
+<ul>
+<li>B与bit：</li>
+</ul>
+<p>数据存储是以“字节”（Byte）为单位，数据传输大多是以“位”（bit，又名“比特”）为单位，一个位就代表一个0或1（即二进制），每8个位（bit，简写为b）组成一个字节（Byte，简写为B），是最小一级的信息单位。</p>
+<p><img alt="a686c9177f3e6709f420024735c79f3df8dc5561" src="imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/lUWPLZhQyqx2n6C.png" /></p>
+<h3 id="2python">2、Python中</h3>
+<ul>
+<li>说明</li>
+</ul>
+<p>在Python中，字节（bytes）是一种不可变的数据类型，用于表示二进制数据。字节对象由整数构成的不可变序列，每个整数范围在0到255之间，对应一个字节的值。</p>
+<p>在Python 3中，字节对象是以字面值语法或者使用bytes()函数来创建的。字面值语法使用b前缀，后面跟着用单引号或双引号括起来的字符序列。</p>
+<ul>
+<li>以下是一些创建字节对象的示例：</li>
+</ul>
+<p><code>Python
+  b = b'hello'</code></p>
+<ul>
+<li>可以使用切片、索引和迭代操作访问字节对象中的内容。字节对象也支持与其他字节对象的连接和重复操作。</li>
+</ul>
+<p>```Python
+  b = b'hello'</p>
+<p># 切片操作
+  print(b[1:4])    # b'ell'</p>
+<p># 索引操作
+  print(b[0])      # 104</p>
+<p># 迭代操作
+  for byte in b:
+      print(byte)</p>
+<p># 字节对象连接和重复
+  new_b = b + b' world'
+  print(new_b)     # b'hello world'
+  repeated_b = b * 3
+  print(repeated_b)  # b'hellohellohello'
+  ```</p>
+<ul>
+<li>字节对象还提供了一些方法和函数来处理二进制数据。例如，可以使用decode()方法将字节对象解码为字符串，指定相应的编码方式；可以使用encode()方法将字符串编码为字节对象。此外，还有其他一些工具函数，例如len()返回字节对象的长度，hex()将整数转换为十六进制表示等。</li>
+</ul>
+<p>```Python
+  b = b'hello'</p>
+<p># 解码为字符串
+  s = b.decode('utf-8')
+  print(s)         # 'hello'</p>
+<p># 字符串编码为字节对象
+  new_b = s.encode('utf-8')
+  print(new_b)     # b'hello'</p>
+<p># 获取字节对象长度
+  length = len(b)
+  print(length)    # 5</p>
+<p># hex()将整数转换为十六进制
+  hex_representation = hex(1234)
+  print(hex_representation)   # '0x4d2'
+  ```</p>
+<p>需要注意的是，字节对象是不可变的，即不能直接对其进行修改。如果需要修改字节对象，可以先将其解码为可变的字节数组（bytearray），进行修改后再编码回字节对象。</p>
+<ul>
+<li>扩展</li>
+</ul>
+<p><strong>中文编码后显示十六进制的原因：</strong></p>
+<p>由于每个字节包含8位二进制数，为了方便展示和传输，常常将每个字节的二进制数转换为对应的十六进制表示法。这样做可以减少字符的可视宽度，并且更方便进行人机交互和调试。</p>
+<p>因此，当中文字符被转换为UTF-8编码时，所得到的结果是一串十六进制数，用以表示每个字节的二进制值。这种形式的展示方式更易于理解、比对和处理。</p>
+<p><code>python
+  a = '哈'
+  # 转换编码为十六进制   b'\xe5\x93\x88'
+  print(a.encode('UTF-8'))
+  # 去掉符号位转换为十进制  15045512
+  print(int('e59388', base=16))
+  # 十进制转换为 十六进制  0xe59388
+  print(hex(15045512))
+  # 计算长度
+  print(len(bin(15045512).replace('0b', '')))   # 二进制的长度
+  print(len(b'\xe5\x93\x88')) # 十六进制的长度</code></p>
+<p><strong>数字和字母在UTF-8编码中并不发生变化得原因：</strong>
+  在UTF-8编码中，数字和字母之所以在编码时不发生变化，是因为UTF-8采用了一种变长编码方式，即不同字符的编码长度可以不同。</p>
+<p>数字和大部分英文字母在ASCII字符集中已经定义了固定的编码，占用一个字节（8位），因此它们在UTF-8编码中仍然占用一个字节，编码值和ASCII编码相同。</p>
+<p>例如，字母'A'的ASCII编码是65（二进制为01000001），而在UTF-8中，字母'A'的编码同样为01000001。因此，对于ASCII字符集中的数字和字母，它们的UTF-8编码与ASCII编码是一致的。</p>
+<p>需要注意的是，UTF-8编码还支持更广泛的字符集，对于一些特殊字符和非ASCII字符，它们可能占用更多字节进行编码。但对于ASCII字符，UTF-8编码保持了兼容性，不引入额外的变化。</p>
+<p>数字和字母的UTF-8编码结果与其原始的ASCII码值完全相同，没有发生变化。这样做可以保证在使用UTF-8编码时，对于纯英文字符的处理与ASCII码兼容，确保了向后兼容性和简化了字符的处理过程。</p>
+<p><strong>0x和\x的区别</strong></p>
+<ul>
+<li>
+<p>0x：在编程语言中，0x前缀表示一个十六进制数。例如，0x10表示十六进制数16。</p>
+<p><code>python
+hex_value = 0x10
+print(hex_value)  # 输出 16</code></p>
+</li>
+<li>
+<p>\x：在字符串中，\x后跟两个十六进制数字表示一个字节的字符编码。例如，\x41表示ASCII字符'A'。</p>
+<p><code>python
+ascii_value = '\x41'
+print(ascii_value)  # 输出 'A'</code></p>
+</li>
+</ul>
+<p>总结起来，0x用于表示整数的十六进制数，而\x用于表示字符串中的字节编码。</p>
+<p><strong>比如：</strong></p>
+<p>0x0和 \x30表示的区别</p>
+<ul>
+<li>0x0表示十六进制数，其中的"0x"是十六进制的前缀。十六进制是一种使用16个字符（0-9和A-F）来表示数值的方法。因此，0x0表示数值为0。</li>
+<li>\x30则是表示ASCII字符的转义序列。在ASCII编码中，每个字符都有一个对应的唯一的整数值。而\x30表示的是ASCII编码中的十进制数值48，对应于字符'0'。这里的"\x"是用来表示后面两位数字是十六进制的标识。</li>
+</ul>
+<p>所以，虽然0x0和\x30都可以表示数字0，但它们的含义略有不同  ,也就是类型不同，字符串的0和数值的0</p>
+<h2 id="urlencode">二、URLEncode</h2>
+<h3 id="1-url">(1) url编码说明</h3>
+<p>URL编码是指将URL中的特殊字符转换为特定格式的过程。它的作用主要有以下几个方面：</p>
+<ol>
+<li>避免冲突：在URL中，某些字符具有特殊含义或者可能引起冲突，例如空格、斜杠、问号等。通过URL编码，可以将这些特殊字符转换成特定的编码形式，以避免造成语法错误或混淆。</li>
+<li>安全性：URL编码还能提高安全性。对于需要传输敏感信息的URL，使用URL编码可以对参数进行加密处理，增加数据的安全性，防止被恶意篡改或注入攻击。</li>
+<li>兼容性：URL编码可以确保URL在不同浏览器和操作系统之间的兼容性。不同的浏览器和操作系统对URL的解析方式可能存在差异，通过URL编码可以统一编码规则，确保所有平台上都能正确识别并处理URL。</li>
+</ol>
+<p>总结来说，URL编码的作用是保证URL的正确解析和传输，并提供一定的安全性保障。它可以避免冲突、提高兼容性，同时也有助于保护传输的数据安全。</p>
+<h3 id="2">(2) 实例</h3>
+<ul>
+<li>在浏览器中查看</li>
+</ul>
+<p><img alt="image-20231007143057549" src="imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/8YhQ7sUCLTXpOei.png" /></p>
+<ul>
+<li>复制出来查看</li>
+</ul>
+<p>https://www.baidu.com/s?wd=%E8%BF%AA%E4%B8%BD%E7%83%AD%E5%B7%B4&amp;rsv_spt=1&amp;rsv_iqid=0xbda64fb600039f37&amp;issp=1&amp;f=8&amp;rsv_bp=1&amp;rsv_idx=2&amp;ie=utf-8&amp;tn=baiduhome_pg&amp;rsv_enter=1&amp;rsv_dl=tb&amp;rsv_sug3=7&amp;rsv_sug1=5&amp;rsv_sug7=100&amp;rsv_sug2=0&amp;rsv_btype=i&amp;prefixsug=%25E8%25BF%25AA%25E4%25B8%25BD%25E7%2583%25AD%25E5%25B7%25B4&amp;rsp=2&amp;inputT=1053&amp;rsv_sug4=1053</p>
+<ul>
+<li>说明</li>
+</ul>
+<p>其实我们在访问一个url的时候. 浏览器会自动的进行urlencode操作. 会对我们请求的url进行编码. 这种编码规则被称为百分号编码. 是专门为url(统一资源定位符)准备的一套编码规则.</p>
+<h3 id="3-pythonurl">(3) Python中进行URL处理</h3>
+<p>URL编码、解码原因
+通常如果一样东西需要编码，说明其并不适合直接传输。原因多种多样，如Size过大，包含隐私数据。对于Url来说，之所以要进行编码，是因为Url中有些字符会引起歧义。</p>
+<p>例如，Url参数字符串中使用key=value键值对这样的形式来传参，键值对之间以&amp;符号分隔，如/s?q=abc&amp;ie=utf-8。如果你的value字符串中包含了=或者&amp;，那么势必会造成接收Url的服务器解析错误，因此必须将引起歧义的&amp;和=符号进行转义，也就是对其进行编码。</p>
+<p>字符串被当作url提交时会被自动进行url编码处理，在python里也有个urllib.parse.urlencode的方法，可以很方便的把字典形式的参数进行url编码。当url地址含有中文或者“/”的时候，这是就需要用做urlencode一下编码转换。</p>
+<p>原文链接：https://blog.csdn.net/wf592523813/article/details/79141463/</p>
+<ul>
+<li>urlencode</li>
+<li>quote</li>
+<li>quote_plus</li>
+<li>unquote</li>
+</ul>
+<p>实例</p>
+<pre><code class="language-python">from urllib.parse import urlencode, quote, unquote, quote_plus
+# print('爱写代码'.encode('UTF-8')) 和下面进行对比区别
+print(quote('lucky=爱写代u码&amp;年/龄 =18'))
+print(quote_plus('lucky=爱写代码&amp;年/龄 =18'))  # 会对参数中的/和+还有空格在进行处理
+params = {
+    'lucky': '爱写代码',
+    '年/龄 ': 18
+}
+print(urlencode(params))
+</code></pre>
+<p>结果</p>
+<p><img alt="image-20231227151155819" src="imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/4YlMjyF9LgNJcVZ.png" /></p>
+<p>在逆向使用过程中，使用顺序quote、quote_plus、urlencode</p>
+<h3 id="4-javascript-url">(4) <strong>JavaScript 中对 URL 进行编码</strong></h3>
+<p><strong>说明</strong></p>
+<p>在 JavaScript 中 encodeURIComponent() 和 encodeURI() 这两个内置函数都可以进行 URL 编码，会把 URL 中的保留字符替换为它们的 UTF-8 编码后的字符。</p>
+<ol>
+<li><strong>encodeURIComponent</strong> 是 JavaScript 中的一个全局函数，用于对 URI（Uniform Resource Identifier）中的特殊字符进行编码，使其可以安全地用作 URL 的一部分。</li>
+</ol>
+<p>```javascript
+   let originalString = "Hello, World!";</p>
+<p>let encodedString = encodeURIComponent(originalString);
+   console.log(encodedString);  // "Hello%2C%20World%21"
+   ```</p>
+<ol>
+<li><strong>decodeURIComponent</strong>于解码由 <code>encodeURIComponent</code> 编码的字符串。</li>
+</ol>
+<p><code>javascript
+   let decodedString = decodeURIComponent("Hello%2C%20World%21");
+   console.log(decodedString);  // "Hello, World!"</code></p>
+<ol>
+<li><strong>encodeURI()</strong></li>
+</ol>
+<p>为一个字符串进行 URL编码很容易，只需要调用 encodeURI，传入要编码的字符串即可。此函数会返回编码后的 URL。</p>
+<p>```javascript
+   let originalString = "Hello, World!";</p>
+<p>let encodedString = encodeURI(originalString);
+   console.log(encodedString);  // Hello,%20World!
+   ```</p>
+<ol>
+<li><strong>decodeURI()</strong></li>
+</ol>
+<p>此函数会进行解码，调用 decodeURI 函数，传入要上述编码后的字符串，然后它会返回解码后的正常的字符串。</p>
+<p>```javascript
+   let originalString = "Hello,%20World!";</p>
+<p>let encodedString = decodeURI(originalString);
+   console.log(encodedString);  // Hello, World!
+   ```</p>
+<ol>
+<li><strong>unescape</strong>是 JavaScript 中的一个全局函数，用于对经过 <code>escape</code> 编码的字符串进行解码。这两个函数在过去用于 URI 编码和解码，但现在已经不推荐使用，而是建议使用 <code>encodeURIComponent</code> 和 <code>decodeURIComponent</code>。</li>
+</ol>
+<p>```javascript
+   let encodedString = "Hello%2C%20World%21";</p>
+<p>let decodedString = unescape(encodedString);
+   console.log(decodedString);  // "Hello, World!"
+   ```</p>
+<ol>
+<li><strong>escape</strong>是 JavaScript 中的一个全局函数，用于对字符串进行编码，将字符串中的特殊字符转换为对应的 ASCII 编码形式。这个函数在过去被用于 URI 编码，但在现代 JavaScript 中，<code>encodeURIComponent</code> 更常用，因为它提供了更完善和安全的编码。</li>
+</ol>
+<p>```javascript
+   let originalString = "Hello, World!";</p>
+<p>let encodedString = escape(originalString);
+   console.log(encodedString);  // "Hello%2C%20World%21"
+   ```</p>
+<h2 id="base64">三、Base64</h2>
+<h3 id="1-base64">(1) Base64编码说明</h3>
+<p>Base64是一种常用的编码方式，它将二进制数据转换为可打印的ASCII字符。它的名称"Base64"源自于该编码使用了64个不同的字符。</p>
+<p>Base64编码的原理是将输入的数据按照每6位划分一组，对每组进行编码转换。每组6位二进制数可以表示64种不同的值，因此选择了64个可打印字符作为编码表。常见的Base64编码表由大小写字母、数字和两个特殊符号组成（通常是A-Z、a-z、0-9、+和/），其中还可能包含一个填充字符"="。</p>
+<p>Base64编码的应用广泛，主要有以下几个方面：</p>
+<ol>
+<li>数据传输：在网络中传输二进制数据时，由于某些字符可能与协议或系统保留字符冲突，因此需要先将二进制数据转换为Base64编码形式，再进行传输。接收方收到后解码还原为原始二进制数据。</li>
+<li>数据存储：某些场景下，需要将二进制数据以文本形式存储，例如在数据库中存储图片、音频等文件。这时可以使用Base64编码将二进制数据转换为文本形式存储，便于读取和处理。</li>
+<li>加密算法：在一些加密算法中，Base64编码也被用于编码散列值、密钥等信息，便于传输和处理。</li>
+</ol>
+<p>需要注意的是，Base64编码会将原始数据扩大约33%。由于它只是一种编码方式，而不是加密算法，因此并不能提供数据的安全性。另外，Base64编码后的数据长度可能不是4的倍数，需要使用填充字符"="来补齐。</p>
+<h3 id="2-base64">(2) Base64编码原理</h3>
+<p>Base64编码之所以称为Base64，是因为其使用64个字符来对任意数据进行编码，同理有Base32、Base16编码。标准Base64编码使用的64个字符为：</p>
+<p><img src="./imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/UzqtFdkZVBuNCR7.jpg" alt="e0c6bf10c8b35fb19823bb7adf95d414.png" style="zoom:100%;" /></p>
+<p>Base64编码本质上是一种将二进制数据转成文本数据的方案。对于非二进制数据，是先将其转换成二进制形式，然后每连续6比特（2的6次方=64）计算其十进制值，根据该值在上面的索引表中找到对应的字符，最终得到一个文本字符串。</p>
+<p>假设我们要对 Hello! 进行Base64编码，按照ASCII表，其转换过程如下图所示：</p>
+<p><img alt="c4eef35b8ae6ec2e02d2a8e9e1ffb933.png" src="imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/KOhmr3tRLeEwuTC.jpg" /></p>
+<p>可知 Hello! 的Base64编码结果为 SGVsbG8h，<strong>每3个原始字符经Base64编码成4个字符。</strong>那么，当原始字符串长度不能被3整除时，怎么办呢？</p>
+<p>以 Hello!! 为例，其转换过程为：</p>
+<p><img alt="c2ea454feb361bf2e05abe8e4ab76cee" src="imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/ImMYUaCNp2EdObf.png" /></p>
+<p>Hello!! Base64编码的结果为 SGVsbG8hIQAA。可见，不能被3整除时会采用来来补0的方式来完成编码。
+需要注意的是：标准Base64编码通常用 = 字符来替换最后的 A，即编码结果为 SGVsbG8hIQ==。因为 = 字符并不在Base64编码索引表中，其意义在于结束符号，在Base64解码时遇到 = 时即可知道一个Base64编码字符串结束。</p>
+<h3 id="3">(3) 编码与解码</h3>
+<p>在Python中，可以使用内置的base64模块来进行Base64编码和解码。下面是使用Base64的基本示例：</p>
+<ul>
+<li>导入base64模块：</li>
+</ul>
+<p><code>python
+  import base64</code></p>
+<ul>
+<li>编码： 使用<code>base64.b64encode()</code>函数进行编码。该函数接受一个字节串（bytes）作为输入，并返回一个Base64编码后的字节串。</li>
+</ul>
+<p><code>python
+  # 输入要编码的数据，这里以字符串为例
+  data = "Hello, World!"
+  # 将字符串转换为字节串
+  byte_data = data.encode('utf-8')
+  # 进行Base64编码
+  encoded_data = base64.b64encode(byte_data).decode()
+  # 输出编码后的结果
+  print(encoded_data)</code></p>
+<ul>
+<li>解码： 使用<code>base64.b64decode()</code>函数进行解码。该函数接受一个Base64编码后的字节串作为输入，并返回解码后的字节串。</li>
+</ul>
+<p><code>python
+  # 输入要解码的数据，这里以编码后的结果为例
+  encoded_data = 'SGVsbG8sIFdvcmxkIQ=='
+  # 进行Base64解码
+  decoded_data = base64.b64decode(encoded_data)
+  # 将字节串转换为字符串
+  result = decoded_data.decode()
+  # 输出解码后的结果
+  print(result)</code></p>
+<p>以上代码演示了如何使用Python的base64模块进行Base64编码和解码操作。根据具体需求，可以灵活使用相关函数对数据进行编码和解码处理。</p>
+<h3 id="4">(4) 自制解码(了解)</h3>
+<pre><code class="language-python"># 来对数据进行编码得64个任意字符
+Base64Str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
+# 编码后的base64的值
+encoded_data = 'SGVsbG8h'
+binary_system = ''   # 存储最终拼接后的二进制的值
+for i in encoded_data:
+    # 查找当前值在字符中出现的位置并转换成二进制 并替换掉符号0b
+    r = str(bin(Base64Str.index(i))).replace('0b', '')
+    # 因为当前十进制是由6位的二进制转换而来 对不足6位的二进制用0来补充 并拼接到一起
+    binary_system += '0'*(6-len(r))+r
+
+str = ''
+# 将二进制按照8位一截取 截取后的二进制转为十进制 并获取转换后对应的值
+for i in range(0, len(binary_system), 8):
+    start = i
+    end = i+8
+    v = binary_system[start:end]
+    str += chr(int(v, base=2))
+print(str)
+</code></pre>
+<h3 id="5-urlsafe_b64decode">(5) urlsafe_b64decode</h3>
+<ul>
+<li>说明</li>
+</ul>
+<p>由于标准的Base64编码后可能出现字符+和/，在URL中就不能直接作为参数，所以又有一种"url safe"的base64编码，其实就是把字符+和/分别变成-和_</p>
+<p>(URL中的+ URL中的+会被浏览器自动转义成为空格,  /为分隔符)</p>
+<ol>
+<li>Base64编码后出现的+和/在Base64URL会分别替换为-和_</li>
+<li>
+<p>Base64编码中末尾出现的=符号用于补位，这个字符和queryString中的key=value键值对会发生冲突，所以在Base64URL中=符号会被省略，去掉=后怎么解码呢？因为Base64是把3个字节变为4个字节，所以，Base64编码的长度永远是4的倍数，因此，需要加上=把Base64字符串的长度变为4的倍数，就可以正常解码了。</p>
+</li>
+<li>
+<p>Base64编码</p>
+</li>
+</ol>
+<p><code>python
+  # 输入要编码的数据，这里以字符串为例
+  data = "收拾"
+  # 将字符串转换为字节串
+  byte_data = data.encode('UTF-8')
+  # 进行Base64编码
+  encoded_data = base64.b64encode(byte_data).decode()
+  # 输出编码后的结果
+  print(encoded_data)</code></p>
+<p><strong>结果：</strong> 5pS25ou+</p>
+<ul>
+<li>Base64URL编码</li>
+</ul>
+<p><code>python
+  import base64
+  data = "收拾"  # 待编码的二进制数据
+  # Base64URL 编码
+  base64url_encoded = base64.urlsafe_b64encode(data.encode('UTF-8')).rstrip(b"=").decode("utf-8")
+  base64url_encoded = base64url_encoded
+  print("Base64URL 编码结果: ", base64url_encoded)</code></p>
+<p><strong>结果：</strong>5pS25ou-</p>
+<p>将编码后的加号替换为了-</p>
+<ul>
+<li>Base64URL解码</li>
+</ul>
+<p><code>python
+  base64url_decoded = base64.urlsafe_b64decode(base64url_encoded)
+  print("Base64URL 解码结果: ", base64url_decoded.decode('UTF-8'))</code></p>
+<p>Base64URL 解码结果:  收拾</p>
+<ul>
+<li>如果当前不足4的倍数，使用=进行补位</li>
+</ul>
+<h3 id="6-nodebase64">(6) node中进行base64编码</h3>
+<pre><code class="language-javascript">var Base64 = require(&quot;crypto-js/enc-base64&quot;);
+var CryptoJS = require(&quot;crypto-js&quot;);
+const encoded_data = Base64.stringify(CryptoJS.enc.Utf8.parse('lucky boy'));
+console.log(encoded_data)
+</code></pre>
+<h3 id="7">(7) 注意</h3>
+<p>b64处理后的字符串长度. 一定是4的倍数. 如果在网页上看到有些密文的b64长度不是4的倍数. 会报错</p>
+<p><strong>实例</strong></p>
+<pre><code class="language-python"># 输入要解码的数据，这里以编码后的结果为例
+import base64
+
+encoded_data = 'THVja3kgQm95IQ='
+# 进行Base64解码
+decoded_data = base64.b64decode(encoded_data)
+# 将字节串转换为字符串
+result = decoded_data.decode('utf-8')
+</code></pre>
+<p><strong>此时运行出现以下问题</strong></p>
+<p><img alt="image-20231008105711312" src="imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/Js8RWPOeM439iC7.png" /></p>
+<p><strong>解决思路</strong>.</p>
+<p>base64长度要求. 字符串长度必须是4的倍数. 填充一下即可</p>
+<pre><code class="language-python">import base64
+
+s = &quot;THVja3kgQm95IQ=&quot;
+s += (&quot;=&quot; * (4 - len(s) % 4))
+print(&quot;填充后&quot;, s)
+bb = base64.b64decode(s).decode(&quot;utf-8&quot;)
+print(bb)
+</code></pre>
+<p><strong>填充后运行结果</strong></p>
+<p><img alt="image-20231008110133501" src="imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/Fr5Vk6i12qQMyCb.png" /></p>
+<h3 id="8">(8) 补充</h3>
+<ul>
+<li>说明</li>
+</ul>
+<p>如果有些网站按照自己的方式对编码后的值进行了符号(+/=)的替换，那么我们需要自己进行替换为正常编码后的base64的值</p>
+<ul>
+<li>实例</li>
+</ul>
+<p>```python
+  import base64</p>
+<p>s = "Z21kD9ZK1ke6ugku2ccWu-MeDWh3z252xRTQv-wZ6jddVo3tJLe7gIXz4PyxGl73nSfLAADyElSjjvrYdCvEP4pfohVVEX1DxoI0yhm36ytQNvu-WLU94qULZQ72aml6Jh8cIaWfLDqe22fTIyUU338TLmtutRx9thoVTDvyqjRe9c9k1kGoI1cHkCVEuYP-wpbIm0ROJO6-PveLLLs0UnHfdrEZ_xb-m7iyN6vLy1WBc_tnyKFL3cbR3NVNMuu3kLqFVl-iNZjHZHRUPZiABdcmSQwvC1ItEgcxe50pSO1onEZ6YworWuGIeVhJx1IL87ZO_kr-P2u30FTUiHlLrabyw5onmWOFK4xsjlVpuiN0oV__QC7FfhVr5C5BsxdXGjYBytECfksdak6OoZ0_3Rmuh8XKMrgnzEUfzD3sSLxk_grt1GLuRjC-vBdvectE4tUrBcBDbubFHEZwdG-Nde9PBUY4b5TFi6p4477UxIIA06TMt1lIjLrjYyomfV5QSm1WO2-I3VB78go32ELCpTVpE4DADAxkoATqAj4vOBo-Wpdni0Fbkh2DlIEaqUQNKyZext-RIY4G9Snmi8gx5e4H6iOLe5Ynk7SZ1qQ2YbsCcKrF2iZIULVWKFDeigMGTLaa4_JkVTPQa1YeTm7OJThbPV-<em>CjG8lZNjs7xos6xAjdLPMfZeJ2QlNspNt7iAOhyh6XvLmq5yjovXyCOwb52iGcCDrTr-8 NpYB2pITmfVCKa5DtFaFndCiT0B7phq0t7-MUj5cEcVlvVZGVdUK2CfCR3mtS50o44CFm0qFpNDuFGodrbSv5aWAJRodkFObw-DA9R7RxhwxT0oxVdJOcEhlZHZmMO8sJMZDXj2gCq9gbkmyEQ0SAFh_0Mm9BB8Oo_uFHUcM72xAbovUqxyMd97fRyp66LDtR9BwUX0REruT4mC2un6LPoJhGmo5ZhIaqIy8ACNqF6YQ_TsRHxVKoCf3I1pukVFuOPIJZj_elM-ao4LqtFWL6Yfoy4ujx0I901fFPdVWyWvipw_lPbahI2LA4Uect1GkjH_V6Ok2xFVMyr5-Kimc2dk4I9Pz3LDc4pgcSSMHix7He7T0t4dovyCfUzV-8 Q3lsjYmIc5pXreW0xSZhoX-P7a0X7sRWlMQCxfKyBaPc_urpt9Nj-kK2cXoM8orh2hhfQLxrQs9WGQ971qvc4X5zsUypARDi2n2umlqIuE7odQWCfS9LZfIhmui4GJYk-GF-ewvpGpp3nWfskpJU7XvNhZTP-N3eKjwk2aY80WZG8TwVlWxz7pqTd0ahvJowMExOxEkDEJ72Y="
+  s1 = s.replace("-", "+").replace("</em>", "/")  # 通常的逻辑
+  bs1 = base64.b64decode(s1)
+  print(bs1)
+  ```</p>
+<h3 id="9-jsbase64">(9) js中的base64</h3>
+<p><strong>注意：</strong>
+只能处理基本的base64运算</p>
+<p><code>btoa</code> 和 <code>atob</code> 是 JavaScript 中用于处理 Base64 编码的两个函数。</p>
+<ol>
+<li><strong><code>btoa</code> 函数：</strong> 用于将字符串转换为 Base64 编码。</li>
+</ol>
+<p><code>javascript
+   let originalString = "Hello, World!";
+   let base64String = btoa(originalString);
+   console.log(base64String);  // "SGVsbG8sIFdvcmxkIQ=="</code></p>
+<p>注意：<code>btoa</code> 可以处理 ASCII 字符串，但不能处理非 ASCII 字符，否则会抛出异常。为了处理非 ASCII 字符，可以先将字符串转换为 UTF-8 编码。</p>
+<p>```javascript
+   function utf8_to_b64(str) {
+       return btoa(unescape(encodeURIComponent(str)));
+   }</p>
+<p>let base64StringUTF8 = utf8_to_b64("你好，世界！");
+   console.log(base64StringUTF8);
+   ```</p>
+<ol>
+<li><strong><code>atob</code> 函数：</strong> 用于将 Base64 编码的字符串解码为原始字符串。</li>
+</ol>
+<p><code>javascript
+   let decodedString = atob(base64StringUTF8);
+   console.log(decodeURIComponent(escape(decodedString)));  // "你好，世界！"</code></p>
+<p>注意：<code>atob</code> 解码的结果是一个字符串，如果 Base64 编码的内容不是有效的 Base64 格式，会返回 <code>DOMException</code>。</p>
+<p><strong>node环境中</strong></p>
+<ul>
+<li>node代码</li>
+</ul>
+<p>npm install jsdom</p>
+<p>```javascript
+  const jsdom = require("jsdom");
+  const {JSDOM} = jsdom;
+  const dom = new JSDOM();</p>
+<p>var window = dom.window;</p>
+<p>console.log(window.btoa("Hello World!"));
+  console.log(window.atob("SGVsbG8gV29ybGQh"));
+  ```</p>
+<h2 id="md5">四、MD5加密</h2>
+<h3 id="1_1">(1) 概述</h3>
+<p>MD5（Message Digest 5）是一种常见的摘要算法，它将任意长度的消息输入，并输出一个128位（16字节）的消息摘要。MD5算法通过对消息进行一系列位操作和逻辑运算，生成一个唯一的固定长度的摘要值。</p>
+<p><strong>摘要算法：</strong>又称哈希算法、散列算法。摘要也称哈希值，表示输入任意长度的数据，都会输出固定长度的数据。通过摘要算法（比如MDS和SHA-1）就可以得到该哈希值。</p>
+<p>MD5算法的主要特点包括：</p>
+<ol>
+<li>不可逆性：MD5算法是单向加密算法，无法根据摘要值还原出原始消息内容。换句话说，无法通过摘要值反推出原始数据。</li>
+<li>唯一性：对于不同的输入消息，其生成的摘要值通常是唯一的。即使输入消息只有微小的变化，生成的摘要值也会有较大差异。</li>
+<li>固定长度：无论输入消息的长度如何，MD5算法都会生成一个固定长度的128位摘要值。 </li>
+</ol>
+<p>然而，需要注意的是，MD5算法已经存在一些安全性问题。由于其弱碰撞抗性和预映像攻击等问题，现今不推荐将MD5用于密码存储或数字签名等安全应用场景。相对而言，更安全的摘要算法包括SHA-256（Secure Hash Algorithm 256-bit）等</p>
+<h3 id="2-md5">(2) MD5加密使用</h3>
+<ul>
+<li><strong>Python中</strong></li>
+</ul>
+<p>```python
+  from hashlib import md5</p>
+<p>def md5_encrypt(text):
+      # 创建一个MD5对象
+      MD5 = md5()
+      # 将字符串转换为字节流并进行MD5加密
+      MD5.update(text.encode('utf-8'))
+      # 获取加密后的十六进制表示
+      encrypted_text = MD5.hexdigest()
+      return encrypted_text</p>
+<p># 调用函数进行加密
+  text = 'Hello, World!'
+  encrypted_text = md5_encrypt(text)
+  print(encrypted_text)
+  ```</p>
+<p>运行上述代码，输出结果为：<code>65a8e27d8879283831b664bd8b7f0ad4</code>。这就是将字符串"Hello, World!"进行MD5加密后得到的结果。</p>
+<p>请注意，上述代码中的<code>text</code>变量是待加密的文本，你可以根据需求修改为其他字符串。另外，<code>md5_encrypt()</code>函数接收一个字符串作为参数，并返回加密后的结果。</p>
+<ul>
+<li><strong>node中md5加密</strong></li>
+</ul>
+<p>```javascript
+  const CryptoJS = require('crypto-js');
+  const hash = CryptoJS.MD5('Hello, World!').toString();</p>
+<p>console.log(hash);
+  ```</p>
+<h3 id="3-md5">(3) md5真的安全吗?</h3>
+<p>MD5加密无法解密,是很安全的。并且实际情况也是很多http请求用的都是MD5加密。从技术的角度讲,MD5真的很安全,因为无法解密,破解MD5的方式只有一个:撞库</p>
+<p>理论上md5加密是不可逆的,但是为什么有一些网站可以实现解密呢?</p>
+<p>其实md5解密就是这些解密网站的服务器一直在进行<strong>随机的加密</strong>，</p>
+<p>然后把加密的内容和加密后的内容存在数据库。</p>
+<p>解密的时候检查有没有重复的,有重复的调用加密的数据就可以。</p>
+<p>只要稍微复杂的内容是没办法解密的。</p>
+<p><strong>实例</strong></p>
+<ul>
+<li>url</li>
+</ul>
+<p>解密   https://www.somd5.com</p>
+<p>加密   https://md5jiami.bmcx.com</p>
+<ul>
+<li>加密复杂的文本在进行解密</li>
+</ul>
+<p>加密  ，。+-qw收拾</p>
+<p><img alt="image-20230927170411111" src="imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/zy8hVMUYxQXW9wH.png" /></p>
+<p>解密</p>
+<p><img alt="image-20230927170329504" src="imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/CpGdFIufr3bLED4.png" /></p>
+<ul>
+<li>加密简单文本在进行解密</li>
+</ul>
+<p>加密 123456</p>
+<p><img alt="image-20230927170450215" src="imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/feKgZNpR2YE6ui5.png" /></p>
+<p>解密</p>
+<p><img alt="image-20230927170516189" src="imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/1EUq7JrOKm5lA6F.png" /></p>
+<h3 id="4_1">(4) 撞库</h3>
+<p>就是它网站里存储了大量的MD5的值. 就像这样:</p>
+<p><img src="./imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/82QBEyutRT1OjD5.png" alt="image-20210907135220771" style="zoom:100%;" /></p>
+<p>而需要进行查询的时候. 只需要一条select语句就可以查询到了. 这就是传说中的撞库. </p>
+<h3 id="5">(5) 解决撞库</h3>
+<p><strong>避免撞库</strong>: md5在进行计算的时候可以加盐. 加盐之后. 就很难撞库了. </p>
+<pre><code class="language-python">from hashlib import md5
+
+
+salt = &quot;我是盐.把我加进去就没人能破解了&quot;
+obj = md5(salt.encode(&quot;utf-8&quot;))  # 加盐
+obj.update(&quot;lucky&quot;.encode(&quot;utf-8&quot;))
+
+bs = obj.hexdigest()
+print(bs)
+</code></pre>
+<h3 id="6">(6) 如果我们遇到了怎么办？</h3>
+<ul>
+<li>
+<p>如果使用的是没有任何更改的md5  我们可以使用python或者js进行加密即可</p>
+</li>
+<li>
+<p>如果是魔改的，只能通过扣js代码来解决</p>
+</li>
+<li>
+<p>如何判断是否是更改后的加密算法</p>
+</li>
+</ul>
+<p>通过当前网址  https://1024tools.com/hash  进行加密对比</p>
+<p><img alt="image-20230927180514371" src="imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/vxGcVYTDUBQXAd2.png" /></p>
+<h3 id="7_1">(7) 其它摘要算法的使用</h3>
+<ul>
+<li>SHA-1算法：</li>
+</ul>
+<p>SHA-1（Secure Hash Algorithm 1）是一种较为常见的摘要算法， 输出长度为160位。在Python中，可以使用hashlib库中的sha1()函数来计算SHA-1摘要。</p>
+<p>```python
+  import hashlib</p>
+<p>message = "Hello, World!"
+  sha1_hash = hashlib.sha1(message.encode()).hexdigest()
+  print(sha1_hash)
+  ```</p>
+<ul>
+<li>SHA-256算法：</li>
+</ul>
+<p>SHA-256（Secure Hash Algorithm 256-bit）是SHA-2系列中的一种摘要算法，输出长度为256位。在Python中，可以使用hashlib库中的sha256()函数来计算SHA-256摘要。</p>
+<p>```python
+  import hashlib</p>
+<p>message = "Hello, World!"
+  sha256_hash = hashlib.sha256(message.encode()).hexdigest()
+  print(sha256_hash)
+  ```</p>
+<ul>
+<li>SHA-512算法：</li>
+</ul>
+<p>SHA-512（Secure Hash Algorithm 512-bit）也是SHA-2系列中的一种摘要算法，输出长度为512位。在Python中，可以使用hashlib库中的sha512()函数来计算SHA-512摘要。</p>
+<p>```python
+  import hashlib</p>
+<p>message = "Hello, World!"
+  sha512_hash = hashlib.sha512(message.encode()).hexdigest()
+  print(sha512_hash)
+  ```</p>
+<h2 id="_2">五、对称加密</h2>
+<h3 id="1_2">(1) 说明</h3>
+<p>对称加密是一种常见的加密算法，也被称为私钥加密。在对称加密中，使用相同的密钥进行数据的加密和解密。发送方使用密钥对要传输的数据进行加密，接收方使用相同的密钥对接收到的数据进行解密。</p>
+<p>对称加密具有以下特点：</p>
+<ul>
+<li>快速：由于使用相同的密钥进行加密和解密，对称加密算法通常执行速度很快。</li>
+<li>简单：对称加密算法相对于其他类型的加密算法来说较为简单，实现起来比较容易。</li>
+<li>安全性依赖于密钥保管：由于使用相同的密钥进行加密和解密，对称加密的安全性非常依赖于密钥的保管。如果密钥被泄露，那么加密数据就会受到威胁。</li>
+</ul>
+<p>常见的对称加密算法包括DES（Data Encryption Standard）、AES（Advanced Encryption Standard）和RC4（Rivest Cipher 4）。这些算法已经广泛应用于网络通信、数据存储和加密协议等领域，以确保数据的机密性和完整性。</p>
+<p><strong>测试网站</strong>: https://the-x.cn/cryptography/Aes.aspx</p>
+<h3 id="2-aes">(2) AES模块安装</h3>
+<ul>
+<li>安装PyCryptodome库</li>
+</ul>
+<p><code>python
+  pip install pycryptodome</code></p>
+<ul>
+<li>安装不上报错为vc++14.0   <ol>
+<li>升级pip</li>
+<li>降低你的python版本..(3.10)</li>
+<li>去找hl文件  https://www.lfd.uci.edu/~gohlke/pythonlibs/</li>
+</ol>
+</li>
+<li>如果安装上无法使用<ol>
+<li>确定当前使用的环境和安装的是同一个解释器</li>
+<li>去site-packages中找到crypto  把小写的c 改为 大写的C</li>
+</ol>
+</li>
+</ul>
+<h3 id="3-aes-cbc">(3) AES - CBC模式加密解密</h3>
+<ul>
+<li>导入必要的模块</li>
+</ul>
+<p><code>python
+  from Crypto.Cipher import AES
+  from Crypto.Util.Padding import pad, unpad
+  from Crypto.Random import get_random_bytes</code></p>
+<ul>
+<li>完整加密操作</li>
+</ul>
+<p>```python
+  from Crypto.Cipher import AES
+  from Crypto.Util.Padding import pad, unpad
+  from Crypto.Random import get_random_bytes
+  import base64</p>
+<p>key = 'mysecretpassword'.encode('UTF-8')  # 加密密钥，长度必须为16、24或32字节
+  plaintext = 'Lucky is a good man'.encode('UTF-8')
+  iv = '1234567890000001'.encode('UTF-8')
+  # iv = get_random_bytes(AES.block_size)  # 随机生成iv方法
+  cipher = AES.new(key, AES.MODE_CBC, iv)
+  # 将一个明文（plaintext）进行填充（padding）操作，使其长度变为16的倍数
+  # 当前16也可以使用AES.block_size进行替代
+  #  默认填充方式为 pkcs7
+  padded_plaintext = pad(plaintext, 16)
+  # 使用cipher对象对padded_plaintext进行加密操作
+  ciphertext = cipher.encrypt(padded_plaintext)
+  print("加密后的密文:", ciphertext)</p>
+<p># AES加密后的byte数据不能直接转为字符串，此时可将其加密后的结果用base64加密，再转为字符串即可
+  data = base64.b64encode(ciphertext)
+  print(data.decode())
+  ```</p>
+<p>其中，<code>key</code>是加密密钥，<code>plaintext</code>是要加密的明文。函数内部使用<code>get_random_bytes</code>函数生成一个随机的初始向量（IV），然后创建一个AES对象，并使用CBC模式和初始向量进行初始化。接着，对明文进行填充（使用<code>pad</code>函数），并使用AES对象的<code>encrypt</code>方法进行加密。最后，返回由初始向量和密文组成的结果。</p>
+<p>其中key的长度，key、iv的长度为16、24、32。加密方式对应为</p>
+<ul>
+<li>
+<p>16: AES-128</p>
+</li>
+<li>
+<p>24: AES-192</p>
+</li>
+<li>
+<p>32: AES-256</p>
+</li>
+</ul>
+<p><strong>初始向量IV</strong>：初始向量IV的作用是使加密更加安全可靠，我们使用AES加密时需要主动提供初始向量，而且只需要提供一个初始向量就够了，后面每段数据的加密向量都是前面一段的密文</p>
+<p><strong>密钥</strong>：AES要求密钥的长度可以是128位16个字节、192位或者256位，位数越高，加密强度自然越大，但是加密的效率自然会低一些，因此要做好衡量。我们开发通常采用128位16个字节的密钥，我们使用AES加密时需要主动提供密钥，而且只需要提供一个密钥就够了，每段数据加密使用的都是这一个密钥，密钥来源为随机生成。</p>
+<ul>
+<li>加密图示（需要IV）</li>
+</ul>
+<p><img alt="" src="./imgs/assets/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mjk0MDgyNg==,size_16,color_FFFFFF,t_70.png" /></p>
+<ul>
+<li>完整解密操作</li>
+</ul>
+<p>```python
+  from Crypto.Cipher import AES
+  from Crypto.Util.Padding import pad, unpad</p>
+<p>key = 'mysecretpassword'.encode('UTF-8')  # 加密密钥，长度必须为16、24或32字节
+  iv = '1234567890000001'.encode('UTF-8')
+  # 加密数据
+  ciphertext = b'\n\x00{\x8e\xde\xef\x02\x81j\x0f\x11\x0fN\xa1\xd8\xb1q#\x13X\xf0\x01 )\x1d\x88\x08\xf7\x03h.\x99'
+  cipher = AES.new(key, AES.MODE_CBC, iv)
+  # 进行解密
+  padded_plaintext = cipher.decrypt(ciphertext)
+  # unpad去除被填充的文本  填充为16的倍数
+  plaintext = unpad(padded_plaintext, 16)
+  print("解密后的明文:", plaintext)
+  ```</p>
+<p>这里的参数和步骤与加密函数相似。不同之处在于，我们首先从密文中获取初始向量（IV），然后使用AES对象的<code>decrypt</code>方法来解密剩余部分的密文，并在解密后使用<code>unpad</code>函数去除填充，得到明文。</p>
+<p>AES加密算法中，对于待加密的数据，需要进行填充操作使其长度为16的倍数。这是因为AES算法采用分组密码的方式进行加密，每个分组的长度固定为128位（16字节）。如果待加密的数据长度不是16的整数倍，就需要进行填充操作。</p>
+<h3 id="4-aes-ecb">(4) AES - ECB模式加密解密</h3>
+<ul>
+<li>加密图示（不需要IV）</li>
+</ul>
+<p><img src="./imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/20181103135639355.png" alt="image-20231009112352066" style="zoom:100%;" /></p>
+<ul>
+<li>导入所需的模块</li>
+</ul>
+<p><code>python
+  from Crypto.Cipher import AES
+  from Crypto.Util.Padding import pad, unpad</code></p>
+<ul>
+<li>加密完整操作</li>
+</ul>
+<p>```python
+  from Crypto.Cipher import AES
+  from Crypto.Util.Padding import pad, unpad
+  import base64</p>
+<p>key = 'mysecretpassword'.encode('UTF-8')  # 加密密钥，长度必须为16、24或32字节
+  plaintext = 'Lucky is a good man'.encode('UTF-8')
+  print(AES.block_size)
+  cipher = AES.new(key, AES.MODE_ECB)
+  #  默认填充方式为 pkcs7
+  padded_plaintext = pad(plaintext, AES.block_size)<br />
+  ciphertext = cipher.encrypt(padded_plaintext)
+  print("加密后的密文:", ciphertext)</p>
+<p># 变为字符
+  ciphertext = base64.b64encode(ciphertext).decode()
+  print("加密后的密文:", ciphertext)
+  ```</p>
+<p>其中，<code>key</code>是加密密钥，<code>plaintext</code>是要加密的明文。函数内部创建了一个AES对象，并使用ECB模式进行初始化。然后，对明文进行填充（使用<code>pad</code>函数），并使用AES对象的<code>encrypt</code>方法进行加密。最后，返回密文。</p>
+<ul>
+<li>解密完整操作</li>
+</ul>
+<p>```python
+  from Crypto.Cipher import AES
+  from Crypto.Util.Padding import pad, unpad</p>
+<p>key = 'mysecretpassword'.encode('UTF-8')  # 加密密钥，长度必须为16、24或32字节
+  # 加密数据
+  ciphertext = b'\x02=H*\x9d\x90\xb1\xc7\xa0(rf4[CX\x92\xd4h%\x0f,\x9f\x17\x1b\xd1\xfeG\xe5PJc'
+  cipher = AES.new(key, AES.MODE_ECB)
+  # 进行解密
+  padded_plaintext = cipher.decrypt(ciphertext)
+  # unpad去除被填充的文本
+  plaintext = unpad(padded_plaintext, 16)
+  print("解密后的明文:", plaintext)
+  ```</p>
+<p>这里的参数和步骤与加密函数相似。不同之处在于，我们使用AES对象的<code>decrypt</code>方法来解密密文，并在解密后使用<code>unpad</code>函数去除填充，得到明文。</p>
+<h3 id="5-key">(5)  key的长度</h3>
+<ul>
+<li>
+<p>长度为</p>
+</li>
+<li>
+<p>16: AES-128</p>
+</li>
+<li>
+<p>24: AES-192</p>
+</li>
+<li>
+<p>32: AES-256</p>
+</li>
+<li>
+<p>使用场景</p>
+</li>
+</ul>
+<p><img alt="image-20240112234545328" src="imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/x9jkgM1vhnasoSO.png" /></p>
+<pre><code>通过URL下载到的秘钥 长度为16
+</code></pre>
+<p><img src="./imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/uxVgFCoHLyj5Otl.png" alt="image-20231009112352066" style="zoom:100%;" /></p>
+<h3 id="6-aes-ecbcbc">(6) 常见的AES-ECB、CBC加密算法工作模式及其作用</h3>
+<ol>
+<li>
+<p><strong>AES.MODE_ECB</strong></p>
+</li>
+<li>
+<p>电子密码本模式（Electronic Codebook Mode）</p>
+</li>
+<li>最简单的AES工作模式，将明文分为固定大小的块独立加密</li>
+<li>
+<p>不建议在实际应用中使用，因为容易受到重放攻击和模式重复的问题</p>
+</li>
+<li>
+<p><strong>AES.MODE_CBC</strong></p>
+</li>
+<li>
+<p>密码分组链接模式（Cipher Block Chaining Mode）</p>
+</li>
+<li>使用前一个密文块与当前明文块进行异或运算后再加密</li>
+<li>添加了初始化向量（IV）以增加随机性和安全性</li>
+</ol>
+<h3 id="7-des">(7) DES 加密解密</h3>
+<ul>
+<li>加密</li>
+</ul>
+<p>```python
+  from Crypto.Cipher import DES
+  from Crypto.Util.Padding import pad
+  import base64
+  # 设置密钥（8字节）
+  key = b'abcdefgh'</p>
+<p># 创建DES对象并设置为加密模式
+  cipher = DES.new(key, DES.MODE_ECB)</p>
+<p># 要加密的数据（必须是8字节的整数倍）
+  data = 'lucky is a good man'.encode('UTF-8')
+  # 进行填充为8字节的整数倍
+  padded_plaintext = pad(data, DES.block_size)
+  # 加密数据
+  encrypted_data = cipher.encrypt(padded_plaintext)
+  print('加密后的数据：',  encrypted_data)
+  # 使用base64转换为字符
+  data = base64.b64encode(encrypted_data).decode()
+  print('加密后的数据：', data)
+  ```</p>
+<ul>
+<li>解密</li>
+</ul>
+<p>```python
+  from Crypto.Cipher import DES
+  from Crypto.Util.Padding import pad, unpad
+  encrypted_data = b'\xe8 \xdd\xb5\x94\xb6\x8d\xb0\xc5\xd8\xbf~\xd9\xde\x8a\xfc\xe6\x06\xe8\x85K\xe1f+'</p>
+<p># 设置密钥（8字节）
+  key = b'abcdefgh'
+  # 创建新的DES对象并设置为解密模式
+  cipher_decrypt = DES.new(key, DES.MODE_ECB)
+  # 解密数据
+  decrypted_data = cipher_decrypt.decrypt(encrypted_data)
+  # 去除填充为8字节的整数倍
+  padded_plaintext = unpad(decrypted_data, DES.block_size)
+  print('解密后的数据：', padded_plaintext.decode())
+  ```</p>
+<h2 id="_3">六、非对称加密</h2>
+<h3 id="1_3">(1) 概述</h3>
+<p>非对称加密，也称为公钥加密，是一种加密算法的类型。与对称加密不同，非对称加密使用两个不同但相关的密钥，分别称为公钥和私钥。</p>
+<p>在非对称加密中，公钥用于加密数据，而私钥用于解密数据。公钥可以公开给任何人，而私钥则必须保密。当发送方使用接收方的公钥来加密数据时，只有拥有相应私钥的接收方才能解密并读取数据。</p>
+<p>这种加密方法具有以下优点：</p>
+<ul>
+<li>提供了更高的安全性，因为私钥仅由接收方持有，其他人无法解密数据。</li>
+<li>允许安全地在不安全的通信渠道上交换公钥。</li>
+<li>可以用于数字签名，验证数据的完整性和身份认证。</li>
+</ul>
+<p>然而，非对称加密的运算速度比对称加密慢，并且在处理大量数据时可能会受到性能影响。因此，在实际应用中，通常会将对称加密与非对称加密结合使用，以兼顾效率和安全性。</p>
+<p>常见的非对称加密算法: RSA, DSA等等, 我们就介绍一个. RSA加密, 也是最常见的一种加密方案</p>
+<h3 id="2_1">(2) 创建公钥和私钥</h3>
+<pre><code class="language-python">from Crypto.PublicKey import RSA
+
+# 生成秘钥
+rsakey = RSA.generate(2048)p
+
+# 生成公钥
+public_key = rsakey.publickey().exportKey()
+with open(&quot;rsa.public.pem&quot;, mode=&quot;wb&quot;) as f:
+    f.write(public_key)
+
+# 生成私钥       
+private_key = rsakey.exportKey()
+with open(&quot;rsa.private.pem&quot;, mode=&quot;wb&quot;) as f:
+    f.write(private_key)
+</code></pre>
+<p>密钥长度或RSA的大小（以位为单位）。它必须至少为1024，但建议使用<strong>2048</strong></p>
+<p><strong>注意：</strong></p>
+<p>以后再代码中看到65537或者10001 那么都为rsa加密</p>
+<p><img alt="image-20231106142426288" src="imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/iOJBIshUerF7SHX.png" /></p>
+<p>公钥指数是可以随意选取的，但是为了提高RSA的加密速度实际使用中公钥指数最长用的三个值是3、17、65537</p>
+<p><img alt="image-20240102161117716" src="imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/9aCxgJDq7FzZUwc.png" /></p>
+<h3 id="3-rsa">(3) RSA加密</h3>
+<pre><code class="language-python">import base64
+from Crypto.Cipher import PKCS1_v1_5
+from Crypto.PublicKey import RSA
+
+
+# 获取公钥
+with open(&quot;rsa.public.pem&quot;, mode=&quot;r&quot;) as f:
+    public_key = f.read()f
+
+# 导入一个RSA公钥
+rsa_pk = RSA.importKey(public_key)
+# 创建一个使用RSA公钥的加密器对象
+rsa = PKCS1_v1_5.new(rsa_pk)
+# 进行rsa加密
+data = &quot;lucky is a good man&quot;
+result = rsa.encrypt(data.encode(&quot;utf-8&quot;))
+# 处理成b64方便传输
+b64_result = base64.b64encode(result).decode(&quot;utf-8&quot;)
+print(b64_result)
+</code></pre>
+<h3 id="3-rsa_1">(3) RSA解密</h3>
+<pre><code class="language-python">import base64
+from Crypto.Cipher import PKCS1_v1_5
+from Crypto.PublicKey import RSA
+
+# 加密的RSA base64数据
+data = &quot;e9mlJn6+0veGo1SSj7J8MWthA9TsAY9iJWAykBWlvYBYzWfdXjZc9aEOFPNk7U/FGJEfwqpsowtKTcAlpyBh44vrfkCXmzWz1mHek2UozRYIdB8c+hBv30UvlQ9bT3ja/2Mz/OstDBeo0G4R821mNPYxwbr39n7sdZmETzf5o8w/9NFLSVEYFCy9rfSEnCTPwlyVEqJKsy6chPyZc04lMVJ1UxKd9Z3EfbuVj1xZoMrn8QzV/ItgQ2XWZdUoO61TWXORnnKnpZvOoChyW1pWUb9CuBkglCkkXbUKFKkgmphBHxbqXZbd3Z+1PZ9qh1qdaOrMmwhgrrdFIl2ly++KOQ==&quot;
+# 读取私钥
+with open(&quot;rsa.private.pem&quot;, mode=&quot;r&quot;) as f:
+    priate_key = f.read()
+
+# 导入一个RSA私钥
+rsa_pk = RSA.importKey(priate_key)
+# 创建一个使用RSA私钥的加密器对象
+rsa = PKCS1_v1_5.new(rsa_pk)
+# 进行解密
+result = rsa.decrypt(base64.b64decode(data), None)
+print(result.decode(&quot;utf-8&quot;))
+</code></pre>
+<p>以上代码使用Crypto库读取了一个RSA密钥对，并使用私钥对数据进行解密。最后输出了解密后的数据。</p>
+<h3 id="4_2">(4) 流程图</h3>
+<p><img src="./imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/sQOe8Np7MPb9hDm.jpg" alt="006tNc79gy1g5edse0tq8j314g0men8e" style="zoom:100%;" /></p>
+<h3 id="5_1">(5) 注意</h3>
+<p>使用RSA加密或者解密建议使用js 进行处理 因为js更加简单  另外需要注意下面两种形式的RSA</p>
+<ul>
+<li>网易（无法使用python的crypto进行处理）</li>
+</ul>
+<p><img alt="image-20231106110838614" src="imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/7WJcZGsFO8pMPqg.png" /></p>
+<p>使用网址 https://ohdave.com/rsa/</p>
+<ul>
+<li>中大网校（这种和python的是想通的）</li>
+</ul>
+<p><img alt="image-20231106140812321" src="imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/tFq1MbvLlymQRej.png" /></p>
+<p>安装：npm install node-jsencrypt</p>
+<p>查看已安装的模块： npm ls --depth 0</p>
+<h2 id="ob">七、ob混淆</h2>
+<h3 id="1_4">(1) 概述</h3>
+<p>"ob混淆" 是指对代码进行混淆，以增加代码的复杂性和难以理解性，从而增加代码的安全性和防止逆向工程。通过ob混淆，代码的变量名、函数名和控制流程被重命名或重组，使得代码变得更加晦涩和难以分析。这样可以有效地保护代码的知识产权和防止恶意用户对代码进行逆向分析</p>
+<h3 id="2-ob">(2) ob混淆有什么特点</h3>
+<ol>
+<li>变量和函数重命名：ob混淆会将代码中的变量和函数名进行随机化或加密，使其变得难以理解和识别。这增加了代码的复杂性，使得逆向工程变得更加困难。</li>
+<li>控制流程混淆：ob混淆会对代码中的控制流程进行修改，例如插入无用的代码、改变循环结构等，使得代码的逻辑变得复杂和混乱，增加了分析和理解的难度。</li>
+<li>字符串加密：ob混淆还可以对代码中的字符串进行加密或编码，使得字符串内容不可直接获取，增加了代码的安全性。</li>
+<li>常量替换：ob混淆可以将代码中的常量替换为等效但难以理解的形式，使得代码的含义更加隐晦。</li>
+<li>反调试和反逆向技术：ob混淆还可以应用反调试和反逆向技术，例如检测调试器、反动态分析等，以防止恶意用户对代码进行逆向工程。</li>
+</ol>
+<h3 id="3_1">(3) 实例</h3>
+<p>原始代码片段</p>
+<pre><code class="language-javascript">function add(x, y) {
+  return x + y;
+}
+
+console.log(add(1, 2));
+</code></pre>
+<p>通过ob混淆，我们可以对代码进行变量和函数名重命名，以及控制流程混淆。这是一个可能的ob混淆后的代码示例：</p>
+<pre><code class="language-javascript">function add(_0x3f3d, _0x2d3c) {
+  return _0x3f3d + _0x2d3c;
+}
+
+console[_0x4a8d(&quot;0x0&quot;)](_0x4a8d(&quot;0x1&quot;), add(0x1, 0x2));
+</code></pre>
+<h3 id="4_3">(4) 混淆案例</h3>
+<ul>
+<li>艺恩</li>
+</ul>
+<p>https://www.endata.com.cn/BoxOffice/BO/Year/index.html</p>
+<h3 id="5-ob">(5) ob还原</h3>
+<ul>
+<li>解密函数</li>
+<li>一些 function 的替换</li>
+<li>字符串相加还原、一些数字还原</li>
+</ul>
+<h2 id="js">八、js加密</h2>
+<h3 id="1-md5">(1) MD5加密</h3>
+<pre><code class="language-javascript">// node标准库
+let crypto = require('crypto');
+function md5(e) {
+    return crypto.createHash('md5').update(e.toString()).digest('hex');
+}
+</code></pre>
+<h3 id="2-aes_1">(2) AES加密</h3>
+<pre><code class="language-javascript">let CryptoJS = require('crypto-js')
+
+// AES加密
+var AES = function(data) {
+  var l = {
+    key: CryptoJS.enc.Utf8.parse(&quot;字符&quot;),
+    iv: CryptoJS.enc.Utf8.parse(&quot;字符&quot;),
+  }
+  return CryptoJS.AES.encrypt(data, l.key, {
+    iv: l.iv,
+    mode: CryptoJS.mode.CBC,
+    padding: CryptoJS.pad.Pkcs7
+  }).toString()
+
+}
+</code></pre>
+<p><strong>注意：</strong></p>
+<pre><code class="language-javascript">let CryptoJS = require('crypto-js')
+// 用于解析 UTF-8 编码的数据
+console.log(CryptoJS.enc.Utf8.parse(&quot;fX@VyCQVvpdj8RCa&quot;))
+// 用于解析十六进制编码的数据。
+console.log(CryptoJS.enc.Hex.parse('66584056794351567670646a38524361'))
+/*总结
+* CryptoJS.enc.Hex.parse
+* 将十六进制的字节处理成了一个 CryptoJS WordArray 对象。
+*
+* CryptoJS.enc.Utf8.parse
+* 将UTF-8 编码的数据处理成了一个 CryptoJS WordArray 对象
+*
+* 这个对象可以在 CryptoJS 中进行加密、解密、哈希等操作。 WordArray 是 CryptoJS 中用来表示二进制数据的类型，它提供了丰富的方法来进行数据处理和转换。
+* */
+</code></pre>
+<p>运行结果：</p>
+<p><img alt="image-20231116151032072" src="imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/E7ONweR4l9XAcdk.png" /></p>
+<p>使用python还原</p>
+<pre><code class="language-python"># 将十六进制再转换为字符
+import binascii
+s = '472424516177636b4766614c42393772'
+# 将一个十六进制字符串转换为一个字节串
+key = binascii.a2b_hex(s).decode()
+# print(key)  # G$$QawckGfaLB97r
+</code></pre>
+<p>使用js还原</p>
+<p><img alt="image-20231026175917884" src="imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/vJPTxrkCsGo9R3y.png" /></p>
+<h3 id="3-des">(3) DES加密</h3>
+<pre><code class="language-javascript">var cryptoJs = require('crypto-js')
+function _(data) {
+            var e = cryptoJs.enc.Utf8.parse(&quot;1qaz@wsx3e&quot;)
+              , i = cryptoJs.DES.decrypt({
+                ciphertext: cryptoJs.enc.Base64.parse(data)
+            }, e, {
+                mode: cryptoJs.mode.ECB,
+                padding: cryptoJs.pad.Pkcs7
+            });
+            return i.toString(cryptoJs.enc.Utf8)
+}
+</code></pre>
+<h3 id="4-rsa">(4) RSA 加密</h3>
+<pre><code class="language-javascript">var JSEncrypt = require('node-jsencrypt')
+
+function rsa_encrypt(e) {
+        var o = new JSEncrypt;
+        return o.setPublicKey(&quot;MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDA5Zq6ZdH/RMSvC8WKhp5gj6Ue4Lqjo0Q2PnyGbSkTlYku0HtVzbh3S9F9oHbxeO55E8tEEQ5wj/+52VMLavcuwkDypG66N6c1z0Fo2HgxV3e0tqt1wyNtmbwg7ruIYmFM+dErIpTiLRDvOy+0vgPcBVDfSUHwUSgUtIkyC47UNQIDAQAB&quot;),
+        o.encrypt(e)
+}
+</code></pre>
+<h3 id="5-sha1">(5) Sha1加密</h3>
+<pre><code class="language-javascript">// node标准库
+let crypto = require('crypto');
+function do_sha1(e) {
+    return crypto.createHash('Sha1').update(e.toString()).digest('hex');
+}
+</code></pre>
+<h3 id="6-base64">(6) Base64</h3>
+<p>简介：Base64 是一种用 64 个字符来表示任意二进制数据的方法。</p>
+<p>参考资料：</p>
+<ul>
+<li>Base64 百度百科：https://baike.baidu.com/item/base64/8545775</li>
+<li>Base64 维基百科：https://en.wikipedia.org/wiki/Base64</li>
+</ul>
+<p><strong>JavaScript 实现</strong></p>
+<pre><code class="language-javascript">/ 引用 crypto-js 加密模块
+var CryptoJS = require('crypto-js')
+
+function base64Encode() {
+    var srcs = CryptoJS.enc.Utf8.parse(text);
+    var encodeData = CryptoJS.enc.Base64.stringify(srcs);
+    return encodeData
+}
+
+function base64Decode() {
+    var srcs = CryptoJS.enc.Base64.parse(encodeData);
+    var decodeData = srcs.toString(CryptoJS.enc.Utf8);
+    return decodeData
+}
+
+var text = &quot;I love Python!&quot;
+
+var encodeData = base64Encode()
+var decodeData = base64Decode()
+
+console.log(&quot;Base64 编码: &quot;, encodeData)
+console.log(&quot;Base64 解码: &quot;, decodeData)
+
+// Base64 编码:  SSBsb3ZlIFB5dGhvbiE=
+// Base64 解码:  I love Python!
+</code></pre>
+<h3 id="7-hmac">(7) HMAC</h3>
+<p>简介：全称散列消息认证码、密钥相关的哈希运算消息认证码（英文名称：Hash-based Message Authentication Code 或者 Keyed-hash Message Authentication Code），于 1996 年提出，1997 年作为 RFC 2104 被公布，HMAC 加密算法是一种安全的基于加密 Hash 函数和共享密钥的消息认证协议，它要求通信双方共享密钥 key、约定算法、对报文进行 Hash 运算，形成固定长度的认证码。通信双方通过认证码的校验来确定报文的合法性。</p>
+<p>参考资料：</p>
+<ul>
+<li>RFC 2104：https://datatracker.ietf.org/doc/rfc2104/</li>
+<li>HMAC 维基百科：https://en.wikipedia.org/wiki/HMAC</li>
+</ul>
+<p><strong>JavaScript 实现</strong></p>
+<pre><code class="language-javascript">// 引用 crypto-js 加密模块
+var CryptoJS = require('crypto-js')
+
+function HMACEncrypt() {
+    var text = &quot;I love python!&quot;
+    var key = &quot;secret&quot;
+    return CryptoJS.HmacMD5(text, key).toString();
+    // return CryptoJS.HmacSHA1(text, key).toString();
+    // return CryptoJS.HmacSHA256(text, key).toString();
+}
+
+console.log(HMACEncrypt())
+</code></pre>
+<h3 id="8-des">(8) DES</h3>
+<p>简介：全称数据加密标准（英文名称：Data Encryption Standard），加密与解密使用同一密钥，属于对称加密算法，1977 年被美国联邦政府的国家标准局确定为联邦资料处理标准（FIPS），DES 是一个分组加密算法，使用 56 位的密钥（一般认为密钥是 64 位，但是密钥的每个第 8 位设置为奇偶校验位，所以实际上有效位只有 56 位），由于 56 位密钥长度相对较短，所以 DES 是不安全的，现在基本上已被更高级的加密标准 AES 取代。</p>
+<ul>
+<li>mode 支持：CBC，CFB，CTR，CTRGladman，ECB，OFB 等。</li>
+<li>padding 支持：ZeroPadding，NoPadding，AnsiX923，Iso10126，Iso97971，Pkcs7 等。</li>
+</ul>
+<p>参考资料：</p>
+<ul>
+<li>RFC 4772：https://datatracker.ietf.org/doc/rfc4772/</li>
+<li>DES 维基百科：https://en.wikipedia.org/wiki/Data_Encryption_Standard</li>
+</ul>
+<p><strong>JavaScript 实现</strong></p>
+<pre><code class="language-javascript">// 引用 crypto-js 加密模块
+var CryptoJS = require('crypto-js')
+
+function desEncrypt() {
+    var key = CryptoJS.enc.Utf8.parse(desKey),
+        iv = CryptoJS.enc.Utf8.parse(desIv),
+        srcs = CryptoJS.enc.Utf8.parse(text),
+        // CBC 加密模式，Pkcs7 填充方式
+        encrypted = CryptoJS.DES.encrypt(srcs, key, {
+            iv: iv,
+            mode: CryptoJS.mode.CBC,
+            padding: CryptoJS.pad.Pkcs7
+        });
+    return encrypted.toString();
+}
+
+function desDecrypt() {
+    var key = CryptoJS.enc.Utf8.parse(desKey),
+        iv = CryptoJS.enc.Utf8.parse(desIv),
+        srcs = encryptedData,
+        // CBC 加密模式，Pkcs7 填充方式
+        decrypted = CryptoJS.DES.decrypt(srcs, key, {
+            iv: iv,
+            mode: CryptoJS.mode.CBC,
+            padding: CryptoJS.pad.Pkcs7
+        });
+    return decrypted.toString(CryptoJS.enc.Utf8);
+}
+
+var text = &quot;I love Python!&quot;       // 待加密对象
+var desKey = &quot;6f726c64f2c2057&quot;    // 密钥
+var desIv = &quot;0123456789ABCDEF&quot;    // 初始向量
+
+var encryptedData = desEncrypt()
+var decryptedData = desDecrypt()
+
+console.log(&quot;加密字符串: &quot;, encryptedData)
+console.log(&quot;解密字符串: &quot;, decryptedData)
+
+// 加密字符串:  +ndbEkWNw2QAfIYQtwC14w==
+// 解密字符串:  I love Python!
+</code></pre>
+<h3 id="9-3des">(9) 3DES</h3>
+<p>简介：全称三重数据加密算法（英文名称：Triple Data Encryption Standard、 Triple Data Encryption Algorithm、TDES、TDEA），是对称加密算法中的一种。70 年代初由 IBM 研发，后 1977 年被美国国家标准局采纳为数据加密标准，它相当于是对每个数据块应用三次 DES 加密算法。由于计算机运算能力的增强，原版 DES 密码的密钥长度变得容易被暴力破解；3DES 即是设计用来提供一种相对简单的方法，即通过增加 DES 的密钥长度来避免破解，所以严格来说 3DES 不是设计一种全新的块密码算法。</p>
+<ul>
+<li>mode 支持：CBC，CFB，CTR，CTRGladman，ECB，OFB 等。</li>
+<li>padding 支持：ZeroPadding，NoPadding，AnsiX923，Iso10126，Iso97971，Pkcs7 等。</li>
+</ul>
+<p>参考资料：</p>
+<ul>
+<li>RFC 1851：https://datatracker.ietf.org/doc/rfc1851/</li>
+<li>3DES 维基百科：https://en.wikipedia.org/wiki/Triple_DES</li>
+</ul>
+<p><strong>JavaScript 实现</strong></p>
+<pre><code class="language-javascript">// 引用 crypto-js 加密模块
+var CryptoJS = require('crypto-js')
+
+function tripleDesEncrypt() {
+    var key = CryptoJS.enc.Utf8.parse(desKey),
+        iv = CryptoJS.enc.Utf8.parse(desIv),
+        srcs = CryptoJS.enc.Utf8.parse(text),
+        // ECB 加密方式，Iso10126 填充方式
+        encrypted = CryptoJS.TripleDES.encrypt(srcs, key, {
+            iv: iv,
+            mode: CryptoJS.mode.ECB,
+            padding: CryptoJS.pad.Iso10126
+        });
+    return encrypted.toString();
+}
+
+function tripleDesDecrypt() {
+    var key = CryptoJS.enc.Utf8.parse(desKey),
+        iv = CryptoJS.enc.Utf8.parse(desIv),
+        srcs = encryptedData,
+        // ECB 加密方式，Iso10126 填充方式
+        decrypted = CryptoJS.TripleDES.decrypt(srcs, key, {
+            iv: iv,
+            mode: CryptoJS.mode.ECB,
+            padding: CryptoJS.pad.Iso10126
+        });
+    return decrypted.toString(CryptoJS.enc.Utf8);
+}
+
+var text = &quot;I love Python!&quot;       // 待加密对象
+var desKey = &quot;6f726c64f2c2057c&quot;    // 密钥
+var desIv = &quot;0123456789ABCDEF&quot;    // 偏移量
+
+var encryptedData = tripleDesEncrypt()
+var decryptedData = tripleDesDecrypt()
+
+console.log(&quot;加密字符串: &quot;, encryptedData)
+console.log(&quot;解密字符串: &quot;, decryptedData)
+
+// 加密字符串:  3J0NX7x6GbewjjhoW2HKqg==
+// 解密字符串:  I love Python!
+</code></pre>
+<h3 id="10-rc4">(10) RC4</h3>
+<p>简介：英文名称：Rivest Cipher 4，也称为 ARC4 或 ARCFOUR，是一种流加密算法，密钥长度可变。它加解密使用相同的密钥，因此也属于对称加密算法。RC4 是有线等效加密（WEP）中采用的加密算法，也曾经是 TLS 可采用的算法之一，该算法的速度可以达到 DES 加密的 10 倍左右，且具有很高级别的非线性，虽然它在软件方面的简单性和速度非常出色，但在 RC4 中发现了多个漏洞，它特别容易受到攻击，RC4 作为一种老旧的验证和加密算法易于受到黑客攻击，现在逐渐不推荐使用了。</p>
+<p>参考资料：</p>
+<ul>
+<li>RFC 7465：https://datatracker.ietf.org/doc/rfc7465/</li>
+<li>RC4 维基百科：https://en.wikipedia.org/wiki/RC4</li>
+</ul>
+<p><strong>JavaScript 实现</strong></p>
+<pre><code class="language-javascript">// 引用 crypto-js 加密模块
+var CryptoJS = require('crypto-js')
+
+function RC4Encrypt() {
+    return CryptoJS.RC4.encrypt(text, key).toString();
+}
+
+function RC4Decrypt(){
+    return CryptoJS.RC4.decrypt(encryptedData, key).toString(CryptoJS.enc.Utf8);
+}
+
+var text = &quot;I love Python!&quot;
+var key = &quot;6f726c64f2c2057c&quot;
+
+var encryptedData = RC4Encrypt()
+var decryptedData = RC4Decrypt()
+
+console.log(&quot;加密字符串: &quot;, encryptedData)
+console.log(&quot;解密字符串: &quot;, decryptedData)
+
+// 加密字符串:  U2FsdGVkX18hMm9WWdoEQGPolnXzlg9ryArdGNwv
+// 解密字符串:  I love Python!
+</code></pre>
+<h3 id="11-rabbit">(11) Rabbit</h3>
+<p>简介：Rabbit 加密算法是一个高性能的流密码加密方式，2003 年首次被提出，它从 128 位密钥和 64 位初始向量（iv）创建一个密钥流。</p>
+<p>参考资料：</p>
+<ul>
+<li>RFC 4503：https://datatracker.ietf.org/doc/rfc4503/</li>
+<li>Rabbit 维基百科：https://en.wikipedia.org/wiki/Rabbit_(cipher)</li>
+</ul>
+<p><strong>JavaScript 实现</strong></p>
+<pre><code class="language-javascript">// 引用 crypto-js 加密模块
+var CryptoJS = require('crypto-js')
+
+function rabbitEncrypt() {
+    return CryptoJS.Rabbit.encrypt(text, key).toString();
+}
+
+function rabbitDecrypt() {
+    return CryptoJS.Rabbit.decrypt(encryptedData, key).toString(CryptoJS.enc.Utf8);
+}
+
+var text = &quot;I love Python!&quot;
+var key = &quot;6f726c64f2c2057&quot;
+
+var encryptedData = rabbitEncrypt()
+var decryptedData = rabbitDecrypt()
+
+console.log(&quot;加密字符串: &quot;, encryptedData)
+console.log(&quot;解密字符串: &quot;, decryptedData)
+
+// 加密字符串:  U2FsdGVkX1+ZVCHRXlhmG5Xw87YPWMNIBlbukuh8
+// 解密字符串:  I love Python!
+</code></pre>
+<h2 id="_4">九、抓包工具安装</h2>
+<h3 id="1-fidder">(1) fidder</h3>
+<h4 id="911">9.1.1  配置证书</h4>
+<ul>
+<li>
+<p>双击安装即可</p>
+</li>
+<li>
+<p>安装后 在搜索栏搜索fidder</p>
+</li>
+</ul>
+<p><img src="./imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/gWMbc1trf6TeGSv.png" alt="image-20231110174448968" style="zoom: 33%;" /></p>
+<ul>
+<li>配置https证书</li>
+</ul>
+<p><img src="./imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/dAyWYCkt59jBoGu.png" alt="image-20231110175045768" style="zoom:100%;" /></p>
+<ul>
+<li>
+<p>勾选Decrypt HTTPS traffic（信任证书）<img src="./imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/C2kNB3P1GSxJRpc.png" alt="image-20231110175209217" style="zoom:67%;" /></p>
+</li>
+<li>
+<p>点击yes</p>
+<p><img src="./imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/yB4cbKTHGVhfPjD.png" alt="image-20231110175242675" style="zoom: 67%;" /></p>
+</li>
+<li>
+<p>点击yes</p>
+<p><img src="./imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/PWrKkmfqU9TCIlF.png" alt="image-20231110175318416" style="zoom:67%;" /></p>
+</li>
+<li>
+<p>点击是</p>
+<p><img src="./imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/Yx9et2qm1priQgF.png" alt="image-20231110175356348" style="zoom:67%;" /></p>
+</li>
+<li>
+<p>点击确定</p>
+<p><img src="./imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/AHr9cfBeQlIFEOC.png" alt="image-20231110175439659" style="zoom:67%;" /></p>
+</li>
+<li>
+<p>最后把下面的:</p>
+<p>Ignore server certificate errors(unsafe)忽略服务器证书错误（不安全）
+check for certificate revocation (证书撤销检查)</p>
+<p>这两个选项也<strong>勾选上</strong>!</p>
+<p><img src="./imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/NCchbFoYuTeE341.png" alt="image-20231110191632742" style="zoom:67%;" /></p>
+</li>
+<li>
+<p>打开浏览器  访问一个https的网址， 在拦截中能够看到https则配置成功</p>
+<p><img alt="image-20231111124314598" src="imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/YdEnrmaL69tAJfv.png" /></p>
+</li>
+</ul>
+<h4 id="912">9.1.2  配置本地文件替换</h4>
+<p><strong>步骤</strong></p>
+<ul>
+<li>
+<p>第一步 选择要进行替换处理的URL</p>
+</li>
+<li>
+<p>第二步  选择AutoResponder</p>
+</li>
+<li>
+<p>第三步  勾选当前4个按钮 按照规则匹配</p>
+</li>
+<li>
+<p>第四步 选择 添加规则  Add Rule</p>
+</li>
+<li>
+<p>第四步 选择 第二个框的下拉</p>
+</li>
+<li>
+<p>第五步 选择 Find a File  选择一个本地文件</p>
+</li>
+<li>
+<p>第六部  重新访问</p>
+</li>
+<li>
+<p>作用：通常用于处理返回页面中带有反扒处理的请求链接等，把去除反爬的链接后的文件重新响应返回  进行页面分析</p>
+</li>
+</ul>
+<p><strong>图例</strong></p>
+<ol>
+<li>
+<p><img alt="image-20240111155321113" src="imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/mB5yoGTvKMZ8Q3U.png" /></p>
+</li>
+<li>
+<p><img alt="image-20240111155555951" src="imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/ktXgmuWGMar2CHP.png" /></p>
+</li>
+<li>
+<p><img alt="image-20240111155700457" src="imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/TD9NdZUtv3Bmjaz.png" /></p>
+</li>
+<li>
+<p>正常访问的内容</p>
+</li>
+</ol>
+<p><img alt="image-20240111155748770" src="imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/vPTNcVthXlkOb8r.png" /></p>
+<ol>
+<li>替换后得页面内容</li>
+</ol>
+<p><img alt="image-20240111160717765" src="imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/4uYJQPp95tgvwWS.png" /></p>
+<h4 id="913-fiddler">9.1.3 fiddler界面介绍</h4>
+<ul>
+<li>Fiddler菜单栏</li>
+</ul>
+<p>包括捕获http请求，停止捕获请求，保存http请求，载入本地session、设置捕获规则等功能</p>
+<ul>
+<li>Fiddler的工具栏</li>
+</ul>
+<p>包括Fiddler针对当前view的操作（暂停，清除session,decode模式、清除缓存等）</p>
+<ul>
+<li>Web Session面板</li>
+</ul>
+<p>主要是Fiddler抓取到的每条http请求（每一条称为一个session）,主要包含了请求的url，协议，状态码，body等信息</p>
+<ul>
+<li>详情和数据统计板</li>
+</ul>
+<p>针对每条http请求的具体统计（例如发送/接受字节数，发送/接收时间，还有粗略统计世界各地访问该服务器所花费的时间）和数据包分析。如inspector面板下，提供headers、textview、hexview,Raw等多种方式查看单条http请求的请求报文的信息</p>
+<ul>
+<li>
+<p>Inspector</p>
+<p>提供供headers、textview、hexview,Raw等多种方式查看单条http请求的请求报文的信息,分为上下两个部分，上半部分是请求头部分，下半部分是响应头部分。</p>
+</li>
+<li>
+<p>ImageView标签 </p>
+<p>JPG 格式使用 ImageView 就可以看到图片</p>
+</li>
+<li>
+<p>TextView 标签</p>
+<p>HTML/JS/CSS 使用 TextView 可以看到响应的内容。选择一条Content-Type是text/html的会话</p>
+</li>
+<li>
+<p>Raw标签</p>
+<p>Raw标签可以查看响应报文和响应正文,但是不包含请求报文</p>
+</li>
+<li>
+<p>Cookies标签</p>
+<p>Cookies标签可以看到请求的cookie和响应的set-cookie头信息。</p>
+</li>
+<li>
+<p>WebForms</p>
+<p>post请求所有表单数据</p>
+</li>
+<li>
+<p>Headers</p>
+<p>请求头和响应头信息</p>
+</li>
+<li>
+<p>Json\XML</p>
+<p>Json或XML格式的数据</p>
+</li>
+<li>
+<p>Statistics面板</p>
+<p>HTTP请求的性能和其他数据分析</p>
+</li>
+<li>
+<p>composer面板</p>
+<p>可以模拟向相应的服务器发送数据的过程</p>
+</li>
+<li>
+<p>Filters面板</p>
+<p>Filter标签则可以设置Fiddler的过滤规则，来达到过滤http请求的目的。最简单如：过滤内网http请求而只抓取internet的http请求，或则过滤相应域名的http请求。Fiddler的过滤器非常强大，可以过滤特定http状态码的请求，可以过滤特定请求类型的http请求（如css请求，image请求，js请求等），可以过滤请求报文大于或则小于指定大小（byte）的请求</p>
+</li>
+<li>
+<p>关闭fiddler</p>
+</li>
+</ul>
+<p>左上角File,反选Capture Traffic</p>
+<ul>
+<li>WebSession过滤功能</li>
+</ul>
+<p>点击工具栏中的X符号</p>
+<ul>
+<li>WebSession选择功能</li>
+</ul>
+<p>左下角的黑色对话框</p>
+<ul>
+<li>select json\html\image</li>
+<li>cls清除所有请求</li>
+<li>?xxx搜索</li>
+</ul>
+<h3 id="2-window-charles">(2) Window Charles</h3>
+<h4 id="921">9.2.1 配置证书</h4>
+<ul>
+<li>
+<p>安装 -&gt; 傻瓜式安装</p>
+</li>
+<li>
+<p>配置https证书</p>
+</li>
+</ul>
+<p><img src="./imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/ro2Eb3J5yiZtMPR.png" alt="image-20231111151511705" style="zoom: 33%;" /></p>
+<ul>
+<li>点击安装证书</li>
+</ul>
+<p><img src="./imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/bJMF8WN23aZrkm1.png" alt="image-20231111151642281" style="zoom: 33%;" /></p>
+<ul>
+<li>选择本地计算机 -&gt; 下一步</li>
+</ul>
+<p><img src="./imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/4evTdutWAZSanGF.png" alt="image-20231111151719235" style="zoom:100%;" /></p>
+<ul>
+<li>选择是</li>
+</ul>
+<p><img src="./imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/6YIViaXlHvpPqSj.png" alt="image-20231111151741293" style="zoom: 33%;" /></p>
+<ul>
+<li>选择   将所有的证书都放入下列存储-&gt;浏览-&gt;受信任的根证书颁发机构-&gt;确定-&gt;下一步</li>
+</ul>
+<p><img src="./imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/cFas9mleUR6qh1u.png" alt="image-20231111151837747" style="zoom: 33%;" /></p>
+<ul>
+<li>完成</li>
+</ul>
+<p><img src="./imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/nBVChAYXolOPNgR.png" alt="image-20231111151938877" style="zoom: 33%;" /></p>
+<ul>
+<li>导入成功</li>
+</ul>
+<p><img src="./imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/Jv2WodLtX4ZUsbO.png" alt="image-20231111151953576" style="zoom:100%;" /></p>
+<ul>
+<li>开启https端口的监听</li>
+</ul>
+<p><img src="./imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/2PvE9gIleZHCGRA.png" alt="image-20231111152154132" style="zoom:100%;" /></p>
+<ul>
+<li>勾选</li>
+</ul>
+<p><img src="./imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/mxRt2pezaH8Uju6.png" alt="image-20231111152249412" style="zoom:100%;" /></p>
+<ul>
+<li>选择add-&gt;</li>
+</ul>
+<p><img src="./imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/RYGMXVcrg43Zw6N.png" alt="image-20231111152355316" style="zoom:100%;" /></p>
+<ul>
+<li><strong>注意</strong></li>
+</ul>
+<p>在windows环境下如果出现证书不可用的情况.需要手工去windows的证书管理器中, 把Charles的证书拖拽到可信任证书那一栏. 然后重启浏览器和charles就可以用了</p>
+<p>如果证书默认就可用. 就不要胡乱拖拽</p>
+<p>window证书管理器: win+r: 输入certlm.msc</p>
+<p><img src="./imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/I9F57g1KnWcJaG3.png" alt="image-20231113112117178" style="zoom: 33%;" /></p>
+<p><img src="./imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/4CuUZHAI2a5btKX.png" alt="image-20231113112134394" style="zoom:33%;" /></p>
+<h4 id="922">9.2.2 配置本地文件替换</h4>
+<p><strong>步骤</strong></p>
+<ol>
+<li>根据URL找到当前要替换的响应的内容</li>
+<li>选择响应内容的文件 右键  Map Local</li>
+<li>选择 Map to菜单中的  Choose按钮  选择本地的文件</li>
+<li>浏览器中重新刷新请求既可</li>
+</ol>
+<p><strong>取消本地替换</strong></p>
+<ol>
+<li>点击菜单中的tools </li>
+<li>选择 Map Local</li>
+<li>取消勾选 或者移除既可</li>
+</ol>
+<p><strong>图例</strong></p>
+<ol>
+<li>
+<p><img src="./imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/z2fM7yEhwWBQVmg.png" alt="image-20240111164234236" style="zoom:25%;" /></p>
+</li>
+<li>
+<p><img src="./imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/sJ7iKrHqpjlxSft.png" alt="image-20240111164329253" style="zoom: 33%;" /></p>
+</li>
+<li>
+<p><img src="./imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/gXWLvy8xJotqnar.png" alt="image-20240111164353286" style="zoom: 33%;" /></p>
+</li>
+<li>
+<p>之前正常访问的响应</p>
+</li>
+</ol>
+<p><img src="./imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/jf15zuBICQ4VRip.png" alt="image-20240111164403418" style="zoom:100%;" /></p>
+<ol>
+<li>替换后的响应</li>
+</ol>
+<p><img alt="image-20240111164432822" src="imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/7MhS1PryKivWDRa.png" /></p>
+<ol>
+<li>取消本地替换</li>
+</ol>
+<p><img src="./imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/p54c1FXEYdohf6g.png" alt="image-20240111164642980" style="zoom: 50%;" /></p>
+<ol>
+<li>取消勾选或移除</li>
+</ol>
+<p><img src="./imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/bcBNSmaeko1KDdU.png" alt="image-20240111164731654" style="zoom:100%;" /></p>
+<h3 id="3-mac-charles">(3) Mac Charles</h3>
+<ul>
+<li>help-&gt; SSL Proxying -&gt; install </li>
+</ul>
+<p><img src="./imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/8tknNEqQfbSDOmr.png" alt="image-20231113110930297"  /></p>
+<ul>
+<li>输入密码</li>
+</ul>
+<p><img src="./imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/ptGLrA86wjlIFJk.png" alt="image-20231113111030374" style="zoom:100%;" /></p>
+<ul>
+<li>选择系统 （按如下所示操作）</li>
+</ul>
+<p><img src="./imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/3OJu1PKETWeF6AD.png" alt="image-20231113111259608" style="zoom: 33%;" /></p>
+<ul>
+<li>配置监听端口</li>
+</ul>
+<p><img src="./imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/blSLqVG1pfrXgd9.png" alt="image-20231113111852773"  /></p>
+<p><img src="./imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/bfsVL4PkKBa3GA7.png" alt="image-20231113111931098"  /></p>
+<p><img src="./imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/49kmu2P8FIE3SLi.png" alt="image-20231113111940625"  /></p>
+<h3 id="4_4">(4) 注意</h3>
+<p>如果安装上述配置完成以后  证书还是不可用 则重启浏览器，重启拦截工具</p>
+<p><strong>证书过期处理</strong></p>
+<p>https://blog.csdn.net/windyJ809/article/details/141862153</p>
+<h3 id="5-charles">(5) 开启Charles 运行代码失败解决</h3>
+<h4 id="51">5.1 <strong>说明：</strong></h4>
+<p>当打开抓包工具以后  pycharm中运行的代码则请求失败</p>
+<p>出现如下错误</p>
+<p><img alt="image-20231121184402001" src="imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/2tHUpeSXPLmOyxw.png" /></p>
+<h4 id="52">5.2<strong>解决</strong></h4>
+<h5 id="521-proxy-proxy-settings">5.2.1 点开proxy -&gt; proxy settings</h5>
+<p><img src="./imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/s925cLVSe4JAbnR.png" alt="image-20231121184551148"  /></p>
+<p>出现如下界面</p>
+<p><img src="./imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/OP9XFaJDq6sm7Nx.png" alt="image-20231121184711906" style="zoom:100%;" /></p>
+<h5 id="522">5.2.2 代码中添加代理，关闭证书验证</h5>
+<pre><code class="language-python">import requests
+
+url = 'https://app.mi.com/catTopList/0?page=1'
+headers = {
+    'user-agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36'
+}
+# 添加代理 
+proxy = {
+    'http': '127.0.0.1:8888',
+    'https': '127.0.0.1:8888',
+}
+# 添加代理， 并关闭证书验证
+res = requests.get(url, headers=headers, proxies=proxy, verify=False)
+content = res.content.decode()
+print(content)
+</code></pre>
+
+
+</section>
+</div> <!-- end of search-noresults -->
+<div class="search-results">
+<div class="has-results">
+
+<h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+<ul class="search-results-list"></ul>
+
+</div> <!-- end of has-results -->
+<div class="no-results">
+
+<h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+
+</div> <!-- end of no-results -->
+</div> <!-- end of search-results -->
+</div> <!-- end of book-search-results -->
+
+</div> <!-- end of page-inner -->
+</div> <!-- end of page-wrapper -->
+
+</div> <!-- end of body-inner -->
+
+</div> <!-- end of book-body -->
+<script src="./js/main.js"></script>
+<script src="search/main.js"></script>
+<script src="./js/gitbook.min.js"></script>
+<script src="./js/theme.min.js"></script>
+</body>
+</html>

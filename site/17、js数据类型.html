@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>十七、js数据类型 - js node</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="generator" content="mkdocs-1.6.1, mkdocs-gitbook-1.0.7">
+
+<link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta rel="next" href="" />
+<link href="./css/style.min.css" rel="stylesheet"> 
+</head>
+
+<body>
+<div class="book">
+<div class="book-summary">
+<div id="book-search-input" role="search">
+<input type="text" placeholder="Type to search" />
+</div> <!-- end of book-search-input -->
+
+<nav role="navigation">
+<ul class="summary">
+<li>
+<a href="index.html" target="_blank" class="custom-link">js node</a>
+</li>
+<li class="divider"></li>
+<li class="chapter" data-path="index.html">
+<a href="index.html">Welcome to MkDocs</a>
+<li class="chapter" data-path="01%E3%80%81html.html">
+<a href="01%E3%80%81html.html">一、HTML</a>
+<li class="chapter" data-path="02%E3%80%81CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8.html">
+<a href="02%E3%80%81CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8.html">二、CSS层叠样式表</a>
+<li class="chapter" data-path="03%E3%80%81%E6%AD%A3%E5%88%99.html">
+<a href="03%E3%80%81%E6%AD%A3%E5%88%99.html">三、正则</a>
+<li class="chapter" data-path="04%E3%80%81BS4%E8%A7%A3%E6%9E%90%E5%AE%8C%E6%95%B4.html">
+<a href="04%E3%80%81BS4%E8%A7%A3%E6%9E%90%E5%AE%8C%E6%95%B4.html">四、beautifulsoup</a>
+<li class="chapter" data-path="05%E3%80%81xpath.html">
+<a href="05%E3%80%81xpath.html">五、xpath</a>
+<li class="chapter" data-path="06%E3%80%81%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E4%B8%8Eurllib%26requests.html">
+<a href="06%E3%80%81%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E4%B8%8Eurllib%26requests.html">六、爬虫入门</a>
+<li class="chapter" data-path="07%E3%80%81urllib%E4%B8%8Erequests.html">
+<a href="07%E3%80%81urllib%E4%B8%8Erequests.html">七、urllib与requests</a>
+<li class="chapter" data-path="08%E3%80%81%E5%A4%9A%E8%BF%9B%E7%A8%8B.html">
+<a href="08%E3%80%81%E5%A4%9A%E8%BF%9B%E7%A8%8B.html">八、多进程</a>
+<li class="chapter" data-path="09%E3%80%81%E7%BA%BF%E7%A8%8B.html">
+<a href="09%E3%80%81%E7%BA%BF%E7%A8%8B.html">九、线程</a>
+<li class="chapter" data-path="10%E3%80%81%E5%8D%8F%E7%A8%8B.html">
+<a href="10%E3%80%81%E5%8D%8F%E7%A8%8B.html">十、携程</a>
+<li class="chapter" data-path="11%E3%80%81selenium.html">
+<a href="11%E3%80%81selenium.html">十一、selenium</a>
+<li class="chapter" data-path="12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.html">
+<a href="12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.html">十二、MySQL数据库</a>
+<li class="chapter" data-path="13%E3%80%81Mongodb.html">
+<a href="13%E3%80%81Mongodb.html">十三、Mongodb</a>
+<li class="chapter" data-path="14%E3%80%81redis.html">
+<a href="14%E3%80%81redis.html">十四、Redis数据库</a>
+<li class="chapter" data-path="15%E3%80%81%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.html">
+<a href="15%E3%80%81%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.html">十五、面向对象</a>
+<li class="chapter" data-path="16-Scrapy01-%E6%A1%86%E6%9E%B6%E5%88%9D%E8%AE%A4%E8%AF%86.html">
+<a href="16-Scrapy01-%E6%A1%86%E6%9E%B6%E5%88%9D%E8%AE%A4%E8%AF%86.html">十六、Scrapy框架初认识</a>
+<li class="chapter" data-path="16-Scrapy02%E6%B7%B1%E5%85%A5%E4%BD%BF%E7%94%A8-%E5%AD%98%E5%82%A8.html">
+<a href="16-Scrapy02%E6%B7%B1%E5%85%A5%E4%BD%BF%E7%94%A8-%E5%AD%98%E5%82%A8.html">十六、Scrapy深入使用-存储</a>
+<li class="chapter" data-path="16-Scrapy03-%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86%E4%BB%A5%E5%8F%8A%E5%88%86%E9%A1%B5.html">
+<a href="16-Scrapy03-%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86%E4%BB%A5%E5%8F%8A%E5%88%86%E9%A1%B5.html">十六、scrapy模拟登陆&amp;分页</a>
+<li class="chapter" data-path="16-Scrapy04-%E4%B8%AD%E9%97%B4%E4%BB%B6.html">
+<a href="16-Scrapy04-%E4%B8%AD%E9%97%B4%E4%BB%B6.html">十六、Scrapy中间件</a>
+<li class="chapter" data-path="16-Scrapy05-%E5%88%86%E9%A1%B5%E6%8A%93%E5%8F%96.html">
+<a href="16-Scrapy05-%E5%88%86%E9%A1%B5%E6%8A%93%E5%8F%96.html">十六、scrapy的crawlspider爬虫</a>
+<li class="chapter" data-path="16-Scrapy06-scrapy_redis.html">
+<a href="16-Scrapy06-scrapy_redis.html">十六、scrapy_redis</a>
+<li class="chapter active" data-path="17%E3%80%81js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html">
+<a href="17%E3%80%81js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html">十七、js数据类型</a>
+<li class="chapter" data-path="18%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%8E%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6.html">
+<a href="18%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%8E%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6.html">十八、js运算符与流程控制</a>
+<li class="chapter" data-path="19%E3%80%81js%E6%95%B0%E7%BB%84.html">
+<a href="19%E3%80%81js%E6%95%B0%E7%BB%84.html">十九、js数组</a>
+<li class="chapter" data-path="20%E3%80%81js%E5%AD%97%E7%AC%A6%E4%B8%B2.html">
+<a href="20%E3%80%81js%E5%AD%97%E7%AC%A6%E4%B8%B2.html">二十、js字符串</a>
+<li class="chapter" data-path="21%E3%80%81js%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%97%B6%E9%97%B4.html">
+<a href="21%E3%80%81js%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%97%B6%E9%97%B4.html">二十一、js对象与时间</a>
+<li class="chapter" data-path="22%E3%80%81%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89.html">
+<a href="22%E3%80%81%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89.html">二十二、js函数</a>
+<li class="chapter" data-path="23%E3%80%81js%E8%BF%9B%E9%98%B6.html">
+<a href="23%E3%80%81js%E8%BF%9B%E9%98%B6.html">二十三、Javascript进阶</a>
+<li class="chapter" data-path="24%E3%80%81BOM%E6%93%8D%E4%BD%9C.html">
+<a href="24%E3%80%81BOM%E6%93%8D%E4%BD%9C.html">二十四、浏览器对象模型BOM</a>
+<li class="chapter" data-path="25%E3%80%81DOM%E6%93%8D%E4%BD%9C.html">
+<a href="25%E3%80%81DOM%E6%93%8D%E4%BD%9C.html">二十五、DOM操作</a>
+<li class="chapter" data-path="26%E3%80%81jQuery%E6%93%8D%E4%BD%9C.html">
+<a href="26%E3%80%81jQuery%E6%93%8D%E4%BD%9C.html">二十六、jQuery</a>
+<li class="chapter" data-path="27%E3%80%81%E9%80%86%E5%90%9101.html">
+<a href="27%E3%80%81%E9%80%86%E5%90%9101.html">二十七、JS逆向01</a>
+<li class="chapter" data-path="28%E3%80%81%E9%80%86%E5%90%9102.html">
+<a href="28%E3%80%81%E9%80%86%E5%90%9102.html">二十八、逆向02</a>
+<li class="chapter" data-path="29%E3%80%81%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html">
+<a href="29%E3%80%81%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html">二十九、微信小程序逆向开发</a>
+<li class="chapter" data-path="30%E3%80%81%E7%BD%91%E6%98%93%E6%BB%91%E5%9D%97.html">
+<a href="30%E3%80%81%E7%BD%91%E6%98%93%E6%BB%91%E5%9D%97.html">三十、网易易盾</a>
+<li class="chapter" data-path="31%E3%80%81rpc.html">
+<a href="31%E3%80%81rpc.html">三十一、RPC</a>
+<li class="chapter" data-path="32%E3%80%81TLS%E6%8C%87%E7%BA%B9%E7%BB%95%E8%BF%87.html">
+<a href="32%E3%80%81TLS%E6%8C%87%E7%BA%B9%E7%BB%95%E8%BF%87.html">三十二、TLS指纹绕过</a>
+<li class="chapter" data-path="33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">
+<a href="33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">三十三、高级逆向</a>
+<li class="chapter" data-path="34%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">
+<a href="34%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">三十四、高级逆向</a>
+<li class="chapter" data-path="%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B%E7%AC%94%E8%AE%B0.html">
+<a href="%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B%E7%AC%94%E8%AE%B0.html">逆向实战案例笔记</a>
+<li class="header">Pyexecjs与npm配置</li>
+
+<li>
+<a href="pyexecjs%E4%B8%8Enpm%E9%85%8D%E7%BD%AE/execjs%E4%BB%8B%E7%BB%8D%E4%BB%A5%E5%8F%8A%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8.html" class="">Execjs介绍以及安装和使用</a>
+</li>
+
+<li>
+<a href="pyexecjs%E4%B8%8Enpm%E9%85%8D%E7%BD%AE/%E4%B8%80%E6%AC%A1%E6%80%A7%E8%A7%A3%E5%86%B3%E6%8E%89npm%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5%E7%9A%84%E9%97%AE%E9%A2%98.html" class="">更换npm为国内镜像</a>
+</li>
+
+<li class="header">补环境</li>
+
+<li>
+<a href="%E8%A1%A5%E7%8E%AF%E5%A2%83/1%E3%80%81%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8E%E4%BA%8B%E4%BB%B6.html" class="">补环境</a>
+</li>
+
+<li>
+<a href="%E8%A1%A5%E7%8E%AF%E5%A2%83/2%E3%80%81Proxy%E4%BB%A3%E7%90%86%E5%99%A8.html" class="">Proxy代理</a>
+</li>
+
+<li>
+<a href="%E8%A1%A5%E7%8E%AF%E5%A2%83/3%E3%80%81vm2%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83.html" class="">3、vm2运行环境</a>
+</li>
+
+<li class="divider"></li>
+
+
+
+<li><a href="http://www.mkdocs.org">
+Published with MkDocs
+</a></li>
+
+<li><a href="https://github.com/GitbookIO/theme-default">
+Theme by GitBook
+</a></li>
+</ul>
+
+</nav>
+
+</div> <!-- end of book-summary -->
+
+<div class="book-body">
+<div class="body-inner">
+<div class="book-header" role="navigation">
+
+<!-- Title -->
+<h1>
+<i class="fa fa-circle-o-notch fa-spin"></i>
+<a href="." ></a>
+</h1>
+
+</div> <!-- end of book-header -->
+
+<div class="page-wrapper" tabindex="-1" role="main">
+<div class="page-inner">
+<div id="book-search-results">
+<div class="search-noresults">
+
+<section class="normal markdown-section">
+
+
+
+<h1 id="js">十七、js数据类型</h1>
+<h1 id="_1">组成部分</h1>
+<p>ECMAScript，描述了该语言的语法</p>
+<p>文档对象模型（DOM），描述处理网页内容的方法和接口</p>
+<p>浏览器对象模型（BOM），描述与浏览器进行交互的方法和接口</p>
+<h2 id="_2">一、基本语法</h2>
+<h3 id="1javascript">1、使用JavaScript的三种方式</h3>
+<ol>
+<li>在header头部内嵌</li>
+</ol>
+<p>\<script type="text/javascript">\</script></p>
+<ol>
+<li>在header头部导入</li>
+</ol>
+<p>\<script type=“text/javascript”  src="**.js">\</script></p>
+<ol>
+<li>给HTML代码绑定js事件</li>
+</ol>
+<p>\<button onclick="js代码">点击\</button></p>
+<pre><code class="language-html">&lt;span onclick=&quot;this.innerHTML='ss'&quot;&gt;点击&lt;/span&gt;
+</code></pre>
+<p><strong>注意：</strong></p>
+<p>在导入js代码的标签内 不可以书写js代码 否则不会被执s行</p>
+<h3 id="2-js3">2 、js代码输出的3种方式</h3>
+<pre><code class="language-javascript">第一句javascript代码：alert(&quot;hello world!&quot;) ; 
+第二句javascript代码：document.write(&quot;亲，我在页面上，跟alert不一样噢！&quot;);
+第三句javascript代码：console.log(&quot;我是在控制台打印的, 以后常用我！&quot;);
+</code></pre>
+<h3 id="3script">3、script标签可以出现多次</h3>
+<p>且可以出现在html文件的任何地方,建议写在\<head>\</head>之间;另外,同一个文件中Javascript和HTML代码,它们的执行顺序都是自上而下，谁在前就谁先执行,谁在后就后执行.</p>
+<h3 id="4-javascript">4 、JavaScript的注释</h3>
+<ul>
+<li>
+<p>单行注释://</p>
+</li>
+<li>
+<p>多行注释 /**/</p>
+</li>
+</ul>
+<h3 id="5javascript">5、外部javaScript文件引入方式</h3>
+<pre><code class="language-javascript">&lt;script type=&quot;text/javascript&quot; src=&quot;demo1.js&quot; &gt;&lt;/script&gt;
+</code></pre>
+<p>注意：</p>
+<ul>
+<li>不可以使用单标,以下是不正确的写法</li>
+</ul>
+<p>```javascript
+<br />
+<script type="text/javascript" src="demo1.js“/>
+  ```
+
++ 在引入了外部文件的标签中写代码会无效,下面的alert()不会执行
+
+  ```javascript
+  <script src="demo1.js">alert('xxxx')</script></p>
+<p>```</p>
+<ul>
+<li>script标签的属性: </li>
+</ul>
+<p>src表示要引入的外部文件</p>
+<p>type 表示脚本语言的类型</p>
+<h2 id="var">二、变量和常量定义(使用var关键字)</h2>
+<h3 id="1var">1、var 声明变量</h3>
+<ul>
+<li>定义变量</li>
+</ul>
+<p>var age;       //var 是关键字，age是变量名 </p>
+<p>注意：在javascript中name既不是保留字，也不是关键字，但在window对象中有一个属性是 window.name
+  window.name 是一个字符串，所以当你声明name变量的时候,相当于给window.name赋值,所以只能为字符串。</p>
+<ul>
+<li>赋值</li>
+</ul>
+<p>age= 20;</p>
+<ul>
+<li>定义的同时赋值</li>
+</ul>
+<p>var age=20；</p>
+<ul>
+<li>一次定义多个变量</li>
+</ul>
+<p>​     <code>var name="zhangsan", age=18, weight=108;</code></p>
+<ul>
+<li>JS是弱数据类型的语言，容错性较高,在赋值的时候才确定数据类型</li>
+</ul>
+<p><code>javascript
+  var b;           //temp时啥数据类型？不确定
+  b = 12;            //temp变量是数字类型
+  b = "hello";      //temp变量变成了字符串类型
+  console.log(typeof b);</code></p>
+<ul>
+<li>
+<p><strong>注意</strong></p>
+</li>
+<li>
+<p><strong>函数作用域：</strong> <code>var</code> 声明的变量具有函数作用域，而不是块级作用域。这意味着变量在整个函数内是可见的，而不仅限于声明它的块。</p>
+<p>```javascript
+function example() {
+  if (true) {
+    var y = 20;
+    console.log(y);  // 20
+  }</p>
+<p>console.log(y);  // 20，y 在整个函数内都可见
+}</p>
+<p>example();
+```</p>
+</li>
+<li>
+<p><strong>变量提升：</strong> 使用 <code>var</code> 声明的变量会在其所在作用域的顶部被提升，意味着可以在声明之前访问变量。</p>
+<p><code>javascript
+console.log(a);  // undefined
+var a = 5;</code></p>
+</li>
+<li>
+<p><strong>允许重复声明：</strong> 在相同作用域内，使用 <code>var</code> 可以多次声明同一个变量。</p>
+</li>
+<li>
+<p>尽管 <code>var</code> 在过去是主要的变量声明方式，但由于其特有的一些问题（例如变量提升、没有块级作用域等），推荐在现代 JavaScript 中使用 <code>let</code> 和 <code>const</code> 来声明变量，除非有特定的需求。</p>
+</li>
+</ul>
+<h3 id="2let">2、let声明</h3>
+<ul>
+<li>let 声明的变量只在 let 命令所在的代码块内有效。</li>
+</ul>
+<p><code>javascript
+  var x = 10;
+  // 这里输出 x 为 10
+  {
+      let x = 2;
+      // 这里输出 x 为 2
+  }
+  // 这里输出 x 为 10
+  console.log(x)</code></p>
+<ul>
+<li>
+<p>注意</p>
+</li>
+<li>
+<p><code>let</code> 是 JavaScript 中用于声明变量的关键字之一。它引入了块级作用域，与 <code>var</code> 不同，<code>let</code> 在定义变量的同时将其限制在当前的代码块内。</p>
+<p>```javascript
+if (true) {
+  let x = 10;
+  console.log(x);  // 10
+}</p>
+<p>console.log(x);  // Error: x is not defined
+```</p>
+</li>
+<li>
+<p><strong>避免变量提升：</strong> <code>let</code> 不会像 <code>var</code> 一样在作用域开始时被提升，而是在代码执行到声明的位置时才会被创建。</p>
+<p>```javascript
+console.log(a);  // undefined
+var a = 5;</p>
+<p>console.log(b);  // Error: b is not defined
+let b = 10;
+```</p>
+</li>
+<li>
+<p><strong>不允许重复声明：</strong> 在相同作用域内，使用 <code>let</code> 重复声明同一个变量会导致语法错误。</p>
+<p><code>javascript
+let name = "John";
+let name = "Lucky";  // Error: Identifier 'name' has already been declared</code></p>
+</li>
+<li>
+<p>总体而言，<code>let</code> 提供了更加灵活和可控的变量声明方式，有助于避免一些由于变量提升和作用域问题导致的 bug。</p>
+</li>
+</ul>
+<h3 id="3">3、常量定义</h3>
+<p><strong>说明</strong></p>
+<p><code>const</code> 是 JavaScript 中用于声明常量的关键字。使用 <code>const</code> 声明的变量必须进行初始化，并且一旦赋值后，就不能再被修改。<code>const</code> 的主要作用包括：</p>
+<ol>
+<li><strong>常量声明：</strong> <code>const</code> 用于声明常量，常量是指一旦赋值就不能被重新赋值的变量。</li>
+</ol>
+<p><code>javascript
+   const PI = 3.14;</code></p>
+<ol>
+<li><strong>块级作用域：</strong> 与 <code>let</code> 类似，<code>const</code> 也具有块级作用域。声明的常量只在当前代码块内有效。</li>
+</ol>
+<p>```javascript
+   if (true) {
+     const x = 10;
+     console.log(x);  // 10
+   }</p>
+<p>console.log(x);  // Error: x is not defined
+   ```</p>
+<ol>
+<li><strong>不允许重新赋值：</strong> 一旦使用 <code>const</code> 声明变量并赋值，就不能再修改以及删除它的值。</li>
+</ol>
+<p><code>javascript
+   const name = "Lucky";
+   name = "Doe";  // Error: Assignment to constant variable
+   console.log(name) // Lucky</code></p>
+<ol>
+<li><strong>常量不会被提升：</strong> 与 <code>var</code> 不同，使用 <code>const</code> 声明的变量不会被提升到当前作用域的顶部。</li>
+</ol>
+<p><code>javascript
+   console.log(a);  // Error: Cannot access 'a' before initialization
+   const a = 5;</code></p>
+<p>使用 <code>const</code> 的优势在于它提供了更强的不可变性，使得代码更容易理解和维护。通常建议在能够使用常量的地方优先使用 <code>const</code>。如果需要可变性，可以考虑使用 <code>let</code>。</p>
+<h3 id="3js">3、JS代码规范</h3>
+<ul>
+<li>保持代码缩进</li>
+<li>变量名遵守命名规范,尽量见名思意</li>
+<li>JS语句的末尾尽量写上分号;</li>
+<li>运算符两边都留一个空格,如 var n = 1 + 2;</li>
+</ul>
+<h2 id="js_1">三、JS变量的命名规范</h2>
+<h3 id="1">1、规范</h3>
+<ul>
+<li>变量名可以是数字,字母,下划线_和美元符$组成;</li>
+<li>第一个字符不能为数字</li>
+<li>不能使用关键字或保留字</li>
+<li>标识符区分大小写，如：age和Age是不同的变量。但强烈不建议用同一个单词的大小写区分两个变量。</li>
+<li>变量命名尽量遵守驼峰原则:myStudentScore</li>
+<li>变量命名尽量见名思意,</li>
+</ul>
+<h3 id="2">2、参考下图</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">类型</th>
+<th style="text-align: center;">前缀</th>
+<th style="text-align: center;">类型</th>
+<th style="text-align: center;">实例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">整数</td>
+<td style="text-align: center;">i</td>
+<td style="text-align: center;">Int</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">浮点数</td>
+<td style="text-align: center;">f</td>
+<td style="text-align: center;">Float</td>
+<td style="text-align: center;">1.2</td>
+</tr>
+<tr>
+<td style="text-align: center;">数组</td>
+<td style="text-align: center;">a</td>
+<td style="text-align: center;">Array</td>
+<td style="text-align: center;">[]</td>
+</tr>
+<tr>
+<td style="text-align: center;">布尔值</td>
+<td style="text-align: center;">b</td>
+<td style="text-align: center;">Boolean</td>
+<td style="text-align: center;">true/false</td>
+</tr>
+<tr>
+<td style="text-align: center;">函数</td>
+<td style="text-align: center;">Fn</td>
+<td style="text-align: center;">Function</td>
+<td style="text-align: center;">var a = function () {}</td>
+</tr>
+<tr>
+<td style="text-align: center;">对象</td>
+<td style="text-align: center;">o</td>
+<td style="text-align: center;">Object</td>
+<td style="text-align: center;">{}</td>
+</tr>
+<tr>
+<td style="text-align: center;">字符串</td>
+<td style="text-align: center;">s</td>
+<td style="text-align: center;">String</td>
+<td style="text-align: center;">'lucky'</td>
+</tr>
+</tbody>
+</table>
+<h2 id="js_2">四、JS数据类型</h2>
+<h3 id="1js">1、JS数据类型</h3>
+<ul>
+<li>
+<p>Boolean:布尔类型  </p>
+</li>
+<li>
+<p>Number：数字（整数int，浮点数float）</p>
+</li>
+<li>
+<p>String：字符串</p>
+</li>
+<li>
+<p>Array：数组 </p>
+</li>
+<li>
+<p>Object：对象</p>
+</li>
+<li>
+<p>特殊数据类型Null(空对象)、Undefined(未定义)</p>
+</li>
+</ul>
+<p>undefined 不是关键字，取值的时候推荐用void 0</p>
+<p><code>javascript
+  var data;
+  data === void 0  // true</code></p>
+<ul>
+<li>实际使用场景</li>
+</ul>
+<p><img alt="image-20240403100503633" src="imgs/17%E3%80%81js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.assets/image-20240403100503633-9936897.png" /></p>
+<p>注意:</p>
+<ol>
+<li>
+<p>变量的类型在赋值时才能确定</p>
+</li>
+<li>
+<p>数组，函数都属于对象类型</p>
+</li>
+</ol>
+<p><code>javascript
+   var a = function () {}
+   console.log({} instanceof Object)
+   console.log(function () {} instanceof Object)
+   console.log([] instanceof Object)</code></p>
+<p><code>instanceof</code> 是 JavaScript 中的运算符，用于检查对象是否是某个特定类型（类）的实例。它的作用是判断一个对象是否是另一个对象的实例。</p>
+<h3 id="2typeof">2、typeof操作符</h3>
+<ul>
+<li>概述</li>
+</ul>
+<p>用来检测变量的数据类型,对于值或变量使用 typeof操作符会返回如下字符串: </p>
+<ul>
+<li>类型</li>
+<li>Undefined数据类型的值为:  undefined  未定义</li>
+<li>Boolean数据类型的值为:  boolean     布尔值</li>
+<li>String数据类型的值为:  string         字符串</li>
+<li>Number数据类型的值为:  number       数值</li>
+<li>Object数据类型的值为:  object          对象或者null</li>
+<li>
+<p>Function数据类型的值为:  function      函数</p>
+</li>
+<li>
+<p>例如:</p>
+</li>
+</ul>
+<p>​       var b = "Lucky";</p>
+<p>​       console.log(typeof b);</p>
+<p>​       console.log(typeof  "Lucky"); </p>
+<h3 id="3undefined">3、Undefined类型</h3>
+<ul>
+<li>概述</li>
+</ul>
+<p>Undefined类型只有一个值，即特殊的 undefined。在使用var声明变量，但没有对其初始化时，这个变量的值就是 undefined</p>
+<ul>
+<li>例如</li>
+</ul>
+<p><code>javascript
+  var b;
+  console.log(typeof b); //undefined</code></p>
+<p>​   注意:我们在定义变量的时候， 尽可能的不要只声明，不赋值, 而是声明的同时初始化一个值。</p>
+<h3 id="4null">4、Null类型</h3>
+<ul>
+<li>概述</li>
+</ul>
+<p>Null类型是一个只有一个值的数据类型，即特殊的值 null。它表示一个空对象引用(指针)，而typeof操作符检测 null 会返回 object。 </p>
+<ul>
+<li>例如</li>
+</ul>
+<p><code>javascript
+  var b = null;
+  console.log(typeof b);
+  // ECMA-262 规定对它们的相等性测试返回 true, 表示值相等。
+  console.log(undefined == null);</code></p>
+<p><strong>ECMA-262</strong> 是 JavaScript 语言的规范标准，它由 Ecma 国际（European Computer Manufacturers Association）制定和维护。ECMA-262 定义了 JavaScript 的核心语法、数据类型、对象和函数等方面的规范，以确保不同的 JavaScript 引擎能够在不同的环境中实现一致的行为。</p>
+<p>但是两者的数据类型是不一样的</p>
+<p><code>javascript
+  var b;
+  var car = null;
+  console.log(typeof b == typeof car)  // false
+  console.log(b == car)                              // true</code></p>
+<h3 id="5boolean">5、Boolean类型</h3>
+<ul>
+<li>
+<p>Boolean类型的转换规则:(牢记)</p>
+</li>
+<li>
+<p>String:非空字符串为true,空字符串为false</p>
+</li>
+<li>
+<p>Number:非0数值为true, 0或者NaN为false</p>
+</li>
+<li>
+<p>Object:对象不为null则为true, null为false</p>
+<p><code>javascript
+console.log(null,Boolean(null));</code></p>
+</li>
+<li>
+<p>Undefined: undefined为false</p>
+</li>
+<li>
+<p>实例</p>
+</li>
+</ul>
+<p>```javascript
+  console.log(Number(true) )  // 1 转为数值为1
+  console.log(Number(false))  // 0 转为数值为0</p>
+<p>console.log(Boolean(''));   // false
+  console.log(Boolean({}));   // true
+  console.log(Boolean([]));   // true
+  console.log(Boolean(undefined));  // false
+  ```</p>
+<h3 id="6number">6、Number类型</h3>
+<p>Number类型包含两种数值：整型和浮点型.</p>
+<ul>
+<li>整型:</li>
+</ul>
+<p>```javascript
+  var b = 100; </p>
+<p>console.log(b);
+  ```</p>
+<ul>
+<li>浮点类型:</li>
+</ul>
+<p>就是该数值中必须包含一个小数点，并且小数点后面必须至少有一位数字</p>
+<p><code>javascript
+  var b= 3.8;
+  var b= 0.8;
+  var b= .8;  //有效，但不推荐此写法</code></p>
+<ul>
+<li>注意事项</li>
+</ul>
+<p>由于保存浮点数值需要的内存空间比整型数值大两倍，因此ECMAScript会自动将可以转换为整型的浮点数值转成为整型。</p>
+<p>var b= 8.;  //小数点后面没有值，转换为 8</p>
+<p>var b= 12.0;  //小数点后面是 0，转成为12</p>
+<p>​   对于那些过大或过小的数值，可以用科学技术法来表示(e表示法)。用 e 表示该数值的前面 10 的指数次幂。</p>
+<p>​   var box = 4.12e9;  //即 4120000000</p>
+<p>​   var box = 0.0000412;  //即 4.12e-5</p>
+<p>​   浮点数值的范围在：Number.MIN_VALUE ~ Number.MAX_VALUE之间,如果超过了浮点数值范围的最大值或最小值，那么就先出现 Infinity(正无穷)或-Infinity(负无穷)。</p>
+<ul>
+<li>
+<p>NaN, 即非数值(Not a Number)是一个特殊的值</p>
+</li>
+<li>
+<p>概述</p>
+<p>这个数值用于表示一个本来要返回数值的操作数未返回数值的情况(这样就不会抛出错误了)。比如，在其他语言中,  任何数值除以 0都会导致错误而终止程序执行。但在ECMAScript中，会返回出特殊的值，因此不会影响程序执行。</p>
+<p><code>javascript
+var b =0/0;    //NaN
+var b =12/0;  //Infinity
+var b =12/0 * 0  //NaN</code></p>
+</li>
+<li>
+<p>isNaN</p>
+<p>ECMAScript提供了 isNaN()函数，用来判断这个值到底是不是 NaN。isNaN()函数在接收到一个值之后，会尝试将这个值转换为数值。</p>
+<p><code>javascript
+console.log(isNaN(NaN));       //true
+console.log(isNaN(25));           //false，25 是一个数值
+console.log(isNaN('25'));  //false，'25'是一个字符串数值，可以转成数值
+console.log(isNaN('zhangsan')); //true，'zhangsan'不能转换为数值
+console.log(isNaN(true));         //false       true 可以转成成 1</code></p>
+</li>
+<li>
+<p>JS类型转换</p>
+</li>
+</ul>
+<p>字符串转换数字类型：parseInt()、parseFloat() 、Number()
+  + parseInt()      是把其它类型转换为整型</p>
+<pre><code>+ 参数1: 目标
++ 参数2: 进制关系
+  + 二进制: 0 1
+  + 十进制: 0-9
+  + 八进制: 0-7
+  + 十六进制: 0-F
+</code></pre>
+<ul>
+<li>
+<p>parseFloat()  是把其它类型转换为浮点型（小数）</p>
+<p><code>javascript
+console.log(typeof parseFloat('1.23'))
+console.log(parseInt('1.23'))
+console.log(parseInt('F', 16))  // 十六进制转换为十进制
+console.log(parseInt('12', 8))  // 八进制转换为十进制
+console.log(parseInt('010', 2))  // 二进制转换为十进制</code></p>
+</li>
+</ul>
+<h3 id="7math">7、Math对象</h3>
+<ul>
+<li>Math对象</li>
+</ul>
+<p>Math对象可以用于执行数学任务</p>
+<ul>
+<li>
+<p>Math对象的常用函数: </p>
+</li>
+<li>
+<p>Math.round(3.6)    //四舍五入</p>
+</li>
+<li>
+<p>toFixed  保留小数</p>
+<p><code>javascript
+var num =2.446242342;
+num = num.toFixed(2); // 输出结果为 2.45</code></p>
+<p><img alt="image-20240403175957252" src="imgs/17%E3%80%81js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.assets/image-20240403175957252-9936915.png" /></p>
+</li>
+<li>
+<p>Math.random()       //返回0-1之间的随机数</p>
+</li>
+<li>
+<p>Math.max(num1, num2)  //返回较大的数</p>
+</li>
+<li>
+<p>Math.min(num1, num2)   //返回较小的数</p>
+</li>
+<li>
+<p>Math.abs(num)     //绝对值</p>
+</li>
+<li>
+<p>Math.ceil(19.3)     //向上取整</p>
+</li>
+<li>
+<p>Math.floor(11.8)    //向下取整</p>
+</li>
+<li>
+<p>Math.random()   实际使用实例</p>
+</li>
+</ul>
+<p><code>javascript
+  // 返回0-100的随机整数
+  function u(t){
+    return ~~(Math['random']() * t)
+  }
+  u(100)</code></p>
+<p>逆向中：</p>
+<p><img alt="image-20231205171052773" src="https://gitee.com/Xialigang/python_pachong/raw/master/python_pachong/image-20231205171052773.png" /></p>
+<p><strong>注意：</strong></p>
+<p><code>~~</code>: 这是 JavaScript 中的位运算符，称为双取反。它的作用是将数值转换为整数。</p>
+
+
+</section>
+</div> <!-- end of search-noresults -->
+<div class="search-results">
+<div class="has-results">
+
+<h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+<ul class="search-results-list"></ul>
+
+</div> <!-- end of has-results -->
+<div class="no-results">
+
+<h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+
+</div> <!-- end of no-results -->
+</div> <!-- end of search-results -->
+</div> <!-- end of book-search-results -->
+
+</div> <!-- end of page-inner -->
+</div> <!-- end of page-wrapper -->
+
+</div> <!-- end of body-inner -->
+
+</div> <!-- end of book-body -->
+<script src="./js/main.js"></script>
+<script src="search/main.js"></script>
+<script src="./js/gitbook.min.js"></script>
+<script src="./js/theme.min.js"></script>
+</body>
+</html>

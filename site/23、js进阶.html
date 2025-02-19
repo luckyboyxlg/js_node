@@ -1,0 +1,1704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>二十三、Javascript进阶 - js node</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="generator" content="mkdocs-1.6.1, mkdocs-gitbook-1.0.7">
+
+<link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta rel="next" href="" />
+<link href="./css/style.min.css" rel="stylesheet"> 
+</head>
+
+<body>
+<div class="book">
+<div class="book-summary">
+<div id="book-search-input" role="search">
+<input type="text" placeholder="Type to search" />
+</div> <!-- end of book-search-input -->
+
+<nav role="navigation">
+<ul class="summary">
+<li>
+<a href="index.html" target="_blank" class="custom-link">js node</a>
+</li>
+<li class="divider"></li>
+<li class="chapter" data-path="index.html">
+<a href="index.html">Welcome to MkDocs</a>
+<li class="chapter" data-path="01%E3%80%81html.html">
+<a href="01%E3%80%81html.html">一、HTML</a>
+<li class="chapter" data-path="02%E3%80%81CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8.html">
+<a href="02%E3%80%81CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8.html">二、CSS层叠样式表</a>
+<li class="chapter" data-path="03%E3%80%81%E6%AD%A3%E5%88%99.html">
+<a href="03%E3%80%81%E6%AD%A3%E5%88%99.html">三、正则</a>
+<li class="chapter" data-path="04%E3%80%81BS4%E8%A7%A3%E6%9E%90%E5%AE%8C%E6%95%B4.html">
+<a href="04%E3%80%81BS4%E8%A7%A3%E6%9E%90%E5%AE%8C%E6%95%B4.html">四、beautifulsoup</a>
+<li class="chapter" data-path="05%E3%80%81xpath.html">
+<a href="05%E3%80%81xpath.html">五、xpath</a>
+<li class="chapter" data-path="06%E3%80%81%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E4%B8%8Eurllib%26requests.html">
+<a href="06%E3%80%81%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E4%B8%8Eurllib%26requests.html">六、爬虫入门</a>
+<li class="chapter" data-path="07%E3%80%81urllib%E4%B8%8Erequests.html">
+<a href="07%E3%80%81urllib%E4%B8%8Erequests.html">七、urllib与requests</a>
+<li class="chapter" data-path="08%E3%80%81%E5%A4%9A%E8%BF%9B%E7%A8%8B.html">
+<a href="08%E3%80%81%E5%A4%9A%E8%BF%9B%E7%A8%8B.html">八、多进程</a>
+<li class="chapter" data-path="09%E3%80%81%E7%BA%BF%E7%A8%8B.html">
+<a href="09%E3%80%81%E7%BA%BF%E7%A8%8B.html">九、线程</a>
+<li class="chapter" data-path="10%E3%80%81%E5%8D%8F%E7%A8%8B.html">
+<a href="10%E3%80%81%E5%8D%8F%E7%A8%8B.html">十、携程</a>
+<li class="chapter" data-path="11%E3%80%81selenium.html">
+<a href="11%E3%80%81selenium.html">十一、selenium</a>
+<li class="chapter" data-path="12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.html">
+<a href="12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.html">十二、MySQL数据库</a>
+<li class="chapter" data-path="13%E3%80%81Mongodb.html">
+<a href="13%E3%80%81Mongodb.html">十三、Mongodb</a>
+<li class="chapter" data-path="14%E3%80%81redis.html">
+<a href="14%E3%80%81redis.html">十四、Redis数据库</a>
+<li class="chapter" data-path="15%E3%80%81%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.html">
+<a href="15%E3%80%81%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.html">十五、面向对象</a>
+<li class="chapter" data-path="16-Scrapy01-%E6%A1%86%E6%9E%B6%E5%88%9D%E8%AE%A4%E8%AF%86.html">
+<a href="16-Scrapy01-%E6%A1%86%E6%9E%B6%E5%88%9D%E8%AE%A4%E8%AF%86.html">十六、Scrapy框架初认识</a>
+<li class="chapter" data-path="16-Scrapy02%E6%B7%B1%E5%85%A5%E4%BD%BF%E7%94%A8-%E5%AD%98%E5%82%A8.html">
+<a href="16-Scrapy02%E6%B7%B1%E5%85%A5%E4%BD%BF%E7%94%A8-%E5%AD%98%E5%82%A8.html">十六、Scrapy深入使用-存储</a>
+<li class="chapter" data-path="16-Scrapy03-%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86%E4%BB%A5%E5%8F%8A%E5%88%86%E9%A1%B5.html">
+<a href="16-Scrapy03-%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86%E4%BB%A5%E5%8F%8A%E5%88%86%E9%A1%B5.html">十六、scrapy模拟登陆&amp;分页</a>
+<li class="chapter" data-path="16-Scrapy04-%E4%B8%AD%E9%97%B4%E4%BB%B6.html">
+<a href="16-Scrapy04-%E4%B8%AD%E9%97%B4%E4%BB%B6.html">十六、Scrapy中间件</a>
+<li class="chapter" data-path="16-Scrapy05-%E5%88%86%E9%A1%B5%E6%8A%93%E5%8F%96.html">
+<a href="16-Scrapy05-%E5%88%86%E9%A1%B5%E6%8A%93%E5%8F%96.html">十六、scrapy的crawlspider爬虫</a>
+<li class="chapter" data-path="16-Scrapy06-scrapy_redis.html">
+<a href="16-Scrapy06-scrapy_redis.html">十六、scrapy_redis</a>
+<li class="chapter" data-path="17%E3%80%81js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html">
+<a href="17%E3%80%81js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html">十七、js数据类型</a>
+<li class="chapter" data-path="18%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%8E%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6.html">
+<a href="18%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%8E%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6.html">十八、js运算符与流程控制</a>
+<li class="chapter" data-path="19%E3%80%81js%E6%95%B0%E7%BB%84.html">
+<a href="19%E3%80%81js%E6%95%B0%E7%BB%84.html">十九、js数组</a>
+<li class="chapter" data-path="20%E3%80%81js%E5%AD%97%E7%AC%A6%E4%B8%B2.html">
+<a href="20%E3%80%81js%E5%AD%97%E7%AC%A6%E4%B8%B2.html">二十、js字符串</a>
+<li class="chapter" data-path="21%E3%80%81js%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%97%B6%E9%97%B4.html">
+<a href="21%E3%80%81js%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%97%B6%E9%97%B4.html">二十一、js对象与时间</a>
+<li class="chapter" data-path="22%E3%80%81%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89.html">
+<a href="22%E3%80%81%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89.html">二十二、js函数</a>
+<li class="chapter active" data-path="23%E3%80%81js%E8%BF%9B%E9%98%B6.html">
+<a href="23%E3%80%81js%E8%BF%9B%E9%98%B6.html">二十三、Javascript进阶</a>
+<li class="chapter" data-path="24%E3%80%81BOM%E6%93%8D%E4%BD%9C.html">
+<a href="24%E3%80%81BOM%E6%93%8D%E4%BD%9C.html">二十四、浏览器对象模型BOM</a>
+<li class="chapter" data-path="25%E3%80%81DOM%E6%93%8D%E4%BD%9C.html">
+<a href="25%E3%80%81DOM%E6%93%8D%E4%BD%9C.html">二十五、DOM操作</a>
+<li class="chapter" data-path="26%E3%80%81jQuery%E6%93%8D%E4%BD%9C.html">
+<a href="26%E3%80%81jQuery%E6%93%8D%E4%BD%9C.html">二十六、jQuery</a>
+<li class="chapter" data-path="27%E3%80%81%E9%80%86%E5%90%9101.html">
+<a href="27%E3%80%81%E9%80%86%E5%90%9101.html">二十七、JS逆向01</a>
+<li class="chapter" data-path="28%E3%80%81%E9%80%86%E5%90%9102.html">
+<a href="28%E3%80%81%E9%80%86%E5%90%9102.html">二十八、逆向02</a>
+<li class="chapter" data-path="29%E3%80%81%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html">
+<a href="29%E3%80%81%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html">二十九、微信小程序逆向开发</a>
+<li class="chapter" data-path="30%E3%80%81%E7%BD%91%E6%98%93%E6%BB%91%E5%9D%97.html">
+<a href="30%E3%80%81%E7%BD%91%E6%98%93%E6%BB%91%E5%9D%97.html">三十、网易易盾</a>
+<li class="chapter" data-path="31%E3%80%81rpc.html">
+<a href="31%E3%80%81rpc.html">三十一、RPC</a>
+<li class="chapter" data-path="32%E3%80%81TLS%E6%8C%87%E7%BA%B9%E7%BB%95%E8%BF%87.html">
+<a href="32%E3%80%81TLS%E6%8C%87%E7%BA%B9%E7%BB%95%E8%BF%87.html">三十二、TLS指纹绕过</a>
+<li class="chapter" data-path="33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">
+<a href="33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">三十三、高级逆向</a>
+<li class="chapter" data-path="34%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">
+<a href="34%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">三十四、高级逆向</a>
+<li class="chapter" data-path="%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B%E7%AC%94%E8%AE%B0.html">
+<a href="%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B%E7%AC%94%E8%AE%B0.html">逆向实战案例笔记</a>
+<li class="header">Pyexecjs与npm配置</li>
+
+<li>
+<a href="pyexecjs%E4%B8%8Enpm%E9%85%8D%E7%BD%AE/execjs%E4%BB%8B%E7%BB%8D%E4%BB%A5%E5%8F%8A%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8.html" class="">Execjs介绍以及安装和使用</a>
+</li>
+
+<li>
+<a href="pyexecjs%E4%B8%8Enpm%E9%85%8D%E7%BD%AE/%E4%B8%80%E6%AC%A1%E6%80%A7%E8%A7%A3%E5%86%B3%E6%8E%89npm%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5%E7%9A%84%E9%97%AE%E9%A2%98.html" class="">更换npm为国内镜像</a>
+</li>
+
+<li class="header">补环境</li>
+
+<li>
+<a href="%E8%A1%A5%E7%8E%AF%E5%A2%83/1%E3%80%81%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8E%E4%BA%8B%E4%BB%B6.html" class="">补环境</a>
+</li>
+
+<li>
+<a href="%E8%A1%A5%E7%8E%AF%E5%A2%83/2%E3%80%81Proxy%E4%BB%A3%E7%90%86%E5%99%A8.html" class="">Proxy代理</a>
+</li>
+
+<li>
+<a href="%E8%A1%A5%E7%8E%AF%E5%A2%83/3%E3%80%81vm2%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83.html" class="">3、vm2运行环境</a>
+</li>
+
+<li class="divider"></li>
+
+
+
+<li><a href="http://www.mkdocs.org">
+Published with MkDocs
+</a></li>
+
+<li><a href="https://github.com/GitbookIO/theme-default">
+Theme by GitBook
+</a></li>
+</ul>
+
+</nav>
+
+</div> <!-- end of book-summary -->
+
+<div class="book-body">
+<div class="body-inner">
+<div class="book-header" role="navigation">
+
+<!-- Title -->
+<h1>
+<i class="fa fa-circle-o-notch fa-spin"></i>
+<a href="." ></a>
+</h1>
+
+</div> <!-- end of book-header -->
+
+<div class="page-wrapper" tabindex="-1" role="main">
+<div class="page-inner">
+<div id="book-search-results">
+<div class="search-noresults">
+
+<section class="normal markdown-section">
+
+
+
+<h1 id="javascript">二十三、Javascript进阶</h1>
+<h2 id="-">一. 变量提升(不正常现象)---回顾</h2>
+<h3 id="1">1、前情摘要</h3>
+<p>看以下代码, 或多或少会有些问题的.</p>
+<pre><code class="language-js">function fn(){
+    console.log(name)  ;
+    var name = 'lucky';
+}
+fn()
+</code></pre>
+<p>发现问题了么. 这么写代码, 在其他语言里. 绝对是不允许的. 但是在js里. 不但允许, 还能执行. 为什么呢?  因为在js执行的时候. 它会首先检测你的代码.  发现在代码中会有name使用. OK. 运行时就会变成这样的逻辑:</p>
+<pre><code class="language-js">function fn(){
+    var name;
+    console.log(name);
+    name = 'lucky';
+}
+fn()
+</code></pre>
+<h3 id="2">2、解决</h3>
+<p>看到了么. 实际运行的时候和我们写代码的顺序可能会不一样....这种把变量提前到代码块第一部分运行的逻辑被称为变量提升. 这在其他语言里是绝对没有的. 并且也不是什么好事情. 正常的逻辑不应该是这样的. 那么怎么办?  在新的ES6中. 就明确了, 这样使用变量是不完善的. es6提出. 用let来声明变量. 就不会出现该问题了. </p>
+<ul>
+<li>实例</li>
+</ul>
+<p><code>javascript
+  function fn(){
+      console.log(name);  // 直接报错, let变量不可以变量提升.
+      let name = 'lucky'; 
+  }
+  fn()</code></p>
+<h3 id="3let">3、let扩展</h3>
+<p>结论一, 用let声明变量是新版本javascript提倡的一种声明变量的方案</p>
+<p>let还有哪些作用呢?  </p>
+<pre><code class="language-js">function fn(){
+    var name = &quot;lucky&quot;;
+    var name = &quot;王力宏&quot;;
+    console.log(name);
+}
+fn()
+</code></pre>
+<p>显然一个变量被声明了两次. 这样也是不合理的. var本意是声明变量. 同一个东西. 被声明两次. 所以ES6规定. let声明的变量. 在同一个作用域内. 只能声明一次. </p>
+<pre><code class="language-js">function fn(){
+    let name = &quot;lucky&quot;;
+    let name = &quot;王力宏&quot;;
+    console.log(name);
+}
+fn()
+</code></pre>
+<p>注意, 报错是发生在代码检查阶段. 所以. 上述代码根本就执行不了. </p>
+<p>结论二, 在同一个作用域内. let声明的变量只能声明一次. 其他使用上和var没有差别 </p>
+<h2 id="_1">二. 进阶操作(非交互)</h2>
+<h3 id="1-eval">1、 eval函数</h3>
+<ul>
+<li>eval使用</li>
+</ul>
+<p>eval本身在js里面正常情况下使用的并不多. 但是很多网站会利用eval的特性来完成反爬操作. 我们来看看eval是个什么鬼?  </p>
+<p>从功能上讲, eval非常简单. 它和python里面的eval是一样的. 它可以动态的把字符串当成js代码进行运行. </p>
+<p><code>javascript
+  s = "console.log('lucky is a good man')";
+  eval(s);</code></p>
+<p>也就是说. eval里面传递的应该是即将要执行的代码(字符串). 那么在页面中如果看到了eval加密该如何是好?  其实只要记住了一个事儿. 它里面不论多复杂. 一定是个字符串. </p>
+<p>比如,</p>
+<p><code>javascript
+  eval(eval(function(p,a,c,k,e,d){e=function(c){return(c&lt;a?'':e(parseInt(c/a)))+((c=c%a)&gt;35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)d[e(c)]=k[c]||e(c);k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('1.4("5 3 0 2 6")',62,7,'a|console|good|is|log|lucky|man'.split('|'),0,{})))</code></p>
+<p>这一坨看起来, 肯定很不爽. 怎么变成我们看着很舒服的样子呢?  记住. eval()里面是字符串. 记住~!!</p>
+<p>那我想看看这个字符串长什么样?  就把eval()里面的东西拷贝出来. 执行一下. 最终一定会得到一个字符串. 要不然eval()执行不了的. 对不...于是就有了下面的操作.</p>
+<p><img alt="image-20230711155549792" src="imgs/23%E3%80%81js%E8%BF%9B%E9%98%B6.assets/M5rPIKvj3WoOthR.png" /></p>
+<p>http://tools.jb51.net/password/evalencode, 在赠送你一个在线JS处理eval的网站. 大多数的eval加密. 都可以搞定了. </p>
+<p><strong>注意</strong>
+  eval的参数一定是字符串</p>
+<ul>
+<li>实际案例</li>
+</ul>
+<p><strong>网址：</strong>https://www.aqistudy.cn/historydata/monthdata.php?city=%E4%B8%9C%E8%8E%9E</p>
+<p><img alt="image-20230711163335002" src="imgs/23%E3%80%81js%E8%BF%9B%E9%98%B6.assets/9Tin32xgWGFtckB.png" /></p>
+<p>代码</p>
+<p><code>javascript
+  eval(function(p, a, c, k, e, d) {
+      e = function(c) {
+          return (c &lt; a ? "" : e(parseInt(c / a))) + ((c = c % a) &gt; 35 ? String.fromCharCode(c + 29) : c.toString(36))
+      }
+      ;
+      if (!''.replace(/^/, String)) {
+          while (c--)
+              d[e(c)] = k[c] || e(c);
+          k = [function(e) {
+              return d[e]
+          }
+          ];
+          e = function() {
+              return '\\w+'
+          }
+          ;
+          c = 1;
+      }
+      ;while (c--)
+          if (k[c])
+              p = p.replace(new RegExp('\\b' + e(c) + '\\b','g'), k[c]);
+      return p;
+  }('4 3(1){2 0=5 8();7 0.6(1)}', 9, 9, 'b|tsdx|var|dweklxde|function|new|decode|return|Base64'.split('|'), 0, {}));</code></p>
+<pre><code>将eval中的函数复制出来 添加括号进行自调用运行
+</code></pre>
+<p><img alt="image-20230711163425591" src="imgs/23%E3%80%81js%E8%BF%9B%E9%98%B6.assets/jDbtSE97Lh2X4r3.png" /></p>
+<h3 id="2es6">2、ES6中的新简洁语法</h3>
+<ul>
+<li>箭头函数</li>
+</ul>
+<p>在ES6中简化了函数的声明语法.   </p>
+<p>```javascript
+  // 无参函数
+  var fn = function(){};  // 普通写法
+  var fn = () =&gt; {};      // 简洁写法</p>
+<p>// 一个参数函数
+  var fn = function(name){}  // 普通写法
+  var fn = name =&gt; {}       // 简洁写法 一个参数可以省略小括号
+  var fn = (name) =&gt; {}     // 简洁写法</p>
+<p>// 多个参数函数
+  var fn = function(name, age){}  // 普通写法
+  var fn = (name, age) =&gt; {}      // 简洁写法
+  ```</p>
+<ul>
+<li>对象简写</li>
+</ul>
+<p>如果属性和值为同一个名称可以按照如下写法进行简化</p>
+<p><code>javascript
+  var name = 'lucky';
+  function speak(){
+    console.log("lucky is a good man")
+  }
+  var obj = {
+    name: name,
+  }
+  // 简洁写法
+  var obj = {
+    name,
+    speak,
+  }</code></p>
+<p>内部方法的简洁写法</p>
+<p><code>javascript
+  // 普通写法
+  var obj = {
+    speak: function(){
+        console.log("lucky is a good man")
+    },
+  } 
+  // 简洁写法
+  var obj = {
+    speak(){
+        console.log("lucky is a good man")
+    },
+  }</code></p>
+<ul>
+<li>解构</li>
+</ul>
+<p>让代码变得更加简洁</p>
+<p><code>javascript
+  var obj = {
+    name: 'lucky',
+    speak: function(){
+    console.log("lucky is a good man")
+    }
+  }
+  var name = obj.name
+  var speak = obj.speak</code></p>
+<p>简洁写法</p>
+<p><code>javascript
+  var obj = {
+    name: 'lucky',
+    speak: function(){
+    console.log("lucky is a good man")
+    }
+  }
+  var {name, speak} = obj</code></p>
+<h3 id="3">3、逗号运算符</h3>
+<ul>
+<li><strong>说明：</strong></li>
+</ul>
+<p>在 JavaScript 中，逗号运算符（<code>,</code>）用于在语句中分隔表达式，并按顺序执行这些表达式。逗号运算符返回最后一个表达式的值。</p>
+<ul>
+<li>语法形式如下：</li>
+</ul>
+<p><code>javascript
+  expression1, expression2, expression3, ..., expressionN</code></p>
+<ul>
+<li>例如</li>
+</ul>
+<p><code>javascript
+  function s(){
+      console.log(1), console.log(2), console.log(3);  // 从前向后执行 ,1,2,3
+      let s = (1, 2, 3); // 整体进行赋值的时候. 取的是最后一个值 3
+      console.log(s);
+      // 注意. 这个括号可以在返回值时省略
+      var age;
+      return age=18,age++,age+=100,{name:"lucky", "age":age};
+  }
+  let r = s();
+  console.log(r);  // {name: 'lucky', age: 119}</code></p>
+<p>在上面的例子中，逗号运算符用于在一行中执行多个赋值操作。在这个过程中，逗号运算符会从左到右依次执行每个表达式，并返回最后一个表达式的值。</p>
+<ul>
+<li>实际案例</li>
+</ul>
+<p><code>javascript
+  t.prototype[c("0x27")] = function() {
+      var t, e, r, n = 0;
+      return n = s() ? Date.now() : window.XM_SERVER_CLOCK || 0,
+        t = this[c("0x13")],
+        e = n,
+        r = Date[c("0x25")](),
+        ("{" + t + e + "}(" + u(100) + ")" + e + "(" + u(100) + ")" + r)[c("0xa")](/{([\w-]+)}/, (function(t, e) {
+        return a(e)
+      }))
+  }</code></p>
+<p><img alt="image-20231206175401777" src="imgs/23%E3%80%81js%E8%BF%9B%E9%98%B6.assets/Xp9lO31HuYhN8ab.png" /></p>
+<h3 id="4">4、 复杂三元运算符</h3>
+<pre><code class="language-js">let a = 10;
+let b = 20;
+let d = a &gt; b? a: b
+console.log(d);
+</code></pre>
+<p>案例</p>
+<pre><code class="language-javascript">let a = 10;
+let b = 20;
+let c = 5;
+let d = 17;
+let e;
+let m;
+
+e = (e = a &gt; 3 ? b : c, m = e &lt; b++ ? c-- : a = 3 &gt; b % d ? 27: 37, m++);
+
+console.log(a);  
+console.log(b); 
+console.log(c); 
+console.log(d);  
+console.log(e); 
+console.log(m);  
+</code></pre>
+<p>实例</p>
+<pre><code class="language-javascript">function test(){
+    return (Aa() ? 0 : p(&quot;Opera&quot;)) ? a([&quot;Version&quot;, &quot;Opera&quot;]) : (Aa() ? 0 : p(&quot;Edge&quot;)) ? a([&quot;Edge&quot;]) : Da() ? a([&quot;Edg&quot;]) : p(&quot;Silk&quot;) ? a([&quot;Silk&quot;]) : Fa() ? a([&quot;Chrome&quot;, &quot;CriOS&quot;, &quot;HeadlessChrome&quot;]) : (a = b[2]) &amp;&amp; a[1] || &quot;&quot;
+}
+</code></pre>
+<h3 id="5-jsonstringifyjsonparse">5、 JSON.stringify和JSON.parse</h3>
+<h5 id="1-jsonstringify">(1) <strong>JSON.stringify</strong></h5>
+<ul>
+<li>说明</li>
+</ul>
+<p><code>JSON.stringify</code> 的作用是将 JavaScript 对象或值转换为 JSON 字符串。这个方法非常有用，因为它允许你在不同的环境中传递和存储数据，尤其是在与服务器通信或在本地存储数据时。</p>
+<ul>
+<li>
+<p><code>JSON.stringify</code> 的主要用途：</p>
+</li>
+<li>
+<p><strong>数据传输：</strong> 当你需要将数据从前端发送到后端（或相反）时，你可以使用 <code>JSON.stringify</code> 将 JavaScript 对象转换为 JSON 字符串，然后在服务器端使用相应的解析方法进行处理。</p>
+<p>```javascript
+ const dataToSend = {
+   username: "Lucky",
+   age: 18,
+   isAdmin: false
+ };</p>
+<p>const jsonString = JSON.stringify(dataToSend);
+ // 将 jsonString 发送到服务器
+ ```</p>
+</li>
+<li>
+<p><strong>本地存储：</strong> 当你需要在浏览器的本地存储中保存数据时，可以使用 <code>JSON.stringify</code> 将对象转换为字符串，然后将字符串存储在本地。</p>
+<p>```javascript
+ const userPreferences = {
+   theme: "Lucky",
+   fontSize: 18
+ };</p>
+<p>localStorage.setItem("userPrefs", JSON.stringify(userPreferences));
+ ```</p>
+</li>
+<li>
+<p><strong>日志记录：</strong> 在记录日志时，有时将对象转换为可读的字符串形式可以更容易地查看和分析。</p>
+<p>```javascript
+ const errorDetails = {
+   message: "An error occurred",
+   code: 500,
+   timestamp: new Date()
+ };</p>
+<p>console.log("Error details: " + JSON.stringify(errorDetails));
+ ```</p>
+</li>
+<li>
+<p><strong>深拷贝：</strong> 通过使用 <code>JSON.stringify</code> 和 <code>JSON.parse</code> 可以执行对象的深拷贝，创建原对象的副本而不是引用。</p>
+<p><code>javascript
+ const originalObject = { key: "value" };
+ const copiedObject = JSON.parse(JSON.stringify(originalObject));</code></p>
+<pre><code>需要注意的是，`JSON.stringify` 不会包括对象的函数、`undefined` 或 `Symbol` 类型的属性。如果对象包含这些类型的属性，它们将在结果中被忽略或转换为 `null`。
+</code></pre>
+</li>
+</ul>
+<p>Symbol（了解）</p>
+<p><code>Symbol</code> 类型的属性提供了一种可靠且不容易被覆盖的属性标识符，适用于需要确保属性名唯一性的情况。</p>
+<pre><code class="language-javascript">const symbol1 = Symbol('uniqueSymbol');
+const symbol2 = Symbol('uniqueSymbol');
+
+console.log(symbol1 === symbol2); // false，因为每个 Symbol 都是唯一的
+
+const obj = {
+  [symbol1]: 'Value for symbol1',
+  [symbol2]: 'Value for symbol2'
+};
+
+console.log(obj[symbol1]); // Value for symbol1
+console.log(obj[symbol2]); // Value for symbol2
+</code></pre>
+<h5 id="2-jsonparse">(2) <strong>JSON.parse</strong></h5>
+<ul>
+<li>说明</li>
+</ul>
+<p><code>JSON.parse</code> 的作用是将 JSON 字符串解析成 JavaScript 对象。这个方法通常用于处理从服务器获取的 JSON 数据或本地存储中的 JSON 字符串。</p>
+<ul>
+<li>
+<p><code>JSON.parse</code> 的主要用途：</p>
+</li>
+<li>
+<p><strong>处理服务器响应：</strong> 当你从服务器获取数据，服务器通常会以 JSON 格式发送数据。你可以使用 <code>JSON.parse</code> 将这些 JSON 数据解析为 JavaScript 对象，以便在客户端中使用。</p>
+<p>```javascript
+ const jsonResponse = '{"username": "Lucky", "age": 25, "isAdmin": false}';
+ const userData = JSON.parse(jsonResponse);</p>
+<p>// 现在 userData 是一个包含服务器响应数据的 JavaScript 对象
+ ```</p>
+</li>
+<li>
+<p><strong>处理本地存储数据：</strong> 当你从本地存储中检索以 JSON 格式存储的数据时，可以使用 <code>JSON.parse</code> 将 JSON 字符串转换为 JavaScript 对象。</p>
+<p>```javascript
+ const storedPrefs = localStorage.getItem("userPrefs");
+ const userPreferences = JSON.parse(storedPrefs);</p>
+<p>// userPreferences 现在是一个包含本地存储数据的 JavaScript 对象
+ ```</p>
+</li>
+<li>
+<p><strong>处理用户输入：</strong> 在某些情况下，用户可能会提供以 JSON 字符串形式输入的数据。通过使用 <code>JSON.parse</code>，你可以将用户输入转换为 JavaScript 对象，以便在应用程序中使用。</p>
+<p>```javascript
+ const userInput = '{"searchQuery": "vacation", "filters": {"minPrice": 100, "maxPrice": 500}}';
+ const searchData = JSON.parse(userInput);</p>
+<p>// searchData 现在是一个包含用户输入数据的 JavaScript 对象
+ ```</p>
+</li>
+<li>
+<p><strong>深拷贝：</strong> 和 <code>JSON.stringify</code> 一起使用，<code>JSON.parse</code> 可以执行对象的深拷贝，创建原对象的副本而不是引用。</p>
+<p><code>javascript
+ const originalObject = { key: "value" };
+ const jsonString = JSON.stringify(originalObject);
+ const copiedObject = JSON.parse(jsonString);</code></p>
+</li>
+</ul>
+<p>需要注意的是，JSON 字符串必须是有效的 JSON 格式，否则 <code>JSON.parse</code> 会引发错误。在解析之前，通常会使用 <code>JSON.stringify</code> 确保生成的字符串是有效的 JSON。</p>
+<h3 id="6">6、本地存储</h3>
+<p>本地存储. 存储在浏览器端的数据.  可以理解成一个小型的非关系型数据库. </p>
+<ul>
+<li><strong>概述：</strong>localStorage和sessionStorage都是HTML5提供的Web存储API，用于在浏览器中临时或持久地存储数据。</li>
+<li><strong>作用：</strong>存储, 获取. 删除.</li>
+</ul>
+<h4 id="1-localstorage">(1) localStorage：</h4>
+<ul>
+<li>localStorage是一种持久化的本地存储机制。</li>
+<li>存储的数据在用户关闭浏览器后仍然保留，直到被显式删除。</li>
+<li>存储的数据可以在不同的窗口、标签页或浏览器会话之间共享。</li>
+<li>localStorage存储的数据大小一般为5MB左右。</li>
+</ul>
+<h4 id="2-sessionstorage">(2) sessionStorage：</h4>
+<ul>
+<li>sessionStorage是一种会话级别的本地存储机制。</li>
+<li>存储的数据在用户关闭浏览器窗口或标签页后自动清除。</li>
+<li>存储的数据只能在当前会话期间访问，不同的窗口或标签页之间不能共享。</li>
+<li>sessionStorage存储的数据大小一般也为5MB左右。</li>
+</ul>
+<h4 id="3_1">(3) 总结</h4>
+<p>这两种存储机制都使用简单的键值对（key-value）形式来存储数据。它们都只能存储字符串类型的数据，如果需要存储其他类型的数据，可以通过序列化（如JSON.stringify）和反序列化（如JSON.parse）的方式进行转换。</p>
+<p>总结来说，localStorage适合用于长期保存数据，而sessionStorage适合用于临时保存数据，仅在当前会话内有效。</p>
+<h4 id="4_1">(4) 使用</h4>
+<p>都继承自Storage常见的操作:</p>
+<ul>
+<li>localStorage</li>
+</ul>
+<p><code>javascript
+  localStorage.setItem(key, value);  // 设置key = value, 如果是相同的key, 会把数据覆盖
+  localStorage.removeItem(key);     // 根据key删除数据
+  localStorage.getItem(key);        // 根据key来获取数据</code></p>
+<ul>
+<li>sessionStorage</li>
+</ul>
+<p><code>javascript
+  sessionStorage.setItem(key, value);  // 设置key = value, 如果是相同的key, 会把数据覆盖
+  sessionStorage.removeItem(key);     // 根据key删除数据
+  sessionStorage.getItem(key);        // 根据key来获取数据</code></p>
+<h4 id="5">(5) 逆向中</h4>
+<p>localstorage</p>
+<p><img alt="image-20240222155712474" src="imgs/23%E3%80%81js%E8%BF%9B%E9%98%B6.assets/lxVKnyiO4whGRkr.png" /></p>
+<p>存储数据</p>
+<p><img alt="image-20240222155640392" src="imgs/23%E3%80%81js%E8%BF%9B%E9%98%B6.assets/jd3FDOqWTonib6e.png" /></p>
+<p>获取数据</p>
+<p><img alt="image-20240222155502756" src="imgs/23%E3%80%81js%E8%BF%9B%E9%98%B6.assets/IClrQ7fmvpnNi6s.png" /></p>
+<h4 id="6-documentcookie">(6) document.cookie</h4>
+<ul>
+<li><strong>作用：</strong>本地存储.   </li>
+</ul>
+<p>cookie的本质是一个超大号字符串. 有失效时间的. </p>
+<ul>
+<li>设置cookie</li>
+</ul>
+<p><code>javascript
+  document.cookie="name=lucky"</code></p>
+<p><img alt="image-20230712185133360" src="imgs/23%E3%80%81js%E8%BF%9B%E9%98%B6.assets/HtD8qPXmolsYLWc.png" /></p>
+<p><img alt="image-20230712185103159" src="imgs/23%E3%80%81js%E8%BF%9B%E9%98%B6.assets/NsgrHWaMxSvhPRi.png" /></p>
+<ul>
+<li><strong>获取cookie</strong></li>
+</ul>
+<p>想要获取cookie可以通过document.cookie直接获取. 但是如果是httponly的cookie, 是拿不到的. 需要去浏览器中进行单独的设置  取消勾选HttpOnly</p>
+<p>此刻cookie中有HttpOnly勾选的值，所以无法使用document.cookie进行获取</p>
+<p><img alt="image-20230712184554692" src="imgs/23%E3%80%81js%E8%BF%9B%E9%98%B6.assets/1phwouF6yRNS3Yq.png" /></p>
+<p><img alt="image-20230712184523350" src="imgs/23%E3%80%81js%E8%BF%9B%E9%98%B6.assets/dr7Yp8xLoDbS6qw.png" /></p>
+<p><strong>取消勾选  重新获取</strong></p>
+<p><img alt="image-20230712184859550" src="imgs/23%E3%80%81js%E8%BF%9B%E9%98%B6.assets/QC1XgR6MNEeBc4S.png" /></p>
+<p><img alt="image-20230712184929843" src="imgs/23%E3%80%81js%E8%BF%9B%E9%98%B6.assets/UdNeM1B3ZKlVCOi.png" /></p>
+<p><strong>注意：</strong></p>
+<p>之前我们前面所学过的session.cookies是无法维护前端js所设置的cookie</p>
+<h3 id="7window">7、神奇的window</h3>
+<h4 id="1_1">(1) <strong>概述：</strong></h4>
+<p>JavaScript中的<code>window</code>对象是浏览器提供的顶级全局对象，它代表了浏览器窗口或标签页。<code>window</code>对象具有广泛的属性和方法，用于控制和操作当前浏览器窗口或标签页。</p>
+<h4 id="2-window">(2) window实例说明</h4>
+<ul>
+<li>我们定义一个全局变量 需要主要  全局变量使用<strong>var</strong>定义  <strong>let</strong>无法定义全局变量</li>
+</ul>
+<p><code>javascript
+  // 定义
+  var name = 'lucky'
+  // 使用
+  console.log(name)</code></p>
+<p>在浏览器中使用window对象进行查看</p>
+<p><img alt="image-20230713150715131" src="imgs/23%E3%80%81js%E8%BF%9B%E9%98%B6.assets/5doyVasD2mbTcgN.png" /></p>
+<p><img alt="image-20230713150747542" src="imgs/23%E3%80%81js%E8%BF%9B%E9%98%B6.assets/kUdztsI13xu2vhW.png" /></p>
+<p>发现此刻的name变量已经成为全局对象Window的属性  因此我们也可以如下方式进行调用</p>
+<p><code>javascript
+  // 定义
+  var name = 'lucky'
+  // 使用
+  console.log(window.name)
+  // 等同于
+  console.log(name)</code></p>
+<ul>
+<li>函数中使用</li>
+</ul>
+<p><code>javascript
+  function test(){
+    window.name = 'lucky'
+  }
+  test()
+  console.log(name)
+  console.log(window.name)</code></p>
+<p>综上,  我们可以得出一个结论. 全局变量可以用window.xxx来表示. </p>
+<h4 id="3-window">(3) 下面是<code>window</code>对象的一些常见属性和方法</h4>
+<ul>
+<li><code>window.document</code>：表示当前窗口或标签页的文档对象，可以用来操纵DOM元素和处理网页内容。</li>
+<li><code>window.location</code>：用于获取或设置当前窗口的URL信息，包括协议、主机、路径等。</li>
+<li>window.location.reload()               通过js完成页面刷新</li>
+<li>window.location.href = "新地址"   通过js完成页面跳转.</li>
+<li><code>window.navigator</code>：提供关于浏览器和用户代理的信息，如浏览器名称、版本、平台等。</li>
+<li><code>window.alert()</code>：在当前窗口显示一个警告框，用于向用户显示一条简单的消息。</li>
+<li><code>window.confirm()</code>：显示一个确认框，用于向用户询问一个问题，用户可以点击确定或取消按钮进行选择。</li>
+<li><code>window.prompt()</code>：显示一个提示框，用于向用户请求输入一段文本，用户可以输入并点击确定或取消按钮进行响应。</li>
+<li><code>window.setTimeout()</code>：用于在指定的时间延迟后执行一次函数或代码块。</li>
+<li><code>window.setInterval()</code>：重复调用指定的函数或代码块，按照指定的时间间隔进行重复执行。</li>
+<li><code>window.open()</code>：打开一个新的浏览器窗口或标签页，并加载指定的URL。</li>
+</ul>
+<p>除了上述属性和方法，<code>window</code>对象还提供了许多其他功能，例如处理窗口尺寸、浏览器历史记录、屏幕信息等。可以通过<code>window</code>对象来操作和控制当前浏览器窗口或标签页的各个方面。</p>
+<h4 id="4_2">(4) 注意</h4>
+<ul>
+<li>window的一些特性</li>
+</ul>
+<p>在浏览器环境. 请注意. window对象和document对象是不可以被改变的.该特性非常的坑.
+  如果自己补环境的时候. 请注意. 如果网站有清理window和document的代码的话.
+  你补充的环境代码, 可能被冲掉</p>
+<p><code>javascript
+  // 在浏览器环境无法改变  
+  window = {}  // 无法被修改
+  del window   // 无法被删除</code></p>
+<h4 id="5_1">(5) 其它方式的使用场景</h4>
+<ul>
+<li>代码</li>
+</ul>
+<p>```javascript
+  // 内部设定fun函数为全局函数
+  (function(){
+      let fun = function(){
+          console.log("fun函数设置为全局函数")
+      }
+      window.fun = fun
+  })();</p>
+<p>fun()</p>
+<p>//换一种写法. 你还认识么?   window作为参数传递
+  (function(w){
+      let fun = function(){
+          console.log("fun函数设置为全局函数")
+      }
+      w.fun = fun
+  })(window);</p>
+<p>//再复杂一点
+  (function(w){
+      let tools = {
+          b64: function(){
+              console.log("我是计算B64");
+              return "b64";
+          },
+          md5: function(){
+              console.log("我是计算MD5");
+              return "MD5"
+          }
+      }
+      w.jiami = {
+          AES: function(msg){
+              return tools.b64(),
+                  tools.md5(),
+                  'lucky';
+          },
+          DES: function(){
+              console.log("我是DES");
+          },
+          RSA: function(){
+              console.log("我是RSA");
+          }
+      }
+  })(window);
+  ```</p>
+<p>window是整个浏览器的全局作用域. </p>
+<h3 id="8js">8、JS原型、原型链</h3>
+<h4 id="1_2">(1) 构造函数</h4>
+<p>javaScript中的构造函数（Constructor）是一种特殊类型的函数，用于创建对象并初始化对象的属性和方法。它们主要用于创建自定义对象类型。</p>
+<p>构造函数在使用<code>new</code>关键字创建新对象时被调用。当一个构造函数被调用时，它会创建一个新的空对象，并将该对象作为<code>this</code>关键字的引用。构造函数可以通过<code>this</code>关键字来设置新对象的属性和方法。</p>
+<p>以下是一个简单的构造函数的示例</p>
+<pre><code class="language-javascript">function Person(name, age) {
+  this.name = name;
+  this.age = age;
+  this.greet = function() {
+    console.log(&quot;Hello, my name is &quot; + this.name);
+  };
+}
+
+// 使用构造函数创建新对象
+var person1 = new Person(&quot;迪丽热巴&quot;, 25);
+var person2 = new Person(&quot;lucky&quot;, 30);
+
+console.log(person1.name);  // 输出：&quot;迪丽热巴&quot;
+console.log(person2.age);   // 输出：30
+
+person1.greet();  // 输出：&quot;Hello, my name is 迪丽热巴&quot;
+person2.greet();  // 输出：&quot;Hello, my name is lucky&quot;
+</code></pre>
+<h4 id="2-this">(2) this关键字</h4>
+<p>在JavaScript中，构造函数是用来创建对象的特殊函数。当使用<code>new</code>关键字调用构造函数时，会创建一个新的对象，并将该对象作为<code>this</code>关键字的引用。</p>
+<p><code>this</code>关键字在构造函数中的作用主要有以下几个方面：</p>
+<ol>
+<li>引用当前创建的对象：在构造函数中，通过<code>this</code>关键字可以引用正在创建的对象本身。这使得我们可以在构造函数中操作和设置对象的属性和方法。</li>
+<li>绑定属性和方法：通过<code>this</code>关键字，我们可以将属性和方法绑定到正在创建的对象上。例如，在构造函数中使用<code>this.propertyName = value</code>可以将属性添加到对象上，并可以通过访问<code>this.propertyName</code>来获取或修改属性的值。</li>
+<li>构建实例对象：构造函数通过<code>this</code>关键字创建的对象被称为该构造函数的实例。每次使用<code>new</code>调用构造函数时，都会创建一个新的对象实例。</li>
+</ol>
+<p>总而言之，<code>this</code>关键字在构造函数中的作用是指向即将创建的对象实例，方便我们操作和设置对象的属性和方法。</p>
+<p>代码说明：</p>
+<pre><code class="language-javascript">// 定义一个构造函数
+function Person(name, age) {
+  // 使用 this 关键字引用正在创建的对象实例
+  this.name = name;
+  this.age = age;
+}
+
+// 使用 new 关键字调用构造函数，创建一个新的对象实例
+var person1 = new Person(&quot;迪丽热巴&quot;, 25);
+console.log(person1.name); // 输出 &quot;迪丽热巴&quot;
+console.log(person1.age); // 输出 25
+
+var person2 = new Person(&quot;Lucky&quot;, 30);
+console.log(person2.name); // 输出 &quot;Lucky&quot;
+console.log(person2.age); // 输出 30
+</code></pre>
+<p><strong>注意：</strong></p>
+<p>如果当前使用了new  则this为当前实例对象，如果为正常函数调用 则为全局对象window</p>
+<p><strong>也就是说当前通过this创建的属性或方法会成为window对象的属性和方法</strong></p>
+<pre><code class="language-javascript">function Person(name, age) {
+  // 使用 this 关键字引用正在创建的对象实例
+  this.name = name;
+  this.age = age;
+  console.log(this); 
+}
+Person(&quot;Alice&quot;, 25);
+</code></pre>
+<p>直接调用则为window的属性和方法</p>
+<p><img alt="image-20230717143717468" src="imgs/23%E3%80%81js%E8%BF%9B%E9%98%B6.assets/t6I7OvhSCHkbNaf.png" /></p>
+<p>new 则为实例对象 <strong>此处的this可以理解为python对象中的self参数 当前谁调用了则this代表是哪个对象</strong></p>
+<p><img alt="image-20231203214826165" src="imgs/23%E3%80%81js%E8%BF%9B%E9%98%B6.assets/96pGrAISz2XVfbt.png" /></p>
+<h4 id="3_2">(3) 构造函数外添加新属性和新方法</h4>
+<p>如果你想在构造函数外部添加新的属性和方法，可以通过构造函数的原型对象来实现。这样添加的属性和方法将被所有该构造函数创建的对象所共享。</p>
+<p>代码说明：</p>
+<pre><code class="language-javascript">function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+
+// 在构造函数的原型对象上添加新属性
+Person.prototype.gender = &quot;man&quot;;
+
+// 在构造函数的原型对象上添加新方法
+Person.prototype.sayHello = function() {
+  console.log(&quot;Hello, my name is &quot; + this.name + &quot;.&quot;);
+};
+
+var person1 = new Person(&quot;迪丽热巴&quot;, 25);
+console.log(person1.name); // 输出 &quot;迪丽热巴&quot;
+console.log(person1.age); // 输出 25
+console.log(person1.gender); // 输出 &quot;man&quot;
+person1.sayHello(); // 输出 &quot;Hello, my name is 迪丽热巴.&quot;
+
+var person2 = new Person(&quot;Lucky&quot;, 30);
+console.log(person2.name); // 输出 &quot;Lucky&quot;
+console.log(person2.age); // 输出 30
+console.log(person2.gender); // 输出 &quot;man&quot;
+person2.sayHello(); // 输出 &quot;Hello, my name is Lucky.&quot;
+</code></pre>
+<p>在上述代码中，我们通过 <code>Person.prototype</code> 来访问构造函数的原型对象，并在原型对象上添加了属性 <code>gender</code> 和方法 <code>sayHello</code>。这样，通过构造函数创建的每个对象实例都会继承原型对象上的属性和方法。因此，无论是 <code>person1</code> 还是 <code>person2</code>，它们都可以访问相同的原型属性和方法。</p>
+<p>通过将属性和方法添加到原型对象上，可以实现对所有对象共享的属性和方法的定义，避免在每个对象实例中都创建一份新的属性和方法，从而节省内存。</p>
+<p>这样也使得代码更加可维护，因为我们只需要在原型对象上进行修改，就可以影响到所有对象实例。</p>
+<h4 id="4_3">(4) 什么是构造函数的原型对象</h4>
+<p>在JavaScript中，每个函数都有一个特殊的属性叫做原型（prototype）。构造函数的原型对象是一个普通的对象，它包含构造函数创建的所有实例共享的属性和方法。</p>
+<p>构造函数的原型对象可以被看作是用来存储共享属性和方法的“模板”。当使用<code>new</code>关键字调用构造函数创建对象实例时，这些实例会自动继承构造函数的原型对象上的属性和方法。</p>
+<p>通过向构造函数的原型对象上添加属性和方法，可以使得所有由该构造函数创建的对象实例都具备相同的属性和方法。这样做不仅节省了内存空间，还可实现对多个对象实例共享行为的定义。</p>
+<p>下面简单介绍一下构造函数的原型对象的几个关键点：</p>
+<ol>
+<li><code>prototype</code>属性：每个函数都有一个名为<code>prototype</code>的属性，它指向构造函数的原型对象。例如，<code>Person.prototype</code>指向<code>Person</code>构造函数的原型对象。</li>
+<li><code>constructor</code>属性：原型对象上有一个特殊的属性<code>constructor</code>，它指向构造函数本身。例如，<code>Person.prototype.constructor</code>指向<code>Person</code>构造函数。</li>
+<li>原型属性和方法：可以在构造函数的原型对象上添加属性和方法。这些属性和方法将被所有实例共享。例如，<code>Person.prototype.gender = "man"</code>将在所有<code>Person</code>对象实例中添加一个名为<code>gender</code>的属性。</li>
+</ol>
+<p>使用构造函数的原型对象可以实现对对象实例共享属性和方法，提高代码的效率和可维护性。它是JavaScript中面向对象编程的一个重要概念。</p>
+<p>代码说明：</p>
+<pre><code class="language-javascript">// 构造函数
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+
+// 在构造函数的原型对象上添加属性和方法
+Person.prototype.gender = &quot;man&quot;;
+Person.prototype.sayHello = function() {
+  console.log(&quot;Hello, my name is &quot; + this.name + &quot;.&quot;);
+};
+
+// 创建对象实例
+var person1 = new Person(&quot;迪丽热巴&quot;, 25);
+var person2 = new Person(&quot;lucky&quot;, 30);
+
+console.log(person1.gender); // 输出 &quot;man&quot;
+person1.sayHello(); // 输出 &quot;Hello, my name is 迪丽热巴.&quot;
+
+console.log(person2.gender); // 输出 &quot;man&quot;
+person2.sayHello(); // 输出 &quot;Hello, my name is lucky.&quot;
+
+console.log(Person.prototype); // 输出 { gender: 'man', sayHello: [Function] }
+console.log(typeof Person.prototype); // 输出 &quot;object&quot;
+</code></pre>
+<p><strong>总结：</strong></p>
+<p>在JavaScript中，每个函数都有一个原型对象（prototype object）。原型对象是一个普通的对象，它包含了一些可供该函数实例共享和继承的属性和方法。</p>
+<p>当我们创建一个函数时，JavaScript会自动为该函数创建一个原型对象，并将其赋值给函数的<code>prototype</code>属性。这个原型对象是一个空对象，但可以通过给它添加属性和方法来定义需要共享的内容。</p>
+<p>原型对象在JavaScript中实现了基于原型链的继承机制。当我们使用这个函数创建实例对象时，实例对象会继承原型对象上的属性和方法。如果实例对象在自身找不到某个属性或方法，它会沿着原型链向上查找，直到找到对应的属性或方法或者到达原型链的顶端。</p>
+<p>通过在原型对象上定义属性和方法，可以有效地实现函数的复用和共享。所有通过同一个构造函数创建的实例对象都可以访问和共享原型对象上的属性和方法，从而节省了内存空间。</p>
+<p>总结而言，JavaScript中的函数原型对象是一个普通的对象，它包含了函数实例共享和继承的属性和方法。通过原型对象，可以实现函数的复用和共享，以及基于原型链的继承机制。</p>
+<h4 id="5-__proto__">(5) __proto__ 的使用</h4>
+<p><code>__proto__</code> 是每个 JavaScript 对象都具有的属性，它指向对象的原型。它可以用于访问和操作对象的原型链。</p>
+<p><code>__proto__</code> 的作用和使用如下：</p>
+<ol>
+<li>
+<p>访问原型链：通过<code>__proto__</code> 属性，可以访问对象的原型链上的属性和方法。例如：<code>obj.__proto__.methodName()</code> 可以调用原型对象上的方法。</p>
+</li>
+<li>
+<p>获取原型对象：使用 <code>__proto__</code> 属性可以获取对象的原型对象。例如：<code>var protoObj = obj.__proto__;</code> 通过这种方式可以获取到对象的原型对象，进一步操作原型对象。</p>
+</li>
+<li>
+<p>动态修改原型链：可以通过<code>__proto__</code>属性在运行时动态改变一个对象的原型。这可以通过将一个新对象赋值给<code>__proto__</code>来实现。然而，这种做法在现代 JavaScript 中已经被废弃，不推荐使用。更好的做法是使用<code>Object.setPrototypeOf()</code>方法来设置对象的原型。</p>
+</li>
+</ol>
+<p><code>javascript
+   var obj = person1.__proto__
+   obj['name'] = 'lucky'
+   Object.setPrototypeOf(person1,obj)  // 给原型对象添加新属性  
+   // 注意 如果直接给空对象 则会覆盖掉原有的值
+   Object.setPrototypeOf(person1, {})</code></p>
+<pre><code>![image-20230717175535621](./imgs/23%E3%80%81js%E8%BF%9B%E9%98%B6.assets/QnbjMV3xSlEWG1J.png)
+</code></pre>
+<p>需要注意的是，尽管<code>__proto__</code> 在某些情况下可能会有用，但它并不是标准的 JavaScript API，而是非标准的属性，不建议在正式的应用程序中直接使用它。相反，推荐使用标准的<code>Object</code>方法，如<code>Object.getPrototypeOf()</code> 和 <code>Object.setPrototypeOf()</code> 来访问和修改对象的原型链。这些方法提供了更安全和可靠的方式来操作对象的原型。</p>
+<pre><code class="language-javascript">Object.getPrototypeOf(person1)
+// {gender: 'man', name: 'lucky', sayHello: ƒ, constructor: ƒ}
+</code></pre>
+<p><strong>注意：</strong></p>
+<p>当前对象在进行属性或者方法调用的时候，会优先从当前对象自身去调用，如果自身没有则去上一层原型对象去调用，有则调用，没有再继续向上层去查找，如果都没有，则调用的属性为undefined，方法则为报错</p>
+<p><img alt="image-20231209233012122" src="imgs/23%E3%80%81js%E8%BF%9B%E9%98%B6.assets/oqYaGiZbhHlnLgd.png" /></p>
+<h4 id="6-prototype__proto__">(6)  prototype和__proto__的区别</h4>
+<p><code>prototype</code>和<code>__proto__</code>是JavaScript中两个相关但不同的概念。</p>
+<ol>
+<li><code>prototype</code>：这是一个函数特有的属性。每个函数在创建时都会自动拥有一个<code>prototype</code>属性，它是一个指向原型对象的引用。该原型对象被用作构造函数创建的对象实例的基础，因此构造函数的原型对象上定义的属性和方法可以被所有实例共享。</li>
+<li><code>__proto__</code>：这是每个JavaScript对象（包括函数）都具有的属性，它指向对象的原型。<code>__proto__</code>属性提供了对对象原型的链接，通过该链接，可以从一个对象访问到另一个对象的属性和方法。它是一个内部属性，通常不应直接使用，而是使用<code>Object.getPrototypeOf()</code>或<code>Object.setPrototypeOf()</code>方法来访问或修改对象的原型。</li>
+</ol>
+<p>区别如下：</p>
+<ul>
+<li><code>prototype</code>是函数特有的属性，而<code>__proto__</code>是每个对象都有的属性。</li>
+<li><code>prototype</code>用于定义构造函数创建的对象实例的共享属性和方法，而<code>__proto__</code>用于访问对象实例的原型链。</li>
+<li><code>prototype</code>存在于函数内部，是函数的一个属性；<code>__proto__</code>存在于对象实例内部，是对象的一个属性。</li>
+</ul>
+<p>需要注意的是，尽管<code>__proto__</code>在现代JavaScript中仍然有效，但它已经被视为过时的方式，我们通常建议使用<code>Object.getPrototypeOf()</code>和<code>Object.setPrototypeOf()</code>方法来操作对象的原型链。</p>
+<p>下面是使用代码来说明<code>prototype</code>和<code>__proto__</code>的区别：</p>
+<pre><code class="language-javascript">// 构造函数
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+
+// 在构造函数的原型对象上添加属性和方法
+Person.prototype.gender = &quot;man&quot;;
+Person.prototype.sayHello = function() {
+  console.log(&quot;Hello, my name is &quot; + this.name + &quot;.&quot;);
+};
+
+// 创建对象实例
+var person1 = new Person(&quot;迪丽热巴&quot;, 25);
+var person2 = new Person(&quot;Lucky&quot;, 30);
+
+console.log(person1.__proto__); // 输出 { gender: 'man', sayHello: [Function] }
+console.log(person2.__proto__); // 输出 { gender: 'man', sayHello: [Function] }
+
+console.log(Person.prototype); // 输出 { gender: 'man', sayHello: [Function] }
+console.log(typeof Person.prototype); // 输出 &quot;object&quot;
+
+console.log(person1.prototype); // 输出 undefined
+console.log(person2.prototype); // 输出 undefined
+
+Object.setPrototypeOf(person1, {}) // 只有当前person1原型对象为空 其它对象不受影响
+</code></pre>
+<p>在上述代码中，我们定义了一个名为<code>Person</code>的构造函数，并在其原型对象上添加了属性<code>gender</code>和方法<code>sayHello</code>。然后，我们创建了两个对象实例<code>person1</code>和<code>person2</code>。</p>
+<p>通过访问对象实例的<code>__proto__</code>属性，我们可以获取到对象实例的原型对象。在本示例中，<code>person1.__proto__</code>和<code>person2.__proto__</code>都指向构造函数<code>Person</code>的原型对象<code>Person.prototype</code>。</p>
+<p>此外，我们还输出了<code>Person.prototype</code>和<code>typeof Person.prototype</code>的结果。这里可以看到，<code>Person.prototype</code>是一个包含了构造函数原型属性和方法的对象，而<code>typeof Person.prototype</code>返回的是<code>object</code>。</p>
+<p>最后，我们尝试访问<code>person1.prototype</code>和<code>person2.prototype</code>，发现它们都是<code>undefined</code>。这是因为<code>prototype</code>是构造函数特有的属性，它用于定义对象实例的原型链，而不是对象实例自身的属性。</p>
+<p><strong>注意：</strong></p>
+<p><code>__proto__</code>和prototype是访问当前构造函数或者对象的原型对象</p>
+<p>只能调用原型对象中的属性和方法，方法中的this代表当前的原型对象</p>
+<pre><code class="language-javascript">person1.sayHello()            // 对象正常调用方法
+person1.__proto__.sayHello()  // 原型对象的方式调用方法
+Person.prototype.sayHello()   // 构造函数的方式调用方法
+</code></pre>
+<p><img alt="image-20231210001132639" src="imgs/23%E3%80%81js%E8%BF%9B%E9%98%B6.assets/IY9UFQ3O51sRXxL.png" /></p>
+<h4 id="7">(7) 深入原型链</h4>
+<ul>
+<li>对象.__proto__.__proto__</li>
+</ul>
+<p>这个比较绕了. 我们从前面的学习中, 了解到. 每个对象身体里. 都隐藏着<code>__proto__</code>也就是它的<code>原型对象</code>. 那么我们看哈, <code>原型对象</code>也是<code>对象</code>啊, 那么也就是说. <code>原型对象</code>也有<code>__proto__</code>属性. </p>
+<p>类似于.....这样:</p>
+<p><code>python
+  person1.__proto__.__proto__</code></p>
+<p>打印出来的效果是这样的:<img alt="image-20230807155311208" src="imgs/23%E3%80%81js%E8%BF%9B%E9%98%B6.assets/g4laSkYLmNH8Zde.png" /></p>
+<p>此时. 又出现一堆看不懂的玩意. 这些玩意是什么?  这些其实是Object的原型.</p>
+<p>就类似于python中的所有类默认继承的都是最终的父类object一样</p>
+<p><code>person1.__proto__.__proto__ === Object.prototype</code></p>
+<p>所以, 我们在执行<code>person1.toString()</code>的时候不会报错.   反而可以正常运行. 原因就在这里. </p>
+<p><code>person1.toString())  // 当前对象有就执行  没有则向上一层继续查找，找到则调用，否则报错</code></p>
+<p>执行过程:  先找<code>person1对象</code>中是否有<code>toString</code>. 没有, 找它的<code>原型对象</code>.<code>原型对象</code>中没有, 继续找<code>原型对象的原型对象</code>. 直至你找到Object的原型为止. 如果还是没有. 就报错了. </p>
+<p><code>person1.lucky()  // 报错.</code></p>
+<p>综上, <code>原型链是js 方法查找的路径指示标</code>.  </p>
+<h4 id="8">(8) 构造函数的继承</h4>
+<p>在 JavaScript 中，构造函数可以通过继承来共享属性和方法。下面介绍几种常见的构造函数继承的方式。</p>
+<ol>
+<li>原型链继承： 原型链继承是最基本的一种继承方式。子类的原型对象通过指向父类的实例来实现继承。这样子类就可以访问到父类原型上的属性和方法。</li>
+</ol>
+<p>```javascript
+   function Parent() {
+     this.name = 'Parent';
+   }
+   Parent.prototype.sayHello = function() {
+     console.log('Hello, I am ' + this.name);
+   }</p>
+<p>function Child() {
+     this.name = 'Child';
+   }
+   Child.prototype.<strong>proto</strong> = new Parent(); // 子类的原型指向父类的实例</p>
+<p>var child = new Child();
+   child.sayHello(); // 输出 "Hello, I am Child"
+   console.log(child.<strong>proto</strong>.constructor) // Child...
+   ```</p>
+<ol>
+<li>构造函数继承（借用构造函数）： 通过在子类中调用父类构造函数，并使用 <code>call</code> 或 <code>apply</code> 方法将父类的属性和方法绑定到子类上，实现对父类属性的继承。</li>
+</ol>
+<p>```javascript
+   function Parent() {
+     this.name = 'Parent';
+     this.sayHello = function() {
+       console.log('Hello, I am ' + this.name);
+     }
+   }</p>
+<p>function Child() {
+     Parent.call(this); // 调用父类构造函数，并传入子类的上下文
+     this.name = 'Child';
+   }</p>
+<p>var child = new Child();
+   child.sayHello(); // 输出 "Hello, I am Child"
+   console.log(child.<strong>proto</strong>.constructor) // Child...
+   ```</p>
+<p>当前无法调用原型链的方法</p>
+<p><code>javascript
+   Parent.prototype.sayHello = function() {
+     console.log('Hello, I am ' + this.name);
+   }</code></p>
+<ol>
+<li>组合继承： 组合继承结合了原型链继承和构造函数继承的优点，既可以继承父类原型上的属性和方法，又可以在子类中调用父类的构造函数来继承实例属性。</li>
+</ol>
+<p>```javascript
+   function Parent() {
+     this.name = 'Parent';
+   }
+   Parent.prototype.sayHello = function() {
+     console.log('Hello, I am ' + this.name);
+   }</p>
+<p>function Child() {
+     Parent.call(this); // 调用父类构造函数，并传入子类的上下文
+     this.name = 'Child';
+   }
+   Child.prototype.<strong>proto</strong> = new Parent(); // 子类的原型指向父类的实例
+   Child.prototype.constructor = Child; // 修复子类原型的 constructor 属性</p>
+<p>var child = new Child();
+   child.sayHello(); // 输出 "Hello, I am Child"
+   console.log(child.<strong>proto</strong>.constructor) // Child...
+   ```</p>
+<ol>
+<li>ES6 的 class 继承： ES6 引入了 class 关键字，提供了更简洁的语法来实现面向对象编程。使用 <code>extends</code> 关键字可以实现类的继承。</li>
+</ol>
+<p>```javascript
+   class Parent {
+     constructor() {
+       this.name = 'Parent';
+     }</p>
+<pre><code> sayHello() {
+   console.log('Hello, I am ' + this.name);
+ }
+</code></pre>
+<p>}</p>
+<p>class Child extends Parent {
+     constructor() {
+       super(); // 调用父类的构造函数
+       this.name = 'Child';
+     }
+   }</p>
+<p>let child = new Child();
+   child.sayHello(); // 输出 "Hello, IO am Child"
+   ```</p>
+<p>这些是几种常见的构造函数继承方式。</p>
+<h4 id="9-constuctor">(9) constuctor属性</h4>
+<p><strong>说明：</strong></p>
+<p><code>constructor</code> 是一个对象的属性，它指向该对象的构造函数。这个属性在对象创建时由 JavaScript 引擎自动添加。</p>
+<p>当你使用构造函数创建一个对象时，该对象会自动获得一个 <code>constructor</code> 属性，指向用于创建它的构造函数。</p>
+<p><strong>构造函数</strong></p>
+<pre><code class="language-javascript">function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+var p = new Person('lucky', 18)
+</code></pre>
+<p><strong>获取原型对象中的构造函数</strong></p>
+<pre><code class="language-javascript">// 方式一
+p.__proto__.constructor
+// 方式二
+p.constructor
+// p.constructor 等于 p.__proto__.constructor 等于 Person
+</code></pre>
+<p><strong>p.constructor是<code>p.__proto__.constructor</code> 的简写</strong></p>
+<p><strong>注意：</strong></p>
+<h5 id="91">9.1  对象的构造函数</h5>
+<p>我们在进行获取原型对象中的constructor的时候使用如下<code>p.__proto__.constructor</code>和p.constructor   </p>
+<p>对于大多数情况，<code>p.constructor</code> 和 <code>p.__proto__.constructor</code> 都会指向相同的构造函数，因为对象的 <code>constructor</code> 属性默认指向其原型的构造函数。默认情况下 获取值相同</p>
+<p>修改<code>p.__proto__.constructor</code></p>
+<ul>
+<li><code>p.constructor</code> 和 <code>p.__proto__.constructor</code> 指向地址相同</li>
+</ul>
+<p>修改<code>p.constructor</code></p>
+<ul>
+<li><code>p.__proto__.constructor</code>得指向不变</li>
+<li><code>p.constructor</code> 指向你新值的地址 </li>
+</ul>
+<p>所以我们在修改的时候要修改<code>p.__proto__.constructor</code>得指向不变</p>
+<pre><code class="language-javascript">function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+var p = new Person('lucky', 18)
+p.constructor = function () {}
+// p.__proto__.constructor = function () {};
+console.log(p.constructor);
+console.log(p.__proto__.constructor);
+</code></pre>
+<h5 id="92">9.2 函数对象的构造函数(容易搞混)</h5>
+<p>因为函数也是一种对象所以当你使用Person.constructor进行获取的时候，则获取的为构造当前Person函数对象的构造函数，也就是Function</p>
+<pre><code class="language-javascript">console.log(Person instanceof Object)  // true  证明函数也是属于对象类型
+</code></pre>
+<p>查看当前函数对象的构造函数</p>
+<pre><code class="language-javascript">console.log(Person.__proto__.constructor)
+console.log(Person.constructor)
+</code></pre>
+<p><img alt="image-20240426155851163" src="./imgs/assets/image-20240426155851163.png" /></p>
+<p>而你使用Person.prototype.constructor获取的是当前构造函数的原型对象的构造函数则是本身 </p>
+<h4 id="10">(10) 图解</h4>
+<p><img alt="0bc736df-df88-40ac-b966-812b2f30ea67" src="imgs/23%E3%80%81js%E8%BF%9B%E9%98%B6.assets/KD6or5fP8ISAGlk.jpg" /></p>
+<p>图中有几个难点：</p>
+<ol>
+<li>
+<p>Function构造函数可以用Function.__proto__来访问Function.prototype. 这是因为Function构造函数的构造函数是他本身，作为实例化对象的角色来访问，可行。</p>
+</li>
+<li>
+<p>任何函数都是函数，他都继承Function的所有属性和方法，而Function是内置的构造函数，也是对象，都是继承Object的所有属性和方法。</p>
+</li>
+</ol>
+<h3 id="9debugger">9、无限debugger</h3>
+<h4 id="1-debugger-function">(1) 明文debugger Function</h4>
+<p>在js代码执行时. 每一个function的对象都是通过Function()来创建的. 也就是说. 函数是Function()的对象. </p>
+<pre><code class="language-js">function fn(){}
+console.log(fn.__proto__.constructor); // ƒ Function() { [native code] }
+// 因为函数也是对象  因此上面的写法等同于
+fn.constructor      // ƒ Function() { [native code] }
+</code></pre>
+<p>函数就是Function的对象. 那么. 我  们可以通过Function来构建一个函数. </p>
+<pre><code class="language-js">new Function('debugger')();
+</code></pre>
+<p>跑起来的效果一样的. </p>
+<p><strong>进行hook处理</strong></p>
+<pre><code class="language-javascript">var fun = Function
+Function = function (arg) {
+  let a = arg.replaceAll('debugger', '')
+  return fun(a)
+}
+</code></pre>
+<ul>
+<li><strong>概述：</strong></li>
+</ul>
+<p>无限调试器（Infinite Debugger）是一个开发工具，用于帮助程序员在软件开发过程中进行调试，对于我们爬虫来说，是一种网站的反扒机制</p>
+<h4 id="2-debugger-setinterval">(2) 明文debugger  setInterval</h4>
+<ul>
+<li><strong>代码：</strong></li>
+</ul>
+<p>```javascript
+<br />
+<script>
+      setInterval(function (){
+          debugger;
+      }, 1000);
+      // 每隔一秒执行一次debugger
+  </script></p>
+<p>```</p>
+<ul>
+<li>
+<p><strong>解决方式：</strong></p>
+</li>
+<li>
+<p>Never pause here (推荐使用)</p>
+<p>找到出现debugger的位置  点击debugger 右键选择Never pause here即可</p>
+<p>如果出现多个debugger ，重复刚才的操作即可</p>
+<p><img src="./imgs/23%E3%80%81js%E8%BF%9B%E9%98%B6.assets/jO8kszowVelXc14.png" alt="image-20230801143408175" style="zoom:50%;" /></p>
+</li>
+<li>
+<p><strong>hook---setInterval</strong></p>
+</li>
+</ul>
+<p><strong>和业务无关</strong></p>
+<ul>
+<li>
+<p>先设置断点  并  点击如图所示位置  调出console功能栏  <strong>然后刷新</strong></p>
+<p><img src="./imgs/23%E3%80%81js%E8%BF%9B%E9%98%B6.assets/SeGgBXwlifoysz4.png" alt="image-20230801144020726" style="zoom:50%;" /></p>
+</li>
+<li>
+<p>在console中重写setIntervel方法（<strong>操作当前之前需要刷新 让断点断到1这个位置</strong>）</p>
+<p><img alt="image-20230801144426806" src="imgs/23%E3%80%81js%E8%BF%9B%E9%98%B6.assets/6vGsSDLFoqNitl8.png" /></p>
+</li>
+<li>
+<p>业务代码和 setInterval 无关</p>
+<p><code>javascript
+setInterval = function(){}</code></p>
+<p>这样会清除掉所有setInterval</p>
+</li>
+<li>
+<p><strong>业务代码和 setInterval 有关</strong></p>
+</li>
+<li>
+<p>代码</p>
+<p><code>javascript
+setInterval(function(){
+        (function(){console.log('lucky');debugger})()
+    }, 1000)</code></p>
+</li>
+<li>
+<p>hook</p>
+<p><code>javascript
+var _setInterval = setInterval
+setInterval = function setInterval(code, time){
+    console.log(code, time)
+    code = code.toString().replace(/debugger/g, "")
+    console.log("("+code+")()", time)
+    return _setInterval(new Function("("+code+")()") , time)
+}</code></p>
+</li>
+</ul>
+<h4 id="3-hook-settimeout">(3) hook---setTimeout</h4>
+<ul>
+<li>代码</li>
+</ul>
+<p><code>javascript
+  var _setTimeout = setTimeout
+  setTimeout = function setTimeout(code, time){
+      console.log(code, time)
+      code = code.toString().replace(/debugger/g, "")
+      return _setTimeout(new Function("("+code+")()"), time)
+  }</code></p>
+<h4 id="4-debugger">(4) 隐式debugger（就是看起来不明显 用的较多）</h4>
+<ul>
+<li>代码</li>
+</ul>
+<p><code>javascript
+  setInterval(function (){
+        (function(params) {}).constructor('debugger;')()
+        //(function(params) {})['constructor']('debugger;')()
+  }, 1000)</code></p>
+<ul>
+<li>解决</li>
+</ul>
+<p>hook</p>
+<p><code>javascript
+  let p = Function.prototype.constructor;
+  Function.prototype.constructor = function(arg) {
+          arg = arg.replaceAll("debugger", "");
+          return p(arg);
+   }</code></p>
+<p>在 JavaScript 中，每个函数都是一个对象，函数对象有一个 <code>constructor</code> 属性，该属性指向创建该函数对象的构造函数。</p>
+<p>对于一个普通的函数，其 <code>constructor</code> 属性指向内建的 <code>Function</code> 构造函数。例如：</p>
+<pre><code class="language-javascript">(function(params) {}).constructor === Function // true
+</code></pre>
+<h4 id="5-js-debugger">(5) js混淆 无限debugger</h4>
+<ul>
+<li>代码</li>
+</ul>
+<p>```html
+  <!DOCTYPE html></p>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <title>Title</title>
+  </head>
+  <body>
+  <script>
+      function txsdefwsw() {
+          var r = "V", n = "5", e = "8";
+
+          function o(r) {
+              if (!r) return "";
+              for (var t = "", n = 44106, e = 0; e < r.length; e++) {
+                  var o = r.charCodeAt(e) ^ n;
+                  n = n * e % 256 + 2333, t += String.fromCharCode(o)
+              }
+              return t
+          }
+
+          try {
+              var a = 'debugger';
+              !function c(r) {
+                  (1 !== ("" + r / r).length || 0 === r) && function () {
+                  }.constructor(a)(), c(++r)
+              }(0)
+          } catch (a) {
+              setTimeout(txsdefwsw, 100);
+          }
+      }
+      txsdefwsw()
+  </script>
+  </body>
+  </html>
+<p>```</p>
+<ul>
+<li>解决</li>
+</ul>
+<p>使用以上方式即可</p>
+<h3 id="10callapply">10、call和apply</h3>
+<ul>
+<li><strong>概述</strong></li>
+</ul>
+<p>在 JavaScript 中，<code>call</code> 和 <code>apply</code> 是用于调用函数的方法，它们的作用是改变函数执行时的上下文（即函数内部的 <code>this</code> 指向）。</p>
+<ul>
+<li>call 使用方式</li>
+</ul>
+<p><code>call</code> 方法可以接受一个指定的上下文对象和多个参数。它的语法是：</p>
+<p><code>javascript
+  function.call(thisArg, arg1, arg2, ...)</code></p>
+<p>其中，<code>thisArg</code> 是要绑定的上下文对象，<code>arg1</code>, <code>arg2</code>, ... 是传递给函数的参数。</p>
+<ul>
+<li>apply 使用方式</li>
+</ul>
+<p><code>apply</code> 方法与 <code>call</code> 类似，但是它接受一个指定的上下文对象和一个参数数组</p>
+<p><code>javascript
+  function.apply(thisArg, [argsArray])</code></p>
+<p>其中，<code>thisArg</code> 是要绑定的上下文对象，<code>argsArray</code> 是一个包含传递给函数的参数的数组。</p>
+<ul>
+<li>注意：</li>
+</ul>
+<p>无论是 <code>call</code> 还是 <code>apply</code> 方法，当调用它们时，会立即执行函数，并且将函数中的 <code>this</code> 绑定到提供的上下文对象上。这样，函数在执行时，就可以访问到上下文对象中的属性和方法。</p>
+<p>需要注意的是，如果不传入上下文对象或者传入 <code>null</code> 或 <code>undefined</code>，那么在非严格模式下，默认的上下文对象将是全局对象（即 <code>window</code>）。在严格模式下，默认的上下文对象将是 <code>undefined</code>。</p>
+<ul>
+<li>实例</li>
+</ul>
+<p><code>``javascript
+  function greet(name) {
+    console.log(</code>Hello, ${name}! My name is ${this.name}.`);
+  }</p>
+<p>const person1 = { name: 'lucky' };
+  const person2 = { name: 'Bob' };</p>
+<p>greet.call(person1, '迪丽热巴'); // 输出：Hello, 迪丽热巴! My name is lucky.
+  greet.apply(person2, ['迪丽热巴']); // 输出：Hello, Jerry! My name is Bob.
+  ```</p>
+<ul>
+<li>扩展</li>
+</ul>
+<p>获取Object中自带的属性的名称（）可以在这里看到object属性自带apply和call</p>
+<p><img alt="image-20230807162452315" src="imgs/23%E3%80%81js%E8%BF%9B%E9%98%B6.assets/OIZpGnkJxfyXAW4.png" /></p>
+<h3 id="11hook">11、Hook</h3>
+<h4 id="1_3">(1) 概述</h4>
+<p>在JavaScript中，"hook"（钩子）是一种编程模式，用于在特定的代码片段或函数执行之前或之后插入自定义逻辑。它允许开发人员拦截和修改代码的执行过程。</p>
+<h4 id="2-hook">(2) Hook  实例</h4>
+<ul>
+<li>Hook  eval函数实例</li>
+</ul>
+<p><code>python
+  eval_ = eval; // 先保存系统的eval函数
+  eval = function(s){
+      console.log(s);
+      debugger;
+      return eval_(s);
+  }
+  eval()</code></p>
+<ul>
+<li>Hook cookie</li>
+</ul>
+<p>在网站有对cookie进行设置或者获取的时候 将被触发</p>
+<p><code>javascript
+  (function(){
+    var temp = "";
+    Object.defineProperty(document, "cookie", {
+        set(val){
+          debugger;
+          temp = val;
+          return temp;
+        },
+        get(){
+          debugger;
+          return temp;
+        }
+    })
+  })();</code></p>
+<p>当前操作有对cookie进行操作便会被hook 执行到当前debugger </p>
+<p>url： http://iwencai.com/</p>
+<p><img alt="image-20230809111525796" src="imgs/23%E3%80%81js%E8%BF%9B%E9%98%B6.assets/NytdFlVjQUpHAoZ.png" /></p>
+<p>查看当前js中进行cookie设置的代码位置</p>
+<p><img alt="image-20230809111650285" src="imgs/23%E3%80%81js%E8%BF%9B%E9%98%B6.assets/zjZWXLxwEYqkhJN.png" /></p>
+<p>js代码位置</p>
+<p><img alt="image-20230809111741129" src="imgs/23%E3%80%81js%E8%BF%9B%E9%98%B6.assets/91mOCWLebxN7f4S.png" /></p>
+<ul>
+<li>用Hook的方式实现xhr断点</li>
+</ul>
+<p>url: http://www.baidu.com</p>
+<p>代码</p>
+<p><code>javascript
+  XMLHttpRequest.prototype.send_ = XMLHttpRequest.prototype.send
+  XMLHttpRequest.prototype.send = function(){debugger;}</code></p>
+<p>当我们百度翻页的时候 就可以看到 断点hook了</p>
+<p><img alt="image-20230809114204354" src="imgs/23%E3%80%81js%E8%BF%9B%E9%98%B6.assets/M4fRqucNKnbDAvz.png" /></p>
+<h4 id="3-applyhook">(3) apply在hook中的使用</h4>
+<ul>
+<li>代码</li>
+</ul>
+<p>不固定个数参数处理</p>
+<p>```javascript
+  function fn(a, b, c, d){
+    var e = arguments[4]; // arguments里面可以装所有参数
+    return a + b + c + d + e;
+  }</p>
+<p>fn(1,2,3,4,5,6);</p>
+<p>// hook fn
+  var fn_ = fn;
+  fn = function(a, b, c, d){
+    // 中间植入你的逻辑
+    // 返回原逻辑的结果
+    // return fn_(a, b, c, d); // fn(1,2,3,4)  丢参数
+    return fn_.apply(this, arguments);
+  }</p>
+<p>fn(1,2,3,4,5,6);
+  ```</p>
+<h4 id="4-hook">(4) 几种hook的公式</h4>
+<ul>
+<li>函数Hook公式</li>
+</ul>
+<p><code>javascript
+  old_func = func
+  func = function(argument){
+        my task;
+        return old_func.apply(argument)
+  }
+  func ：要hook的函数</code></p>
+<ul>
+<li>对象中属性Hook公式(我们常用的就是cookie)</li>
+</ul>
+<p><code>javascript
+  old_attr = obj.attr;
+  Object.defineProperty(obj, "attr", {
+    get: function() {
+        console.log(cookie_cache);
+        return old_attr
+    },
+    set: function(val) {
+        return …
+    })
+  );</code></p>
+<ul>
+<li>原型链hook（split为例）</li>
+</ul>
+<p><code>javascript
+  var split_str = String.prototype.split;
+  String.prototype.split=function(val){
+      console.log(this);
+      debugger;
+      return split_str.apply(this, arguments)
+  }
+  a = "加密字符串"
+  console.log(a.split("字"))</code></p>
+<h4 id="5_2">(5) 总结</h4>
+<p>为什么使用hook？</p>
+<ul>
+<li>
+<p>hook JSON.stringify, JSON.parse   </p>
+</li>
+<li>
+<p>针对函数. 找 <code>加密入口</code> 或 <code>解密入口</code>前后端传值的逻辑:</p>
+</li>
+</ul>
+<p>准备url, 以及请求参数.
+  am = {name: xxx, age: xxx}</p>
+<p>对参数进行处理(处理成字符串)</p>
+<p>JSON.stringify(obj);  把js中的对象.处理成json字符串</p>
+<p>对参数或者url进行加密 (对字符串加密)</p>
+<ul>
+<li>在逆向时, 常用的主要有: hook eval 、hook Function 、hook JSON.stringify、JSON.parse 、setInterval,  setTimeout, hook cookie</li>
+</ul>
+<h4 id="6-hook">(6) hook实例</h4>
+<ul>
+<li>cookie   查看当前js在哪个位置设置的cookie 生成cookie的代码</li>
+</ul>
+<p>https://www.iwencai.com/unifiedwap/result?w=%E6%9C%80%E8%BF%91%E4%B8%89%E5%B9%B4%E7%B4%AF%E8%AE%A1%E7%8E%B0%E9%87%91%E5%88%86%E7%BA%A2%E9%87%91%E9%A2%9D%E4%BD%8E%E4%BA%8E%E6%9C%80%E8%BF%91%E4%B8%89%E5%B9%B4%E5%B9%B4%E5%9D%87%E5%87%80%E5%88%A9%E6%B6%A630%25&amp;querytype=stock&amp;addSign=1701099054678</p>
+<p><code>javascript
+  (function(){
+    var temp = "";
+    Object.defineProperty(document, "cookie", {
+        set(val){
+          console.log('设置cookie', temp)
+          temp = val;
+          debugger;
+          return temp;
+        },
+        get(){
+          console.log('获取cookie', temp)
+          debugger;
+          return temp;
+        }
+    })
+  })();</code></p>
+<p><img alt="image-20231128164758835" src="imgs/23%E3%80%81js%E8%BF%9B%E9%98%B6.assets/A3amEx69Xu4My8n.png" /></p>
+<ul>
+<li>
+<p>debugger  </p>
+</li>
+<li>
+<p><strong>url:</strong>  https://web.mypitaya.com/login  </p>
+<p><img alt="image-20231128164048216" src="imgs/23%E3%80%81js%E8%BF%9B%E9%98%B6.assets/l7Uexy5JzNoW38f.png" /></p>
+<p>通过调用栈来查看当前debugger的方式 为constructor</p>
+</li>
+</ul>
+<p><img alt="image-20231128164145893" src="imgs/23%E3%80%81js%E8%BF%9B%E9%98%B6.assets/BjkO69zyRgh1xXv.png" /></p>
+<p><img alt="image-20231128164240519" src="imgs/23%E3%80%81js%E8%BF%9B%E9%98%B6.assets/jMc7PGRuyabhT2H.png" /></p>
+<p><img alt="image-20231128164316135" src="imgs/23%E3%80%81js%E8%BF%9B%E9%98%B6.assets/qfDxFtL416JCyd5.png" /></p>
+<ul>
+<li>
+<p>代码</p>
+<p><code>javascript
+let p = Function.prototype.constructor;
+Function.prototype.constructor = function(arg) {
+        arg = arg.replaceAll("debugger", "");
+        return p(arg);
+ }</code></p>
+</li>
+<li>
+<p><strong>eval</strong></p>
+</li>
+</ul>
+<p><code>javascript
+  eval_ = eval;
+  eval = function(a){if(a=='debugger'){return ''}else{return eval_(a)}}</code></p>
+<ul>
+<li>
+<h5 id="setinterval">setInterval</h5>
+</li>
+<li>
+<p>业务代码和 setInterval 无关</p>
+<p><code>javascript
+setInterval = function(){}</code></p>
+</li>
+<li>
+<p>业务代码和 setInterval 有关</p>
+<p><code>javascript
+var _setInterval = setInterval
+setInterval = function setInterval(code, time){
+    console.log(code, time)
+    code = code.toString().replace(/debugger/g, "")
+    return _setInterval(new Function("("+code+")()") , time)
+}</code></p>
+</li>
+<li>
+<p><strong>setTimeout</strong></p>
+</li>
+</ul>
+<p><code>javascript
+  _setTimeout = setTimeout
+  setTimeout = function setTimeout(code, time){
+      console.log(code, time)
+      code = code.toString().replace(/debugger/g, "")
+      return _setTimeout(new Function("("+code+")()") , time)
+  }</code></p>
+<ul>
+<li><strong>JSON.stringify</strong> </li>
+</ul>
+<p><code>javascript
+  let json_stringify = JSON.stringify
+  JSON.stringify = function(params) {
+      console.log('这是当前请求参数params:', params)
+      debugger;
+      return json_stringify(params)
+  }</code></p>
+<ul>
+<li><strong>JSON.parse</strong></li>
+</ul>
+<p><code>javascript
+  let json_parse = JSON.parse
+  JSON.parse = function(params) {
+      console.log('解析json parse', params)
+      debugger;
+      return json_parse(params)
+  }</code></p>
+<h3 id="12-es6promise">12、 ES6中的promise(难)</h3>
+<h4 id="1_4">(1)  概述</h4>
+<p>在JavaScript中，Promise（承诺）是一种用于处理异步操作的特殊对象。它可以将异步操作封装成一个可控制的状态，并通过链式调用来处理操作的结果。</p>
+<h4 id="2-promise">(2) Promise有三个状态：</h4>
+<ol>
+<li>Pending（进行中）：初始状态，表示异步操作正在进行中。</li>
+<li>Fulfilled（已成功）：表示异步操作已成功完成。</li>
+<li>Rejected（已失败）：表示异步操作发生了错误或失败。</li>
+</ol>
+<h4 id="3-promise">(3) 创建一个Promise对象的语法如下：</h4>
+<pre><code class="language-javascript">const myPromise = new Promise((resolve, reject) =&gt; {
+  // 异步操作代码
+});
+</code></pre>
+<ul>
+<li>参数说明</li>
+</ul>
+<p>resolve  成功后调用的方法</p>
+<p>reject      失败后调用的方法</p>
+<ul>
+<li>注意</li>
+</ul>
+<p>当前参数名称不一定就为resolve  和 reject   但是代表含义是一样的</p>
+<h4 id="4_4">(4) 使用场景</h4>
+<p>在Promise对象中，通常会执行一些异步操作，比如请求数据、读取文件等。这些异步操作可以是回调函数、定时器、网络请求等。当操作完成时，可以使用<code>resolve</code>方法将Promise状态改为Fulfilled，并传递操作结果；或者使用<code>reject</code>方法将Promise状态改为Rejected，并传递错误信息。</p>
+<p>对于我们爬虫来说就是数据的请求</p>
+<h4 id="5-then-catch-finally">(5) .then() .catch()  .finally 方法</h4>
+<ul>
+<li>then()</li>
+</ul>
+<p>当new Promise返回的当前成功或失败的结果后进行调用成功或者失败的方法 参数可为一个或者俩个参数 一个参数为只有成功才调用  二个参数分别包含成功和失败进行调用的方法</p>
+<ul>
+<li>catch()</li>
+</ul>
+<p>当new Promise返回为失败的结果进行调用</p>
+<ul>
+<li>finally </li>
+</ul>
+<p>无论new Promise返回什么结果都会进行调用</p>
+<ul>
+<li>myPromise</li>
+</ul>
+<p><code>javascript
+  function myPromise() {
+          return new Promise(function(resolve, reject) {
+              console.log("现在请求到这里了")
+                randomNumber = Math.random()
+              if (randomNumber &lt; 0.5) {
+                // 操作成功，将Promise状态改为Fulfilled，并传递结果
+                resolve(randomNumber); 
+              } else {
+                // 操作失败，将Promise状态改为Rejected，并传递错误信息
+                reject("Error occurred"); 
+              }
+          })
+  }</code></p>
+<ul>
+<li>then方法的一个参数 只有成功才会调用     搭配catch捕获失败后进行调用处理的方法</li>
+</ul>
+<p><code>javascript
+  myPromise = myPromise()
+  myPromise.then(success_result =&gt; {
+    // 操作成功的处理代码
+    console.log('成功', success_result)
+  }).catch(error =&gt; {
+    // 操作失败的处理代码
+    console.log('失败', error)
+  }).finally(() =&gt; {
+      console.log("无论操作成功或失败，都会执行该回调函数");
+  });</code></p>
+<ul>
+<li>then方法的二个参数 分别为成功和失败进行调用</li>
+</ul>
+<p><code>javascript
+  myPromise = myPromise()
+  myPromise.then(success_result =&gt; {
+    // 操作成功的处理代码
+    console.log('成功', success_result)
+  },error_result =&gt; {
+    // 操作失败的处理代码
+    console.log('失败', error_result)
+  }).finally(() =&gt; {
+      console.log("无论操作成功或失败，都会执行该回调函数");
+  });</code></p>
+<p>此刻不能搭配catch方法  因为then中已经存在失败进行调用的方法</p>
+<ul>
+<li>说明</li>
+</ul>
+<p>在<code>.then()</code>方法中，可以定义成功时的回调函数，该函数将接收到操作成功后的结果作为参数。如果操作出现错误，则可以通过<code>.catch()</code>方法捕获并处理错误信息。</p>
+<p>除了<code>.then()</code>和<code>.catch()</code>，还可以使用<code>.finally()</code>方法，无论Promise对象的状态如何，都会执行其中的回调函数。</p>
+<p>另外，Promise还支持多个操作的并行执行和串行执行，可以使用<code>Promise.all()</code>方法将多个Promise对象包装成一个新的Promise对象，当所有操作都成功完成时，该新的Promise对象才会进入Fulfilled状态；或者使用<code>Promise.race()</code>方法将多个Promise对象包装成一个新的Promise对象，当其中任意一个操作完成时，该新的Promise对象就会进入相应的状态。</p>
+<p>Promise在处理异步操作时提供了更直观、可读性更高的代码结构，并且避免了回调地狱的问题，使得异步代码更易于编写和维护。</p>
+<h4 id="6_1">(6) 使用实例</h4>
+<ul>
+<li>代码</li>
+</ul>
+<p>```javascript
+  // 模拟异步操作，延迟1秒钟后返回结果
+  function asyncOperation() {
+    return new Promise((resolve, reject) =&gt; {
+      setTimeout(() =&gt; {
+        const randomNumber = Math.random();
+        if (randomNumber &lt; 0.5) {
+          resolve(randomNumber); // 操作成功，将Promise状态改为Fulfilled，并传递结果
+        } else {
+          reject("Error occurred"); // 操作失败，将Promise状态改为Rejected，并传递错误信息
+        }
+      }, 1000);
+    });
+  }</p>
+<p>// 使用Promise对象进行异步操作处理
+  asyncOperation()
+    .then(result =&gt; {
+      console.log("操作成功，结果为：" + result);
+    })
+    .catch(error =&gt; {
+      console.log("操作失败，错误信息为：" + error);
+    })
+    .finally(() =&gt; {
+      console.log("无论操作成功或失败，都会执行该回调函数");
+    });
+  ```</p>
+<ul>
+<li>js逆向中的promise</li>
+</ul>
+<p><code>javascript
+  function l(e, t, o) {
+    return new Promise((n,c)=&gt;{
+        a["a"].post(e, t, o).then(e=&gt;{
+        n(e.data)
+    }).catch(e=&gt;{
+        c(e)
+    })}
+  )};</code></p>
+<h4 id="7-promise">(7) 网站中Promise</h4>
+<ul>
+<li>
+<p>https://www.epwk.com/login.html</p>
+</li>
+<li>
+<p>图例</p>
+</li>
+</ul>
+<p><img alt="image-20231215230648438" src="imgs/23%E3%80%81js%E8%BF%9B%E9%98%B6.assets/L7hAidycgE9YT3R.png" /></p>
+<p><img alt="image-20231215230822838" src="imgs/23%E3%80%81js%E8%BF%9B%E9%98%B6.assets/BT569lDkAa4RtEi.png" /></p>
+<p><img alt="image-20231215230954510" src="imgs/23%E3%80%81js%E8%BF%9B%E9%98%B6.assets/s7E5nFjgxWDKmiS.png" /></p>
+
+
+</section>
+</div> <!-- end of search-noresults -->
+<div class="search-results">
+<div class="has-results">
+
+<h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+<ul class="search-results-list"></ul>
+
+</div> <!-- end of has-results -->
+<div class="no-results">
+
+<h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+
+</div> <!-- end of no-results -->
+</div> <!-- end of search-results -->
+</div> <!-- end of book-search-results -->
+
+</div> <!-- end of page-inner -->
+</div> <!-- end of page-wrapper -->
+
+</div> <!-- end of body-inner -->
+
+</div> <!-- end of book-body -->
+<script src="./js/main.js"></script>
+<script src="search/main.js"></script>
+<script src="./js/gitbook.min.js"></script>
+<script src="./js/theme.min.js"></script>
+</body>
+</html>

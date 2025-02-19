@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>十四、Redis数据库 - js node</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="generator" content="mkdocs-1.6.1, mkdocs-gitbook-1.0.7">
+
+<link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta rel="next" href="" />
+<link href="./css/style.min.css" rel="stylesheet"> 
+</head>
+
+<body>
+<div class="book">
+<div class="book-summary">
+<div id="book-search-input" role="search">
+<input type="text" placeholder="Type to search" />
+</div> <!-- end of book-search-input -->
+
+<nav role="navigation">
+<ul class="summary">
+<li>
+<a href="index.html" target="_blank" class="custom-link">js node</a>
+</li>
+<li class="divider"></li>
+<li class="chapter" data-path="index.html">
+<a href="index.html">Welcome to MkDocs</a>
+<li class="chapter" data-path="01%E3%80%81html.html">
+<a href="01%E3%80%81html.html">一、HTML</a>
+<li class="chapter" data-path="02%E3%80%81CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8.html">
+<a href="02%E3%80%81CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8.html">二、CSS层叠样式表</a>
+<li class="chapter" data-path="03%E3%80%81%E6%AD%A3%E5%88%99.html">
+<a href="03%E3%80%81%E6%AD%A3%E5%88%99.html">三、正则</a>
+<li class="chapter" data-path="04%E3%80%81BS4%E8%A7%A3%E6%9E%90%E5%AE%8C%E6%95%B4.html">
+<a href="04%E3%80%81BS4%E8%A7%A3%E6%9E%90%E5%AE%8C%E6%95%B4.html">四、beautifulsoup</a>
+<li class="chapter" data-path="05%E3%80%81xpath.html">
+<a href="05%E3%80%81xpath.html">五、xpath</a>
+<li class="chapter" data-path="06%E3%80%81%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E4%B8%8Eurllib%26requests.html">
+<a href="06%E3%80%81%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E4%B8%8Eurllib%26requests.html">六、爬虫入门</a>
+<li class="chapter" data-path="07%E3%80%81urllib%E4%B8%8Erequests.html">
+<a href="07%E3%80%81urllib%E4%B8%8Erequests.html">七、urllib与requests</a>
+<li class="chapter" data-path="08%E3%80%81%E5%A4%9A%E8%BF%9B%E7%A8%8B.html">
+<a href="08%E3%80%81%E5%A4%9A%E8%BF%9B%E7%A8%8B.html">八、多进程</a>
+<li class="chapter" data-path="09%E3%80%81%E7%BA%BF%E7%A8%8B.html">
+<a href="09%E3%80%81%E7%BA%BF%E7%A8%8B.html">九、线程</a>
+<li class="chapter" data-path="10%E3%80%81%E5%8D%8F%E7%A8%8B.html">
+<a href="10%E3%80%81%E5%8D%8F%E7%A8%8B.html">十、携程</a>
+<li class="chapter" data-path="11%E3%80%81selenium.html">
+<a href="11%E3%80%81selenium.html">十一、selenium</a>
+<li class="chapter" data-path="12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.html">
+<a href="12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.html">十二、MySQL数据库</a>
+<li class="chapter" data-path="13%E3%80%81Mongodb.html">
+<a href="13%E3%80%81Mongodb.html">十三、Mongodb</a>
+<li class="chapter active" data-path="14%E3%80%81redis.html">
+<a href="14%E3%80%81redis.html">十四、Redis数据库</a>
+<li class="chapter" data-path="15%E3%80%81%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.html">
+<a href="15%E3%80%81%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.html">十五、面向对象</a>
+<li class="chapter" data-path="16-Scrapy01-%E6%A1%86%E6%9E%B6%E5%88%9D%E8%AE%A4%E8%AF%86.html">
+<a href="16-Scrapy01-%E6%A1%86%E6%9E%B6%E5%88%9D%E8%AE%A4%E8%AF%86.html">十六、Scrapy框架初认识</a>
+<li class="chapter" data-path="16-Scrapy02%E6%B7%B1%E5%85%A5%E4%BD%BF%E7%94%A8-%E5%AD%98%E5%82%A8.html">
+<a href="16-Scrapy02%E6%B7%B1%E5%85%A5%E4%BD%BF%E7%94%A8-%E5%AD%98%E5%82%A8.html">十六、Scrapy深入使用-存储</a>
+<li class="chapter" data-path="16-Scrapy03-%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86%E4%BB%A5%E5%8F%8A%E5%88%86%E9%A1%B5.html">
+<a href="16-Scrapy03-%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86%E4%BB%A5%E5%8F%8A%E5%88%86%E9%A1%B5.html">十六、scrapy模拟登陆&amp;分页</a>
+<li class="chapter" data-path="16-Scrapy04-%E4%B8%AD%E9%97%B4%E4%BB%B6.html">
+<a href="16-Scrapy04-%E4%B8%AD%E9%97%B4%E4%BB%B6.html">十六、Scrapy中间件</a>
+<li class="chapter" data-path="16-Scrapy05-%E5%88%86%E9%A1%B5%E6%8A%93%E5%8F%96.html">
+<a href="16-Scrapy05-%E5%88%86%E9%A1%B5%E6%8A%93%E5%8F%96.html">十六、scrapy的crawlspider爬虫</a>
+<li class="chapter" data-path="16-Scrapy06-scrapy_redis.html">
+<a href="16-Scrapy06-scrapy_redis.html">十六、scrapy_redis</a>
+<li class="chapter" data-path="17%E3%80%81js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html">
+<a href="17%E3%80%81js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html">十七、js数据类型</a>
+<li class="chapter" data-path="18%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%8E%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6.html">
+<a href="18%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%8E%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6.html">十八、js运算符与流程控制</a>
+<li class="chapter" data-path="19%E3%80%81js%E6%95%B0%E7%BB%84.html">
+<a href="19%E3%80%81js%E6%95%B0%E7%BB%84.html">十九、js数组</a>
+<li class="chapter" data-path="20%E3%80%81js%E5%AD%97%E7%AC%A6%E4%B8%B2.html">
+<a href="20%E3%80%81js%E5%AD%97%E7%AC%A6%E4%B8%B2.html">二十、js字符串</a>
+<li class="chapter" data-path="21%E3%80%81js%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%97%B6%E9%97%B4.html">
+<a href="21%E3%80%81js%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%97%B6%E9%97%B4.html">二十一、js对象与时间</a>
+<li class="chapter" data-path="22%E3%80%81%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89.html">
+<a href="22%E3%80%81%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89.html">二十二、js函数</a>
+<li class="chapter" data-path="23%E3%80%81js%E8%BF%9B%E9%98%B6.html">
+<a href="23%E3%80%81js%E8%BF%9B%E9%98%B6.html">二十三、Javascript进阶</a>
+<li class="chapter" data-path="24%E3%80%81BOM%E6%93%8D%E4%BD%9C.html">
+<a href="24%E3%80%81BOM%E6%93%8D%E4%BD%9C.html">二十四、浏览器对象模型BOM</a>
+<li class="chapter" data-path="25%E3%80%81DOM%E6%93%8D%E4%BD%9C.html">
+<a href="25%E3%80%81DOM%E6%93%8D%E4%BD%9C.html">二十五、DOM操作</a>
+<li class="chapter" data-path="26%E3%80%81jQuery%E6%93%8D%E4%BD%9C.html">
+<a href="26%E3%80%81jQuery%E6%93%8D%E4%BD%9C.html">二十六、jQuery</a>
+<li class="chapter" data-path="27%E3%80%81%E9%80%86%E5%90%9101.html">
+<a href="27%E3%80%81%E9%80%86%E5%90%9101.html">二十七、JS逆向01</a>
+<li class="chapter" data-path="28%E3%80%81%E9%80%86%E5%90%9102.html">
+<a href="28%E3%80%81%E9%80%86%E5%90%9102.html">二十八、逆向02</a>
+<li class="chapter" data-path="29%E3%80%81%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html">
+<a href="29%E3%80%81%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html">二十九、微信小程序逆向开发</a>
+<li class="chapter" data-path="30%E3%80%81%E7%BD%91%E6%98%93%E6%BB%91%E5%9D%97.html">
+<a href="30%E3%80%81%E7%BD%91%E6%98%93%E6%BB%91%E5%9D%97.html">三十、网易易盾</a>
+<li class="chapter" data-path="31%E3%80%81rpc.html">
+<a href="31%E3%80%81rpc.html">三十一、RPC</a>
+<li class="chapter" data-path="32%E3%80%81TLS%E6%8C%87%E7%BA%B9%E7%BB%95%E8%BF%87.html">
+<a href="32%E3%80%81TLS%E6%8C%87%E7%BA%B9%E7%BB%95%E8%BF%87.html">三十二、TLS指纹绕过</a>
+<li class="chapter" data-path="33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">
+<a href="33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">三十三、高级逆向</a>
+<li class="chapter" data-path="34%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">
+<a href="34%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">三十四、高级逆向</a>
+<li class="chapter" data-path="%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B%E7%AC%94%E8%AE%B0.html">
+<a href="%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B%E7%AC%94%E8%AE%B0.html">逆向实战案例笔记</a>
+<li class="header">Pyexecjs与npm配置</li>
+
+<li>
+<a href="pyexecjs%E4%B8%8Enpm%E9%85%8D%E7%BD%AE/execjs%E4%BB%8B%E7%BB%8D%E4%BB%A5%E5%8F%8A%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8.html" class="">Execjs介绍以及安装和使用</a>
+</li>
+
+<li>
+<a href="pyexecjs%E4%B8%8Enpm%E9%85%8D%E7%BD%AE/%E4%B8%80%E6%AC%A1%E6%80%A7%E8%A7%A3%E5%86%B3%E6%8E%89npm%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5%E7%9A%84%E9%97%AE%E9%A2%98.html" class="">更换npm为国内镜像</a>
+</li>
+
+<li class="header">补环境</li>
+
+<li>
+<a href="%E8%A1%A5%E7%8E%AF%E5%A2%83/1%E3%80%81%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8E%E4%BA%8B%E4%BB%B6.html" class="">补环境</a>
+</li>
+
+<li>
+<a href="%E8%A1%A5%E7%8E%AF%E5%A2%83/2%E3%80%81Proxy%E4%BB%A3%E7%90%86%E5%99%A8.html" class="">Proxy代理</a>
+</li>
+
+<li>
+<a href="%E8%A1%A5%E7%8E%AF%E5%A2%83/3%E3%80%81vm2%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83.html" class="">3、vm2运行环境</a>
+</li>
+
+<li class="divider"></li>
+
+
+
+<li><a href="http://www.mkdocs.org">
+Published with MkDocs
+</a></li>
+
+<li><a href="https://github.com/GitbookIO/theme-default">
+Theme by GitBook
+</a></li>
+</ul>
+
+</nav>
+
+</div> <!-- end of book-summary -->
+
+<div class="book-body">
+<div class="body-inner">
+<div class="book-header" role="navigation">
+
+<!-- Title -->
+<h1>
+<i class="fa fa-circle-o-notch fa-spin"></i>
+<a href="." ></a>
+</h1>
+
+</div> <!-- end of book-header -->
+
+<div class="page-wrapper" tabindex="-1" role="main">
+<div class="page-inner">
+<div id="book-search-results">
+<div class="search-noresults">
+
+<section class="normal markdown-section">
+
+
+
+<h1 id="redis">十四、Redis数据库</h1>
+<h4 id="redis_1">Redis 简介</h4>
+<p>Redis是完全开源免费的，遵守BSD协议，是一个高性能的key-value数据库。</p>
+<p>Redis与其他 key- value 缓存产品有以下三个特点：</p>
+<p>Redis支持数据的持久化，可以将内存中的数据保存在磁盘中，重启的时候可以再次加载进行使用。</p>
+<p>Redis不仅仅支持简单的key-value类型的数据，同时还提供list，set，zset，hash等数据结构的存储。</p>
+<p>redis： 半持久化，存储于内存和硬盘</p>
+<h4 id="redismongodb">Redis和MongoDB的区别</h4>
+<p>Redis是完全在内存中保存数据的数据库，使用磁盘只是为了持久性目的,Redis数据全部存在内存，定期写入磁盘，当内存不够时，可以选择指定的LRU算法删除数据,持久化是使用RDB方式或者aof方式。</p>
+<p>mongodb是文档型的非关系型数据库，MongoDB更类似MySQL，支持字段索引、游标操作，其优势在于查询功能比较强大，擅长查询JSON数据，能存储海量数据，但是不支持事务。</p>
+<h2 id="_1">一 前期准备</h2>
+<h4 id="_2">下载地址:</h4>
+<p>https://github.com/ServiceStack/redis-windows</p>
+<p>https://github.com/MSOpenTech/redis/releases</p>
+<h4 id="rediswindowsconf">设置  redis.windows.conf</h4>
+<p>455行 maxheap 1024000000   设置最大的数据堆的大小</p>
+<p>387行 requirepass 123456     设置数据库的密码</p>
+<h2 id="_3">二 启动服务</h2>
+<p>cd C:\redis64-2.8.2101</p>
+<p>C:\redis64-2.8.2101&gt;redis-server.exe redis.windows.conf  #执行 redis-server.exe 并加载Windows的配置文件</p>
+<p>C:\redis64-2.8.2101—&gt;dump.rdb  为数据文件</p>
+<h5 id="mac-homebrewhomebrew-mac">mac 下安装也可以使用 homebrew，homebrew 是 mac 的包管理器。</h5>
+<p>1、执行 brew install redis</p>
+<p>2、启动 redis，可以使用后台服务启动 brew services start redis。或者直接启动：redis-server /usr/local/etc/redis.conf</p>
+<h2 id="_4">三 测试是否连接成功</h2>
+<h5 id="_5">再打开一个新的终端</h5>
+<h5 id="rediswindowsconf_1">输入密码 (这个密码就是在redis.windows.conf里面设置的密码)</h5>
+<p>C:\redis64-2.8.2101&gt;Redis-cli.exe</p>
+<p>127.0.0.1:6379&gt;auth '123456'    </p>
+<h4 id="_6">注意:</h4>
+<p>密码 为 字符串类型</p>
+<h2 id="redis_2">四 Redis值的类型</h2>
+<ol>
+<li>
+<h5 id="string">字符串 String</h5>
+</li>
+<li>
+<h5 id="hash">哈希 hash</h5>
+</li>
+<li>
+<h5 id="list">列表 list</h5>
+</li>
+<li>
+<h5 id="set">集合 set</h5>
+</li>
+<li>
+<h5 id="zset">有序集合 zset</h5>
+</li>
+</ol>
+<h5 id="_7">数据操作的全部命令：</h5>
+<p>http://redis.cn/commands.html</p>
+<p>config get databases 查看所有的数据库 数据库以0开始 一共16个</p>
+<h3 id="1-string">(1) String</h3>
+<p>概述：String是redis最基本的类型，最大能存储512MB的数据，String类型是二进制安全的，即可以存储任何数据、比如数字、图片、序列化对象等</p>
+<p>一个key对应一个value</p>
+<p>string类型是Redis最基本的数据类型，一个键最大能存储512MB。</p>
+<h4 id="1">1、设置键值</h4>
+<h5 id="a">A、设置键值</h5>
+<blockquote>
+<p>set key value </p>
+</blockquote>
+<pre><code class="language-python">set name &quot;zhangsan&quot;
+</code></pre>
+<h5 id="b">B、设置键值及过期时间，以秒为单位</h5>
+<blockquote>
+<p>setex key seconds value</p>
+</blockquote>
+<p><code>python
+setex name 10 'zhangsan'</code></p>
+<h5 id="c">C、查看有效时间，以秒为单位</h5>
+<blockquote>
+<p>ttl key</p>
+</blockquote>
+<pre><code class="language-python">ttl name
+</code></pre>
+<h5 id="d">D、取消过期时间</h5>
+<blockquote>
+<p>persist key</p>
+</blockquote>
+<pre><code>persist name
+</code></pre>
+<h5 id="e-key-key">E、只有在 key 不存在时设置 key 的值</h5>
+<blockquote>
+<p>setnx key value</p>
+</blockquote>
+<pre><code> setnx name 'a'
+</code></pre>
+<h5 id="e">E、设置多个键值</h5>
+<blockquote>
+<p>mset key value [key value ……]</p>
+</blockquote>
+<pre><code class="language-python">mset name 'zs' age 18   
+</code></pre>
+<h4 id="2key">2、key的操作</h4>
+<h5 id="anonenull-0-nil">A.根据键获取值，如果键不存在则返回None(null 0 nil)</h5>
+<blockquote>
+<p>get key</p>
+</blockquote>
+<p><code>get name</code></p>
+<h5 id="b_1">B、根据多个键获取多个值</h5>
+<blockquote>
+<p>mget key [key ……]</p>
+</blockquote>
+<p><code>mget name age</code>g</p>
+<h5 id="c-key">C、返回 key 中字符串值的子字符</h5>
+<blockquote>
+<p>getrange key start end</p>
+</blockquote>
+<pre><code class="language-python">getrange name 0 4
+</code></pre>
+<h5 id="d-key-value-key-old-value">D、将给定 key 的值设为 value ，并返回 key 的旧值(old value)</h5>
+<blockquote>
+<p>getset key value</p>
+</blockquote>
+<pre><code class="language-python">getset name 'x'
+</code></pre>
+<h4 id="3">3、运算</h4>
+<h5 id="_8">要求：值是字符串类型的数字</h5>
+<h5 id="akey1">A、将key对应的值加1</h5>
+<blockquote>
+<p>incr key   </p>
+</blockquote>
+<p><code>incr age</code></p>
+<h5 id="bkey1">B、将key对应的值减1</h5>
+<blockquote>
+<p>decr key</p>
+</blockquote>
+<p><code>decr age</code></p>
+<h5 id="ckey">C、将key对应的值加整数</h5>
+<blockquote>
+<p>incrby key intnum</p>
+</blockquote>
+<p><code>incrby age 10</code>   </p>
+<h5 id="dkey">D、将key对应的值减整数</h5>
+<blockquote>
+<p>decrby key intnum</p>
+</blockquote>
+<p><code>decrby age 10</code></p>
+<h5 id="e_1">E、获取值长度</h5>
+<blockquote>
+<p>strlen key</p>
+</blockquote>
+<p><code>strlen age</code></p>
+<h2 id="key">key 键的操作（暂定要不要删除）</h2>
+<h5 id="apattern-key">A、查找所有符合给定模式pattern（正则表达式）的 key</h5>
+<blockquote>
+<p>keys *</p>
+<p>KEYS *o*</p>
+<p>KEYS t??</p>
+</blockquote>
+<h5 id="_9">支持的正则表达模式：</h5>
+<ul>
+<li><code>h?llo</code> 匹配 <code>hello</code>, <code>hallo</code> 和 <code>hxllo</code></li>
+<li><code>h*llo</code> 匹配 <code>hllo</code> 和 <code>heeeello</code></li>
+<li><code>h[ae]llo</code> 匹配 <code>hello</code> 和 <code>hallo,</code> 但是不匹配 <code>hillo</code></li>
+<li><code>h[^e]llo</code> 匹配 <code>hallo</code>, <code>hbllo</code>, … 但是不匹配 <code>hello</code></li>
+<li><code>h[a-b]llo</code> 匹配 <code>hallo</code> 和 <code>hbllo</code></li>
+</ul>
+<h5 id="b10">B、判断键是否存在，如果存在返回1，不存在返回0</h5>
+<blockquote>
+<p>exists key</p>
+</blockquote>
+<p><code>exists name</code></p>
+<h5 id="cvalue">C、查看键对应的value类型</h5>
+<blockquote>
+<p>type key</p>
+</blockquote>
+<p><code>type name</code></p>
+<h5 id="d_1">D、删除键及对应的值</h5>
+<blockquote>
+<p>del key [key ……]</p>
+</blockquote>
+<h5 id="e_2">E、设置过期时间，以秒为单位</h5>
+<blockquote>
+<p>expire key seconds</p>
+</blockquote>
+<p><code>expire age 10</code></p>
+<h5 id="f">F、查看有效时间，以秒为单位</h5>
+<blockquote>
+<p>ttl key</p>
+</blockquote>
+<h5 id="h-key">H、以毫秒为单位返回 key 的剩余的过期时间</h5>
+<blockquote>
+<p>pttl key </p>
+</blockquote>
+<h5 id="i-key-key">I、移除 key 的过期时间，key 将持久保持</h5>
+<blockquote>
+<p>persist key</p>
+</blockquote>
+<h5 id="jkey">J、删除所有的key</h5>
+<blockquote>
+<p>flushdb   删除当前数据库中的所有</p>
+<p>flushall      删除所有数据库中的key</p>
+</blockquote>
+<h5 id="k-key-newkey-key-newkey">K、修改 key 的名称(仅当 newkey 不存在时，将 key 改名为 newkey)</h5>
+<blockquote>
+<p>rename key newkey</p>
+</blockquote>
+<h5 id="lkey">L、将key移动到指定的数据库中</h5>
+<blockquote>
+<p>Move key db</p>
+</blockquote>
+<pre><code class="language-python">mover name 1    #将name 移动到数据库1
+</code></pre>
+<h5 id="mkey">M、随机返回一个key</h5>
+<blockquote>
+<p>randomkey</p>
+</blockquote>
+<h3 id="2-hash">(2) hash</h3>
+<h5 id="hash_1">概述：hash用于存储对象</h5>
+<p>{</p>
+<p>​   name:"tom",
+​   age:18</p>
+<p>}</p>
+<p>Redis hash 是一个键值(key=&gt;value)对集合。</p>
+<h4 id="1_1">1、设置</h4>
+<h5 id="a_1">a、设置单个值</h5>
+<blockquote>
+<p>hset key field value</p>
+</blockquote>
+<pre><code class="language-python">redis&gt; e
+(integer) 1z
+redis&gt; HGET myhash field1
+&quot;Hello&quot;
+</code></pre>
+<h5 id="b_2">b、设置多个值</h5>
+<blockquote>
+<p>hmset key field value [field value ……]</p>
+</blockquote>
+<pre><code class="language-python">hmset a x &quot;o&quot; y &quot;y&quot; z &quot;z&quot;
+</code></pre>
+<h5 id="c-key-increment">C 为哈希表 key 中的指定字段的整数值加上增量 increment</h5>
+<blockquote>
+<p>hincrby key field incrment</p>
+</blockquote>
+<pre><code class="language-python">hincrby hh age 10
+</code></pre>
+<h5 id="e-key-increment">E 为哈希表 key 中的指定字段的浮点数值加上增量 increment</h5>
+<blockquote>
+<p>HINCRBYFLOAT key field increment</p>
+</blockquote>
+<p>hincrbyfloat hh money 0.1</p>
+<h5 id="f-field">F 只有在字段 field 不存在时，设置哈希表字段的值</h5>
+<blockquote>
+<p>hsetnx key field value</p>
+</blockquote>
+<pre><code class="language-python"> hget hh name
+</code></pre>
+<h4 id="2">2、获取</h4>
+<h5 id="a_2">A、获取一个属性的值</h5>
+<blockquote>
+<p>hget key field</p>
+</blockquote>
+<p><code>hget name field1</code></p>
+<h5 id="b_3">B、获取多个属性的值</h5>
+<blockquote>
+<p>hmget key filed [filed ……]</p>
+</blockquote>
+<h5 id="c_1">C、获取所有字段和值</h5>
+<blockquote>
+<p>hgetall key</p>
+</blockquote>
+<h5 id="d_2">D、获取所有字段</h5>
+<blockquote>
+<p>hkeys key</p>
+</blockquote>
+<h5 id="e_3">E、获取所有值</h5>
+<blockquote>
+<p>hvals key</p>
+</blockquote>
+<h5 id="f_1">F、返回包含数据的个数</h5>
+<blockquote>
+<p>hlen key</p>
+</blockquote>
+<h4 id="3_1">3、其它</h4>
+<h5 id="a10">A、判断属性是否存在，存在返回1，不存在返回0</h5>
+<blockquote>
+<p>hexists key field</p>
+</blockquote>
+<p><code>hexists a x</code></p>
+<h5 id="b_4">B、删除字段及值</h5>
+<blockquote>
+<p>hdel key field [field ……]</p>
+</blockquote>
+<p><code>hdel a x y z</code></p>
+<h5 id="c-32">C、返回值的字符串长度  起始版本 3.2</h5>
+<blockquote>
+<p>hstrlen key field</p>
+</blockquote>
+<h3 id="3-list">(3) 列表 list</h3>
+<p>概述：Redis 列表是简单的字符串列表，按照插入顺序排序。你可以添加一个元素到列表的头部（左边）或者尾部（右边）</p>
+<h3 id="1_2">1、设置</h3>
+<h5 id="a_3">A、在头部插入</h5>
+<blockquote>
+<p>lpush key value [vlaue ……] </p>
+</blockquote>
+<pre><code class="language-python">lpush demo 2 3`
+</code></pre>
+<h5 id="_10">将一个值插入到已存在的列表头部，列表不存在时操作无效</h5>
+<blockquote>
+<p>Lpushx  key val</p>
+</blockquote>
+<pre><code>lpushx list 'a'
+</code></pre>
+<h5 id="b_5">B、在尾部插入</h5>
+<blockquote>
+<p>rpush key value [vlaue ……]</p>
+</blockquote>
+<pre><code class="language-python">rpush demo 2 1
+</code></pre>
+<h5 id="_11">为已存在的列表添加值</h5>
+<blockquote>
+<p>rpushx  key val</p>
+</blockquote>
+<pre><code class="language-python">rpushx mm 'a'   
+</code></pre>
+<h4 id="2_1">2、获取</h4>
+<h5 id="akeylist">A、移除并返回key对应的list的第一个元素</h5>
+<blockquote>
+<p>lpop key</p>
+</blockquote>
+<pre><code class="language-python">lpop demo
+</code></pre>
+<h5 id="bkeylist">B、移除并返回key对应的list的最后一个元素</h5>
+<blockquote>
+<p>rpop key</p>
+</blockquote>
+<pre><code class="language-python">rpop demo
+</code></pre>
+<h5 id="ckey_1">C、返回存储在key的列表中的指定范围的元素</h5>
+<blockquote>
+<p>lrange key  start end</p>
+</blockquote>
+<pre><code class="language-python">lrange demo 0 -1    #查看列表中的所有元素
+</code></pre>
+<p>注意：start end都是从0开始
+注意：偏移量可以是负数</p>
+<h4 id="3_2">3、其它</h4>
+<h5 id="a_4">A、裁剪列表，改为原集合的一个子集</h5>
+<blockquote>
+<p>ltrim key start end</p>
+</blockquote>
+<pre><code class="language-python">ltrim demo 1 -1 #将索引为1 到 -1的元素裁剪出来
+</code></pre>
+<p>注意：start end都是从0开始
+注意：偏移量可以是负数</p>
+<h5 id="bkeylist_1">B、返回存储在key里的list的长度</h5>
+<blockquote>
+<p>llen key</p>
+</blockquote>
+<h5 id="c_2">C、返回列表中索引对应的值</h5>
+<blockquote>
+<p>lindex key index</p>
+</blockquote>
+<pre><code class="language-python">LINDEX mylist 0
+</code></pre>
+<h3 id="set_1">四 集合 set</h3>
+<p>概述：无序集合，元素类型为String类型，元素具有唯一性，不重复</p>
+<p>{ 'a','b'}</p>
+<h4 id="1_3">1、设置</h4>
+<h5 id="a_5">A、添加元素</h5>
+<blockquote>
+<p>sadd key member [member ……]</p>
+</blockquote>
+<pre><code class="language-python">sadd set 'a' 'b' 'c'
+</code></pre>
+<h4 id="2_2">2、获取</h4>
+<h5 id="akey">A、返回key集合中所有元素</h5>
+<blockquote>
+<p>smembers key</p>
+</blockquote>
+<pre><code class="language-python">smembers set
+</code></pre>
+<h5 id="b_6">B、返回集合元素个数</h5>
+<blockquote>
+<p>scard key</p>
+</blockquote>
+<pre><code class="language-python">scard set
+</code></pre>
+<h5 id="c_3">C、移除并返回集合中的一个随机元素</h5>
+<blockquote>
+<p>Spop  key</p>
+</blockquote>
+<pre><code>spop set
+</code></pre>
+<h5 id="d_3">D、返回集合中一个或多个随机数</h5>
+<blockquote>
+<p>srandmember  key  count</p>
+</blockquote>
+<pre><code class="language-python">s set       #返回一个随机元素
+srandmember set 2   #返回2个随机元素
+</code></pre>
+<h5 id="e_4">E、移除集合中一个或多个成员</h5>
+<blockquote>
+<p>srem  key   member1 [memkber2]</p>
+</blockquote>
+<pre><code class="language-python">srem set 'd' 'b'ss
+</code></pre>
+<h4 id="3_3">3、集合的其它操作</h4>
+<h5 id="as">A、求多个集合的交集s</h5>
+<blockquote>
+<p>sinter key [key ……]</p>
+</blockquote>
+<pre><code class="language-python"> sinter m l #求集合l和集合m的交集
+</code></pre>
+<h5 id="b_7">B、求多个集合的差集</h5>
+<blockquote>
+<p>sdiff key [key ……]</p>
+</blockquote>
+<pre><code class="language-python">sdiff m l   #求差集 注意比较顺序
+</code></pre>
+<h5 id="d10">D、判断元素是否在集合中，存在返回1，不存在返回0</h5>
+<blockquote>
+<p>sismember key member</p>
+</blockquote>
+<pre><code class="language-python">sissmember m 'a'   #集合m中是否存在元素'a'
+</code></pre>
+<h3 id="zset_1">五 有序集合 zset</h3>
+<h5 id="_12">概述：</h5>
+<h5 id="astizng">a、有序集合，元素类型为Stizng，元素具有唯一性，不能重复</h5>
+<h5 id="bdoublescorescore">b、每个元素都会关联一个double类型的score(表示权重),通过权重的大小排序，元素的score可以相同</h5>
+<h4 id="1_4">1、设置</h4>
+<h5 id="a_6">A、添加</h5>
+<blockquote>
+<p>zadd key score member [score member ……]</p>
+</blockquote>
+<pre><code class="language-python">zadd zset 1 a 5 b 3 c 2 d 4 e
+</code></pre>
+<h5 id="b-increment">B、有序集合中对指定成员的分数加上增量 increment</h5>
+<blockquote>
+<p>Zincrby   key increment  mcfaember</p>
+</blockquote>
+<pre><code>zincrby zset 10 'a'   #给a的权重上加10
+</code></pre>
+<h4 id="2_3">2、获取</h4>
+<h5 id="a_7">A、返回指定范围的元素</h5>
+<blockquote>
+<p>zrange key start end</p>
+</blockquote>
+<pre><code class="language-python">zrange z1 0 -1
+</code></pre>
+<h5 id="b_8">B、返回元素个数</h5>
+<blockquote>
+<p>zcard key</p>
+</blockquote>
+<pre><code class="language-python"> zcard z1
+</code></pre>
+<h5 id="ckeyscoreminmax">C、返回有序集合key中，score在min和max之间的元素的个数</h5>
+<blockquote>
+<p>zcount key min max</p>
+</blockquote>
+<h5 id="dkeymemberscore">D、返回有序集合key中，成员member的score值</h5>
+<blockquote>
+<p>zscore key member</p>
+</blockquote>
+<pre><code class="language-python">zscore l 'c'    #s返回c的权重
+</code></pre>
+<h5 id="e_5">E、当前集合所有的值和权重</h5>
+<blockquote>
+<p>ZRANGE key 0 -1 WITHSCORES</p>
+</blockquote>
+<h5 id="f_2">F、返回有序集合中指定分数区间内的成员，分数由低到高排序。</h5>
+<blockquote>
+<p>ZRANGEBYSCORE key min max [WITHSCORES] [LIMIT offset count]</p>
+</blockquote>
+<p>区间及无限</p>
+<p>min和max可以是-inf和+inf，这样一来，你就可以在不知道有序集的最低和最高score值的情况下，使用ZRANGEBYSCORE这类命令。</p>
+<pre><code class="language-sql">redis&gt; ZADD myzset 1 &quot;one&quot;
+(integer) 1
+redis&gt; ZADD myzset 2 &quot;two&quot;
+(integer) 1
+redis&gt; ZADD myzset 3 &quot;three&quot;
+(integer) 1
+redis&gt; ZRANGEBYSCORE myzset -inf +inf
+1) &quot;one&quot;
+2) &quot;two&quot;
+3) &quot;three&quot;
+redis&gt; ZRANGEBYSCORE myzset 1 2
+1) &quot;one&quot;
+2) &quot;two&quot;
+</code></pre>
+<h3 id="3_4">3、删除</h3>
+<h5 id="a_8">A 从排序的集合中删除一个或多个成员</h5>
+<p>当key存在，但是其不是有序集合类型，就返回一个错误。</p>
+<blockquote>
+<p>ZREM key member [member ...]</p>
+</blockquote>
+<pre><code class="language-sql">redis&gt; ZADD myzset 1 &quot;one&quot;
+(integer) 1
+redis&gt; ZADD myzset 2 &quot;two&quot;
+(integer) 1
+redis&gt; ZADD myzset 3 &quot;three&quot;
+(integer) 1
+redis&gt; ZREM myzset &quot;two&quot;
+(integer) 1
+redis&gt; ZRANGE myzset 0 -1 WITHSCORES
+1) &quot;one&quot;
+2) &quot;1&quot;
+3) &quot;three&quot;
+4) &quot;3&quot;
+redis&gt; 
+</code></pre>
+<h4 id="_13">数据库:</h4>
+<p>默认在 数据库 0</p>
+<p>select num  进行数据库的切换</p>
+<p>select  1  #进入到数据库1</p>
+<h2 id="redis_3">五、Redis 安全</h2>
+<p>注意：当前密码修改后如果服务重启则需要重新设定</p>
+<p>我们可以通过 redis 的配置文件设置密码参数，这样客户端连接到 redis 服务就需要密码验证，这样可以让你的 redis 服务更安全。</p>
+<h5 id="_14">实例</h5>
+<p>我们可以通过以下命令查看是否设置了密码验证：</p>
+<pre><code>127.0.0.1:6379&gt; CONFIG get requirepass
+1) &quot;requirepass&quot;
+2) &quot;&quot;
+</code></pre>
+<p>默认情况下 requirepass 参数是空的，这就意味着你无需通过密码验证就可以连接到 redis 服务。</p>
+<p>你可以通过以下命令来修改该参数：</p>
+<pre><code>127.0.0.1:6379&gt; CONFIG set requirepass &quot;lucky&quot;
+OK
+127.0.0.1:6379&gt; CONFIG get requirepass
+1) &quot;requirepass&quot;
+2) &quot;lucky&quot;
+</code></pre>
+<p>设置密码后，客户端连接 redis 服务就需要密码验证，否则无法执行命令。</p>
+<h4 id="_15">语法</h4>
+<p><strong>AUTH</strong> 命令基本语法格式如下：</p>
+<pre><code>127.0.0.1:6379&gt; AUTH password
+</code></pre>
+<h5 id="_16">实例</h5>
+<pre><code>127.0.0.1:6379&gt; AUTH &quot;lucky&quot;
+OK
+127.0.0.1:6379&gt; SET mykey &quot;Test value&quot;
+OK
+127.0.0.1:6379&gt; GET mykey
+&quot;Test value&quot;
+</code></pre>
+<h2 id="redis_4">六、Redis 数据备份与恢复</h2>
+<p>Redis <strong>SAVE</strong> 命令用于创建当前数据库的备份。</p>
+<h5 id="_17">语法</h5>
+<p>redis Save 命令基本语法如下：</p>
+<pre><code>redis 127.0.0.1:6379&gt; SAVE 
+</code></pre>
+<h5 id="_18">实例</h5>
+<pre><code>redis 127.0.0.1:6379&gt; SAVE 
+OK
+</code></pre>
+<p>该命令将在 redis 安装目录中创建dump.rdb文件。</p>
+<hr />
+<h4 id="_19">恢复数据</h4>
+<p>如果需要恢复数据，只需将备份文件 (dump.rdb) 移动到 redis 安装目录并启动服务即可。获取 redis 目录可以使用 <strong>CONFIG</strong> 命令，如下所示：</p>
+<pre><code>redis 127.0.0.1:6379&gt; CONFIG GET dir
+1) &quot;dir&quot;
+2) &quot;/usr/local/redis/bin&quot;
+</code></pre>
+<p>以上命令 <strong>CONFIG GET dir</strong> 输出的 redis 安装目录为 /usr/local/redis/bin。</p>
+<hr />
+<h4 id="bgsave">Bgsave</h4>
+<p>创建 redis 备份文件也可以使用命令 <strong>BGSAVE</strong>，该命令在后台执行。</p>
+<h5 id="_20">实例</h5>
+<pre><code>127.0.0.1:6379&gt; BGSAVE
+
+Background saving started
+</code></pre>
+<h2 id="pythonredis">七、Python操作redis</h2>
+<h3 id="1_5">1、安装</h3>
+<p>pip install redis</p>
+<p><strong>导入</strong></p>
+<p>import  redis</p>
+<h3 id="2_4">2、连接方式</h3>
+<p><strong>redis提供了2个方法</strong></p>
+<ul>
+<li>StrictRedis：实现大部分官方的命令</li>
+<li>Redis：是StrictRedis的子类，用于向后兼容旧版的redis。</li>
+</ul>
+<h5 id="strictredis">官方推荐使用StrictRedis方法。</h5>
+<h5 id="_21">举例（普通连接）：</h5>
+<pre><code class="language-python">import redis
+
+# decode_responses=True  自动解码
+r = redis.Redis(host='127.0.0.1',port=6379,password='123c456',db=0,decode_responses=True) #默认数据库为0 
+
+r = redis.StrictRedis(host='10.10.2.14',port=6379,password='123456',decode_responses=True)
+</code></pre>
+<h5 id="connection-pool">连接池：connection pool</h5>
+<p>管理对一个redis server的所有连接，避免每次建立，释放连接的开销。默认，每个redis实例都会维护一个自己的连接池，可以直接建立一个连接池，作为参数传给redis，这样可以实现多个redis实例共享一个连接池。</p>
+<p>举例（连接池）：</p>
+<pre><code class="language-python">pool = redis.ConnectionPool(host='127.0.0.1',port=6379,db=0,password='123456',decode_responses=True)
+
+r = redis.Redis(connection_pool=pool)
+</code></pre>
+
+
+</section>
+</div> <!-- end of search-noresults -->
+<div class="search-results">
+<div class="has-results">
+
+<h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+<ul class="search-results-list"></ul>
+
+</div> <!-- end of has-results -->
+<div class="no-results">
+
+<h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+
+</div> <!-- end of no-results -->
+</div> <!-- end of search-results -->
+</div> <!-- end of book-search-results -->
+
+</div> <!-- end of page-inner -->
+</div> <!-- end of page-wrapper -->
+
+</div> <!-- end of body-inner -->
+
+</div> <!-- end of book-body -->
+<script src="./js/main.js"></script>
+<script src="search/main.js"></script>
+<script src="./js/gitbook.min.js"></script>
+<script src="./js/theme.min.js"></script>
+</body>
+</html>
