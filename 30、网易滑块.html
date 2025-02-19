@@ -1,0 +1,1541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>三十、网易易盾 - js node</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="generator" content="mkdocs-1.6.1, mkdocs-gitbook-1.0.7">
+
+<link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta rel="next" href="" />
+<link href="./css/style.min.css" rel="stylesheet"> 
+</head>
+
+<body>
+<div class="book">
+<div class="book-summary">
+<div id="book-search-input" role="search">
+<input type="text" placeholder="Type to search" />
+</div> <!-- end of book-search-input -->
+
+<nav role="navigation">
+<ul class="summary">
+<li>
+<a href="index.html" target="_blank" class="custom-link">js node</a>
+</li>
+<li class="divider"></li>
+<li class="chapter" data-path="index.html">
+<a href="index.html">Welcome to MkDocs</a>
+<li class="chapter" data-path="01%E3%80%81html.html">
+<a href="01%E3%80%81html.html">一、HTML</a>
+<li class="chapter" data-path="02%E3%80%81CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8.html">
+<a href="02%E3%80%81CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8.html">二、CSS层叠样式表</a>
+<li class="chapter" data-path="03%E3%80%81%E6%AD%A3%E5%88%99.html">
+<a href="03%E3%80%81%E6%AD%A3%E5%88%99.html">三、正则</a>
+<li class="chapter" data-path="04%E3%80%81BS4%E8%A7%A3%E6%9E%90%E5%AE%8C%E6%95%B4.html">
+<a href="04%E3%80%81BS4%E8%A7%A3%E6%9E%90%E5%AE%8C%E6%95%B4.html">四、beautifulsoup</a>
+<li class="chapter" data-path="05%E3%80%81xpath.html">
+<a href="05%E3%80%81xpath.html">五、xpath</a>
+<li class="chapter" data-path="06%E3%80%81%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E4%B8%8Eurllib%26requests.html">
+<a href="06%E3%80%81%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E4%B8%8Eurllib%26requests.html">六、爬虫入门</a>
+<li class="chapter" data-path="07%E3%80%81urllib%E4%B8%8Erequests.html">
+<a href="07%E3%80%81urllib%E4%B8%8Erequests.html">七、urllib与requests</a>
+<li class="chapter" data-path="08%E3%80%81%E5%A4%9A%E8%BF%9B%E7%A8%8B.html">
+<a href="08%E3%80%81%E5%A4%9A%E8%BF%9B%E7%A8%8B.html">八、多进程</a>
+<li class="chapter" data-path="09%E3%80%81%E7%BA%BF%E7%A8%8B.html">
+<a href="09%E3%80%81%E7%BA%BF%E7%A8%8B.html">九、线程</a>
+<li class="chapter" data-path="10%E3%80%81%E5%8D%8F%E7%A8%8B.html">
+<a href="10%E3%80%81%E5%8D%8F%E7%A8%8B.html">十、携程</a>
+<li class="chapter" data-path="11%E3%80%81selenium.html">
+<a href="11%E3%80%81selenium.html">十一、selenium</a>
+<li class="chapter" data-path="12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.html">
+<a href="12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.html">十二、MySQL数据库</a>
+<li class="chapter" data-path="13%E3%80%81Mongodb.html">
+<a href="13%E3%80%81Mongodb.html">十三、Mongodb</a>
+<li class="chapter" data-path="14%E3%80%81redis.html">
+<a href="14%E3%80%81redis.html">十四、Redis数据库</a>
+<li class="chapter" data-path="15%E3%80%81%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.html">
+<a href="15%E3%80%81%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.html">十五、面向对象</a>
+<li class="chapter" data-path="16-Scrapy01-%E6%A1%86%E6%9E%B6%E5%88%9D%E8%AE%A4%E8%AF%86.html">
+<a href="16-Scrapy01-%E6%A1%86%E6%9E%B6%E5%88%9D%E8%AE%A4%E8%AF%86.html">十六、Scrapy框架初认识</a>
+<li class="chapter" data-path="16-Scrapy02%E6%B7%B1%E5%85%A5%E4%BD%BF%E7%94%A8-%E5%AD%98%E5%82%A8.html">
+<a href="16-Scrapy02%E6%B7%B1%E5%85%A5%E4%BD%BF%E7%94%A8-%E5%AD%98%E5%82%A8.html">十六、Scrapy深入使用-存储</a>
+<li class="chapter" data-path="16-Scrapy03-%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86%E4%BB%A5%E5%8F%8A%E5%88%86%E9%A1%B5.html">
+<a href="16-Scrapy03-%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86%E4%BB%A5%E5%8F%8A%E5%88%86%E9%A1%B5.html">十六、scrapy模拟登陆&amp;分页</a>
+<li class="chapter" data-path="16-Scrapy04-%E4%B8%AD%E9%97%B4%E4%BB%B6.html">
+<a href="16-Scrapy04-%E4%B8%AD%E9%97%B4%E4%BB%B6.html">十六、Scrapy中间件</a>
+<li class="chapter" data-path="16-Scrapy05-%E5%88%86%E9%A1%B5%E6%8A%93%E5%8F%96.html">
+<a href="16-Scrapy05-%E5%88%86%E9%A1%B5%E6%8A%93%E5%8F%96.html">十六、scrapy的crawlspider爬虫</a>
+<li class="chapter" data-path="16-Scrapy06-scrapy_redis.html">
+<a href="16-Scrapy06-scrapy_redis.html">十六、scrapy_redis</a>
+<li class="chapter" data-path="17%E3%80%81js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html">
+<a href="17%E3%80%81js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html">十七、js数据类型</a>
+<li class="chapter" data-path="18%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%8E%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6.html">
+<a href="18%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%8E%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6.html">十八、js运算符与流程控制</a>
+<li class="chapter" data-path="19%E3%80%81js%E6%95%B0%E7%BB%84.html">
+<a href="19%E3%80%81js%E6%95%B0%E7%BB%84.html">十九、js数组</a>
+<li class="chapter" data-path="20%E3%80%81js%E5%AD%97%E7%AC%A6%E4%B8%B2.html">
+<a href="20%E3%80%81js%E5%AD%97%E7%AC%A6%E4%B8%B2.html">二十、js字符串</a>
+<li class="chapter" data-path="21%E3%80%81js%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%97%B6%E9%97%B4.html">
+<a href="21%E3%80%81js%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%97%B6%E9%97%B4.html">二十一、js对象与时间</a>
+<li class="chapter" data-path="22%E3%80%81%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89.html">
+<a href="22%E3%80%81%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89.html">二十二、js函数</a>
+<li class="chapter" data-path="23%E3%80%81js%E8%BF%9B%E9%98%B6.html">
+<a href="23%E3%80%81js%E8%BF%9B%E9%98%B6.html">二十三、Javascript进阶</a>
+<li class="chapter" data-path="24%E3%80%81BOM%E6%93%8D%E4%BD%9C.html">
+<a href="24%E3%80%81BOM%E6%93%8D%E4%BD%9C.html">二十四、浏览器对象模型BOM</a>
+<li class="chapter" data-path="25%E3%80%81DOM%E6%93%8D%E4%BD%9C.html">
+<a href="25%E3%80%81DOM%E6%93%8D%E4%BD%9C.html">二十五、DOM操作</a>
+<li class="chapter" data-path="26%E3%80%81jQuery%E6%93%8D%E4%BD%9C.html">
+<a href="26%E3%80%81jQuery%E6%93%8D%E4%BD%9C.html">二十六、jQuery</a>
+<li class="chapter" data-path="27%E3%80%81%E9%80%86%E5%90%9101.html">
+<a href="27%E3%80%81%E9%80%86%E5%90%9101.html">二十七、JS逆向01</a>
+<li class="chapter" data-path="28%E3%80%81%E9%80%86%E5%90%9102.html">
+<a href="28%E3%80%81%E9%80%86%E5%90%9102.html">二十八、逆向02</a>
+<li class="chapter" data-path="29%E3%80%81%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html">
+<a href="29%E3%80%81%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html">二十九、微信小程序逆向开发</a>
+<li class="chapter active" data-path="30%E3%80%81%E7%BD%91%E6%98%93%E6%BB%91%E5%9D%97.html">
+<a href="30%E3%80%81%E7%BD%91%E6%98%93%E6%BB%91%E5%9D%97.html">三十、网易易盾</a>
+<li class="chapter" data-path="31%E3%80%81rpc.html">
+<a href="31%E3%80%81rpc.html">三十一、RPC</a>
+<li class="chapter" data-path="32%E3%80%81TLS%E6%8C%87%E7%BA%B9%E7%BB%95%E8%BF%87.html">
+<a href="32%E3%80%81TLS%E6%8C%87%E7%BA%B9%E7%BB%95%E8%BF%87.html">三十二、TLS指纹绕过</a>
+<li class="chapter" data-path="33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">
+<a href="33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">三十三、高级逆向</a>
+<li class="chapter" data-path="34%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">
+<a href="34%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">三十四、高级逆向</a>
+<li class="chapter" data-path="%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B%E7%AC%94%E8%AE%B0.html">
+<a href="%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B%E7%AC%94%E8%AE%B0.html">逆向实战案例笔记</a>
+<li class="header">Pyexecjs与npm配置</li>
+
+<li>
+<a href="pyexecjs%E4%B8%8Enpm%E9%85%8D%E7%BD%AE/execjs%E4%BB%8B%E7%BB%8D%E4%BB%A5%E5%8F%8A%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8.html" class="">Execjs介绍以及安装和使用</a>
+</li>
+
+<li>
+<a href="pyexecjs%E4%B8%8Enpm%E9%85%8D%E7%BD%AE/%E4%B8%80%E6%AC%A1%E6%80%A7%E8%A7%A3%E5%86%B3%E6%8E%89npm%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5%E7%9A%84%E9%97%AE%E9%A2%98.html" class="">更换npm为国内镜像</a>
+</li>
+
+<li class="header">补环境</li>
+
+<li>
+<a href="%E8%A1%A5%E7%8E%AF%E5%A2%83/1%E3%80%81%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8E%E4%BA%8B%E4%BB%B6.html" class="">补环境</a>
+</li>
+
+<li>
+<a href="%E8%A1%A5%E7%8E%AF%E5%A2%83/2%E3%80%81Proxy%E4%BB%A3%E7%90%86%E5%99%A8.html" class="">Proxy代理</a>
+</li>
+
+<li>
+<a href="%E8%A1%A5%E7%8E%AF%E5%A2%83/3%E3%80%81vm2%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83.html" class="">3、vm2运行环境</a>
+</li>
+
+<li class="divider"></li>
+
+
+
+<li><a href="http://www.mkdocs.org">
+Published with MkDocs
+</a></li>
+
+<li><a href="https://github.com/GitbookIO/theme-default">
+Theme by GitBook
+</a></li>
+</ul>
+
+</nav>
+
+</div> <!-- end of book-summary -->
+
+<div class="book-body">
+<div class="body-inner">
+<div class="book-header" role="navigation">
+
+<!-- Title -->
+<h1>
+<i class="fa fa-circle-o-notch fa-spin"></i>
+<a href="." ></a>
+</h1>
+
+</div> <!-- end of book-header -->
+
+<div class="page-wrapper" tabindex="-1" role="main">
+<div class="page-inner">
+<div id="book-search-results">
+<div class="search-noresults">
+
+<section class="normal markdown-section">
+
+
+
+<h1 id="_1">三十、网易易盾</h1>
+<h2 id="_2">一、前言分析</h2>
+<p>https://dun.163.com/trial/jigsaw</p>
+<h3 id="1url">1、URL请求顺序</h3>
+<ol>
+<li>https://dun.163.com/trial/jigsaw    加载首页</li>
+<li>https://ac.dun.163.com/v3/b</li>
+<li>https://ac.dun.163.com/v3/d</li>
+<li>https://c.dun.163.com/api/v2/getconf   返回下面请求所需要的参数（dt、token等）</li>
+<li>https://c.dun.163.com/api/v3/get       返回当前验证码图片</li>
+<li>https://c.dun.163.com/api/v3/check  滑动验证</li>
+</ol>
+<h3 id="2">2、每个请求对应参数</h3>
+<h4 id="1-httpsacdun163comv3b">(1) https://ac.dun.163.com/v3/b</h4>
+<ul>
+<li>携带数据</li>
+</ul>
+<p><code>javascript
+  {
+    "d": 加密参数,
+    "v": "33d41777",
+    "cb": "__wmjsonp_b698549"
+  }</code></p>
+<ul>
+<li>请求头</li>
+</ul>
+<p><code>javascript
+  Request URL:  https://ac.dun.163.com/v3/b
+  Request Method: POST</code></p>
+<ul>
+<li>响应结果</li>
+</ul>
+<p>当前结果后面用不到</p>
+<p><code>javascript
+  __wmjsonp_c9109e0([200,1712716036847,"++EpHZyivcFBQUQRVEPA+aEitnWfyeUZ"])</code></p>
+<h4 id="2-httpsacdun163comv3d">(2) https://ac.dun.163.com/v3/d</h4>
+<ul>
+<li>携带数据</li>
+</ul>
+<p><code>javascript
+  {
+    d: 加密参数
+    v: 33d41777
+    cb: __wmjsonp_2f29b02
+  }</code></p>
+<ul>
+<li>请求头</li>
+</ul>
+<p><code>javascript
+  Request URL: https://ac.dun.163.com/v3/d
+  Request Method: POST</code></p>
+<ul>
+<li>响应结果</li>
+</ul>
+<p>当前结果后面用不到</p>
+<p><code>javascript
+  __wmjsonp_aa0dd6f([
+      200,
+      1712716036806,
+      "++EpHZyivcFBQUQRVEPA+aEitnWfyeUZ",
+      "D5Jf7cFvq9RFAVRRFQaVuLBm4iCK3PVI",
+      null,
+      "NBtgnXKndXyY4S+eme2OrG59TNwdiqsKQuG1fE+GnchCg8xBUoupVv8pCAnuBx4W1tGQSdgcXhpLWlNGyQLeY+ilePUP4OPQRcxhsJVb8DMjGnXws5QVOtDvOvCCBZb4RnQ="
+  ])</code></p>
+<h4 id="3-httpscdun163comapiv2getconf">(3)  https://c.dun.163.com/api/v2/getconf</h4>
+<ul>
+<li>请求参数</li>
+</ul>
+<p><code>javascript
+  {
+    referer: https://dun.163.com/trial/jigsaw
+    zoneId: 
+    id: 07e2387ab53a4d6f930b8d9a9be71bdf    # 固定值
+    ipv6: false
+    runEnv: 10
+    iv: 4
+    type: 2
+    loadVersion: 2.4.0
+    callback: __JSONP_eom26dc_0
+  }</code></p>
+<ul>
+<li>
+<p>没有需要逆向的</p>
+</li>
+<li>
+<p>请求头</p>
+</li>
+</ul>
+<p><code>javascript
+  Request URL: https://c.dun.163.com/api/v2/getconf?referer=https%3A%2F%2Fdun.163.com%2Ftrial%2Fjigsaw&amp;zoneId=&amp;id=07e2387ab53a4d6f930b8d9a9be71bdf&amp;ipv6=false&amp;runEnv=10&amp;iv=4&amp;type=2&amp;loadVersion=2.4.0&amp;callback=__JSONP_eom26dc_0
+  Request Method: GET</code></p>
+<ul>
+<li>响应结果</li>
+</ul>
+<p>返回的数据多个参数用于下一个请求所携带</p>
+<p><code>javascript
+  __JSONP_eom26dc_0({
+      "data": {
+          "dt": "Ze+/O/RGrV1AElRVVQLAqaUm9ySPe66n",
+          "ac": {
+              "enable": 1,
+              "bid": "07e2387ab53a4d6f930b8d9a9be71bdf",
+              "pn": "YD20160637306799",
+              "token": "9ca17ae2e6fecda16ae2e6eeb5cb528ab69db8ea65bcaeaf9ad05b9c94a3a3c434898987d2b25ef4b2a983bb2af0feacc3b92ae2f4ee95a132e29aa3b1cd72abae8cd1d44eb0b7bb82f55bb08fa3afd437fffeb3"
+          },
+          "imageServer": ["necaptcha.nosdn.127.net", "necaptcha1.nosdn.127.net"],
+          "zoneId": "CN31",
+          "resources": ["/2.27.0/core-optimi.a3391c.v2.27.0.min.js"],
+          "apiServer": ["c.dun.163.com", "c.dun.163yun.com"],
+          "theme": "light",
+          "audio": true,
+          "customStyles": true,
+          "smart": false,
+          "staticServers": ["cstaticdun.126.net", "cstaticdun1.126.net"]
+      },
+      "error": 0,
+      "msg": "ok"
+  });</code></p>
+<h4 id="4-httpscdun163comapiv3get">(4) https://c.dun.163.com/api/v3/get</h4>
+<ul>
+<li>请求参数</li>
+</ul>
+<p><code>javascript
+  referer: https://dun.163.com/trial/jigsaw
+  zoneId: CN31
+  dt: +d46R9cod/pFExRFRQOAudR1RIARdYH2
+  acToken: 9ca17ae2e6ffcda170e2e6eeb7ed52b49dbd83b65b91b48ab3d55e879b8a83d57a8b8affb6e25b8694bdb2ef2af0feaec3b92a899fc0bbd021b2e9c083e25a829b9eb2c54fa68fe185c86d8c9898d5ec52a799ee9e
+  id: 07e2387ab53a4d6f930b8d9a9be71bdf
+  fp: 05aw7/a447/OOW/KYZhTf+UaC6EhQY+/5UUZQ/ck4Cycm3i5B426XQvvZN6iZD6xOA+TQ857lyC\zM0PIAndnGEdGRKKhB0OHfr7YusWtSgYa9+T+5g0Jv/yj84hITJ/LhDlKrJYNwLAVixZ0ZTu5GNoA\dRzZnkNTXJBGhY0jueXehO:1711614684226
+  https: true
+  type: 2
+  version: 2.26.1
+  dpr: 2
+  dev: 1
+  cb: aQ+5A1adrUfsVhWqxjeTnY2LiRO/EJQCKnvKdym6Elcxjz4YGaKbRhuMN4ukKUVh1xgy92YM8QrBKiCryBjjNfukvoE7
+  ipv6: false
+  runEnv: 10
+  group: 
+  scene: 
+  lang: zh-CN
+  sdkVersion: undefined
+  iv: 3
+  width: 320
+  audio: false
+  sizeType: 10
+  smsVersion: v3
+  token: 
+  callback: __JSONP_37iwidr_1</code></p>
+<ul>
+<li>逆向参数</li>
+</ul>
+<p>dt： 上一个请求响应的dt值</p>
+<p>acToken：需要逆向</p>
+<p>id： 上一个请求响应的bid值</p>
+<p>cb：逆向</p>
+<p>fp： 可以为空undefined</p>
+<ul>
+<li>请求头</li>
+</ul>
+<p><code>javascript
+  Request URL: https://c.dun.163.com/api/v3/get?referer=https%3A%2F%2Fdun.163.com%2Ftrial%2Fjigsaw&amp;zoneId=CN31&amp;dt=Ze%2B%2FO%2FRGrV1AElRVVQLAqaUm9ySPe66n&amp;acToken=9ca17ae2e6ffcda170e2e6eea5b842a6e9ada7f57bfb8e8aa2d55a929a9f82d57f909ea3d5ec4989eda0b7cc2af0feaec3b92a8b94baa2d03fed9e869ac94a828b9bb3c85ba78abb82d563f7b798b1fb21babeee9e&amp;id=07e2387ab53a4d6f930b8d9a9be71bdf&amp;fp=w9L%2FQH3wVVhrk35VIVsz24L7tbXO5%2F2JvAT9NMOyB%2FusJttIyls4mg7BgLwE1dzhpVUPvhIT2KuHGaZT8QSkf0VWp8T9QaVQuJCHcwgzjgmmyLHN62hfJVQh9rf6OjklxOLGG%2B3aUpqLX29VeCpofDqVeKAqrRujTQn2rvu2nmQlYx1b%3A1712716525125&amp;https=true&amp;type=2&amp;version=2.27.0&amp;dpr=2&amp;dev=1&amp;cb=Chbwi3kazuHSOkSuIZJ5P.8%2FAYKt9GJFGNeQXmxQ5r.462S4aapgRkDPsbDXEe6PCSHqL05YRi4.xIXtukprjSE3ZtV7&amp;ipv6=false&amp;runEnv=10&amp;group=&amp;scene=&amp;lang=zh-CN&amp;sdkVersion=undefined&amp;iv=4&amp;width=320&amp;audio=false&amp;sizeType=10&amp;smsVersion=v3&amp;token=&amp;callback=__JSONP_omvo7l4_0
+  Request Method: GET</code></p>
+<ul>
+<li>响应结果</li>
+</ul>
+<p>返回当前验证码图片</p>
+<p><code>javascript
+  __JSONP_xi83x4b_2({
+      "data": {
+          "bg": ["https://necaptcha.nosdn.127.net/a265b421c68e4478962e380efe76df47@2x.jpg", "https://necaptcha1.nosdn.127.net/a265b421c68e4478962e380efe76df47@2x.jpg"],
+          "front": ["https://necaptcha.nosdn.127.net/6653fdf16a9d4e498932caf3ac46279c@2x.png", "https://necaptcha1.nosdn.127.net/6653fdf16a9d4e498932caf3ac46279c@2x.png"],
+          "token": "4d8cce7c78dd413899e876dee49483b4",
+          "type": 2,
+          "zoneId": "CN31"
+      },
+      "error": 0,
+      "msg": "ok"
+  });</code></p>
+<p>滑动失败会重新执行</p>
+<h4 id="5-httpscdun163comapiv3get">(5) https://c.dun.163.com/api/v3/get</h4>
+<ul>
+<li>请求参数</li>
+</ul>
+<p><code>javascript
+  referer: https://dun.163.com/trial/jigsaw
+  zoneId: CN31
+  dt: vwjizRDzBbBEAgUFEULE9/EjUswZUEOM
+  id: 07e2387ab53a4d6f930b8d9a9be71bdf
+  token: 上一个URL响应的
+  acToken: undefined
+  data: {"d":"EpJz826dJcFxSBXYQ+MlMprgdEwJ3w1NyODt2xa91fIwf.uEVDkrwaxaAyVZTjrS+OEGmU/Gx/qJTdgbTjY4oMUf9dC0PCEdk8FljcUImur+0CWNklyUppxRdgg/ph4UFX.nOgRhc+mw9dznLPkZPcfYTg3ycS5J6jQC.VMHK8JHH49j.LsaMwLI6QhhFQPyyHfuTEnvvKnCztmdDtE9xlvO2o9gGyy9GhynsKgAnpbhiSlWpNC1+csPZZfiyn4vr.ysHM61CBMoJ0F8qn3KY.HMhdcef1uxqxfrnEM2FJUR4s58Drgtmsyeqwf35tx6MDqfAQJf/LiET8fmHILXUSHi.09NR0/WJJkSk4UEQcO8V/oZcUY+ZGs22nF/Fi2XP8sfvXCo1T5GZzEHPHcNH5x1y2.l+0m4phVNNawMRqgvVfF8ZFr4P98TCp1zjwmDQds5YqkeLXHeDckLx+.xOABmfrDfPVPstbneuA1d006/JfhF1eU+/AXTkK33pZgRWDYmeM77","m":"","p":"XiYO1mxjZ046xExmw8RqWt.buhT1Gn6GKtFdwg1ITCIuyHpt48A/x0DG948YJMKfYH8pkwFBxwnKgWqzT3wb3GLHuXY7","f":"/n3pnkVuxawgPyzhiq+HQt2fkKrlZ3/adyaLMn/e/FRlMF4RryBAxShnNZ9X9SHm3WaHrrN94nFEY5AgEzDVG8CpLWIm.c86NGzPwerWhIQk4hNKlEtPihAmNtnrDanKR25faUwODNyEvm2QEE/sxuSVu6yzIisnyNUalG.xKzbHEPLVeomvCpGkNRzrsGCdPnqJ9sZ9E2ubm5ItlKsspxZaFXYMZfJAAfriO..42GnV3GhQ6eqcpmgN3lhr8aq2lesZZxsI+/r+QNKEdjrugQf4I0L//ENSvD6/UPoQq5Gl2cAimfoWH6bH4OgYzjI+y/s4bosDqgyqfh8Kj38+/KloK8viF9FAc+uLygzuQCIXMCfjD/8BinowmmIu.4F0cE3ZfvtDXZWthPbu3GmUJmRolq4eEwxVDZPIQuY3Sulsw+jd","ext":"5RjhyovDbfwbZ/zX5trvEvx0DFJ6/UDrHClub.hhgTsvh1Uzgn.nS/3qZdWJjEpkZsUAXfYJD2JrHFJ0AbxhHbDJFdY7"}
+  width: 320
+  type: 2
+  version: 2.25.0
+  cb: ckibuKyYZEaGG.fzVzDYaN..+tLMJUPcE4juv8CAD/FxajmYD65t0PZ4lzaTpKVmqpCGhUI/SGUG64DWpqu5WmN10TE7
+  extraData: 
+  bf: 0
+  runEnv: 10
+  sdkVersion: undefined
+  iv: 3
+  callback: __JSONP_m8c7mu7_2</code></p>
+<ul>
+<li>逆向参数</li>
+</ul>
+<p>dt:  第三个请求返回的dt</p>
+<p>id：固定的</p>
+<p>token： 第三个请求返回的token</p>
+<p>data：需要逆向（由轨迹和滑动距离加密组成）</p>
+<p>cb： 逆向</p>
+<ul>
+<li>请求头</li>
+</ul>
+<p><code>javascript
+  Request URL: https://c.dun.163.com/api/v3/check?referer=https%3A%2F%2Fdun.163.com%2Ftrial%2Fjigsaw&amp;zoneId=CN31&amp;dt=Ze%2B%2FO%2FRGrV1AElRVVQLAqaUm9ySPe66n&amp;id=07e2387ab53a4d6f930b8d9a9be71bdf&amp;token=ea93d2443e9d48febc75c28933fdef09&amp;acToken=undefined&amp;data=%7B%22d%22%3A%226Pt9KmwAN3nVbBF8ZyhIK8zqMSGYiDSH4Ihz4Sy0C1zweGvcKk.WFDPA%2F%2B%2BAmAiMTQT02GAVa4EOHcPcAfCy%2BiVnkNJjO4DJFJI.E%2FsH5ba%2BP0oSKOrc3sGq0dEH9JAS%2FN%2B9%2Fz5wo.iK6gXU6tvUr0EyghuN.3OAgzYTYTj8E4j2wWq0uO2ElVNFV%2BoU2Woa.OFF%2BdJERlO5DYwMGesMJEUgdT%2Bdnd9iWeMLxnr5pejil9GL5jsMH%2FSAA4AXxHvi8oormNA8Fk2UuvDqrIFNk6ha4tCrBbjH%2BeJGQg2apN5FPr1DqjK2z6XnCGpX.fUTcL01GAIa5TJ3s3RPXFqxB3SnpB4.%2BKe1C1TZeeE80mUJ6S6YIEu%2BgG0BN%2BRP%2Fo%2BHM1%2F9zmJ6DVrTHKyv%2BrJ3MIxmd4kW1Vb49QDd36ztrOV5CFYzX9b5rG0HJEya%2FQZaetAcUUq8nLQK2NQbFewoZBPnOTs%2BbtrR%2BlGjIQb0R5dTHKso5lQUn%2FFmIsl4skc1pvzSc%2FVgPo%2FtIaxSqnlFnv%2Bla3rTF.Vku%2FNh%2Byy0CVChPuVc1YC0M04ohRiWz9FTL9HfiitncR2clN6sGWKL3Oz34vRTqmLMhAnA5EMoVEL8KDFCrtcVr44XZlMH2u6LHY1AXAsQiylVp%2B9G3d991QoutLQx4fgvvMoP95AeaZlbMc6p6O2l4M94tpyTE1lpSa4nx1Z0yQizrnL4x3%2F%2F.8Q%2FFKM4Bwlw3%2FB82IXyiUY0CIRRAjke88mb%2FXrsIkOECmog36ZiN%2Fjspxizhf1RPxOR%2BY5Vjd1UCSQgohxKXT8ncZOUFFjKH5RFObw%2FAi82Snfho5s%2FYG8KEZaj%2BnLla5z%2FhjN0a2QE%2BJXPT3nVcRyQxLjkNQOktmGFF.MjpQpVpDBpfqlfyphYNWh%2FiGt3xC3N6%2Blowg6xlkur4ydvg0uf9V1e%22%2C%22m%22%3A%22%22%2C%22p%22%3A%22.b4Xst6NfXQozNcANX1tmWZezuIIxz6jUJUW.ECz6tRqH0xcAx6eG%2FejA%2BVjz242RUi%2FIst.gUKnIcmcgcPcOmW6VEI7%22%2C%22f%22%3A%22Iy4GwvvDZp.ZdpAqoBv2nXekUG%2FoyPRIKVzQnfSpaST.a6F0re.azZR1aXDxiO4X2YvXDGe3gUvUWvdtxuO0Tauyf0rPsnB1dFiCNaOlBl9jQhAKmIQu8kHRyB5wn%2Fmf%2FTLVVHQEJtGP3P%2BHv4g3b8.c3EMScsiB%2FMViTAkK6SGTRCIMjTAPeL4lANIegK1uFxlfZjyTzfRRvdxJmm%2BPkpaPWjh%2FuQx6qQKjX6Hqj3uVyDHhjuyJW%2B%2FHE08O86vNmCAHNrDe5qr4uooqvJ4FS1RHi%2FC.Wo.pxl%2F1roHpO1TADmqIQdUPqXEilvd5h%2BArpfYcXr5N3mGiwnIkrqmTZPlmRhsai6iWSSVktkAEX2R9h%2B%2B98AuI489pxH3bxeDcke9q6k%2B8NXlE4iWzOg%2FT.jSPJPUkXPzzGqRbBAJgOQshknk4q2V5zPZSCDpXHMVVWXFgxugp2K0OwqGvZNv%2BzDu5DFxqLZORa%2F8c.rDLGNpt.09PpqLgbm2s3TTmZIDwoJT%2BsM77%22%2C%22ext%22%3A%22tbYifjNopoPCwp5CdZecn%2BkGgztLx30q3gqCxBrFUasdHaX6OqWrubgxfhIHzao3UHz4IPcSzjzgTpQC23DCe6vpybs7%22%7D&amp;width=320&amp;type=2&amp;version=2.27.0&amp;cb=BOSB6gMqVRLbSoWni0E6xh4SKtblxZOIFMcRUg6ynjWFqmO5i0K42yCNQy5bS1gW%2B3DZNs%2BuKsl1rOGHTeFv2%2FjUsEX7&amp;extraData=&amp;bf=0&amp;runEnv=10&amp;sdkVersion=undefined&amp;iv=4&amp;callback=__JSONP_uoycyxc_1
+  Request Method: GET</code></p>
+<ul>
+<li>响应结果</li>
+</ul>
+<p>验证失败result为false、成功为true</p>
+<p>如果显示参数验证错误，则当前参数有逆向失败的，需要重新逆向对比一下</p>
+<p><code>javascript
+  __JSONP_uoycyxc_1({
+      "data": {
+          "result": false,
+          "zoneId": "CN31",
+          "token": "ea93d2443e9d48febc75c28933fdef09",
+          "validate": ""
+      },
+      "error": 0,
+      "msg": "ok"
+  });</code></p>
+<p><img alt="image-20240410113132105" src="assets/image-20240410113132105.png" /></p>
+<ul>
+<li>滑动验证失败</li>
+</ul>
+<p>重新请求3的地址   返回新的验证码图片</p>
+<p><img alt="image-20240410113319992" src="assets/image-20240410113319992.png" /></p>
+<h2 id="d-bb">二、逆向d 和b请求是同一个建议看下面的b</h2>
+<h3 id="1url_1">1、URL</h3>
+<p>https://ac.dun.163.com/v3/d</p>
+<h3 id="2_1">2、 请求参数</h3>
+<pre><code>d: SKL5Artg.gDRIjp9d3N.KS7wV/KaytkbioYeGmq+fzIYDeDe+2ClX2CzFdkGt45ByCDC19c3AkRN/ggbArZ/rZhMs3KmU5Bi6wLSgw5VGP9ZiunBrNWmDJJyfny9I5W3R1jQXyYgygwyWLLm27VzR5bL/hqF4o2NKNC7ruNuWjilyUMaUbSHjpLyvKnsq/Oq4o5d4kuHXs6Jq7npD2akVcTbVFbwtL0EVasDwbF6reJz+rJ156vvAow0lWVOE/AvfSiLQGbfwkg3PECGJtgepZiacdpBa6dJZwD.dKh4qYsAdgrlQMt4.pGaSGFFW2./ySeO0/ZJFEMMyMbBmpKJf++/sN5mCEeFHlbLO/ggHNE95DbQLQnMpaubpWomIUK1yj9t3vdSMpsviTmNUKrvXHhKyGnlatiziYVk3KFZRkkiOrOI2qcsk2DMCcw725Q5YKqv3ppnW7Uo/CVByvb5H91AErHAnQF9MJE8p+Cvem3qUhBGsY8CZMriMgDC5w.cgU/c/8opIQVUgppCUKsycWt6oU2H5SWfZ8pHajqUcNGomF1aJagDG95Hy9LVvfjYQpQU2qj5XAO7y27V2vwBnEkO5N.pea9SesFHftz8L+85X6AHadu9jd/9RVZJPPzzSYvJojZsKsgpKe4X+fRNWsZfdd67f4CVu6k7AEXOITVKpFoaim.mS8wGdhr21B76sLarW.5sMYZHOU5J.V.l29zXX+Ju3OvwBfcoeDG7+zPiQTFuPF4RRjlgKHV6MXlU3XYSWviEXZkeNpGy+k+wTTTSdk9LApo6FnAgkdRUgO6mmO1DQCouaI3ZArEb7AeS26zEEtE6.Bzj00Npa161gVwbi7V0pFI5F1srNE3Fsv3cdbgpPRM8/Z0lc+q0PR7JR0PRoksKfaG4CN2h08zSY5iDhb8Czv6slRlgFEXPTjDTjn4t
+v: 33d41777
+cb: __wmjsonp_202808e
+</code></pre>
+<h3 id="3d">3、逆向参数d说明</h3>
+<p><strong>说明：</strong></p>
+<p>由于当前网易易盾每次刷新都会重新请求js ，特别是对于参数d，每次添加完断点以后  都会重新求情一遍js  这样就没办法在继续调试，之前的断点也都无法再继续使用，所以我们需要使用Charles进行本地js文件替换，将总是重新请求的js文件https://cstaticdun.126.net/wm.3.0.0_33d41777.min.js?v=28524019 中的内容保存到本地，然后进行替换，这样可以在想要调试的位置添加debugger断点来不断调试，最终找到加密的参数位置</p>
+<h3 id="4-charles">4、 Charles本地替换配置</h3>
+<ul>
+<li>选勾选  去除缓存</li>
+</ul>
+<p><img alt="image-20240326163403103" src="assets/image-20240326163403103.png" /></p>
+<ul>
+<li>先根据当前js域名进行过滤 找到这个URL  https://cstaticdun.126.net</li>
+</ul>
+<p><img src="./assets/image-20240326162638958.png" alt="image-20240326162638958" style="zoom:50%;" /></p>
+<ul>
+<li>将wm.3.0.0_33d41777.min.js得内容保存到本地</li>
+</ul>
+<p><img alt="image-20240326163241749" src="assets/image-20240326163241749.png" /></p>
+<ul>
+<li>选择Ma Local</li>
+</ul>
+<p><img src="./assets/image-20240326162903831.png" alt="image-20240326162903831" style="zoom:50%;" /></p>
+<ul>
+<li>选择本地保存的js文件</li>
+</ul>
+<p><img alt="image-20240326163043661" src="assets/image-20240326163043661.png" /></p>
+<ul>
+<li>
+<p>在浏览器中死刷新一下既可</p>
+</li>
+<li>
+<p>在network中查看是否替换成功</p>
+</li>
+</ul>
+<p><img alt="image-20240326164131496" src="assets/image-20240326164131496.png" /></p>
+<h3 id="5">5、 在浏览器中进行调试</h3>
+<h4 id="1durl">(1)、给当前带有d参数的URL添加断点捕获</h4>
+<ul>
+<li>URL</li>
+</ul>
+<p>https://ac.dun.163.com/v3/d</p>
+<p><img alt="image-20240326163918316" src="assets/image-20240326163918316.png" /></p>
+<p><img alt="image-20240326163956492" src="assets/image-20240326163956492.png" /></p>
+<h4 id="2_2">(2)、重新刷新浏览器   断点进行拦截</h4>
+<p><img alt="image-20240326165202076" src="assets/image-20240326165202076.png" /></p>
+<h4 id="3">(3)、调用栈查找</h4>
+<p>顺着当前断点不断向上查找，认为是生成或者是可以调试的位置，在本地当前代码位置添加上debugger;既可，重新刷新浏览器，那么当前的js就会出现你添加的debugger</p>
+<p>此刻可能会有很多请求都经过你给的debugger断点，那么就需要根据当前的断点上的参数进行判断，是否为d请求的参数，其中只有b参数请求可能会混乱d参数，因为值不好区分</p>
+<ul>
+<li>查找</li>
+</ul>
+<p><img alt="image-20240326170108145" src="assets/image-20240326170108145.png" /></p>
+<ul>
+<li>当前截图单纯演示添加debugger后的调试(可以略过)</li>
+</ul>
+<p><img alt="image-20240326162009522" src="assets/image-20240326162009522.png" /></p>
+<ul>
+<li>打印参数a</li>
+</ul>
+<p><img alt="image-20240326170352890" src="assets/image-20240326170352890.png" /></p>
+<ul>
+<li>找到当前加密的位置</li>
+</ul>
+<p>r = RE(iE, Z[678], void 0)(a.concat(r, t))</p>
+<p><img alt="image-20240326170203079" src="assets/image-20240326170203079.png" /></p>
+<ul>
+<li>在浏览器中进行对比-成功找到</li>
+</ul>
+<p><img alt="image-20240326170810473" src="assets/image-20240326170810473.png" /></p>
+<ul>
+<li>在本地js代码中搜索当前加密代码，添加debugger</li>
+</ul>
+<p><img alt="image-20240326171408405" src="assets/image-20240326171408405.png" /></p>
+<ul>
+<li>如果重新刷新不起作用</li>
+</ul>
+<p>将application中的缓存数据全部清除后重新刷新</p>
+<p><img alt="image-20240326171007520" src="assets/image-20240326171007520.png" /></p>
+<ul>
+<li>debugger拦截</li>
+</ul>
+<p><img alt="image-20240326171524137" src="assets/image-20240326171524137.png" /></p>
+<ul>
+<li>当前生成数组的f()函数 和参数b(https://ac.dun.163.com/v3/b)中的f是同一个f函数</li>
+</ul>
+<p><img alt="image-20240327115451652" src="assets/image-20240327115451652.png" /></p>
+<h2 id="v3get">三、逆向v3/get</h2>
+<h3 id="1url_2">1、url</h3>
+<p>https://c.dun.163.com/api/v3/get</p>
+<h3 id="2_3">2、逆向参数参数</h3>
+<ul>
+<li>cb</li>
+<li>acToken</li>
+<li>fp 可以为undefined</li>
+</ul>
+<p>其它参数</p>
+<ul>
+<li>token:  https://c.dun.163.com/api/v3/check响应返回的</li>
+</ul>
+<pre><code class="language-javascript">referer: https://dun.163.com/trial/jigsaw
+zoneId: CN31
+acToken: 9ca17ae2e6ffcda170e2e6eed8b150a6f0f897ef7db8b08aa6d15a868b8a83d47f82bcac85dc668fb783b2ca2af0feaec3b92a8db0a894e44787b7e5a8b75e829e9aa2d85a949bbbb2d947ed8b8ba6d94b8691ee9e
+id: 07e2387ab53a4d6f930b8d9a9be71bdf
+fp: w3c9dXEIB+kt15BeVA2GmhaPfcVYPW52yz4AWjspw5ezwEWjfvpBUvoG\5vVxBkvRqMG2EKdEc28SdAxfkPtwsA2f\KRIeOyIHnouxtzW8569gfijf6zQuDeb27U\Rkdclzk6yzaKqE9\Uq3tmb5vHTJNK8PhsITXsXfNT+AM1Ox72yk:1709534154145
+https: true
+type: 2
+version: 2.26.0
+dpr: 2
+dev: 1
+cb: 5FGdlJcy1cojk43lMhvwpme3OYoRQicW2WEe9RGFgKPxp5JKv/j/g9j.ol1EnkVow5HIrosoQhha+utzCCNdfF.ikF97
+ipv6: false
+runEnv: 10
+group: 
+scene: 
+lang: zh-CN
+sdkVersion: undefined
+iv: 3
+width: 320
+audio: false
+sizeType: 10
+smsVersion: v3
+token: ca50711fb86549cab90f5f37f9c01365
+callback: __JSONP_eucmko4_47
+</code></pre>
+<h3 id="3-cb">3、 cb参数逆向查找</h3>
+<p>通过查找actoken  查找到当前的cb参数的加密位置  因为当前的actoken的值为undefined 所以对应的URL为https://c.dun.163.com/api/v3/check</p>
+<p><img alt="image-20240304151402158" src="assets/image-20240304151402158.png" /></p>
+<p><strong>最终结果</strong></p>
+<p><img alt="image-20240306160955843" src="assets/image-20240306160955843.png" /></p>
+<h3 id="4actoken">4、acToken逆向查找</h3>
+<p><img alt="image-20240221155039300" src="assets/image-20240221155039300.png" /></p>
+<p>通过调用栈进行查找  e为生成的位置</p>
+<p><img alt="image-20240221155208086" src="assets/image-20240221155208086.png" /></p>
+<p><strong>注意</strong>
+需要将application中的storage和cookie的数据清空在滑动后进行请求  就会定位到下面的断点处</p>
+<p><img alt="image-20240221154739698" src="assets/image-20240221154739698.png" /></p>
+<p>进入pE函数</p>
+<p><img alt="image-20240304174043484" src="assets/image-20240304174043484.png" /></p>
+<p>通过查看发现X函数生成加密字符串  进入X函数</p>
+<p><img alt="image-20240304174220831" src="assets/image-20240304174220831.png" /></p>
+<p>经过调试，发现当前r的值是固定的每次的结果均为  <strong>72Df08vlwtpFERRFUFbQuBdddYnMiMQK</strong></p>
+<p><img alt="image-20240306151156386" src="assets/image-20240306151156386.png" /></p>
+<p>在这里能够看到我们当前位置v6的值和前面加密代码oE(JSON<a href="E">h[397]</a>)的结果是同一个</p>
+<p><img alt="image-20240306153628966" src="assets/image-20240306153628966.png" /></p>
+<p>最终结果对比 （到这儿acToken就扣代码完成）</p>
+<p><img alt="image-20240306153735280" src="assets/image-20240306153735280.png" /></p>
+<p>代码扣的结果</p>
+<p><img alt="image-20240322174436702" src="assets/image-20240322174436702.png" /></p>
+<p>当前扣的代码</p>
+<p><img alt="image-20240306152526218" src="assets/image-20240306152526218.png" /></p>
+<h3 id="5python">5、python中进行调用</h3>
+<p><img alt="image-20240322174537482" src="assets/image-20240322174537482.png" /></p>
+<h3 id="6fp">6、逆向参数fp(这个参数可以不扣)</h3>
+<ul>
+<li>查找</li>
+</ul>
+<p><img alt="image-20240407102750256" src="assets/image-20240407102750256.png" /></p>
+<ul>
+<li>打印gu</li>
+</ul>
+<p><img alt="image-20240407102900016" src="assets/image-20240407102900016.png" /></p>
+<ul>
+<li>进行对比</li>
+</ul>
+<p><img alt="image-20240407103002950" src="assets/image-20240407103002950.png" /></p>
+<ul>
+<li>查找上一层gG传递参数</li>
+</ul>
+<p><img alt="image-20240407104155535" src="assets/image-20240407104155535.png" /></p>
+<ul>
+<li>查找this[rE(0x434)]</li>
+</ul>
+<p><img alt="image-20240407104634155" src="assets/image-20240407104634155.png" /></p>
+<ul>
+<li>通过搜索fingerprint</li>
+</ul>
+<p><img alt="image-20240407165635661" src="assets/image-20240407165635661.png" /></p>
+<ul>
+<li>fingerprint值是Si,Si得值是由window['gdxidpyhxde']而来</li>
+</ul>
+<p><img alt="image-20240417162432500" src="assets/image-20240417162432500.png" /></p>
+<ul>
+<li>通过hook方式进行获取 </li>
+</ul>
+<p><code>javascript
+  (function(){
+          var hook_gdxidpyhxde = "";
+          Object.defineProperty(window, 'gdxidpyhxde', {
+              set: function(val) {
+                  console.log('设置fp参数的值为： ', val);
+                  debugger;
+                  this._value = val;
+                  return val;
+              },
+              get:function () {
+                  console.log('获取fp参数的值为： ', hook_gdxidpyhxde);
+                  return hook_gdxidpyhxde;
+              }
+          });
+      })();</code></p>
+<ul>
+<li>将当前文件使用charles进行本地替换，将hook代码扔进当前代码顶部</li>
+</ul>
+<p><img alt="image-20240417162852630" src="assets/image-20240417162852630.png" /></p>
+<p><img alt="image-20240417162916647" src="assets/image-20240417162916647.png" /></p>
+<ul>
+<li>
+<p>charles替换的方式就不再赘述了~</p>
+</li>
+<li>
+<p>重新刷新</p>
+</li>
+<li>
+<p>hook到当前的值  </p>
+</li>
+</ul>
+<p><img alt="image-20240417163604966" src="assets/image-20240417163604966.png" /></p>
+<ul>
+<li>通过调用栈进行向上层调用进行查找</li>
+</ul>
+<p><img alt="image-20240417163721083" src="assets/image-20240417163721083.png" /></p>
+<ul>
+<li>找到位置，接下来要扣的就是当前SD函数，不用全扣</li>
+</ul>
+<p><img alt="image-20240417163847570" src="assets/image-20240417163847570.png" /></p>
+<ul>
+<li>最终结果</li>
+</ul>
+<p><img alt="image-20240417173522339" src="assets/image-20240417173522339.png" /></p>
+<p>头得给全</p>
+<p>可以为空</p>
+<p>fp</p>
+<h2 id="b">四、逆向  b</h2>
+<h3 id="1url_3">1、url</h3>
+<p>https://ac.dun.163.com/v3/b</p>
+<h3 id="2d">2、逆向参数参数d</h3>
+<ul>
+<li>d</li>
+</ul>
+<pre><code class="language-javascript">d: bqtvARGHuCJ2qrNXcT1a3R86WNXTob.mep/GQFK0uEPU3yqaKdiMzAFg+f0uk8NR/.FE4.cnm8lia9Z9/64bTGja5gLHZgj2jPj6CDvPV8ISK0fHO0Nt9sApmeviRaqJ8+2hqzo+U7aTlznPXz8GuB.V25XWo1Xk0.KGySeN8LCO6apu3Q6r35XgTt93dIXhu3ZKeJNya3Py4WdtWfnSqOCGH5zZEEoUz6cH7NEaDc66pQ67wvLEQWEcCIuDFCcVwRNprD2eSKJRyHGNm0ulVeSI2.7VJ9y4wRPAn4i0MXDvcuyHiQ04Q.6GgO2w39s7000m5hdZCmVnYs2mgbr0PQHESSnV2wegyWaTppSj9gvhgIlcIXrGMFXisHrl6z2fAttktNECmwnsHtGqar2mEqIwhKC/a8I2NLk310s47jvOkN9KZjA3pmjAa..
+v: 33d41777
+cb: __wmjsonp_1698b20
+</code></pre>
+<h3 id="3_1">3、 说明</h3>
+<ul>
+<li>这是一个关于当前环境检测的请求</li>
+</ul>
+<p><img alt="image-20240307143602952" src="assets/image-20240307143602952.png" /></p>
+<h3 id="4">4、 通过进入调用栈查找生成加密的位置</h3>
+<p>通过断点不断向上调试，找到当前d参数加密生成的位置</p>
+<p><img alt="image-20240307143245192" src="assets/image-20240307143245192.png" /></p>
+<p>和网络请求中的参数进行对比  一致</p>
+<p><img alt="image-20240307143102669" src="assets/image-20240307143102669.png" /></p>
+<h3 id="5-e-f">5、 扣E = f(); 函数</h3>
+<ul>
+<li>函数位置</li>
+</ul>
+<p><img alt="image-20240313180159123" src="assets/image-20240313180159123.png" /></p>
+<ul>
+<li>
+<p>进入f函数</p>
+</li>
+<li>
+<p>查看当前f函数对应的E变量的取值</p>
+</li>
+</ul>
+<p><img alt="image-20240313180338825" src="assets/image-20240313180338825.png" /></p>
+<ul>
+<li><code>wa[h[420]][Y[75]]</code>取值结果</li>
+</ul>
+<p><img alt="image-20240313180444099" src="assets/image-20240313180444099.png" /></p>
+<ul>
+<li>通过搜索对象中<strong>apiServers</strong>参数值 查找当前对象创建位置</li>
+</ul>
+<p>但是发现当前对象中缺少一些上面的参数，比如S（时间戳参数）</p>
+<p><img alt="image-20240313180610504" src="assets/image-20240313180610504.png" /></p>
+<ul>
+<li>接下来搜索查看是哪个位置给当前options赋值的 以此来分析缺少参数的源头再哪儿</li>
+</ul>
+<p><img alt="image-20240313182857965" src="assets/image-20240313182857965.png" /></p>
+<ul>
+<li>通过搜索查找到了当前options赋值的位置  是参数Z</li>
+</ul>
+<p>接下来打上断点   通过调用栈不断向上查找</p>
+<p><img alt="image-20240313183107606" src="assets/image-20240313183107606.png" /></p>
+<ul>
+<li>通过调用栈向上查找、找到当前创建options属性值的位置    Z也就是当前的this.j</li>
+</ul>
+<p>接下来搜索this.j</p>
+<p><img alt="image-20240313183346460" src="assets/image-20240313183346460.png" /></p>
+<ul>
+<li>溯源到了之前搜索apiServer的位置  现在整个流程都疏通了</li>
+</ul>
+<p>接下来搜索this.j 查找确实的参数是再哪儿进行赋值的</p>
+<p><img alt="image-20240313183535365" src="assets/image-20240313183535365.png" /></p>
+<ul>
+<li>搜索this.j 查找到了在哪儿进行赋值的</li>
+</ul>
+<p><img alt="image-20240313183756157" src="assets/image-20240313183756157.png" /></p>
+<ul>
+<li>进入kE函数 查看是如何生成的</li>
+</ul>
+<p><img alt="image-20240313184100265" src="assets/image-20240313184100265.png" /></p>
+<ul>
+<li>发现是之前acToken里面扣过的 直接复制过来既可</li>
+</ul>
+<p><img alt="image-20240313184336931" src="assets/image-20240313184336931.png" /></p>
+<ul>
+<li>将this.j对象和在终端打印出来的对象进行分析哪些参数是动态 哪些是固定的</li>
+</ul>
+<p><img alt="image-20240313190641361" src="assets/image-20240313190641361.png" /></p>
+<ul>
+<li>通过搜索发现 <strong>productNumber</strong>与<strong>na</strong>参数值均是有getconf请求返回的值<img alt="image-20240313191023133" src="assets/image-20240313191023133.png" /></li>
+</ul>
+<p><img alt="image-20240313191118995" src="assets/image-20240313191118995.png" /></p>
+<ul>
+<li>接下来代码回到f函数</li>
+</ul>
+<p>通过不断打印 调试</p>
+<p>发现当前a和r的结果每次都是不变的  所以可以设置为固定值</p>
+<p><img alt="image-20240321152933419" src="assets/image-20240321152933419.png" /></p>
+<ul>
+<li>下面这些函数正常扣过来就可以</li>
+</ul>
+<p><img alt="image-20240321162945860" src="assets/image-20240321162945860.png" /></p>
+<ul>
+<li>搜索变量</li>
+</ul>
+<p><img alt="image-20240321163105396" src="assets/image-20240321163105396.png" /></p>
+<ul>
+<li>return里面的函数正常扣就可以了，没啥特殊的</li>
+</ul>
+<p><img alt="image-20240321170133755" src="assets/image-20240321170133755.png" /></p>
+<p><img alt="image-20240321170111660" src="assets/image-20240321170111660.png" /></p>
+<h2 id="data">五、逆向data参数</h2>
+<h3 id="1-url">1、 url</h3>
+<p>https://c.dun.163.com/api/v3/check</p>
+<h3 id="2_4">2、请求参数</h3>
+<pre><code class="language-javascript">referer: https://dun.163.com/trial/jigsaw
+zoneId: CN31
+dt: RXNmMmP5y+pAFhVRQRaE+IVkMjrQBHOj
+id: 07e2387ab53a4d6f930b8d9a9be71bdf
+token: 776c302cd4f14404a616f0e681d9bb83
+acToken: undefined
+data: {&quot;d&quot;:&quot;0fBiAvE8Yd.Lq24j.+lInKZW/f+mkgNUPKui+WcfvNDnph8Z.9hmPbRJe+PXOi2HYZVPMxoLPI.2ulbvpJcUoe8lhhsx0qD2/f5Eedv1yWOMDlTF0l/fE+aMRqqtWTi3VTO.2/56O8G2CnyrWFdkos26nduzvGtK6YvDKgUltfVdQ4Ez4qX8yjZFuNWIZS8TMA2xCjljlRBB4LkzRGSmLp41hPuPSDLUFdWbX0dHRzdmTA4eoxtVQVu9Yj5HqghZT8MGq88WQbSASTR0XDBU+GYvCCOTiUPFOHCKaQd6JliFbP3twvKkWtrJDhKtn+FsZbDK/kNFkPCSqeclEzo8FEEOkjX7&quot;,&quot;m&quot;:&quot;&quot;,&quot;p&quot;:&quot;TktNOc6F1YTjLbKQOlDff6.yQzSOqT/E0t.qE3FRb1lMmcgf5JBFYTd+9AuZHNqCqidFGEsjfj8Cczj3jH89ez+hFvM7&quot;,&quot;f&quot;:&quot;NphN+FaMEu64kF9AL5mjaZPZohI1dIX.LEgRa6bTkASAMeolYrR1PdLObwMlpwxCr5SFUhO9kZbmsmPq.24e.ZrfgmE3.Aueb4Ce4WPUso1GVKRnmvY.iwfhViU089w/cucu.2TCwHXXG8Ovr0jgcqM1R9zuObjPu/GWeiVxmCZEnd9vHmEUQ2/NMJtqMjdqWXskaKeD1+wQe2t/ro/aXc8GfBhFf9Aas0UGxFdH0P6nFh5XsT0O1ePFEHU3Xz0VfdxnsPEJ.lwWELZVDP8yyq1ZwDS/gNdOLCp4gfOynuaXhgYOZ04lWjIcOgz8N8b+Rv/xl8ue95iiaf5Wb9CewZDIgmxigb5VwQADE3qaIcAHJwbsyUlUDmYQKQnHguGnX6b2qv.orrTgSe92f9uq6y1JbJ9NpJz.bYSd50lXwRrO3nyl&quot;,&quot;ext&quot;:&quot;NF8N9FhEqNdtJVzxg8GUeT8Isylsl4Rse4VZiW1d82q4GFFsa1SjrcLzD0VwG8aIjRePKNQe.1NFjLFg33jT9QkFQ197&quot;}
+width: 320
+type: 2
+version: 2.26.1
+cb: hDxZifz49AUqLIBr0Z5TqLTYad.BbLUTvMSLlCeC2hL6PlBOQmHxzesWNzjzClEtq+CJYhKIF9wqe16PoS8ODV2jeo87
+extraData: 
+bf: 0
+runEnv: 10
+sdkVersion: undefined
+iv: 3
+callback: __JSONP_ves283o_3
+</code></pre>
+<h3 id="3_2">3、逆向参数</h3>
+<ul>
+<li>data</li>
+</ul>
+<p>其余参数已逆向完毕</p>
+<h3 id="4_1">4、查找当前参数位置</h3>
+<ul>
+<li>搜索参数  sdkVersion  打上断点，重新拖拽滑块  便找到了当前参数位置</li>
+</ul>
+<p><img alt="image-20240328175330163" src="assets/image-20240328175330163.png" /></p>
+<ul>
+<li>查找T4</li>
+</ul>
+<p><img alt="image-20240328175547765" src="assets/image-20240328175547765.png" /></p>
+<p><img alt="image-20240328175625500" src="assets/image-20240328175625500.png" /></p>
+<ul>
+<li>查找gA</li>
+</ul>
+<p><img alt="image-20240328175737333" src="assets/image-20240328175737333.png" /></p>
+<ul>
+<li>断点向上走一层</li>
+</ul>
+<p><img alt="image-20240328180509508" src="assets/image-20240328180509508.png" /></p>
+<ul>
+<li>发现o包含了data，继续向上找</li>
+</ul>
+<p><img alt="image-20240328180608143" src="assets/image-20240328180608143.png" /></p>
+<ul>
+<li>继续向上找</li>
+</ul>
+<p><img alt="image-20240328180717774" src="assets/image-20240328180717774.png" /></p>
+<ul>
+<li>找到参数gF 继续向上查找</li>
+</ul>
+<p><img alt="image-20240328180839353" src="assets/image-20240328180839353.png" /></p>
+<ul>
+<li>找到当前加密参数data的位置</li>
+</ul>
+<p><img alt="image-20240328180937077" src="assets/image-20240328180937077.png" /></p>
+<h3 id="5data-d">5、扣data第一个值 d</h3>
+<ul>
+<li>当前扣取第一个d </li>
+</ul>
+<p><code>var Q = F[DB(0x328)](this[DB(0x81a)], z)</code> 为d进行加密的值，其中z的值为固定的50(只对前50个轨迹进行加密) </p>
+<p><img alt="image-20240403153135964" src="assets/image-20240403153135964.png" /></p>
+<ul>
+<li>当前d参数中的Q是由上面的断点生成的，this[DB(0x81a)]（this['traceData']）为滑动的加密轨迹 </li>
+</ul>
+<p><img alt="image-20240403153519649" src="assets/image-20240403153519649.png" /></p>
+<ul>
+<li>向上查找this['traceData']生成的位置   在鼠标移动这里，按照当前图添加断点  然后滑动滑块</li>
+</ul>
+<p><img alt="image-20240403153658129" src="assets/image-20240403153658129.png" /></p>
+<p>滑动以后  断点停留当前位置</p>
+<p><img alt="image-20240403153947860" src="assets/image-20240403153947860.png" /></p>
+<p>继续扣j函数既可（扣完后进行对比）</p>
+<p><img alt="image-20240403154642099" src="assets/image-20240403154642099.png" /></p>
+<ul>
+<li>接下来扣q函数</li>
+</ul>
+<p><img alt="image-20240403154906035" src="assets/image-20240403154906035.png" /></p>
+<ul>
+<li>q函数中就有一个需要补环境的位置当然不补也可以</li>
+</ul>
+<p><img src="./assets/image-20240403155022169.png" alt="image-20240403155022169" style="zoom:50%;" /></p>
+<p>补完以后用在当前这个位置（所有说不补也可以）</p>
+<p><img alt="image-20240403155102445" src="assets/image-20240403155102445.png" /></p>
+<ul>
+<li>代码扣完测试结果</li>
+</ul>
+<p><img alt="image-20240403160605400" src="assets/image-20240403160605400.png" /></p>
+<ul>
+<li>当前代码</li>
+</ul>
+<p><code>``javascript
+  const jsdom = require("jsdom");
+  const {JSDOM} = jsdom;
+  // 创建一个新的DOM实例
+  const dom = new JSDOM(</code><html><body></body></html>`);
+  // 获取document对象
+  const {document} = dom.window;</p>
+<p>var sample = function (X, O) {
+      var K = X['length'];
+      if (K &lt;= O)
+          return X;
+      for (var F = [], Z = 0x0, H = 0x0; H &lt; K; H++)
+          H &gt;= Z * (K - 0x1) / (O - 0x1) &amp;&amp; (F<a href="X[H]">'push'</a>,
+              Z += 0x1);
+      return F;
+  }</p>
+<p>// ===========到这儿都是gr的函数扣的开始
+  function A() {
+      // 使用jsdom补环境
+      var v = 'NECaptchaSafeWindow'
+          , R = function () {
+          var O = document<a href="v">'getElementById'</a>;
+          O &amp;&amp; (document['body']<a href="O">'removeChild'</a>,
+              O = null);
+      }
+          , a = document<a href="v">'getElementById'</a>;
+      if (a)
+          return {
+              'safeGlobal': a['contentWindow'],
+              'destroy': R
+          };
+      var D = document;
+      try {
+          var X = document<a href="" title="iframe">'createElement'</a>;
+          X<a href="'id', v">'setAttribute'</a>,
+              X['style']['display'] = 'none',
+              document['body']<a href="X">'appendChild'</a>,
+              D = X['contentWindow'];
+      } catch (O) {
+          D = document;
+      }
+      return {
+          'safeGlobal': D,
+          'destroy': R
+      };
+  }</p>
+<p>function O(V) {
+      return V &lt; -0x80 ? O(0x100 + V) : V &gt; 0x7f ? O(V - 0x100) : V;
+  }</p>
+<p>// 改名zz  因为下面有个变量z
+  function zz(V) {
+      V = '' + V;
+      for (var U = [], W = A(), x = W['safeGlobal'], M = 0x0, C = 0x0, E = V['length'] / 0x2; M &lt; E; M++) {
+          var w = x<a href="V['charAt'](C++), 0x10) &lt;&lt; 0x4
+              , Q = x['parseInt'](V['charAt'](C++), 0x10);
+          U[M] = O(w + Q);
+      }
+      return U;">'parseInt'</a>}</p>
+<p>function gr(V) {
+      V = encodeURIComponent(V);
+      for (var U = [], W = 0x0, x = V['length']; W &lt; x; W++)
+          '%' === V<a href="W">'charAt'</a> ? W + 0x2 &lt; x &amp;&amp; U<a href="zz('' + V['charAt'](++W">'push'</a> + V<a href="++W">'charAt'</a>)[0x0]) : U<a href="O(V['charCodeAt'](W">'push'</a>));
+      return U;
+  }</p>
+<p>// ===========到这儿都是gr的函数扣的结束</p>
+<p>// ============g7函数开始=============
+  function Q() {
+      for (var gP = [], gh = 0x0; gh &lt; 0x4; gh++)
+          gP[gh] = O(Math<a href="0x100 * Math['random']()));
+      return gP;">'floor'</a>}</p>
+<p>function H(gP) {
+      var gh = [];
+      if (!gP['length'])
+          return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+      if (gP['length'] &gt;= 0x40)
+          return gP<a href="0x0, 0x40">'splice'</a>;
+      for (var gf = 0x0; gf &lt; 0x40; gf++)
+          gh[gf] = gP[gf % gP['length']];
+      return gh;
+  }</p>
+<p>function Z(V, U) {
+      return O(O(V) ^ O(U));
+  }</p>
+<p>function gZ() {
+      for (var V = arguments['length'] &gt; 0x0 &amp;&amp; void 0x0 !== arguments[0x0] ? arguments[0x0] : [], U = arguments['length'] &gt; 0x1 &amp;&amp; void 0x0 !== arguments[0x1] ? arguments[0x1] : [], W = [], x = U['length'], M = 0x0, C = V['length']; M &lt; C; M++)
+          W[M] = Z(V[M], U[M % x]);
+      return W;
+  }</p>
+<p>var gk = 'fd6a43ae25f74398b61c03c83be37449'  // 固定的 可以搜索到
+  function g7() {
+      var gP = gr(gk)
+          , gh = Q();
+      return gP = H(gP),
+          gP = gZ(gP, H(gh)),
+          gP = H(gP),
+          [gP, gh];
+  }</p>
+<p>// ============g7函数结束=============</p>
+<p>// ============gT函数开始=============
+  function gT(gh, gf) {
+      if (Array<a href="gh">'isArray'</a>)
+          return gh;
+      if (Symbol['iterator'] in Object(gh))
+          return gP(gh, gf);  // 这儿没扣 因为上面为true
+      throw new TypeError('Invalid attempt to destructure non-iterable instance');
+  }</p>
+<p>// ============gT函数结束=============</p>
+<p>// ============gm函数开始=============
+  function k(V) {
+      var U = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'];
+      return '' + U[V &gt;&gt;&gt; 0x4 &amp; 0xf] + U[0xf &amp; V];
+  }</p>
+<p>function P(V) {
+      return V<a href="function (U) {
+          return k(U);
+      }">'map'</a><a href="" title="">'join'</a>;
+  }</p>
+<p>function S(V) {
+      var U = [];
+      return U[0x0] = O(V &gt;&gt;&gt; 0x18 &amp; 0xff),
+          U[0x1] = O(V &gt;&gt;&gt; 0x10 &amp; 0xff),
+          U[0x2] = O(V &gt;&gt;&gt; 0x8 &amp; 0xff),
+          U[0x3] = O(0xff &amp; V),
+          U;
+  }</p>
+<p>function q(V) {
+      return P(S(V));
+  }</p>
+<p>function gm(V) {
+      for (var U = [0x0, 0x77073096, 0xee0e612c, 0x990951ba, 0x76dc419, 0x706af48f, 0xe963a535, 0x9e6495a3, 0xedb8832, 0x79dcb8a4, 0xe0d5e91e, 0x97d2d988, 0x9b64c2b, 0x7eb17cbd, 0xe7b82d07, 0x90bf1d91, 0x1db71064, 0x6ab020f2, 0xf3b97148, 0x84be41de, 0x1adad47d, 0x6ddde4eb, 0xf4d4b551, 0x83d385c7, 0x136c9856, 0x646ba8c0, 0xfd62f97a, 0x8a65c9ec, 0x14015c4f, 0x63066cd9, 0xfa0f3d63, 0x8d080df5, 0x3b6e20c8, 0x4c69105e, 0xd56041e4, 0xa2677172, 0x3c03e4d1, 0x4b04d447, 0xd20d85fd, 0xa50ab56b, 0x35b5a8fa, 0x42b2986c, 0xdbbbc9d6, 0xacbcf940, 0x32d86ce3, 0x45df5c75, 0xdcd60dcf, 0xabd13d59, 0x26d930ac, 0x51de003a, 0xc8d75180, 0xbfd06116, 0x21b4f4b5, 0x56b3c423, 0xcfba9599, 0xb8bda50f, 0x2802b89e, 0x5f058808, 0xc60cd9b2, 0xb10be924, 0x2f6f7c87, 0x58684c11, 0xc1611dab, 0xb6662d3d, 0x76dc4190, 0x1db7106, 0x98d220bc, 0xefd5102a, 0x71b18589, 0x6b6b51f, 0x9fbfe4a5, 0xe8b8d433, 0x7807c9a2, 0xf00f934, 0x9609a88e, 0xe10e9818, 0x7f6a0dbb, 0x86d3d2d, 0x91646c97, 0xe6635c01, 0x6b6b51f4, 0x1c6c6162, 0x856530d8, 0xf262004e, 0x6c0695ed, 0x1b01a57b, 0x8208f4c1, 0xf50fc457, 0x65b0d9c6, 0x12b7e950, 0x8bbeb8ea, 0xfcb9887c, 0x62dd1ddf, 0x15da2d49, 0x8cd37cf3, 0xfbd44c65, 0x4db26158, 0x3ab551ce, 0xa3bc0074, 0xd4bb30e2, 0x4adfa541, 0x3dd895d7, 0xa4d1c46d, 0xd3d6f4fb, 0x4369e96a, 0x346ed9fc, 0xad678846, 0xda60b8d0, 0x44042d73, 0x33031de5, 0xaa0a4c5f, 0xdd0d7cc9, 0x5005713c, 0x270241aa, 0xbe0b1010, 0xc90c2086, 0x5768b525, 0x206f85b3, 0xb966d409, 0xce61e49f, 0x5edef90e, 0x29d9c998, 0xb0d09822, 0xc7d7a8b4, 0x59b33d17, 0x2eb40d81, 0xb7bd5c3b, 0xc0ba6cad, 0xedb88320, 0x9abfb3b6, 0x3b6e20c, 0x74b1d29a, 0xead54739, 0x9dd277af, 0x4db2615, 0x73dc1683, 0xe3630b12, 0x94643b84, 0xd6d6a3e, 0x7a6a5aa8, 0xe40ecf0b, 0x9309ff9d, 0xa00ae27, 0x7d079eb1, 0xf00f9344, 0x8708a3d2, 0x1e01f268, 0x6906c2fe, 0xf762575d, 0x806567cb, 0x196c3671, 0x6e6b06e7, 0xfed41b76, 0x89d32be0, 0x10da7a5a, 0x67dd4acc, 0xf9b9df6f, 0x8ebeeff9, 0x17b7be43, 0x60b08ed5, 0xd6d6a3e8, 0xa1d1937e, 0x38d8c2c4, 0x4fdff252, 0xd1bb67f1, 0xa6bc5767, 0x3fb506dd, 0x48b2364b, 0xd80d2bda, 0xaf0a1b4c, 0x36034af6, 0x41047a60, 0xdf60efc3, 0xa867df55, 0x316e8eef, 0x4669be79, 0xcb61b38c, 0xbc66831a, 0x256fd2a0, 0x5268e236, 0xcc0c7795, 0xbb0b4703, 0x220216b9, 0x5505262f, 0xc5ba3bbe, 0xb2bd0b28, 0x2bb45a92, 0x5cb36a04, 0xc2d7ffa7, 0xb5d0cf31, 0x2cd99e8b, 0x5bdeae1d, 0x9b64c2b0, 0xec63f226, 0x756aa39c, 0x26d930a, 0x9c0906a9, 0xeb0e363f, 0x72076785, 0x5005713, 0x95bf4a82, 0xe2b87a14, 0x7bb12bae, 0xcb61b38, 0x92d28e9b, 0xe5d5be0d, 0x7cdcefb7, 0xbdbdf21, 0x86d3d2d4, 0xf1d4e242, 0x68ddb3f8, 0x1fda836e, 0x81be16cd, 0xf6b9265b, 0x6fb077e1, 0x18b74777, 0x88085ae6, 0xff0f6a70, 0x66063bca, 0x11010b5c, 0x8f659eff, 0xf862ae69, 0x616bffd3, 0x166ccf45, 0xa00ae278, 0xd70dd2ee, 0x4e048354, 0x3903b3c2, 0xa7672661, 0xd06016f7, 0x4969474d, 0x3e6e77db, 0xaed16a4a, 0xd9d65adc, 0x40df0b66, 0x37d83bf0, 0xa9bcae53, 0xdebb9ec5, 0x47b2cf7f, 0x30b5ffe9, 0xbdbdf21c, 0xcabac28a, 0x53b39330, 0x24b4a3a6, 0xbad03605, 0xcdd70693, 0x54de5729, 0x23d967bf, 0xb3667a2e, 0xc4614ab8, 0x5d681b02, 0x2a6f2b94, 0xb40bbe37, 0xc30c8ea1, 0x5a05df1b, 0x2d02ef8d], W = 0xffffffff, x = 0x0, M = V['length']; x &lt; M; x++)
+          W = W &gt;&gt;&gt; 0x8 ^ U[0xff &amp; (W ^ V[x])];
+      return q(0xffffffff ^ W);
+  }</p>
+<p>// ============gm函数结束=============</p>
+<p>// ============ZZ函数开始=============
+  // 原名为Z  但是上面有Z函数了 所以改名为ZZ
+  function ZZ(gP) {
+      if (Array<a href="gP">'isArray'</a>) {
+          for (var gh = 0x0, gf = Array(gP['length']); gh &lt; gP['length']; gh++)
+              gf[gh] = gP[gh];
+          return gf;
+      }
+      return Array<a href="gP">'from'</a>;
+  }</p>
+<p>// ============ZZ函数开始=============</p>
+<p>// ============qq函数开始=============
+  // q函数改名为qq  因为上面有q函数了
+  function gp_j(V, U, W, x, M) {
+      for (var C = 0x0, E = V['length']; C &lt; M; C++)
+          U + C &lt; E &amp;&amp; (W[x + C] = V[U + C]);
+      return W;
+  }</p>
+<p>function qq(gP) {
+      if (!gP['length'])
+          return [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+          ];
+      var gh = []
+          , gf = gP['length']
+          , gq = gf % 0x40 &lt;= 0x3c ? 0x40 - gf % 0x40 - 0x4 : 0x80 - gf % 0x40 - 0x4;
+      gp_j(gP, 0x0, gh, 0x0, gf);
+      for (var ge = 0x0; ge &lt; gq; ge++)
+          gh[gf + ge] = 0x0;
+      return gp_j(S(gf), 0x0, gh, gf + gq, 0x4),
+          gh;
+  }</p>
+<p>// ============qq函数结束=============</p>
+<p>// ============GG函数开始=============
+  function GG(gP) {
+      if (gP['length'] % 0x40 !== 0x0)
+          return [];
+      for (var gh = [], gf = gP['length'] / 0x40, gq = 0x0, ge = 0x0; gq &lt; gf; gq++) {
+          gh[gq] = [];
+          for (var gd = 0x0; gd &lt; 0x40; gd++)
+              gh[gq][gd] = gP[ge++];
+      }
+      return gh;
+  }</p>
+<p>// ============GG函数结束=============</p>
+<p>// ============g6函数开始=============
+  function K(V, U) {
+      return O(V + U);
+  }</p>
+<p>function g5(gP) {
+      var m2 = T
+          , gh = arguments[m2(0x539)] &gt; 0x1 &amp;&amp; void 0x0 !== arguments[0x1] ? arguments[0x1] : 0x0;
+      return gh + 0x100 &gt;= 0x0 ? gP : [];
+  }</p>
+<p>function J(gP, gh) {
+      var pQ = T;
+      if (!gP['length'])
+          return [];
+      gh = O(gh);
+      for (var gf = [], gq = 0x0, ge = gP['length']; gq &lt; ge; gq++)
+          gf<a href="K(gP[gq], gh)">'push'</a>;
+      return gf;
+  }</p>
+<p>function g2(gP, gh) {
+      if (!gP['length'])
+          return [];
+      gh = O(gh);
+      for (var gf = [], gq = 0x0, ge = gP['length']; gq &lt; ge; gq++)
+          gf<a href="K(gP[gq], gh)">'push'</a>;
+      return gf;
+  }</p>
+<p>function g0(gP, gh) {
+      if (!gP['length'])
+          return [];
+      gh = O(gh);
+      for (var gf = [], gq = 0x0, ge = gP['length']; gq &lt; ge; gq++)
+          gf<a href="K(gP[gq], gh++)">'push'</a>;
+      return gf;
+  }</p>
+<p>function g3(gP, gh) {
+      var m0 = T;
+      if (!gP['length'])
+          return [];
+      gh = O(gh);
+      for (var gf = [], gq = 0x0, ge = gP['length']; gq &lt; ge; gq++)
+          gf<a href="K(gP[gq], gh++)">'push'</a>;
+      return gf;
+  }</p>
+<p>function g1(gP, gh) {
+      if (!gP['length'])
+          return [];
+      gh = O(gh);
+      for (var gf = [], gq = 0x0, ge = gP['length']; gq &lt; ge; gq++)
+          gf<a href="Z(gP[gq], gh--)">'push'</a>;
+      return gf;
+  }</p>
+<p>function g4(gP, gh) {
+      if (!gP['length'])
+          return [];
+      gh = O(gh);
+      for (var gf = [], gq = 0x0, ge = gP['length']; gq &lt; ge; gq++)
+          gf<a href="K(gP[gq], gh--)">'push'</a>;
+      return gf;
+  }</p>
+<p>function gv(V) {
+      V = '' + V;
+      var U = A()
+          , W = U['safeGlobal']
+          , x = W<a href="V['charAt'](0x0), 0x10) &lt;&lt; 0x4
+          , M = W['parseInt'](V['charAt'](0x1), 0x10);
+      return O(x + M);">'parseInt'</a>}</p>
+<p>var gN = '037606da0296055c'</p>
+<p>function g6(gP) {
+      for (var gh = [g5, J, g2, g0, g3, g1, g4], gf = gN, gq = 0x0, ge = gf['length']; gq &lt; ge;) {
+          var gd = gf<a href="gq, gq + 0x4">'substring'</a>
+              , gj = gv(gd<a href="0x0, 0x2">'substring'</a>)
+              , gb = gv(gd<a href="0x2, 0x4">'substring'</a>);
+          gP = gh<a href="gP, gb">gj</a>,
+              gq += 0x4;
+      }
+      return gP;
+  }</p>
+<p>// ============g6函数结束=============</p>
+<p>// ============gX函数开始=============
+  function gX() {
+      for (var V = arguments['length'] &gt; 0x0 &amp;&amp; void 0x0 !== arguments[0x0] ? arguments[0x0] : [], U = arguments['length'] &gt; 0x1 &amp;&amp; void 0x0 !== arguments[0x1] ? arguments[0x1] : [], W = [], x = U['length'], M = 0x0, C = V['length']; M &lt; C; M++)
+          W[M] = K(V[M], U[M % x]);
+      return W;
+  }</p>
+<p>// ============gX函数结束=============</p>
+<p>// ============W函数开始=============
+  // gL是固定的 可以搜索到
+  var gL = 'a7be3f3933fa8c5fcf86c4b6908b569ba1e26c1a6d7cfbf60ae4b00e074a194dac4b73e7f898541159a39d08183b76eedee3ed341e6685d2357440158394b1ff03a9004cbbb5ca7dcb7f41489a16e03dcc9c71eb3c9796685b1d01b4d56193a6e1f1a2470445c191ae49c5d82765dc82c350f263387a24a502fcbf442e2dddaad0e936d9ea22b89275307b42518fbc3a626ba806d4ecd6d725f50cc8c72fefa4551ccd6fc9b2b7ab954f815c7264c6e51f4eaf99885a79892b1b60a0b3526e57ba5d178d370958847eb9fd28f9ce0bc023f4148a2adfe632126769057043d3bd8eda0df7872629f3809ef05310e83113216afe202c460fc23e789f77d1addb5e'</p>
+<p>function W(gP) {
+      var gh = zz(gL)
+          , gf = function (gj) {
+          return gh[0x10 * (gj &gt;&gt;&gt; 0x4 &amp; 0xf) + (0xf &amp; gj)];
+      };
+      if (!gP['length'])
+          return [];
+      for (var gq = [], ge = 0x0, gd = gP['length']; ge &lt; gd; ge++)
+          gq[ge] = gf(gP[ge]);
+      return gq;
+  }</p>
+<p>// ============W函数结束=============</p>
+<p>// ============gl函数开始=============
+  function R(k, N, P) {
+      var h = void 0x0
+          , f = void 0x0
+          , q = void 0x0
+          , j = [];
+      switch (k['length']) {
+          case 0x1:
+              h = k[0x0],
+                  f = q = 0x0,
+                  j<a href="N[h &gt;&gt;&gt; 0x2 &amp; 0x3f], N[(h &lt;&lt; 0x4 &amp; 0x30) + (f &gt;&gt;&gt; 0x4 &amp; 0xf)], P, P">'push'</a>;
+              break;
+          case 0x2:
+              h = k[0x0],
+                  f = k[0x1],
+                  q = 0x0,
+                  j<a href="N[h &gt;&gt;&gt; 0x2 &amp; 0x3f], N[(h &lt;&lt; 0x4 &amp; 0x30) + (f &gt;&gt;&gt; 0x4 &amp; 0xf)], N[(f &lt;&lt; 0x2 &amp; 0x3c) + (q &gt;&gt;&gt; 0x6 &amp; 0x3)], P">'push'</a>;
+              break;
+          case 0x3:
+              h = k[0x0],
+                  f = k[0x1],
+                  q = k[0x2],
+                  j<a href="N[h &gt;&gt;&gt; 0x2 &amp; 0x3f], N[(h &lt;&lt; 0x4 &amp; 0x30) + (f &gt;&gt;&gt; 0x4 &amp; 0xf)], N[(f &lt;&lt; 0x2 &amp; 0x3c) + (q &gt;&gt;&gt; 0x6 &amp; 0x3)], N[0x3f &amp; q]">'push'</a>;
+              break;
+          default:
+              return '';
+      }
+      return j<a href="" title="">'join'</a>;
+  }</p>
+<p>function D(k, N, P) {
+      if (!k || 0x0 === k['length'])
+          return '';
+      try {
+          for (var h = 0x0, f = []; h &lt; k['length'];) {
+              if (!(h + 0x3 &lt;= k['length'])) {
+                  var q = k<a href="h">'slice'</a>;
+                  f<a href="R(q, N, P)">'push'</a>;
+                  break;
+              }
+              var j = k<a href="h, h + 0x3">'slice'</a>;
+              f<a href="R(j, N, P)">'push'</a>,
+                  h += 0x3;
+          }
+          return f<a href="" title="">'join'</a>;
+      } catch (b) {
+          return '';
+      }
+  }</p>
+<p>var I = 'MB.CfHUzEeJpsuGkgNwhqiSaI4Fd9L6jYKZAxn1/Vml0c5rbXRP+8tD3QTO2vWyo'
+  var L = '7'</p>
+<p>function gl(k, N, P) {
+      var h = void 0x0 !== N &amp;&amp; null !== N ? N : I
+          , f = void 0x0 !== P &amp;&amp; null !== P ? P : L;
+      return D(k, h<a href="" title="">'split'</a>, f);
+  }</p>
+<p>// ============gl函数结束=============</p>
+<p>function gg(gP) {
+      for (var gh = gr(gP), gf = g7(), gq = gT(gf, 0x2), ge = gq[0x0], gd = gq[0x1], gj = gr(gm(gh)), gb = qq([]<a href="ZZ(gh), ZZ(gj)">'concat'</a>), gG = GG(gb), gA = []<a href="ZZ(gd)">'concat'</a>, gV = ge, gn = 0x0, gt = gG['length']; gn &lt; gt; gn++) {
+          var gu = gZ(g6(gG[gn]), ge)
+              , gU = gX(gu, gV);
+          gu = gZ(gU, gV),
+              gV = W(W(gu)),
+              gp_j(gV, 0x0, gA, 0x40 * gn + 0x4, 0x40);
+      }
+      return gl(gA);
+  }</p>
+<p>//  ============gg(QQ<a href="" title=":">'join'</a>), gg函数扣完=============</p>
+<p>var unique2DArray = function (O) {
+      var K = arguments['length'] &gt; 0x1 &amp;&amp; void 0x0 !== arguments[0x1] ? arguments[0x1] : 0x0;
+      if (!Array<a href="O">'isArray'</a>)
+          return O;
+      for (var F = {}, Z = [], H = 0x0, S = O['length']; H &lt; S; H++) {
+          var z = O[H][K];
+          null === z || void 0x0 === z || F[z] || (F[z] = !0x0,
+              Z<a href="O[H]">'push'</a>);
+      }
+      return Z;
+  }</p>
+<p>// ============加密轨迹函数的开始=============
+  function gz(k) {
+      var N = ['i', '/', 'x', '1', 'X', 'g', 'U', '0', 'z', '7', 'k', '8', 'N', '+', 'l', 'C', 'p', 'O', 'n', 'P', 'r', 'v', '6', '\x5c', 'q', 'u', '2', 'G', 'j', '9', 'H', 'R', 'c', 'w', 'T', 'Y', 'Z', '4', 'b', 'f', 'S', 'J', 'B', 'h', 'a', 'W', 's', 't', 'A', 'e', 'o', 'M', 'I', 'E', 'Q', '5', 'm', 'D', 'd', 'V', 'F', 'L', 'K', 'y']
+          , P = '3';
+      return D(k, N, P);
+  }</p>
+<p>function generate_guiji(gP, gh) {
+      var gf = gr(gh)
+          , gq = gr(gP);
+      return gz(gZ(gf, gq));
+  }</p>
+<p>// ============加密轨迹函数的开始=============</p>
+<p>// 存储轨迹的变量
+  var traceData = []
+  var token = '99eb297e5ce94d50adf33355f5ac3bb6'
+  var guiji = [[10, -4, 51], [17, 4, 95], [22, -2, 136], [30, -4, 166], [36, 3, 196], [44, -5, 230], [51, -5, 270], [56, -2, 310], [62, -2, 350], [69, 1, 397], [76, 3, 438], [82, 3, 481], [89, 0, 524], [95, 0, 571], [100, 0, 614], [108, -3, 653], [115, -3, 683], [118, -1, 715], [121, 0, 754], [123, 0, 795], [127, 0, 828], [129, 0, 860], [131, -5, 906], [133, -5, 937], [136, -2, 974], [140, 2, 1019], [142, 4, 1066], [145, 4, 1103], [146, 4, 1145], [148, 4, 1192], [150, 4, 1230], [152, 4, 1278], [154, -4, 1326], [155, -4, 1360], [156, 4, 1400], [157, 2, 1438], [158, 1, 1480], [160, 1, 1518], [161, 1, 1562], [162, 2, 1605], [163, -3, 1645], [163, -3, 1683], [164, -3, 1723], [165, 3, 1759], [165, 1, 1792], [166, 1, 1833], [166, 1, 1863], [167, 1, 1909], [167, 1, 1942], [167, 1, 1980], [167, 1, 2018], [168, 1, 2048], [168, 2, 2083], [169, 2, 2130], [170, 2, 2169], [170, 2, 2208], [171, 5, 2255], [171, 5, 2295], [171, -3, 2325], [171, -3, 2355], [172, 0, 2393], [172, 0, 2436], [173, 2, 2474], [173, 2, 2513], [173, 2, 2543], [173, 2, 2583], [174, -3, 2624], [175, -3, 2671], [175, 2, 2709], [175, -5, 2748], [176, -5, 2786], [176, 5, 2818], [177, -1, 2859], [177, -1, 2904], [178, -1, 2949], [179, -1, 2988], [180, -5, 3030], [180, -5, 3064], [181, 4, 3103], [181, 3, 3145], [181, 2, 3177], [181, 1, 3218], [180, -3, 3265], [180, 2, 3305], [181, -5, 3349], [182, -4, 3386], [183, -4, 3422], [182, -5, 3467], [181, -5, 3500], [182, -5, 3548], [181, -4, 3582], [181, -4, 3622], [182, -2, 3657], [181, -2, 3704], [181, -1, 3741], [181, -1, 3774], [180, 4, 3817], [180, 2, 3860], [181, 5, 3907], [180, -3, 3955], [180, -3, 3985], [181, -3, 4017], [182, -1, 4052], [181, -1, 4087], [182, 3, 4121], [182, 3, 4154], [181, 0, 4201], [180, -1, 4233], [180, -4, 4271], [180, -4, 4315], [181, 0, 4350], [181, -1, 4396], [182, -1, 4430], [181, -1, 4470], [181, -1, 4517], [180, 1, 4560], [181, -4, 4601], [181, -4, 4635], [181, -4, 4667], [182, -3, 4715], [182, -3, 4754], [183, 2, 4796], [184, 5, 4842], [183, 4, 4878], [182, 5, 4920], [182, 2, 4951], [182, 2, 4983], [183, 2, 5022], [184, 2, 5061], [184, 2, 5109], [185, 2, 5151], [185, -4, 5184], [186, 1, 5223], [185, -4, 5261], [185, -2, 5302], [185, 4, 5348], [185, 4, 5393], [184, 4, 5428], [183, 3, 5462], [184, 2, 5492], [183, 4, 5540], [182, 4, 5588], [181, 4, 5621], [180, 4, 5666], [180, -2, 5697], [181, 2, 5732], [182, 2, 5780], [182, -1, 5823], [182, -1, 5856], [181, 2, 5897], [180, 2, 5932], [181, 2, 5976], [182, 0, 6019], [181, -2, 6063], [180, -2, 6109], [181, -2, 6142], [181, -2, 6183], [181, 3, 6219], [181, 3, 6260], [180, -4, 6305], [181, -4, 6344], [182, -2, 6381], [182, -2, 6422], [182, 5, 6454], [182, 5, 6502], [183, 0, 6537], [183, -1, 6579], [182, -1, 6622], [183, -1, 6655], [183, 4, 6697], [184, 4, 6730], [184, -1, 6775], [183, -1, 6808], [184, -2, 6851], [184, -5, 6883], [183, 2, 6921], [183, 2, 6961], [184, 1, 6999], [184, 1, 7033], [185, 1, 7066], [184, 1, 7111], [185, 1, 7144], [184, 1, 7183], [183, -2, 7225], [182, -2, 7257], [183, 2, 7288], [183, -2, 7320], [184, -2, 7368], [184, -2, 7409], [184, -1, 7442], [183, -1, 7481], [182, -1, 7518], [182, -1, 7550], [181, 4, 7596], [182, 4, 7629], [183, 2, 7664], [182, -2, 7711], [183, -4, 7751], [182, 2, 7785], [183, 2, 7825], [184, 3, 7867], [183, 4, 7914], [183, 4, 7945], [182, 4, 7993], [181, 1, 8037], [180, 2, 8085], [180, -3, 8127], [181, 2, 8167], [181, -3, 8211], [182, 0, 8250], [181, 0, 8292], [181, 1, 8323], [180, 3, 8361], [181, 3, 8393], [181, 0, 8437], [180, 0, 8477], [181, 0, 8523], [180, 1, 8555], [180, 2, 8603], [181, -1, 8648], [180, 2, 8686], [180, 2, 8716], [181, 2, 8763], [181, -5, 8810], [181, 3, 8845], [182, 3, 8888], [182, 3, 8930], [183, 3, 8960], [182, 3, 9008], [182, 3, 9044], [183, -1, 9080], [182, -1, 9121], [181, -1, 9160], [182, -1, 9200], [181, -1, 9237], [182, 3, 9273], [183, 3, 9308], [183, -3, 9344], [184, -3, 9380], [184, -3, 9426], [183, 1, 9460], [183, 1, 9498], [184, 5, 9542], [183, 4, 9574], [182, -2, 9604], [181, 0, 9649], [180, -2, 9691], [181, -2, 9729], [180, -2, 9763], [181, -2, 9809], [181, 0, 9852], [180, 0, 9896], [181, 4, 9934], [182, -1, 9972], [183, -1, 10018], [183, -1, 10064], [182, -1, 10109], [182, 4, 10152], [182, -3, 10191], [183, -3, 10222], [182, -5, 10260], [182, -5, 10306], [181, -5, 10354], [182, -5, 10386], [182, -5, 10434], [182, -5, 10482], [181, -3, 10525], [180, -3, 10556], [180, 5, 10594], [180, 3, 10626], [181, -2, 10672], [180, -2, 10709], [180, -3, 10751], [181, -3, 10789], [181, -3, 10831], [182, -3, 10876], [183, -2, 10918], [184, -2, 10955], [184, -2, 10990], [183, -1, 11026], [184, -1, 11072], [185, 5, 11116], [185, 5, 11163], [184, 5, 11197], [185, 2, 11237], [186, -4, 11276], [186, -5, 11313], [186, -5, 11347], [185, -3, 11392], [186, -2, 11424], [187, -2, 11459], [188, -2, 11504], [188, -2, 11534], [189, -2, 11566], [190, -2, 11601], [190, 0, 11606]]
+  for (const arr of guiji) {
+      var gj = generate_guiji(token, arr + '');
+      traceData.push(gj)
+  }</p>
+<p>z = 50
+  var QQ = sample(traceData, z)  // 只对前50个进行加密处理
+  console.log(gg(QQ<a href="" title=":">'join'</a>))
+  process.exit()
+  // var J = this['$store']['state']['token']   // 这个Token值是通过
+  https://c.dun.163.com/api/v3/get请求返回的
+  // 计算滑动距离
+  //                               这里是取出验证码拖拽的滑块标签拖拽的距离
+  //     var g0 = q(j(J, parseInt(this['$jigsaw']['style']['left'], 0xa) / this['width'] * 0x64 + ''))
+  // var g1 = Z(unique2DArray(this['atomTraceData'], 0x2));
+      var data = {
+          'data': JSON<a href="{" title="d': gg(QQ['join'](':">'stringify'</a>),
+              'm': '',
+              'p': g0,
+              'f': q(j(J, g1<a href="" title=",">'join'</a>)),
+              'ext': q(j(J, this['mouseDownCounts'] + ',' + this['traceData']['length']))
+          })
+      };
+  ```</p>
+<ul>
+<li>生成轨迹和识别距离的代码</li>
+</ul>
+<p>```python
+  import random
+  from matplotlib import pyplot
+  import cv2</p>
+<p># 识别滑块滑动的距离
+  def get_x():
+      # opencv来完成计算
+      """
+      # 挨个跑...
+      pip install python-opencv
+      pip install opencv-python
+      # x_jvli, guiji, tuodongshijian
+      import cv2  # 导入cv2之后没有代码提示. 怎么办?
+      :return:
+      """
+      # 读取两张图
+      bg = cv2.imread("bg.jpg")
+      slice = cv2.imread("slice.jpg")</p>
+<pre><code>  # 做灰度处理
+  bg = cv2.cvtColor(bg, cv2.COLOR_BGR2GRAY)
+  slice = cv2.cvtColor(slice, cv2.COLOR_BGR2GRAY)
+
+  # 图片边缘处理
+  bg_can = cv2.Canny(bg, 255, 255)
+  slice = cv2.Canny(slice, 255, 255)
+
+  # 匹配图像的相似度, TM_CCOEFF_NORMED参数固定即可
+  r = cv2.matchTemplate(bg_can, slice, cv2.TM_CCOEFF_NORMED)
+
+  # 获取匹配度最好的一个结果
+  minVal, maxVal, minLoc, maxLoc = cv2.minMaxLoc(r)
+
+  x = maxLoc[0]
+  y = maxLoc[1]
+  # 为了测试的
+  # bg = cv2.rectangle(bg, (x, y), (x+50, y + 50), (255, 255, 255))
+  # cv2.imshow("tu", bg)  # 弹窗
+  # cv2.waitKey(0)  # 防止程序一闪就没了
+  # cv2.destroyAllWindows()  # 关掉所有窗口
+  # 当前下载的图片宽度为480，在浏览器上显示的宽度为320，所以480/320为1.5   识别的距离/1.5则为正常识别的轨迹
+  return x/1.5
+</code></pre>
+<p># 生成轨迹
+  def get_track(dis=0):
+      dis = dis or get_x()
+      track = []
+      x = random.randint(0, 10)  # 移动X坐标
+      y = random.randint(-5, 5)  # 移动y坐标
+      pass_time = random.randint(10, 90)  # 移动时间
+      move_dis = x  # 移动距离
+      track.append([x, y, pass_time])</p>
+<pre><code>  # 模拟开始拖动时会产生0-3个类似的x相同的轨迹
+  for _ in range(random.randint(0, 3)):
+      pass_time += random.randint(2, 5)  # 移动时间
+      y = random.randint(-1, 1)
+      track.append([x, y, pass_time])
+
+  # 开始模拟轨迹，一般开始拖动时会很快，越接近目标点越慢
+  while move_dis &lt; dis:
+      if move_dis &gt; dis * 0.95:
+          offset = random.randint(-1, 1)  # 模拟快到目标点时调整滑块时的轨迹，一般会左右移动几下对齐
+      elif move_dis &gt; dis * 0.85:
+          offset = random.randint(0, 1)
+      elif move_dis &gt; dis * 0.75:
+          offset = random.randint(1, 2)
+      elif move_dis &gt; dis * 0.6:
+          offset = random.randint(2, 4)
+      else:
+          offset = random.randint(5, 8)
+
+      pass_time += random.randint(30, 48)
+      move_dis += offset
+      y = random.choice([y, random.randint(-5, 5)])  # 移动y坐标
+      track.append([move_dis, y, pass_time])
+
+  # 模拟停止时会产生0-3个类似的x相同的轨迹
+  for _ in range(random.randint(0, 3)):
+      pass_time += random.randint(2, 5)  # 移动时间
+      y = random.randint(-1, 1)
+      track.append([move_dis, y, pass_time])
+
+  return track, dis
+</code></pre>
+<p>if <strong>name</strong> == '<strong>main</strong>':
+      track, dis = get_track()
+      print(track)
+      print(dis)
+  ```</p>
+<h3 id="6p">6、扣第二个加密参数p</h3>
+<ul>
+<li>截图</li>
+</ul>
+<p><img alt="image-20240403160701539" src="assets/image-20240403160701539.png" /></p>
+<ul>
+<li>
+<p>当前函数中的参数J为get请求的token，和上面的轨迹加密是同一个token</p>
+</li>
+<li>
+<p>其中 <code>parseInt(this[DB(0x7c7)][DB(0x796)]['left'], 0xa)</code> 转义 后为</p>
+</li>
+</ul>
+<p>获取当前拖动滑块的距离 </p>
+<p><img alt="image-20240403161409067" src="assets/image-20240403161409067.png" /></p>
+<ul>
+<li>处理后的代码</li>
+</ul>
+<p><code>var p = gg(generate_guiji(token, parseInt(x_guiji, 0xa) / 320 * 0x64 + ''))</code></p>
+<p><img alt="image-20240403165143248" src="assets/image-20240403165143248.png" /></p>
+<p>浏览器运行的结果 相同</p>
+<p><img alt="image-20240403165155341" src="assets/image-20240403165155341.png" /></p>
+<h3 id="7f">7、扣第三个加密参数f</h3>
+<ul>
+<li>截图</li>
+</ul>
+<p><img alt="image-20240403165350700" src="assets/image-20240403165350700.png" /></p>
+<ul>
+<li>扣g1</li>
+</ul>
+<p><code>var g1 = Z(F[DB(0x1c8)](this[DB(0x51a)], 0x2));</code></p>
+<p>解析后 (因为g1重名，所以改为fg1)</p>
+<p><code>var fg1 = Z(F['unique2DArray'](this['atomTraceData'], 0x2));</code></p>
+<p>接下来扣F['unique2DArray']函数</p>
+<p><img alt="image-20240403165721697" src="assets/image-20240403165721697.png" /></p>
+<ul>
+<li>进入函数内部</li>
+</ul>
+<p><img alt="image-20240403165748566" src="assets/image-20240403165748566.png" /></p>
+<p>扣完unique2DArray</p>
+<p><code>javascript
+  var unique2DArray = function (O) {
+      var K = arguments['length'] &gt; 0x1 &amp;&amp; void 0x0 !== arguments[0x1] ? arguments[0x1] : 0x0;
+      if (!Array['isArray'](O))
+          return O;
+      for (var F = {}, Z = [], H = 0x0, S = O['length']; H &lt; S; H++) {
+          var z = O[H][K];
+          null === z || void 0x0 === z || F[z] || (F[z] = !0x0,
+              Z['push'](O[H]));
+      }
+      return Z;
+  }</code></p>
+<ul>
+<li>this['atomTraceData']为滑动轨迹</li>
+</ul>
+<p><code>javascript
+  var fg1 = Z(unique2DArray(this['atomTraceData'], 0x2));</code></p>
+<p>搜索0x51a  通过对比上一个轨迹加密位置的轨迹和当前的轨迹是同一个</p>
+<p><img alt="image-20240403171731526" src="assets/image-20240403171731526.png" /></p>
+<ul>
+<li>抠出g1得代码</li>
+</ul>
+<p>在代码中</p>
+<p><img alt="image-20240403185805198" src="assets/image-20240403185805198.png" /></p>
+<p>在浏览器中的结果 （对比相同）</p>
+<p><img alt="image-20240403185734401" src="assets/image-20240403185734401.png" /></p>
+<p>此刻第二个参数f扣完~</p>
+<h3 id="8">8、扣第四个加密参数</h3>
+<ul>
+<li>截图</li>
+</ul>
+<p><img alt="image-20240404194612557" src="assets/image-20240404194612557.png" /></p>
+<ul>
+<li>翻译过来就是</li>
+</ul>
+<p><code>javascript
+  q(j(J, this[DB(0x72b)] + ',' + this[DB(0x81a)][DB(0x539)]))</code></p>
+<p><code>javascript
+  q(j(J, this['mouseDownCounts'] + ',' + this['traceData']['length'
+  ]))</code></p>
+<ul>
+<li>测试this['mouseDownCounts'] 结果每次都是1 可以给个固定的1</li>
+</ul>
+<p><img alt="image-20240404195127300" src="assets/image-20240404195127300.png" /></p>
+<h2 id="_3">六、注意</h2>
+<ol>
+<li>
+<p>请求头得给全</p>
+</li>
+<li>
+<p>当前页面刷新后断点会消失</p>
+</li>
+<li>
+<p>可以使用Charles进行文件替换来实现添加debugger断点</p>
+</li>
+<li>
+<p>当前wm.3.0.0_33d41777.min.js?v=1712806392223文件</p>
+</li>
+</ol>
+<p>该文件加载时候后面有个时间戳，是会动态改变的，时间戳改变js回重新加载，所以要把时间戳值固定下来</p>
+<p>解决方式</p>
+<ol>
+<li>第一种方式：使用Charles进行本地替换wm.3.0.0_33d41777.min文件， 添加debugger进行调试</li>
+<li>第二种方式：找到当前文件更换的原因  也就算当前js文件后缀的时间戳发生改变 则会自动重新请求js、找到load.min.js，本地替换下搜索script:，会找到时间戳赋值的地方，我这里改成了1，刷新页面</li>
+</ol>
+<p><img alt="image-20240411113923572" src="assets/image-20240411113923572.png" /></p>
+<p>保存到本地进行更改，然后使用Charles替换</p>
+<p>替换</p>
+<p><img alt="image-20240411114244478" src="assets/image-20240411114244478.png" /></p>
+<p>替换后在浏览器重新搜索查看结果 ----  this.cacheTime &amp;&amp; (t = t + "?v=" + h</p>
+<p><img alt="image-20240411114055661" src="assets/image-20240411114055661.png" /></p>
+
+
+</section>
+</div> <!-- end of search-noresults -->
+<div class="search-results">
+<div class="has-results">
+
+<h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+<ul class="search-results-list"></ul>
+
+</div> <!-- end of has-results -->
+<div class="no-results">
+
+<h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+
+</div> <!-- end of no-results -->
+</div> <!-- end of search-results -->
+</div> <!-- end of book-search-results -->
+
+</div> <!-- end of page-inner -->
+</div> <!-- end of page-wrapper -->
+
+</div> <!-- end of body-inner -->
+
+</div> <!-- end of book-body -->
+<script src="./js/main.js"></script>
+<script src="search/main.js"></script>
+<script src="./js/gitbook.min.js"></script>
+<script src="./js/theme.min.js"></script>
+</body>
+</html>

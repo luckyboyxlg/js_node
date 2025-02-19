@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>二十一、js对象与时间 - js node</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="generator" content="mkdocs-1.6.1, mkdocs-gitbook-1.0.7">
+
+<link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta rel="next" href="" />
+<link href="./css/style.min.css" rel="stylesheet"> 
+</head>
+
+<body>
+<div class="book">
+<div class="book-summary">
+<div id="book-search-input" role="search">
+<input type="text" placeholder="Type to search" />
+</div> <!-- end of book-search-input -->
+
+<nav role="navigation">
+<ul class="summary">
+<li>
+<a href="index.html" target="_blank" class="custom-link">js node</a>
+</li>
+<li class="divider"></li>
+<li class="chapter" data-path="index.html">
+<a href="index.html">Welcome to MkDocs</a>
+<li class="chapter" data-path="01%E3%80%81html.html">
+<a href="01%E3%80%81html.html">一、HTML</a>
+<li class="chapter" data-path="02%E3%80%81CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8.html">
+<a href="02%E3%80%81CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8.html">二、CSS层叠样式表</a>
+<li class="chapter" data-path="03%E3%80%81%E6%AD%A3%E5%88%99.html">
+<a href="03%E3%80%81%E6%AD%A3%E5%88%99.html">三、正则</a>
+<li class="chapter" data-path="04%E3%80%81BS4%E8%A7%A3%E6%9E%90%E5%AE%8C%E6%95%B4.html">
+<a href="04%E3%80%81BS4%E8%A7%A3%E6%9E%90%E5%AE%8C%E6%95%B4.html">四、beautifulsoup</a>
+<li class="chapter" data-path="05%E3%80%81xpath.html">
+<a href="05%E3%80%81xpath.html">五、xpath</a>
+<li class="chapter" data-path="06%E3%80%81%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E4%B8%8Eurllib%26requests.html">
+<a href="06%E3%80%81%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E4%B8%8Eurllib%26requests.html">六、爬虫入门</a>
+<li class="chapter" data-path="07%E3%80%81urllib%E4%B8%8Erequests.html">
+<a href="07%E3%80%81urllib%E4%B8%8Erequests.html">七、urllib与requests</a>
+<li class="chapter" data-path="08%E3%80%81%E5%A4%9A%E8%BF%9B%E7%A8%8B.html">
+<a href="08%E3%80%81%E5%A4%9A%E8%BF%9B%E7%A8%8B.html">八、多进程</a>
+<li class="chapter" data-path="09%E3%80%81%E7%BA%BF%E7%A8%8B.html">
+<a href="09%E3%80%81%E7%BA%BF%E7%A8%8B.html">九、线程</a>
+<li class="chapter" data-path="10%E3%80%81%E5%8D%8F%E7%A8%8B.html">
+<a href="10%E3%80%81%E5%8D%8F%E7%A8%8B.html">十、携程</a>
+<li class="chapter" data-path="11%E3%80%81selenium.html">
+<a href="11%E3%80%81selenium.html">十一、selenium</a>
+<li class="chapter" data-path="12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.html">
+<a href="12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.html">十二、MySQL数据库</a>
+<li class="chapter" data-path="13%E3%80%81Mongodb.html">
+<a href="13%E3%80%81Mongodb.html">十三、Mongodb</a>
+<li class="chapter" data-path="14%E3%80%81redis.html">
+<a href="14%E3%80%81redis.html">十四、Redis数据库</a>
+<li class="chapter" data-path="15%E3%80%81%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.html">
+<a href="15%E3%80%81%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.html">十五、面向对象</a>
+<li class="chapter" data-path="16-Scrapy01-%E6%A1%86%E6%9E%B6%E5%88%9D%E8%AE%A4%E8%AF%86.html">
+<a href="16-Scrapy01-%E6%A1%86%E6%9E%B6%E5%88%9D%E8%AE%A4%E8%AF%86.html">十六、Scrapy框架初认识</a>
+<li class="chapter" data-path="16-Scrapy02%E6%B7%B1%E5%85%A5%E4%BD%BF%E7%94%A8-%E5%AD%98%E5%82%A8.html">
+<a href="16-Scrapy02%E6%B7%B1%E5%85%A5%E4%BD%BF%E7%94%A8-%E5%AD%98%E5%82%A8.html">十六、Scrapy深入使用-存储</a>
+<li class="chapter" data-path="16-Scrapy03-%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86%E4%BB%A5%E5%8F%8A%E5%88%86%E9%A1%B5.html">
+<a href="16-Scrapy03-%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86%E4%BB%A5%E5%8F%8A%E5%88%86%E9%A1%B5.html">十六、scrapy模拟登陆&amp;分页</a>
+<li class="chapter" data-path="16-Scrapy04-%E4%B8%AD%E9%97%B4%E4%BB%B6.html">
+<a href="16-Scrapy04-%E4%B8%AD%E9%97%B4%E4%BB%B6.html">十六、Scrapy中间件</a>
+<li class="chapter" data-path="16-Scrapy05-%E5%88%86%E9%A1%B5%E6%8A%93%E5%8F%96.html">
+<a href="16-Scrapy05-%E5%88%86%E9%A1%B5%E6%8A%93%E5%8F%96.html">十六、scrapy的crawlspider爬虫</a>
+<li class="chapter" data-path="16-Scrapy06-scrapy_redis.html">
+<a href="16-Scrapy06-scrapy_redis.html">十六、scrapy_redis</a>
+<li class="chapter" data-path="17%E3%80%81js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html">
+<a href="17%E3%80%81js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html">十七、js数据类型</a>
+<li class="chapter" data-path="18%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%8E%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6.html">
+<a href="18%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%8E%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6.html">十八、js运算符与流程控制</a>
+<li class="chapter" data-path="19%E3%80%81js%E6%95%B0%E7%BB%84.html">
+<a href="19%E3%80%81js%E6%95%B0%E7%BB%84.html">十九、js数组</a>
+<li class="chapter" data-path="20%E3%80%81js%E5%AD%97%E7%AC%A6%E4%B8%B2.html">
+<a href="20%E3%80%81js%E5%AD%97%E7%AC%A6%E4%B8%B2.html">二十、js字符串</a>
+<li class="chapter active" data-path="21%E3%80%81js%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%97%B6%E9%97%B4.html">
+<a href="21%E3%80%81js%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%97%B6%E9%97%B4.html">二十一、js对象与时间</a>
+<li class="chapter" data-path="22%E3%80%81%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89.html">
+<a href="22%E3%80%81%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89.html">二十二、js函数</a>
+<li class="chapter" data-path="23%E3%80%81js%E8%BF%9B%E9%98%B6.html">
+<a href="23%E3%80%81js%E8%BF%9B%E9%98%B6.html">二十三、Javascript进阶</a>
+<li class="chapter" data-path="24%E3%80%81BOM%E6%93%8D%E4%BD%9C.html">
+<a href="24%E3%80%81BOM%E6%93%8D%E4%BD%9C.html">二十四、浏览器对象模型BOM</a>
+<li class="chapter" data-path="25%E3%80%81DOM%E6%93%8D%E4%BD%9C.html">
+<a href="25%E3%80%81DOM%E6%93%8D%E4%BD%9C.html">二十五、DOM操作</a>
+<li class="chapter" data-path="26%E3%80%81jQuery%E6%93%8D%E4%BD%9C.html">
+<a href="26%E3%80%81jQuery%E6%93%8D%E4%BD%9C.html">二十六、jQuery</a>
+<li class="chapter" data-path="27%E3%80%81%E9%80%86%E5%90%9101.html">
+<a href="27%E3%80%81%E9%80%86%E5%90%9101.html">二十七、JS逆向01</a>
+<li class="chapter" data-path="28%E3%80%81%E9%80%86%E5%90%9102.html">
+<a href="28%E3%80%81%E9%80%86%E5%90%9102.html">二十八、逆向02</a>
+<li class="chapter" data-path="29%E3%80%81%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html">
+<a href="29%E3%80%81%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html">二十九、微信小程序逆向开发</a>
+<li class="chapter" data-path="30%E3%80%81%E7%BD%91%E6%98%93%E6%BB%91%E5%9D%97.html">
+<a href="30%E3%80%81%E7%BD%91%E6%98%93%E6%BB%91%E5%9D%97.html">三十、网易易盾</a>
+<li class="chapter" data-path="31%E3%80%81rpc.html">
+<a href="31%E3%80%81rpc.html">三十一、RPC</a>
+<li class="chapter" data-path="32%E3%80%81TLS%E6%8C%87%E7%BA%B9%E7%BB%95%E8%BF%87.html">
+<a href="32%E3%80%81TLS%E6%8C%87%E7%BA%B9%E7%BB%95%E8%BF%87.html">三十二、TLS指纹绕过</a>
+<li class="chapter" data-path="33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">
+<a href="33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">三十三、高级逆向</a>
+<li class="chapter" data-path="34%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">
+<a href="34%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">三十四、高级逆向</a>
+<li class="chapter" data-path="%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B%E7%AC%94%E8%AE%B0.html">
+<a href="%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B%E7%AC%94%E8%AE%B0.html">逆向实战案例笔记</a>
+<li class="header">Pyexecjs与npm配置</li>
+
+<li>
+<a href="pyexecjs%E4%B8%8Enpm%E9%85%8D%E7%BD%AE/execjs%E4%BB%8B%E7%BB%8D%E4%BB%A5%E5%8F%8A%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8.html" class="">Execjs介绍以及安装和使用</a>
+</li>
+
+<li>
+<a href="pyexecjs%E4%B8%8Enpm%E9%85%8D%E7%BD%AE/%E4%B8%80%E6%AC%A1%E6%80%A7%E8%A7%A3%E5%86%B3%E6%8E%89npm%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5%E7%9A%84%E9%97%AE%E9%A2%98.html" class="">更换npm为国内镜像</a>
+</li>
+
+<li class="header">补环境</li>
+
+<li>
+<a href="%E8%A1%A5%E7%8E%AF%E5%A2%83/1%E3%80%81%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8E%E4%BA%8B%E4%BB%B6.html" class="">补环境</a>
+</li>
+
+<li>
+<a href="%E8%A1%A5%E7%8E%AF%E5%A2%83/2%E3%80%81Proxy%E4%BB%A3%E7%90%86%E5%99%A8.html" class="">Proxy代理</a>
+</li>
+
+<li>
+<a href="%E8%A1%A5%E7%8E%AF%E5%A2%83/3%E3%80%81vm2%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83.html" class="">3、vm2运行环境</a>
+</li>
+
+<li class="divider"></li>
+
+
+
+<li><a href="http://www.mkdocs.org">
+Published with MkDocs
+</a></li>
+
+<li><a href="https://github.com/GitbookIO/theme-default">
+Theme by GitBook
+</a></li>
+</ul>
+
+</nav>
+
+</div> <!-- end of book-summary -->
+
+<div class="book-body">
+<div class="body-inner">
+<div class="book-header" role="navigation">
+
+<!-- Title -->
+<h1>
+<i class="fa fa-circle-o-notch fa-spin"></i>
+<a href="." ></a>
+</h1>
+
+</div> <!-- end of book-header -->
+
+<div class="page-wrapper" tabindex="-1" role="main">
+<div class="page-inner">
+<div id="book-search-results">
+<div class="search-noresults">
+
+<section class="normal markdown-section">
+
+
+
+<h1 id="js">二十一、js对象与时间</h1>
+<h2 id="_1">一、概述与创建</h2>
+<h3 id="1">1、概述</h3>
+<p>什么是对象，其实就是一种类型，即引用类型。而对象的值就是引用类型的实例。在
+ECMAScript 中引用类型是一种数据结构，用于将数据和功能组织在一起。</p>
+<h3 id="2">2、对象的创建</h3>
+<p><strong>Object类型</strong> </p>
+<ul>
+<li>
+<p>创建 Object 类型有两种。</p>
+</li>
+<li>
+<p>使用 new 运算符</p>
+</li>
+<li>
+<p>字面量表示法</p>
+</li>
+<li>
+<p>使用new 运算符创建 Object </p>
+</li>
+</ul>
+<p>```javascript
+  var box = new Object();        // new方式   创建空对象
+  box.name = 'lucky';            // 创建属性字段  <br />
+  box.age = 18;                  // 创建属性字段
+  var obj = new Object({'name':'lucky'}) //创建对象并赋值</p>
+<p>var box = Object();            // new关键字可以省略   不建议
+  ```</p>
+<ul>
+<li>使用字面量方式创建Object</li>
+</ul>
+<p><code>javascript
+  var box = {                   // 字面量方式
+      name :'lucky',            // 创建属性字段,最后加逗号
+      age : 18,
+      fun:function(){
+        alert('lucky is a good man ');
+      }
+  };</code></p>
+<ul>
+<li>属性字段也可以使用字符串形式</li>
+</ul>
+<p><code>javascript
+  var box = { 
+    'name': 'lucky',    //也可以用字符串形式
+    'age': 28
+  };</code></p>
+<ul>
+<li>使用字面量及传统赋值方式</li>
+</ul>
+<p><code>javascript
+  var box = {};         //字面量方式声明空的对象
+  box.name = 'lucky';   //点符号给属性赋值
+  box.age = 18;</code></p>
+<ul>
+<li>两种属性输出方式</li>
+</ul>
+<p><code>javascript
+  console.log(box.age);       //点表示法输出 
+  console.log(box['age']);    //中括号表示法输出，注意引号</code></p>
+<ul>
+<li>对象创建方法</li>
+</ul>
+<p><code>javascript
+   var box={ 
+    //对象中添加方法(函数)run
+    run: function() {        
+            retrun "正在跑步..";
+            }
+   }
+   alert(box.run()); //调用对象中的方法</code></p>
+<ul>
+<li>使用<strong>delete</strong> 删除对象属性 </li>
+</ul>
+<p><code>delete box.name;</code>    //删除属性</p>
+<ul>
+<li><strong>instanceof</strong>  符用于检测构造函数的属性是否出现在某个实例对象的原型链上。</li>
+</ul>
+<p><code>javascript
+  function a(){
+  }
+  x = new a()
+  console.log(x instanceof a)</code></p>
+<ul>
+<li>在 JavaScript 中，ES2015（也称为ES6）引入了一种新的语法，称为“简写属性名”（Shorthand Property Names），使得在对象字面量中创建属性和值相同的情况更加简洁。</li>
+</ul>
+<p><code>javascript
+  // 使用简写属性名创建对象
+  var name = "lucky";
+  var age = "18";
+  var speak = function(){console.log('lucky is a good man')}</code></p>
+<p>新语法之前将name、age添加到对象中的方式</p>
+<p><code>javascript
+  // 方式一
+  var obj = {}
+  obj.name = name  // 将属性添加到obj中
+  obj.age = age
+  obj.speak = speak
+  // 方式二  定义的时候添加过来
+  var obj = {
+    'name': name,
+    'age': age,
+    'speak': speak
+  }</code></p>
+<p>新语法 更加简洁</p>
+<p><code>javascript
+  var obj = {
+    name,
+    age,
+    speak
+  };
+  console.log(obj);</code></p>
+<ul>
+<li>对象中属性赋值给变量</li>
+</ul>
+<p><code>javascript
+  let obj = {'name':'lucky', 'age':18}
+  let {name,age} = obj
+  console.log(name, age)</code></p>
+<p><strong>注意：</strong> 当前对象中属性和变量名称需要相同</p>
+<h3 id="3this">3、this关键字</h3>
+<p>在对象内部的this代表当前的对象。等同于python中的self对象</p>
+<p>代码示例：</p>
+<pre><code class="language-javascript">var obj = {
+      name: 'lucky',
+      age: 18,
+      speak: function(sex){
+        console.log(this)  // 代表当前对象
+        // 调用当前对象的name和age属性
+        console.log(this.name)
+        console.log(this.age)
+        // 将当前属性的值格式化到当前的字符串中并输出
+        let str = `我的名字是：${this.name}、我今年${this.age}岁了、我的性别是${sex}`
+        console.log(str)
+        return '返回值'
+      }
+}
+// 外部打印obj对象
+console.log(obj)
+// 外部调用obj对象的属性
+console.log(obj.name)
+// 外部调用obj对象的方法speak
+console.log(obj.speak('man'))
+</code></pre>
+<h3 id="4">4、注意</h3>
+<p>javaScript 对象允许使用方括号 <code>[]</code> 来访问对象的属性值。这种语法允许你使用变量或字符串作为属性名。</p>
+<ul>
+<li>内置方法的使用方式</li>
+</ul>
+<p>```javascript
+  var a = 'lucky'
+  a[2]          // 获取索引为2的字符
+  a.charAt(2) 
+  a<a href="2">'charAt'</a></p>
+<p>var arr = []
+  arr.push(1)
+  arr<a href="1">'push'</a>
+  ```</p>
+<p>同样可以使用点或者中括号的方式进行调用</p>
+<ul>
+<li>常常用于加密 (当前加密的不断演变)</li>
+</ul>
+<p><code>javascript
+  a['charAt'](2)</code></p>
+<p><code>javascript
+  a[String.fromCharCode(99)+'har'+String.fromCharCode(65)+'t'](2)</code></p>
+<p><code>javascript
+  a[String['fromCharCode'](99)+'har'+String.fromCharCode(65)+'t'](2)</code></p>
+<p><code>javascript
+  a[String['fromChar'+String['fromCharCode'](67)+'ode'](99)+'har'+String.fromCharCode(65)+'t'](2)</code></p>
+<p><code>javascript
+  a[String['fromChar'+String['fromCharCode'](1067-0x3e8)+'ode'](99)+'har'+String.fromCharCode(65)+'t'](2)</code></p>
+<h2 id="date">二、日期对象Date</h2>
+<h3 id="1date">1、Date对象代表日期</h3>
+<p>Date类型使用自UTC（CoordinatedUniversal Time，国际协调时间）1970年1月1日午夜（零时）开始经过的毫秒数来保存日期。Date类型保存的日期能够精确到1970年1月1日之前或之后的285616年。</p>
+<ul>
+<li>创建一个日期对象，使用 new运算符和Date构造方法(构造函数)即可。</li>
+</ul>
+<p><code>javascript
+  var d = new Date(); 
+  //或者
+  var d = new Date;</code></p>
+<p>在调用Date构造方法而不传递参数的情况下，新建的对象自动获取当前的时间和日期。</p>
+<ul>
+<li>创建日期对象并指定时间</li>
+</ul>
+<p>```javascript
+  var date = new Date("2024/08/22");</p>
+<p>var date = new Date(2024,04,13,14,34);
+  ```</p>
+<p>【注】日期的格式可以是“2024/08/22”，“2024-08-22”，或1970年当前日期的毫秒数</p>
+<ul>
+<li>方法</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>console.log(date.toDateString());</td>
+<td>以特定的格式显示星期几、月、日和年</td>
+</tr>
+<tr>
+<td>console.log(date.toTimeString());</td>
+<td>以特定的格式显示时、分、秒和时区</td>
+</tr>
+<tr>
+<td>console.log(date.toLocaleDateString());</td>
+<td>以特定地区格式显示年、月、日</td>
+</tr>
+<tr>
+<td>console.log(date.toLocaleTimeString());</td>
+<td>以特定地区格式显示时、分、秒</td>
+</tr>
+<tr>
+<td>console.log(date.toUTCString());</td>
+<td>以特定的格式显示完整的 UTC 日期: 年,月,日,时,分,秒。</td>
+</tr>
+<tr>
+<td>console.log(date.toDateString());</td>
+<td>以特定的格式显示星期几、月、日和年</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2date">2、日期对象Date</h3>
+<ul>
+<li>
+<p>setDate() / getDate()       从Date对象中返回一个月中的某一天(1~31)</p>
+</li>
+<li>
+<p>getDay()                            从Date对象返回一周中的某一天(0~6)</p>
+</li>
+<li>
+<p>set/ getMonth()                从Date对象中返回月份(0~11)</p>
+</li>
+<li>
+<p>set/ getFullYear()             从Date对象以四位数返回年份</p>
+</li>
+<li>
+<p>set/ getHours()                 返回Date对象的小时(0~23)</p>
+</li>
+<li>
+<p>set/ getMinutes()             返回Date对象的分钟(0~59)</p>
+</li>
+<li>
+<p>set/ getSeconds()             返回Date对象的秒数(0~59)</p>
+</li>
+<li>
+<p>set/ getMilliseconds()      返回Date对象的毫秒</p>
+</li>
+<li>
+<p><strong>set/ getTime()                    返回1970年1月1日至今的毫秒数（重点）</strong>  </p>
+</li>
+</ul>
+<p>注意：js中返回时间戳长度为13、python中返回长度为10</p>
+<ul>
+<li>getTimezoneOffset()        返回本地时间与格林尼治标准时间(GMT)的分钟差</li>
+</ul>
+<p>注意：</p>
+<p>Ø月份是从0-11，所以取得的值要加1才是当前月份</p>
+<p>Ø星期天是从0-6, 0代表星期天  </p>
+<p><strong>重点</strong></p>
+<p>对于我们爬虫来说重点是时间戳的获取</p>
+<ul>
+<li>new Date().getTime()     </li>
+<li>Date.now()</li>
+</ul>
+<p><img alt="image-20231201180233699" src="imgs/21%E3%80%81js%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%97%B6%E9%97%B4.assets/image-20231201180233699.png" /></p>
+<p><img alt="image-20230711111838847" src="imgs/21%E3%80%81js%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%97%B6%E9%97%B4.assets/image-20230711111838847.png" /></p>
+<h3 id="3new-date">3、+new Date</h3>
+<ul>
+<li><strong>说明:</strong></li>
+</ul>
+<p>在 JavaScript 中，<code>+</code> 操作符有多种用途，具体取决于它的上下文。在 <code>+new Date()</code> 中，<code>+</code> 被用作一元正号，其作用是将后面的表达式转换为数字。</p>
+<ul>
+<li>实例</li>
+</ul>
+<p><code>javascript
+  const timestamp = +new Date();
+  console.log(timestamp); // 输出当前时间的时间戳</code></p>
+<ul>
+<li>逆向案例中</li>
+</ul>
+<p>https://www.kongfz.com/</p>
+<p><img alt="image-20231205201111934" src="imgs/21%E3%80%81js%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%97%B6%E9%97%B4.assets/image-20231205201111934.png" /></p>
+<p><strong>运行结果</strong></p>
+<p><img alt="image-20231205201238523" src="imgs/21%E3%80%81js%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%97%B6%E9%97%B4.assets/image-20231205201238523.png" /></p>
+<p>这种写法经常用于获取当前时间的时间戳，因为它是一种简洁而常见的写法。如果你不使用一元正号，你也可以使用 <code>new Date().getTime()</code> 或 <code>new Date().valueOf()</code> </p>
+<h2 id="_2">三、定时器与定时执行</h2>
+<h3 id="1_1">1、定时器</h3>
+<ul>
+<li>概述</li>
+</ul>
+<p><strong>setInterval()</strong>  方法可按照指定的周期（以毫秒计）来调用函数或计算表达式</p>
+<p>**setInterval() ** 方法会不停地调用函数，直到clearInterval()被调用或窗口被关闭。由setInterval()返回的ID值可用作clearInterval()方法的参数。</p>
+<ul>
+<li>创建定时器</li>
+</ul>
+<p><strong>setInterval(code,millisec)</strong></p>
+<p>参数</p>
+<ul>
+<li>
+<p>code 是要调用的代码块或者函数</p>
+</li>
+<li>
+<p>millisec 是周期性执行代码块或函数的间隔，以毫秒计</p>
+</li>
+<li>
+<p>实例 </p>
+</li>
+</ul>
+<p>创建定时器timer,每隔1秒调用一次函数function</p>
+<p><code>javascript
+  var timer = setInterval( function(){},1000);</code></p>
+<ul>
+<li>关闭定时器</li>
+</ul>
+<p><code>javascript
+  clearInterval(timer);</code></p>
+<ul>
+<li>显示时间</li>
+</ul>
+<p>```javascript
+<br />
+<body>
+      <p>时间：<span id="show"></span></p>
+      <button onclick="stop()">暂停</button>
+  <script>
+      var s = document.getElementById('show');
+      var timer = setInterval(function () {
+          var box = new Date();
+          s.innerHTML = box.toLocaleDateString()+' '+box.toLocaleTimeString();
+      },1);
+      function stop() {
+          clearInterval(timer);
+      }
+  </script>
+  </body></p>
+<p>```</p>
+<p><strong>注意：</strong> 对于爬虫来说 常用于检测是否开启的调试模式 F12</p>
+<h3 id="2_1">2、定时执行一次</h3>
+<ul>
+<li>概述</li>
+</ul>
+<p><strong>setTimeout()</strong>方法可按照指定的毫秒来定时执行 来调用函数或计算表达式</p>
+<ul>
+<li>创建定时器</li>
+</ul>
+<p><strong>setTimeout(code,millisec)</strong></p>
+<p>code 是要调用的代码块或者函数</p>
+<p>millisec 毫秒</p>
+<ul>
+<li>实例</li>
+</ul>
+<p>创建定时执行器timer,每隔1秒调用一次函数function</p>
+<p><code>javascript
+  var timer = setTimeout( function(){},1000);</code></p>
+<ul>
+<li>关闭定时器</li>
+</ul>
+<p><code>javascript
+  clearTimeout(timer);</code></p>
+
+
+</section>
+</div> <!-- end of search-noresults -->
+<div class="search-results">
+<div class="has-results">
+
+<h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+<ul class="search-results-list"></ul>
+
+</div> <!-- end of has-results -->
+<div class="no-results">
+
+<h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+
+</div> <!-- end of no-results -->
+</div> <!-- end of search-results -->
+</div> <!-- end of book-search-results -->
+
+</div> <!-- end of page-inner -->
+</div> <!-- end of page-wrapper -->
+
+</div> <!-- end of body-inner -->
+
+</div> <!-- end of book-body -->
+<script src="./js/main.js"></script>
+<script src="search/main.js"></script>
+<script src="./js/gitbook.min.js"></script>
+<script src="./js/theme.min.js"></script>
+</body>
+</html>

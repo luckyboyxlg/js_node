@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>十六、scrapy_redis - js node</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="generator" content="mkdocs-1.6.1, mkdocs-gitbook-1.0.7">
+
+<link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta rel="next" href="" />
+<link href="./css/style.min.css" rel="stylesheet"> 
+</head>
+
+<body>
+<div class="book">
+<div class="book-summary">
+<div id="book-search-input" role="search">
+<input type="text" placeholder="Type to search" />
+</div> <!-- end of book-search-input -->
+
+<nav role="navigation">
+<ul class="summary">
+<li>
+<a href="index.html" target="_blank" class="custom-link">js node</a>
+</li>
+<li class="divider"></li>
+<li class="chapter" data-path="index.html">
+<a href="index.html">Welcome to MkDocs</a>
+<li class="chapter" data-path="01%E3%80%81html.html">
+<a href="01%E3%80%81html.html">一、HTML</a>
+<li class="chapter" data-path="02%E3%80%81CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8.html">
+<a href="02%E3%80%81CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8.html">二、CSS层叠样式表</a>
+<li class="chapter" data-path="03%E3%80%81%E6%AD%A3%E5%88%99.html">
+<a href="03%E3%80%81%E6%AD%A3%E5%88%99.html">三、正则</a>
+<li class="chapter" data-path="04%E3%80%81BS4%E8%A7%A3%E6%9E%90%E5%AE%8C%E6%95%B4.html">
+<a href="04%E3%80%81BS4%E8%A7%A3%E6%9E%90%E5%AE%8C%E6%95%B4.html">四、beautifulsoup</a>
+<li class="chapter" data-path="05%E3%80%81xpath.html">
+<a href="05%E3%80%81xpath.html">五、xpath</a>
+<li class="chapter" data-path="06%E3%80%81%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E4%B8%8Eurllib%26requests.html">
+<a href="06%E3%80%81%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E4%B8%8Eurllib%26requests.html">六、爬虫入门</a>
+<li class="chapter" data-path="07%E3%80%81urllib%E4%B8%8Erequests.html">
+<a href="07%E3%80%81urllib%E4%B8%8Erequests.html">七、urllib与requests</a>
+<li class="chapter" data-path="08%E3%80%81%E5%A4%9A%E8%BF%9B%E7%A8%8B.html">
+<a href="08%E3%80%81%E5%A4%9A%E8%BF%9B%E7%A8%8B.html">八、多进程</a>
+<li class="chapter" data-path="09%E3%80%81%E7%BA%BF%E7%A8%8B.html">
+<a href="09%E3%80%81%E7%BA%BF%E7%A8%8B.html">九、线程</a>
+<li class="chapter" data-path="10%E3%80%81%E5%8D%8F%E7%A8%8B.html">
+<a href="10%E3%80%81%E5%8D%8F%E7%A8%8B.html">十、携程</a>
+<li class="chapter" data-path="11%E3%80%81selenium.html">
+<a href="11%E3%80%81selenium.html">十一、selenium</a>
+<li class="chapter" data-path="12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.html">
+<a href="12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.html">十二、MySQL数据库</a>
+<li class="chapter" data-path="13%E3%80%81Mongodb.html">
+<a href="13%E3%80%81Mongodb.html">十三、Mongodb</a>
+<li class="chapter" data-path="14%E3%80%81redis.html">
+<a href="14%E3%80%81redis.html">十四、Redis数据库</a>
+<li class="chapter" data-path="15%E3%80%81%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.html">
+<a href="15%E3%80%81%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.html">十五、面向对象</a>
+<li class="chapter" data-path="16-Scrapy01-%E6%A1%86%E6%9E%B6%E5%88%9D%E8%AE%A4%E8%AF%86.html">
+<a href="16-Scrapy01-%E6%A1%86%E6%9E%B6%E5%88%9D%E8%AE%A4%E8%AF%86.html">十六、Scrapy框架初认识</a>
+<li class="chapter" data-path="16-Scrapy02%E6%B7%B1%E5%85%A5%E4%BD%BF%E7%94%A8-%E5%AD%98%E5%82%A8.html">
+<a href="16-Scrapy02%E6%B7%B1%E5%85%A5%E4%BD%BF%E7%94%A8-%E5%AD%98%E5%82%A8.html">十六、Scrapy深入使用-存储</a>
+<li class="chapter" data-path="16-Scrapy03-%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86%E4%BB%A5%E5%8F%8A%E5%88%86%E9%A1%B5.html">
+<a href="16-Scrapy03-%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86%E4%BB%A5%E5%8F%8A%E5%88%86%E9%A1%B5.html">十六、scrapy模拟登陆&amp;分页</a>
+<li class="chapter" data-path="16-Scrapy04-%E4%B8%AD%E9%97%B4%E4%BB%B6.html">
+<a href="16-Scrapy04-%E4%B8%AD%E9%97%B4%E4%BB%B6.html">十六、Scrapy中间件</a>
+<li class="chapter" data-path="16-Scrapy05-%E5%88%86%E9%A1%B5%E6%8A%93%E5%8F%96.html">
+<a href="16-Scrapy05-%E5%88%86%E9%A1%B5%E6%8A%93%E5%8F%96.html">十六、scrapy的crawlspider爬虫</a>
+<li class="chapter active" data-path="16-Scrapy06-scrapy_redis.html">
+<a href="16-Scrapy06-scrapy_redis.html">十六、scrapy_redis</a>
+<li class="chapter" data-path="17%E3%80%81js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html">
+<a href="17%E3%80%81js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html">十七、js数据类型</a>
+<li class="chapter" data-path="18%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%8E%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6.html">
+<a href="18%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%8E%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6.html">十八、js运算符与流程控制</a>
+<li class="chapter" data-path="19%E3%80%81js%E6%95%B0%E7%BB%84.html">
+<a href="19%E3%80%81js%E6%95%B0%E7%BB%84.html">十九、js数组</a>
+<li class="chapter" data-path="20%E3%80%81js%E5%AD%97%E7%AC%A6%E4%B8%B2.html">
+<a href="20%E3%80%81js%E5%AD%97%E7%AC%A6%E4%B8%B2.html">二十、js字符串</a>
+<li class="chapter" data-path="21%E3%80%81js%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%97%B6%E9%97%B4.html">
+<a href="21%E3%80%81js%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%97%B6%E9%97%B4.html">二十一、js对象与时间</a>
+<li class="chapter" data-path="22%E3%80%81%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89.html">
+<a href="22%E3%80%81%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89.html">二十二、js函数</a>
+<li class="chapter" data-path="23%E3%80%81js%E8%BF%9B%E9%98%B6.html">
+<a href="23%E3%80%81js%E8%BF%9B%E9%98%B6.html">二十三、Javascript进阶</a>
+<li class="chapter" data-path="24%E3%80%81BOM%E6%93%8D%E4%BD%9C.html">
+<a href="24%E3%80%81BOM%E6%93%8D%E4%BD%9C.html">二十四、浏览器对象模型BOM</a>
+<li class="chapter" data-path="25%E3%80%81DOM%E6%93%8D%E4%BD%9C.html">
+<a href="25%E3%80%81DOM%E6%93%8D%E4%BD%9C.html">二十五、DOM操作</a>
+<li class="chapter" data-path="26%E3%80%81jQuery%E6%93%8D%E4%BD%9C.html">
+<a href="26%E3%80%81jQuery%E6%93%8D%E4%BD%9C.html">二十六、jQuery</a>
+<li class="chapter" data-path="27%E3%80%81%E9%80%86%E5%90%9101.html">
+<a href="27%E3%80%81%E9%80%86%E5%90%9101.html">二十七、JS逆向01</a>
+<li class="chapter" data-path="28%E3%80%81%E9%80%86%E5%90%9102.html">
+<a href="28%E3%80%81%E9%80%86%E5%90%9102.html">二十八、逆向02</a>
+<li class="chapter" data-path="29%E3%80%81%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html">
+<a href="29%E3%80%81%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html">二十九、微信小程序逆向开发</a>
+<li class="chapter" data-path="30%E3%80%81%E7%BD%91%E6%98%93%E6%BB%91%E5%9D%97.html">
+<a href="30%E3%80%81%E7%BD%91%E6%98%93%E6%BB%91%E5%9D%97.html">三十、网易易盾</a>
+<li class="chapter" data-path="31%E3%80%81rpc.html">
+<a href="31%E3%80%81rpc.html">三十一、RPC</a>
+<li class="chapter" data-path="32%E3%80%81TLS%E6%8C%87%E7%BA%B9%E7%BB%95%E8%BF%87.html">
+<a href="32%E3%80%81TLS%E6%8C%87%E7%BA%B9%E7%BB%95%E8%BF%87.html">三十二、TLS指纹绕过</a>
+<li class="chapter" data-path="33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">
+<a href="33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">三十三、高级逆向</a>
+<li class="chapter" data-path="34%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">
+<a href="34%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">三十四、高级逆向</a>
+<li class="chapter" data-path="%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B%E7%AC%94%E8%AE%B0.html">
+<a href="%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B%E7%AC%94%E8%AE%B0.html">逆向实战案例笔记</a>
+<li class="header">Pyexecjs与npm配置</li>
+
+<li>
+<a href="pyexecjs%E4%B8%8Enpm%E9%85%8D%E7%BD%AE/execjs%E4%BB%8B%E7%BB%8D%E4%BB%A5%E5%8F%8A%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8.html" class="">Execjs介绍以及安装和使用</a>
+</li>
+
+<li>
+<a href="pyexecjs%E4%B8%8Enpm%E9%85%8D%E7%BD%AE/%E4%B8%80%E6%AC%A1%E6%80%A7%E8%A7%A3%E5%86%B3%E6%8E%89npm%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5%E7%9A%84%E9%97%AE%E9%A2%98.html" class="">更换npm为国内镜像</a>
+</li>
+
+<li class="header">补环境</li>
+
+<li>
+<a href="%E8%A1%A5%E7%8E%AF%E5%A2%83/1%E3%80%81%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8E%E4%BA%8B%E4%BB%B6.html" class="">补环境</a>
+</li>
+
+<li>
+<a href="%E8%A1%A5%E7%8E%AF%E5%A2%83/2%E3%80%81Proxy%E4%BB%A3%E7%90%86%E5%99%A8.html" class="">Proxy代理</a>
+</li>
+
+<li>
+<a href="%E8%A1%A5%E7%8E%AF%E5%A2%83/3%E3%80%81vm2%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83.html" class="">3、vm2运行环境</a>
+</li>
+
+<li class="divider"></li>
+
+
+
+<li><a href="http://www.mkdocs.org">
+Published with MkDocs
+</a></li>
+
+<li><a href="https://github.com/GitbookIO/theme-default">
+Theme by GitBook
+</a></li>
+</ul>
+
+</nav>
+
+</div> <!-- end of book-summary -->
+
+<div class="book-body">
+<div class="body-inner">
+<div class="book-header" role="navigation">
+
+<!-- Title -->
+<h1>
+<i class="fa fa-circle-o-notch fa-spin"></i>
+<a href="." ></a>
+</h1>
+
+</div> <!-- end of book-header -->
+
+<div class="page-wrapper" tabindex="-1" role="main">
+<div class="page-inner">
+<div id="book-search-results">
+<div class="search-noresults">
+
+<section class="normal markdown-section">
+
+
+
+<h1 id="scrapy_redis">十六、scrapy_redis</h1>
+<h2 id="scrapy_redis_1">一、scrapy_redis分布式原理</h2>
+<h5 id="_1">学习目标</h5>
+<ol>
+<li>了解 scarpy_redis的概念和功能</li>
+<li>了解 scrapy_redis的原理</li>
+<li>了解 redis数据库操作命令</li>
+</ol>
+<hr />
+<blockquote>
+<p>在前面scrapy框架中我们已经能够使用框架实现爬虫爬取网站数据,如果当前网站的数据比较庞大, 我们就需要使用分布式来更快的爬取数据</p>
+</blockquote>
+<h3 id="1scrapy_redis">1、scrapy_redis是什么</h3>
+<p>分布式爬取/抓取</p>
+<blockquote>
+<p>您可以启动共享单个 Redis 队列的多个蜘蛛实例。最适合广泛的多域爬网。</p>
+</blockquote>
+<h3 id="2">2、安装</h3>
+<p><strong>方式一</strong></p>
+<p>pip install scrapy_redis == 0.7.3</p>
+<p>不建议，因为当前方式需要先将URL扔进redis队列中，否则先运行scrapy会抛出如下异常</p>
+<p><img alt="image-20240129103904477" src="imgs/16-Scrapy06-scrapy_redis.assets/image-20240129103904477.png" /></p>
+<p>先执行url扔进队列，在运行scrapy，程序会正常执行，但是也会抛出如下警告（所以建议使用第二章方式进行安装）</p>
+<p><img alt="image-20240129104155850" src="imgs/16-Scrapy06-scrapy_redis.assets/image-20240129104155850.png" /></p>
+<p><strong>方式二</strong>（建议）</p>
+<p>运行无论是否先将URL扔进队列中都可以正常运行</p>
+<p>下载scrapy安装包，使用命令进行安装</p>
+<p>下载地址：https://github.com/rmax/scrapy-redis#features</p>
+<p>文档： https://readthedocs.org/projects/scrapy-redis/downloads/pdf/stable/</p>
+<p>安装：</p>
+<pre><code>cd scrapy-redis-master（git上下载下来的安装包）
+python setup.py install
+</code></pre>
+<p><strong>要求</strong></p>
+<ul>
+<li>Python 3.7+</li>
+<li>Redis &gt;= 5.0</li>
+<li><code>Scrapy</code>&gt;= 2.0</li>
+<li><code>redis-py</code>&gt;= 4.0</li>
+</ul>
+<h3 id="3scrapy_redis">3、为什么要学习scrapy_redis</h3>
+<p>Scrapy_redis在scrapy的基础上实现了更多，更强大的功能，具体体现在：</p>
+<ul>
+<li>请求对象的持久化</li>
+<li>去重的持久化</li>
+<li>和实现分布式</li>
+</ul>
+<h3 id="4scrapy_redis">4、scrapy_redis的原理分析</h3>
+<h5 id="41-scrapy">4.1 回顾scrapy的流程</h5>
+<p><img alt="scrapy的流程" src="imgs/16-Scrapy06-scrapy_redis.assets/scrapy%E7%9A%84%E6%B5%81%E7%A8%8B.png" /></p>
+<p>那么，在这个基础上，如果需要实现分布式，即多台服务器同时完成一个爬虫，需要怎么做呢？</p>
+<h5 id="42-scrapy_redis">4.2 scrapy_redis的流程</h5>
+<ul>
+<li>在scrapy_redis中，所有的带抓取的对象和去重的指纹都存在所有的服务器公用的redis中</li>
+<li>所有的服务器公用一个redis中的request对象</li>
+<li>所有的request对象存入redis前，都会在同一个redis中进行判断，之前是否已经存入过</li>
+<li>在默认情况下所有的数据会保存在redis中</li>
+</ul>
+<p>具体流程如下：</p>
+<p><img alt="scrapy_redis的流程" src="imgs/16-Scrapy06-scrapy_redis.assets/scrapy_redis%E7%9A%84%E6%B5%81%E7%A8%8B.png" /></p>
+<h3 id="5redis">5、对于redis的复习</h3>
+<blockquote>
+<p>由于时间关系,大家对redis的命令遗忘的差不多了, 但是在scrapy_redis中需要使用redis的操作命令,所有需要回顾下redis的命令操作</p>
+</blockquote>
+<h5 id="51-redis">5.1 redis是什么</h5>
+<p>redis是一个开源的内存型数据库，支持多种数据类型和结构，比如列表、集合、有序集合等,同时可以使用redis-manger-desktop等客户端软件查看redis中的数据，关于redis-manger-desktop的使用可以参考扩展阅读</p>
+<h5 id="52-redis">5.2 redis服务端和客户端的启动</h5>
+<ul>
+<li><code>redis-server.exe redis-windwos.conf</code> 启动服务端</li>
+<li><code>redis-cli</code> 客户端启动</li>
+</ul>
+<h5 id="53-redis">5.3 redis中的常见命令</h5>
+<ol>
+<li><code>select 1</code> 切换db</li>
+<li><code>keys *</code> 查看所有的键</li>
+<li><code>type 键</code> 查看键的类型</li>
+<li><code>flushdb</code> 清空db</li>
+<li><code>flushall</code> 清空数据库</li>
+</ol>
+<h5 id="54-redis">5.4 redis命令的复习</h5>
+<p>redis的命令很多，这里我们简单复习后续会使用的命令</p>
+<p><img alt="redis命令的复习" src="imgs/16-Scrapy06-scrapy_redis.assets/redis%E5%91%BD%E4%BB%A4%E7%9A%84%E5%A4%8D%E4%B9%A0.png" /></p>
+<h3 id="_2">小结</h3>
+<p>scarpy_redis的分布式工作原理
+- 在scrapy_redis中，所有的带抓取的对象和去重的指纹都存在所有的服务器公用的redis中
+- 所有的服务器公用一个redis中的request对象
+- 所有的request对象存入redis前，都会在同一个redis中进行判断，之前是否已经存入过</p>
+<h2 id="_3">二、配置分布式爬虫</h2>
+<h5 id="_4">学习目标</h5>
+<p>配置完成使用分布式爬虫</p>
+<h3 id="1">1、概述</h3>
+<p>分布式爬虫</p>
+<ul>
+<li>使用多台机器搭建一个分布式的机器，然后让他们联合且分布的对同一组资源进行数据爬取</li>
+<li>原生的scrapy框架是无法实现分布式爬虫？</li>
+<li>原因：调度器，管道无法被分布式机群共享</li>
+<li>如何实现分布式</li>
+<li>借助：scrapy-redis组件</li>
+<li>作用：提供了可以被共享的管道和调度器</li>
+<li>只可以将爬取到的数据存储到redis中</li>
+</ul>
+<h3 id="2crawlspider">2、创建分布式crawlspider爬虫</h3>
+<ul>
+<li>scrapy  startproject fbsPro</li>
+<li>cd fbsPro</li>
+<li>scrapy genspider -t crawl fbs www.xxx.com</li>
+</ul>
+<h3 id="3redis-settings">3、redis-settings需要的配置</h3>
+<ol>
+<li>(必须). 使用了scrapy_redis的去重组件，在redis数据库里做去重</li>
+</ol>
+<p><code>python
+   DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"</code></p>
+<ol>
+<li>(必须). 使用了scrapy_redis的调度器，在redis里分配请求</li>
+</ol>
+<p><code>python
+   SCHEDULER = "scrapy_redis.scheduler.Scheduler"</code></p>
+<ol>
+<li>(可选). 在redis中保持scrapy-redis用到的各个队列，从而允许暂停和暂停后恢复，也就是不清理redis queues</li>
+</ol>
+<p><code>python
+   SCHEDULER_PERSIST = True</code></p>
+<ol>
+<li>(必须). 通过配置RedisPipeline将item写入key为 spider.name : items 的redis的list中，供后面的分布式处理item 这个已经由 scrapy-redis 实现，不需要我们写代码，直接使用即可</li>
+</ol>
+<p><code>python
+   ITEM_PIPELINES = {
+   　　 'scrapy_redis.pipelines.RedisPipeline': 100 ,
+   }</code></p>
+<ol>
+<li>(必须). 指定redis数据库的连接参数</li>
+</ol>
+<p><code>python
+   REDIS_HOST = '127.0.0.1' 
+   REDIS_PORT = 6379
+   #  设置密码
+   REDIS_PARAMS = {'password': '123456'}</code></p>
+<h3 id="4settingspy">4、settings.py</h3>
+<p>settings.py</p>
+<p>这几行表示<code>scrapy_redis</code>中重新实现的了去重的类，以及调度器，并且使用的<code>RedisPipeline</code></p>
+<p>需要添加redis的地址，程序才能够使用redis</p>
+<p>在settings.py文件修改pipelines，增加scrapy_redis。</p>
+<pre><code class="language-python"># 配置分布式
+DUPEFILTER_CLASS = &quot;scrapy_redis.dupefilter.RFPDupeFilter&quot;
+SCHEDULER = &quot;scrapy_redis.scheduler.Scheduler&quot;
+SCHEDULER_PERSIST = True
+
+ITEM_PIPELINES = {
+    'scrapy_redis.pipelines.RedisPipeline': 400,
+}
+
+# REDIS_URL = &quot;redis://127.0.0.1:6379&quot;
+# 或者使用下面的方式
+REDIS_HOST = &quot;127.0.0.1&quot;
+REDIS_PORT = 6379
+REDIS_PARAMS = {'password': '123456'}
+</code></pre>
+<p><strong>注意：scrapy_redis的优先级要调高</strong></p>
+<h2 id="scrapy">三、配置scrapy爬虫</h2>
+<h3 id="1_1">1、配置正常抓取代码</h3>
+<pre><code class="language-python">import scrapy
+from scrapy_redis.spiders import RedisSpider
+
+class FbsSpider(RedisSpider):
+    name = &quot;fbs&quot;
+    # allowed_domains = [&quot;duanzixing.com&quot;]
+    # start_urls = [&quot;https://duanzixing.com&quot;]
+    redis_key = 'fbsQueue'  # 使用管道名称（课根据实际功能起名称）
+
+    def parse(self, response, **kwargs):
+        article_list = response.xpath('//article[@class=&quot;excerpt&quot;]')
+        for article in article_list:
+            title = article.xpath('./imgs/header/h2/a/text()').extract_first()
+            con = article.xpath('./imgs/p[@class=&quot;note&quot;]/text()').extract_first()
+            data = {'title': title, 'con': con}
+            print(data)
+            yield data
+</code></pre>
+<h3 id="2rediscrawlspider">2、配置RedisCrawlSpider</h3>
+<pre><code class="language-python">import scrapy
+from scrapy.linkextractors import LinkExtractor
+from scrapy.spiders import CrawlSpider, Rule
+from scrapy_redis.spiders import RedisCrawlSpider
+
+# 注意  一定要继承RedisCrawlSpider
+class FbsSpider(RedisCrawlSpider):
+    name = 'fbs'
+    # allowed_domains = ['www.xxx.com']
+    # start_urls = ['http://www.xxx.com/']
+    redis_key = 'fbsQueue'  # 使用管道名称
+    link = LinkExtractor(allow=r'/political/politics/index?id=\d+')
+    rules = (
+        Rule(link, callback='parse_item', follow=True),
+    )
+
+    def parse_item(self, response):
+        item = {}
+        yield item
+</code></pre>
+<h3 id="3scrapy-redis">3、scrapy-redis键名介绍</h3>
+<p>scrapy-redis中都是用key-value形式存储数据，其中有几个常见的key-value形式：</p>
+<p>1、 “项目名:items”  --&gt;list 类型，保存爬虫获取到的数据item 内容是 json 字符串</p>
+<p>2、 “项目名:dupefilter”   --&gt;set类型，用于爬虫访问的URL去重 内容是 40个字符的 url 的hash字符串</p>
+<p>3、 “项目名: start_urls”   --&gt;List 类型，用于获取spider启动时爬取的第一个url</p>
+<p>4、 “项目名:requests”   --&gt;zset类型，用于scheduler调度处理 requests 内容是 request 对象的序列化 字符串   <strong>当前在redis中可能看到，也可能看不到，因为如果数据全部抓取完当前key便不存在</strong></p>
+<h3 id="4">4、注意</h3>
+<ul>
+<li>
+<p>redis中</p>
+</li>
+<li>
+<p>redis-windwos.conf  （如果当前配置文件中的已经被注释或者不存在，则不用处理）</p>
+<ul>
+<li>56行添加注释 取消绑定127.0.0.1  # bind 127.0.0.1</li>
+<li>75行  修改保护模式为no  protected-mode no</li>
+</ul>
+</li>
+<li>
+<p>启动redis</p>
+</li>
+<li>
+<p>队列中添加url地址</p>
+<p>添加：lpush fbsQueue https://wz.sun0769.com/political/index/politicsNewest</p>
+<p>查看：lrange fbsQueue 0 -1 </p>
+</li>
+<li>
+<p>进入到路径中</p>
+</li>
+</ul>
+<p>cd fbsPro/fbsPro/spiders</p>
+<ul>
+<li>启动分布式爬虫</li>
+</ul>
+<p>scrapy runspider fbs.py</p>
+<ul>
+<li>去redis中查看存储的数据</li>
+</ul>
+<h2 id="scrapy_redis_2">四、scrapy_redis 爬虫 分析</h2>
+<h5 id="_5">学习目标</h5>
+<ol>
+<li>了解 scrapy_redis实现去重的原理</li>
+<li>了解 scrapy中请求入队的条件</li>
+<li>能够应用 scrapy_redis完成基于url地址的增量式爬虫</li>
+</ol>
+<h3 id="1redis">1、运行查看redis</h3>
+<ol>
+<li>我们执行分布式爬虫，会发现redis中多了一下三个键：</li>
+</ol>
+<p><img alt="domz运行现象" src="imgs/16-Scrapy06-scrapy_redis.assets/domz%E8%BF%90%E8%A1%8C%E7%8E%B0%E8%B1%A1.png" /></p>
+<ol>
+<li>继续执行程序</li>
+</ol>
+<p>继续执行程序，会发现程序在前一次的基础之上继续往后执行，<strong>所以分布式爬虫是一个基于url地址的增量式的爬虫</strong></p>
+<h3 id="2scrapy_redis">2、scrapy_redis的原理分析</h3>
+<p>我们从settings.py中的三个配置来进行分析 分别是：</p>
+<ul>
+<li>RedisPipeline</li>
+<li>RFPDupeFilter</li>
+<li>Scheduler</li>
+</ul>
+<h5 id="21-scrapy_redisredispipeline">2.1 Scrapy_redis之RedisPipeline</h5>
+<p>RedisPipeline中观察process_item，进行数据的保存，存入了redis中</p>
+<p><img alt="redis_pipeline" src="imgs/16-Scrapy06-scrapy_redis.assets/redis_pipeline.jpeg" /></p>
+<h5 id="22-scrapy_redisrfpdupefilter">2.2 Scrapy_redis之RFPDupeFilter</h5>
+<p>RFPDupeFilter 实现了对request对象的加密</p>
+<p><img alt="RFP" src="imgs/16-Scrapy06-scrapy_redis.assets/RFP.png" /></p>
+<h5 id="23-scrapy_redisscheduler">2.3 Scrapy_redis之Scheduler</h5>
+<p>scrapy_redis调度器的实现了决定什么时候把request对象加入带抓取的队列，同时把请求过的request对象过滤掉</p>
+<p><img alt="scheduler" src="imgs/16-Scrapy06-scrapy_redis.assets/scheduler.png" /></p>
+<p>由此可以总结出request对象入队的条件</p>
+<ul>
+<li>request之前没有见过</li>
+<li>request的dont_filter为True，即不过滤</li>
+<li>start_urls中的url地址会入队，因为他们默认是不过滤</li>
+</ul>
+<h3 id="3">3、报错</h3>
+<p>如果您的解释器为3.10及以上，运行出现如下错误</p>
+<pre><code>ImportError: cannot import name 'Iterable' from 'collections' (/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/collections/__init__.py)
+</code></pre>
+<p><strong>原因：</strong></p>
+<p>3.10及以上杜对于<code>from collections import Iterable</code> 导包路径更改为<code>from collections.abc import Iterable</code></p>
+<p>去到当前导包报错路径文件中更改即可</p>
+<p><img alt="image-20231122141604150" src="imgs/16-Scrapy06-scrapy_redis.assets/image-20231122141604150.png" /></p>
+<h2 id="_6">总结</h2>
+<ul>
+<li>本小结重点</li>
+<li>知道什么是scrapy_redis</li>
+<li>掌握scarpy_redis实现分布式的原理</li>
+<li>掌握scrapy_进行url地址加密的方法</li>
+<li>掌握request对象入队的条件</li>
+<li>能够通过scrapy_redis完成基于url地址的增量式爬虫</li>
+</ul>
+<h2 id="_7">五、案例</h2>
+<h5 id="_8">学习目标</h5>
+<ol>
+<li>能够应用 scrapy_redis实现分布式爬虫</li>
+<li>能够应用 scrapy_redis中RedisCrawlspider类实现分布式爬虫</li>
+</ol>
+<hr />
+<h3 id="1-redisspider">1 RedisSpider</h3>
+<h5 id="11-demo">1.1 分析demo中代码</h5>
+<p>通过观察代码：</p>
+<ul>
+<li>继承自父类为RedisSpider</li>
+<li>增加了一个redis_key的键，没有start_urls，因为分布式中，如果每台电脑都请求一次start_url就会重复</li>
+<li>多了<code>__init__</code>方法，该方 法不是必须的，可以手动指定allow_domains</li>
+</ul>
+<p><img alt="redis_spider_2" src="imgs/16-Scrapy06-scrapy_redis.assets/redis_spider_2.png" /></p>
+<h5 id="12">1.2 动手实现当当图书爬虫</h5>
+<p>需求：抓取当当图书的信息</p>
+<p>目标：抓取当当图书又有图书的名字、封面图片地址、图书url地址、作者、出版社、出版时间、价格、图书所属大分类、图书所属小的分类、分类的url地址</p>
+<p>url：http://book.dangdang.com</p>
+<h3 id="2-rediscrawlspider">2  RedisCrawlSpider</h3>
+<h5 id="21">2.1 代码</h5>
+<pre><code class="language-python">import scrapy
+from scrapy.linkextractors import LinkExtractor
+from scrapy.spiders import CrawlSpider, Rule
+from scrapy_redis.spiders import RedisCrawlSpider
+
+'''
+当当网 分布式抓取 crawlspider
+redis终端输入
+lpush dangdang http://category.dangdang.com/cp01.01.02.00.00.00.html
+启动scrapy
+'''
+# class DdcrawlSpider(CrawlSpider):
+class DdcrawlSpider(RedisCrawlSpider):
+    name = 'ddcrawl'
+    # allowed_domains = ['category.dangdang.com/cp01.01.02.00.00.00.html']
+    # start_urls = ['http://category.dangdang.com/cp01.01.02.00.00.00.html/']
+    redis_key = 'dangdang'  # 使用管道名称（课根据实际功能起名称）
+    &quot;&quot;&quot;
+    url
+    http://category.dangdang.com/cp01.01.02.00.00.00.html
+    http://category.dangdang.com/pg2-cp01.01.02.00.00.00.html
+    http://category.dangdang.com/pg100-cp01.01.02.00.00.00.html
+    &quot;&quot;&quot;
+    rules = (
+        Rule(LinkExtractor(allow=r'cp01\.01\.02\.00\.00\.00\.html$'),callback='parse_item', follow=False),
+    )
+
+    def parse_item(self, response):
+        con_shoplist = response.xpath('//div[@class=&quot;con shoplist&quot;]/div/ul/li')
+        print(con_shoplist)
+        for li in con_shoplist:
+            item = {}
+            # 获取图片src
+            img = li.xpath('./imgs/a/img/@src').extract_first()
+            # 获取标题
+            title = li.xpath('./imgs/p[@name=&quot;title&quot;]/a/text()').extract_first()
+            # 获取详情
+            detail = li.xpath('./imgs/p[@class=&quot;detail&quot;]/text()').extract_first()
+            # 获取价格
+            price = li.xpath('./imgs/p[@class=&quot;price&quot;]/span/text()').extract_first()
+            item['img'] = img
+            item['title'] = title
+            item['detail'] = detail
+            item['price'] = price
+            print(response.request.url, item)
+            yield item
+</code></pre>
+
+
+</section>
+</div> <!-- end of search-noresults -->
+<div class="search-results">
+<div class="has-results">
+
+<h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+<ul class="search-results-list"></ul>
+
+</div> <!-- end of has-results -->
+<div class="no-results">
+
+<h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+
+</div> <!-- end of no-results -->
+</div> <!-- end of search-results -->
+</div> <!-- end of book-search-results -->
+
+</div> <!-- end of page-inner -->
+</div> <!-- end of page-wrapper -->
+
+</div> <!-- end of body-inner -->
+
+</div> <!-- end of book-body -->
+<script src="./js/main.js"></script>
+<script src="search/main.js"></script>
+<script src="./js/gitbook.min.js"></script>
+<script src="./js/theme.min.js"></script>
+</body>
+</html>

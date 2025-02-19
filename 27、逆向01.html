@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>二十七、JS逆向01 - js node</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="generator" content="mkdocs-1.6.1, mkdocs-gitbook-1.0.7">
+
+<link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta rel="next" href="" />
+<link href="./css/style.min.css" rel="stylesheet"> 
+</head>
+
+<body>
+<div class="book">
+<div class="book-summary">
+<div id="book-search-input" role="search">
+<input type="text" placeholder="Type to search" />
+</div> <!-- end of book-search-input -->
+
+<nav role="navigation">
+<ul class="summary">
+<li>
+<a href="index.html" target="_blank" class="custom-link">js node</a>
+</li>
+<li class="divider"></li>
+<li class="chapter" data-path="index.html">
+<a href="index.html">Welcome to MkDocs</a>
+<li class="chapter" data-path="01%E3%80%81html.html">
+<a href="01%E3%80%81html.html">一、HTML</a>
+<li class="chapter" data-path="02%E3%80%81CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8.html">
+<a href="02%E3%80%81CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8.html">二、CSS层叠样式表</a>
+<li class="chapter" data-path="03%E3%80%81%E6%AD%A3%E5%88%99.html">
+<a href="03%E3%80%81%E6%AD%A3%E5%88%99.html">三、正则</a>
+<li class="chapter" data-path="04%E3%80%81BS4%E8%A7%A3%E6%9E%90%E5%AE%8C%E6%95%B4.html">
+<a href="04%E3%80%81BS4%E8%A7%A3%E6%9E%90%E5%AE%8C%E6%95%B4.html">四、beautifulsoup</a>
+<li class="chapter" data-path="05%E3%80%81xpath.html">
+<a href="05%E3%80%81xpath.html">五、xpath</a>
+<li class="chapter" data-path="06%E3%80%81%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E4%B8%8Eurllib%26requests.html">
+<a href="06%E3%80%81%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E4%B8%8Eurllib%26requests.html">六、爬虫入门</a>
+<li class="chapter" data-path="07%E3%80%81urllib%E4%B8%8Erequests.html">
+<a href="07%E3%80%81urllib%E4%B8%8Erequests.html">七、urllib与requests</a>
+<li class="chapter" data-path="08%E3%80%81%E5%A4%9A%E8%BF%9B%E7%A8%8B.html">
+<a href="08%E3%80%81%E5%A4%9A%E8%BF%9B%E7%A8%8B.html">八、多进程</a>
+<li class="chapter" data-path="09%E3%80%81%E7%BA%BF%E7%A8%8B.html">
+<a href="09%E3%80%81%E7%BA%BF%E7%A8%8B.html">九、线程</a>
+<li class="chapter" data-path="10%E3%80%81%E5%8D%8F%E7%A8%8B.html">
+<a href="10%E3%80%81%E5%8D%8F%E7%A8%8B.html">十、携程</a>
+<li class="chapter" data-path="11%E3%80%81selenium.html">
+<a href="11%E3%80%81selenium.html">十一、selenium</a>
+<li class="chapter" data-path="12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.html">
+<a href="12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.html">十二、MySQL数据库</a>
+<li class="chapter" data-path="13%E3%80%81Mongodb.html">
+<a href="13%E3%80%81Mongodb.html">十三、Mongodb</a>
+<li class="chapter" data-path="14%E3%80%81redis.html">
+<a href="14%E3%80%81redis.html">十四、Redis数据库</a>
+<li class="chapter" data-path="15%E3%80%81%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.html">
+<a href="15%E3%80%81%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.html">十五、面向对象</a>
+<li class="chapter" data-path="16-Scrapy01-%E6%A1%86%E6%9E%B6%E5%88%9D%E8%AE%A4%E8%AF%86.html">
+<a href="16-Scrapy01-%E6%A1%86%E6%9E%B6%E5%88%9D%E8%AE%A4%E8%AF%86.html">十六、Scrapy框架初认识</a>
+<li class="chapter" data-path="16-Scrapy02%E6%B7%B1%E5%85%A5%E4%BD%BF%E7%94%A8-%E5%AD%98%E5%82%A8.html">
+<a href="16-Scrapy02%E6%B7%B1%E5%85%A5%E4%BD%BF%E7%94%A8-%E5%AD%98%E5%82%A8.html">十六、Scrapy深入使用-存储</a>
+<li class="chapter" data-path="16-Scrapy03-%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86%E4%BB%A5%E5%8F%8A%E5%88%86%E9%A1%B5.html">
+<a href="16-Scrapy03-%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86%E4%BB%A5%E5%8F%8A%E5%88%86%E9%A1%B5.html">十六、scrapy模拟登陆&amp;分页</a>
+<li class="chapter" data-path="16-Scrapy04-%E4%B8%AD%E9%97%B4%E4%BB%B6.html">
+<a href="16-Scrapy04-%E4%B8%AD%E9%97%B4%E4%BB%B6.html">十六、Scrapy中间件</a>
+<li class="chapter" data-path="16-Scrapy05-%E5%88%86%E9%A1%B5%E6%8A%93%E5%8F%96.html">
+<a href="16-Scrapy05-%E5%88%86%E9%A1%B5%E6%8A%93%E5%8F%96.html">十六、scrapy的crawlspider爬虫</a>
+<li class="chapter" data-path="16-Scrapy06-scrapy_redis.html">
+<a href="16-Scrapy06-scrapy_redis.html">十六、scrapy_redis</a>
+<li class="chapter" data-path="17%E3%80%81js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html">
+<a href="17%E3%80%81js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html">十七、js数据类型</a>
+<li class="chapter" data-path="18%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%8E%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6.html">
+<a href="18%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%8E%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6.html">十八、js运算符与流程控制</a>
+<li class="chapter" data-path="19%E3%80%81js%E6%95%B0%E7%BB%84.html">
+<a href="19%E3%80%81js%E6%95%B0%E7%BB%84.html">十九、js数组</a>
+<li class="chapter" data-path="20%E3%80%81js%E5%AD%97%E7%AC%A6%E4%B8%B2.html">
+<a href="20%E3%80%81js%E5%AD%97%E7%AC%A6%E4%B8%B2.html">二十、js字符串</a>
+<li class="chapter" data-path="21%E3%80%81js%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%97%B6%E9%97%B4.html">
+<a href="21%E3%80%81js%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%97%B6%E9%97%B4.html">二十一、js对象与时间</a>
+<li class="chapter" data-path="22%E3%80%81%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89.html">
+<a href="22%E3%80%81%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89.html">二十二、js函数</a>
+<li class="chapter" data-path="23%E3%80%81js%E8%BF%9B%E9%98%B6.html">
+<a href="23%E3%80%81js%E8%BF%9B%E9%98%B6.html">二十三、Javascript进阶</a>
+<li class="chapter" data-path="24%E3%80%81BOM%E6%93%8D%E4%BD%9C.html">
+<a href="24%E3%80%81BOM%E6%93%8D%E4%BD%9C.html">二十四、浏览器对象模型BOM</a>
+<li class="chapter" data-path="25%E3%80%81DOM%E6%93%8D%E4%BD%9C.html">
+<a href="25%E3%80%81DOM%E6%93%8D%E4%BD%9C.html">二十五、DOM操作</a>
+<li class="chapter" data-path="26%E3%80%81jQuery%E6%93%8D%E4%BD%9C.html">
+<a href="26%E3%80%81jQuery%E6%93%8D%E4%BD%9C.html">二十六、jQuery</a>
+<li class="chapter active" data-path="27%E3%80%81%E9%80%86%E5%90%9101.html">
+<a href="27%E3%80%81%E9%80%86%E5%90%9101.html">二十七、JS逆向01</a>
+<li class="chapter" data-path="28%E3%80%81%E9%80%86%E5%90%9102.html">
+<a href="28%E3%80%81%E9%80%86%E5%90%9102.html">二十八、逆向02</a>
+<li class="chapter" data-path="29%E3%80%81%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html">
+<a href="29%E3%80%81%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html">二十九、微信小程序逆向开发</a>
+<li class="chapter" data-path="30%E3%80%81%E7%BD%91%E6%98%93%E6%BB%91%E5%9D%97.html">
+<a href="30%E3%80%81%E7%BD%91%E6%98%93%E6%BB%91%E5%9D%97.html">三十、网易易盾</a>
+<li class="chapter" data-path="31%E3%80%81rpc.html">
+<a href="31%E3%80%81rpc.html">三十一、RPC</a>
+<li class="chapter" data-path="32%E3%80%81TLS%E6%8C%87%E7%BA%B9%E7%BB%95%E8%BF%87.html">
+<a href="32%E3%80%81TLS%E6%8C%87%E7%BA%B9%E7%BB%95%E8%BF%87.html">三十二、TLS指纹绕过</a>
+<li class="chapter" data-path="33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">
+<a href="33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">三十三、高级逆向</a>
+<li class="chapter" data-path="34%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">
+<a href="34%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">三十四、高级逆向</a>
+<li class="chapter" data-path="%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B%E7%AC%94%E8%AE%B0.html">
+<a href="%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B%E7%AC%94%E8%AE%B0.html">逆向实战案例笔记</a>
+<li class="header">Pyexecjs与npm配置</li>
+
+<li>
+<a href="pyexecjs%E4%B8%8Enpm%E9%85%8D%E7%BD%AE/execjs%E4%BB%8B%E7%BB%8D%E4%BB%A5%E5%8F%8A%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8.html" class="">Execjs介绍以及安装和使用</a>
+</li>
+
+<li>
+<a href="pyexecjs%E4%B8%8Enpm%E9%85%8D%E7%BD%AE/%E4%B8%80%E6%AC%A1%E6%80%A7%E8%A7%A3%E5%86%B3%E6%8E%89npm%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5%E7%9A%84%E9%97%AE%E9%A2%98.html" class="">更换npm为国内镜像</a>
+</li>
+
+<li class="header">补环境</li>
+
+<li>
+<a href="%E8%A1%A5%E7%8E%AF%E5%A2%83/1%E3%80%81%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8E%E4%BA%8B%E4%BB%B6.html" class="">补环境</a>
+</li>
+
+<li>
+<a href="%E8%A1%A5%E7%8E%AF%E5%A2%83/2%E3%80%81Proxy%E4%BB%A3%E7%90%86%E5%99%A8.html" class="">Proxy代理</a>
+</li>
+
+<li>
+<a href="%E8%A1%A5%E7%8E%AF%E5%A2%83/3%E3%80%81vm2%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83.html" class="">3、vm2运行环境</a>
+</li>
+
+<li class="divider"></li>
+
+
+
+<li><a href="http://www.mkdocs.org">
+Published with MkDocs
+</a></li>
+
+<li><a href="https://github.com/GitbookIO/theme-default">
+Theme by GitBook
+</a></li>
+</ul>
+
+</nav>
+
+</div> <!-- end of book-summary -->
+
+<div class="book-body">
+<div class="body-inner">
+<div class="book-header" role="navigation">
+
+<!-- Title -->
+<h1>
+<i class="fa fa-circle-o-notch fa-spin"></i>
+<a href="." ></a>
+</h1>
+
+</div> <!-- end of book-header -->
+
+<div class="page-wrapper" tabindex="-1" role="main">
+<div class="page-inner">
+<div id="book-search-results">
+<div class="search-noresults">
+
+<section class="normal markdown-section">
+
+
+
+<h1 id="js01">二十七、JS逆向01</h1>
+<h2 id="js">一、浏览器js调试功能说明</h2>
+<h3 id="1">1、调试工具栏按钮说明</h3>
+<p><strong>按钮：</strong></p>
+<p><img src="./imgs/27、逆向01.assets/image-20230904153459323-9938173.png" alt="image-20230904153459323" style="zoom:65%;" /></p>
+<ul>
+<li>第一个按钮</li>
+</ul>
+<p>调试工具栏第一个按钮. 表示, 直接运行到最后, 或者下一个断点位置.</p>
+<ul>
+<li>第二个按钮</li>
+</ul>
+<p>表示, 执行当前行代码. 不论当前行是否有函数调用. 都会执行完</p>
+<ul>
+<li>第三个按钮</li>
+</ul>
+<p>表示, 进入下一步. 如果有函数掉用, 会进入函数, 如果没有, 就是下一行</p>
+<ul>
+<li>第四个按钮</li>
+</ul>
+<p>表示, 进入回到上一步（但是不好用）</p>
+<ul>
+<li>最后一个按钮</li>
+</ul>
+<p>所有断点都不生效</p>
+<h3 id="2">2、右侧调试面板说明</h3>
+<ul>
+<li>英文面板</li>
+</ul>
+<p><img src="./imgs/27、逆向01.assets/image-20230904154815709-9938173.png" alt="image-20230904154815709" style="zoom:50%;" /></p>
+<ul>
+<li>中文面板</li>
+</ul>
+<p><img src="./imgs/27、逆向01.assets/image-20230904154937980-9938173.png" alt="image-20230904154937980" style="zoom:50%;" /></p>
+<h4 id="1-watch">(1) Watch/监视 说明</h4>
+<p><strong>作用：</strong> 监视当前的变量   通过观察变量在执行过程中的变化</p>
+<ul>
+<li>输入要监视的变量 h</li>
+</ul>
+<p><img src="./imgs/27、逆向01.assets/image-20230904155215772-9938173.png" alt="image-20230904155215772" style="zoom:50%;" /></p>
+<ul>
+<li>输入完回车</li>
+</ul>
+<p><img src="./imgs/27、逆向01.assets/image-20230904155418819-9938173.png" alt="image-20230904155418819" style="zoom:50%;" /></p>
+<ul>
+<li>点击 第二个按钮向下执行一步  通过代码不断向下运行以达到监视变量的目的</li>
+</ul>
+<p><img src="./imgs/27、逆向01.assets/image-20230904155457921-9938173.png" alt="image-20230904155457921" style="zoom:50%;" /></p>
+<h4 id="2-breakpoints">(2) Breakpoints/断点</h4>
+<p><strong>作用：</strong> 所有的断点都会再次显示</p>
+<ul>
+<li>点击查看</li>
+</ul>
+<p><img alt="image-20230904160118976" src="imgs/27%E3%80%81%E9%80%86%E5%90%9101.assets/image-20230904160118976-9938173.png" /></p>
+<ul>
+<li>移除当前/所有断点</li>
+</ul>
+<p><img alt="image-20230904160424870" src="imgs/27%E3%80%81%E9%80%86%E5%90%9101.assets/image-20230904160424870-9938173.png" /></p>
+<h4 id="3-scope">(3) scope/作用域</h4>
+<p><strong>作用：</strong>  查看当前作用域的变量</p>
+<p><img alt="image-20230904160903421" src="imgs/27%E3%80%81%E9%80%86%E5%90%9101.assets/image-20230904160903421-9938173.png" /></p>
+<h4 id="4-call-stack">(4) Call Stack/调用堆栈</h4>
+<p><strong>作用：</strong> 用于查看当前的调用顺序  以此进行查看当前每一步的调用流程</p>
+<ul>
+<li>当前位置</li>
+</ul>
+<p><img alt="image-20230904161252869" src="imgs/27%E3%80%81%E9%80%86%E5%90%9101.assets/image-20230904161252869-9938173.png" /></p>
+<ul>
+<li>查看谁调用了d函数</li>
+</ul>
+<p><img alt="image-20230904161323925" src="imgs/27%E3%80%81%E9%80%86%E5%90%9101.assets/image-20230904161323925-9938173.png" /></p>
+<h4 id="5-xhr">(5) XHR/提取断点</h4>
+<p><strong>作用：</strong> 当前请求中有异步的都会被阻断(也就是添加上断点)</p>
+<ul>
+<li>勾选</li>
+</ul>
+<p><img alt="image-20230904161638585" src="imgs/27%E3%80%81%E9%80%86%E5%90%9101.assets/image-20230904161638585-9938173.png" /></p>
+<ul>
+<li>拦截指定的url</li>
+</ul>
+<p><img alt="image-20230904162133574" src="imgs/27%E3%80%81%E9%80%86%E5%90%9101.assets/image-20230904162133574-9938173.png" /></p>
+<h3 id="3">3、浏览器配置</h3>
+<p><img alt="image-20230904163818431" src="imgs/27%E3%80%81%E9%80%86%E5%90%9101.assets/image-20230904163818431-9938173.png" /></p>
+<h2 id="_1">二、找加密参数方案</h2>
+<p><strong>URL：</strong> https://music.163.com/#/song?id=188451</p>
+<h3 id="1_1">1、从请求发出处进行查找</h3>
+<h4 id="_2">说明：</h4>
+<p>这种方式查找起来比较方便</p>
+<ul>
+<li>通过抓包找到当前url  携带参数为加密参数</li>
+</ul>
+<p><img src="./imgs/27、逆向01.assets/image-20230831110407326-9938173.png" alt="image-20230831110407326" style="zoom:50%;" /></p>
+<ul>
+<li>查看当前响应  返回为当前音频的URL地址</li>
+</ul>
+<p><img src="./imgs/27、逆向01.assets/image-20230831110549504-9938173.png" alt="image-20230831110549504" style="zoom:50%;" /></p>
+<ul>
+<li>进入调用栈  找到最后一个调用， 一定为当前最终调用的send()方法  也就是发送出去的那个  点击进去</li>
+</ul>
+<p><img src="./imgs/27、逆向01.assets/image-20230831110653608-9938173.png" alt="image-20230831110653608" style="zoom:50%;" /></p>
+<ul>
+<li>点击调用栈进入以后  发现到了当前位置 打上断点</li>
+</ul>
+<p>接下来不断向上进行查找 直到找到加密位置</p>
+<p><img src="./imgs/27、逆向01.assets/image-20230831111100496-9938173.png" alt="image-20230831111100496" style="zoom: 50%;" /></p>
+<ul>
+<li>发现加密的值 在arguments  接下来逐步查找 是在哪一步将参数进行了加密</li>
+</ul>
+<p><img src="./imgs/27、逆向01.assets/image-20230831111351641-9938173.png" alt="image-20230831111351641" style="zoom:50%;" /></p>
+<ul>
+<li>在调用栈的位置  逐步向上一层调用的位置进行查找</li>
+</ul>
+<p><img src="./imgs/27、逆向01.assets/image-20230831111445040-9938173.png" alt="image-20230831111445040" style="zoom:50%;" /></p>
+<ul>
+<li>进入 上一层  依然为加密后的</li>
+</ul>
+<p><img src="./imgs/27、逆向01.assets/image-20230831111551799-9938173.png" alt="image-20230831111551799" style="zoom:50%;" /></p>
+<ul>
+<li>进入 上一层  依然为加密后的 继续上一层</li>
+</ul>
+<p><img src="./imgs/27、逆向01.assets/image-20230831111636246-9938173.png" alt="image-20230831111636246" style="zoom:50%;" /></p>
+<ul>
+<li>进入 上一层  依然为加密后的 继续上一层</li>
+</ul>
+<p><img src="./imgs/27、逆向01.assets/image-20230831111718433-9938173.png" alt="image-20230831111718433" style="zoom:50%;" /></p>
+<ul>
+<li>进入 上一层  依然为加密后的 继续上一层</li>
+</ul>
+<p><img src="./imgs/27、逆向01.assets/image-20230831111833850-9938173.png" alt="image-20230831111833850" style="zoom:50%;" /></p>
+<ul>
+<li>到第6层发现了参数不再是加密的  u7n.be8W，进入到当前函数查看内部是如何加密的</li>
+</ul>
+<p><img src="./imgs/27、逆向01.assets/image-20230831111958634-9938173.png" alt="image-20230831111958634" style="zoom:50%;" /></p>
+<ul>
+<li>点击进入</li>
+</ul>
+<p><img src="./imgs/27、逆向01.assets/image-20230831112102258-9938173.png" alt="image-20230831112102258" style="zoom:50%;" /></p>
+<ul>
+<li>进入u7n.be8W函数以后 找到了当前携带参数的位置</li>
+</ul>
+<p><img src="./imgs/27、逆向01.assets/image-20230831112140098-9938173.png" alt="image-20230831112140098" style="zoom:50%;" /></p>
+<ul>
+<li>通过查看发现当前加密对象为bVc6W，接下来进入到window.asrsea函数  查看是如何进行加密的</li>
+</ul>
+<p><img src="./imgs/27、逆向01.assets/image-20230831112307946-9938173.png" alt="image-20230831112307946" style="zoom:50%;" /></p>
+<ul>
+<li>点击进入</li>
+</ul>
+<p><img src="./imgs/27、逆向01.assets/image-20230831112417553-9938173.png" alt="image-20230831112417553" style="zoom:50%;" /></p>
+<ul>
+<li>找到最终加密函数d</li>
+</ul>
+<p><img src="./imgs/27、逆向01.assets/image-20230831112458894-9938173.png" alt="image-20230831112458894" style="zoom:50%;" /></p>
+<h3 id="2url">2、搜索当前URL</h3>
+<h4 id="_3"><strong>说明：</strong></h4>
+<p>搜索规则  当前url路径从后往前逐一去搜</p>
+<h4 id="_4">方式：</h4>
+<ul>
+<li>比如：当前url 为  https://music.163.com/weapi/song/enhance/player/url/v1?csrf_token=</li>
+</ul>
+<p>我们可以尝试搜索：</p>
+<ul>
+<li>v1</li>
+<li>url/v1</li>
+<li>player/url/v</li>
+<li>enhance/player/url/v1</li>
+</ul>
+<p>等方式，如果搜索出来的结果太多，可以尝试不断往前添加路径继续搜索</p>
+<ul>
+<li>搜索url中    enhance/player/url/v1    </li>
+</ul>
+<p><img src="./imgs/27、逆向01.assets/image-20230831140054978-9938173.png" alt="image-20230831140054978" style="zoom:50%;" /></p>
+<ul>
+<li>在search中搜索出结果  点击进入查看</li>
+</ul>
+<p><img src="./imgs/27、逆向01.assets/image-20230831140156514-9938173.png" alt="image-20230831140156514" style="zoom:50%;" /></p>
+<ul>
+<li>通过搜索到得结果  进入到代码中   给当前位置打上断点  查看当前代码</li>
+</ul>
+<p><img src="./imgs/27、逆向01.assets/image-20230831140541021-9938173.png" alt="image-20230831140541021" style="zoom:50%;" /></p>
+<ul>
+<li>发现函数 u7n.be8W 内部有俩个参数，第一个为当前我们搜索的URL 进入该函数查看</li>
+</ul>
+<p><img src="./imgs/27、逆向01.assets/image-20230831140823314-9938173.png" alt="image-20230831140823314" style="zoom:50%;" /></p>
+<ul>
+<li>点击进入</li>
+</ul>
+<p><img src="./imgs/27、逆向01.assets/image-20230831141049411-9938173.png" alt="image-20230831141049411" style="zoom:50%;" /></p>
+<ul>
+<li>找到加密函数位置</li>
+</ul>
+<p><img src="./imgs/27、逆向01.assets/image-20230831141807307-9938173.png" alt="image-20230831141807307" style="zoom:50%;" /></p>
+<h3 id="3_1">3、直接搜索加密参数名称</h3>
+<h4 id="_5"><strong>说明：</strong></h4>
+<p>当前这种方式可能会有很多当前相同名字的代码的位置  需要自己逐一去排查</p>
+<p>根据提示的位置，下断点  让程序执行  </p>
+<ul>
+<li>通过抓包找到当前url  发现当前携带参数key为 <strong>params</strong> 和 <strong>encSecKey</strong></li>
+</ul>
+<p><img src="./imgs/27、逆向01.assets/image-20230831110407326-9938173.png" alt="image-20230831142332043" style="zoom:50%;" /></p>
+<ul>
+<li>进行搜索</li>
+</ul>
+<p>首先搜搜  params  发现结果过多  不好排查</p>
+<p><img src="./imgs/27、逆向01.assets/image-20230831142332043-9938173.png" alt="image-20230831142332043" style="zoom:50%;" /></p>
+<ul>
+<li>换 下一个参数<strong>encSecKey</strong> 继续搜索</li>
+</ul>
+<p><img src="./imgs/27、逆向01.assets/image-20230831142447516-9938173.png" alt="image-20230831142447516" style="zoom:50%;" /></p>
+<ul>
+<li>找到当前加密位置</li>
+</ul>
+<p><img src="./imgs/27、逆向01.assets/image-20230831142554969-9938173.png" alt="image-20230831142554969" style="zoom:50%;" /></p>
+<ul>
+<li>给当前加密函数打上断点   然后重新运行当前网站  通过右侧调用栈查找去查看当前调用的流程</li>
+</ul>
+<p><img src="./imgs/27、逆向01.assets/image-20230831142759712-9938173.png" alt="image-20230831142759712" style="zoom:50%;" /></p>
+<ul>
+<li>通过调用栈进行长层查看</li>
+</ul>
+<p><img src="./imgs/27、逆向01.assets/image-20230831142911617-9938173.png" alt="image-20230831142911617" style="zoom:50%;" /></p>
+<h3 id="4">4、参数为请求头中参数</h3>
+<p>URL：https://www.jiansheku.com/search/business/p4/</p>
+<ul>
+<li><strong>当前sign为请求头中参数名称</strong></li>
+</ul>
+<p><img alt="image-20231229112317792" src="imgs/27%E3%80%81%E9%80%86%E5%90%9101.assets/image-20231229112317792-9938173.png" /></p>
+<ul>
+<li>如果当前加密参数为请求头中参数 只搜索参数名无法搜索到或者搜索的结果太多  </li>
+</ul>
+<p><img alt="image-20231229112011694" src="imgs/27%E3%80%81%E9%80%86%E5%90%9101.assets/image-20231229112011694-9938173.png" /></p>
+<ul>
+<li>可以尝试搜索</li>
+</ul>
+<p><strong>headers.参数名</strong></p>
+<p><img alt="image-20231229112053561" src="imgs/27%E3%80%81%E9%80%86%E5%90%9101.assets/image-20231229112053561-9938173.png" /></p>
+<h3 id="5">5、在断点处想进入函数的方式</h3>
+<h4 id="_6">方式一 ： 选中函数</h4>
+<ul>
+<li>选中函数  通过弹出框进行进入</li>
+</ul>
+<p><img src="./imgs/27、逆向01.assets/image-20230831141049411-9938173.png" alt="image-20230831145700845" style="zoom:50%;" /></p>
+<h4 id="console">方式二 ：使用console输出函数</h4>
+<ul>
+<li>把函数复制到console中  运行 通过输出结果点击进入</li>
+</ul>
+<p><img src="./imgs/27、逆向01.assets/image-20230831145700845-9938173.png" alt="image-20230831145700845" style="zoom:50%;" /></p>
+<ul>
+<li>进入到当前函数定义处的位置</li>
+</ul>
+<p><img src="./imgs/27、逆向01.assets/image-20230831145753619-9938173.png" alt="image-20230831145753619" style="zoom:50%;" /></p>
+<h4 id="_7">方式三 ：调试工具栏  第三个按钮</h4>
+<p>可以点击调试工具栏, 第三个按钮. 可以进入函数. 但是. 如果在本次调用过程中, 掺杂了其他函数、可能会有误差.</p>
+<ul>
+<li>实例</li>
+</ul>
+<p><img alt="image-20230904153208159" src="imgs/27%E3%80%81%E9%80%86%E5%90%9101.assets/image-20230904153208159-9938173.png" /></p>
+<ul>
+<li>结果</li>
+</ul>
+<p><img alt="image-20230904153324188" src="imgs/27%E3%80%81%E9%80%86%E5%90%9101.assets/image-20230904153324188-9938173.png" /></p>
+<h2 id="pycharm-js">三、pycharm 运行js</h2>
+<h4 id="1_2">(1)  要求专业版</h4>
+<p>windwos：根据公告进行破解， 需要版本和视频对应</p>
+<p>Mac：淘宝或者拼多多</p>
+<h4 id="2-node">(2) 电脑安装node环境</h4>
+<p><strong>作用：</strong> 用于解释pycharm中的js文件的代码， 可以理解为和Python解释器一样</p>
+<p><strong>node安装包：</strong>  npm install  包名</p>
+<ul>
+<li>
+<p>搜索nodejs 官网</p>
+</li>
+<li>
+<p>https://nodejs.org/zh-cn</p>
+</li>
+</ul>
+<p><img alt="image-20230904164138839" src="imgs/27%E3%80%81%E9%80%86%E5%90%9101.assets/image-20230904164138839-9938173.png" /></p>
+<ul>
+<li>
+<p>版本</p>
+</li>
+<li>
+<p>windwos： 点击其它下载  选择 后缀为msi的，直接傻瓜式安装就可以</p>
+</li>
+<li>Mac： 直接下载 安装即可</li>
+</ul>
+<p><img alt="image-20230904164303131" src="imgs/27%E3%80%81%E9%80%86%E5%90%9101.assets/image-20230904164303131-9938173.png" /></p>
+<ul>
+<li>安装完以后 打开终端输入 node 查看安装是否成功</li>
+</ul>
+<p><img alt="image-20230904164858285" src="imgs/27%E3%80%81%E9%80%86%E5%90%9101.assets/image-20230904164858285-9938173.png" /></p>
+<ul>
+<li>安装步骤</li>
+</ul>
+<p><img src="./imgs/27、逆向01.assets/image-20210903140758138-9938173.png" alt="image-20210903140758138" style="zoom:50%;float:left;" /></p>
+<p><img src="./imgs/27、逆向01.assets/image-20210903140849791-9938173.png" alt="image-20210903140849791" style="zoom:50%;float:left;" /></p>
+<p><img src="./imgs/27、逆向01.assets/image-20210903140907802-9938173.png" alt="image-20210903140907802" style="zoom:50%;float:left;" /></p>
+<p><img src="./imgs/27、逆向01.assets/image-20210903140924424-9938173.png" alt="image-20210903140924424" style="zoom:50%;float:left;" /></p>
+<p><img src="./imgs/27、逆向01.assets/image-20210903140940664-9938173.png" alt="image-20210903140940664" style="zoom:50%;float:left;" /></p>
+<p><img src="./imgs/27、逆向01.assets/image-20210903141025414-9938173.png" alt="image-20210903141025414" style="zoom:50%;float:left;" /></p>
+<p><img src="./imgs/27、逆向01.assets/image-20210903141119146-9938173.png" alt="image-20210903141119146" style="zoom:50%;float:left;" /></p>
+<ul>
+<li>
+<p>将npm设置为国内的镜像</p>
+</li>
+<li>
+<p>windwos</p>
+</li>
+<li>
+<p>在国内使用npm下载包速度比较慢，可以将npm设置为国内的镜像，以加快下载速度。</p>
+<p>以下是将npm设置为淘宝镜像的步骤：</p>
+<ol>
+<li>
+<p>打开终端或命令行窗口</p>
+</li>
+<li>
+<p>输入以下命令，将npm的registry设置为淘宝镜像：</p>
+</li>
+</ol>
+<p><code>cpp
+   npm config set registry https://registry.npm.taobao.org/</code></p>
+<ol>
+<li>检查设置是否生效，输入以下命令：</li>
+</ol>
+<p><code>cpp
+   npm config get registry</code></p>
+<p>如果返回的结果为https://registry.npm.taobao.org/，则说明设置成功。</p>
+<p>现在你可以使用npm安装包，速度会更快了。如果需要恢复为官方registry，只需要输入以下命令：</p>
+<p><code>cpp
+npm config set registry https://registry.npmjs.org/</code></p>
+</li>
+<li>
+<p>Mac</p>
+<p>终端命令</p>
+<p><code>cpp
+npm config set registry https://registry.npm.taobao.org</code></p>
+<p>配置后可通过下面方式来验证是否成功</p>
+<p><code>csharp
+npm config get registrynfig get registry</code></p>
+</li>
+</ul>
+<h4 id="3-pycharm-nodejs">(3) pycharm 安装nodejs 插件</h4>
+<p><img alt="image-20230904165016959" src="imgs/27%E3%80%81%E9%80%86%E5%90%9101.assets/image-20230904165016959-9938173.png" /></p>
+<h4 id="4_1">(4) 测试</h4>
+<ul>
+<li>
+<p>新建js文件</p>
+</li>
+<li>
+<p>输入以下代码</p>
+</li>
+</ul>
+<p><code>javascript
+  var a = 10;
+  var b = 20;
+  console.log(a + b)</code></p>
+<ul>
+<li>点击运行</li>
+</ul>
+<p><img src="./imgs/27、逆向01.assets/image-20230904165216705-9938173.png" alt="image-20230904165216705" style="zoom: 33%;" /></p>
+<ul>
+<li>运行结果</li>
+</ul>
+<p><img alt="image-20230904165258045" src="imgs/27%E3%80%81%E9%80%86%E5%90%9101.assets/image-20230904165258045-9938173.png" /></p>
+<ul>
+<li>也可以在终端输入</li>
+</ul>
+<p>node   文件名称运行</p>
+<p><img alt="image-20230904165401188" src="imgs/27%E3%80%81%E9%80%86%E5%90%9101.assets/image-20230904165401188-9938173.png" /></p>
+<ul>
+<li><strong>注意</strong></li>
+</ul>
+<p>如果执行以下代码返回 Node.js (V8)则正常 若返回Nashorn 则重启电脑即可</p>
+<p><code>python
+  import execjs
+  execjs.get().name</code></p>
+<h4 id="5-pythonjs-pyexecjs">(5) python调用js代码 --- pyexecjs</h4>
+<p><strong>注意：</strong></p>
+<p>如果是Mac M芯片使用Python调用js的问题：使用PyExecJs库遇到execjs._exceptions.ProcessExitedWithNonZeroStatus错误</p>
+<pre><code>aise ProcessExitedWithNonZeroStatus(status=status, stdout=stdoutdata, stderr=stderrdata) execs._exceptions.ProcessExitedWithNonZeroStatus: (1,
+'The operation couldn't be completed. Unable to locate a Jal
+va Runtime. Inplease visit http://www.java.com for information on installing Java. Inin!)
+</code></pre>
+<p><strong>解决：</strong></p>
+<p>URL： https://www.azul.com/downloads/?version=java-8-lts&amp;os=macos&amp;package=jdk#zulu</p>
+<p>下载JDK  傻瓜式安装即可（如果你的Mac是Inter芯片，那么就选择<code>x86 64-bit</code> 的版本。）</p>
+<p>安装完重新运行即可</p>
+<p><img alt="image-20231031185040312" src="imgs/27%E3%80%81%E9%80%86%E5%90%9101.assets/image-20231031185040312-9938173.png" /></p>
+<ul>
+<li>说明</li>
+</ul>
+<p>该模块可以完成对js代码的调用</p>
+<ul>
+<li>安装模块</li>
+</ul>
+<p>pip install pyexecjs</p>
+<ul>
+<li>导入</li>
+</ul>
+<p>import execjs</p>
+<ul>
+<li>执行一小段js代码  eval</li>
+</ul>
+<p>```python
+  import execjs</p>
+<p>fun = """
+  function(){
+      return 'lucky is a good man';
+  }()
+  """
+  context = execjs.eval(fun)
+  print(context)
+  ```</p>
+<ul>
+<li>执行大段js代码 call</li>
+</ul>
+<p>```python
+  import execjs</p>
+<p>with open('example1.js', 'r', encoding='UTF-8') as f:
+      js_code = f.read()</p>
+<p>context = execjs.compile(js_code)
+  result = context.call('add', 2, 3)</p>
+<p>print(result)
+  ```</p>
+<p>我们调用了JavaScript函数<code>add</code>，并传递了两个参数2和3。<code>call</code>方法返回JavaScript函数的执行结果，并将其打印输出。</p>
+<p>需要注意的是，<code>pyexecjs</code>模块依赖于已安装的JavaScript运行时环境。如果你没有安装任何JavaScript运行时环境，<code>pyexecjs</code>模块将无法正常工作。你可以通过安装Node.js或其他支持的JavaScript运行时环境来解决这个问题。</p>
+<h4 id="6-py_mini_racer">(6) py_mini_racer</h4>
+<ul>
+<li>概述</li>
+</ul>
+<p><code>py_mini_racer</code>和<code>pyexecjs</code>是两个用于在Python中执行JavaScript代码的库。它们的功能有一些重叠，但也有各自的特点和使用场景。</p>
+<ul>
+<li><code>py_mini_racer</code></li>
+</ul>
+<p><code>py_mini_racer</code>是一个轻量级的Python库，基于<code>libv8</code>（Google的V8 JavaScript引擎）实现。它主要的特点和优点包括：</p>
+<ul>
+<li>
+<p><strong>速度快</strong>：因为它使用的是高性能的V8引擎。</p>
+</li>
+<li>
+<p><strong>轻量级</strong>：相对于其他解决方案，<code>py_mini_racer</code>的依赖比较少。</p>
+</li>
+<li>
+<p><strong>嵌入式环境</strong>：适合需要频繁调用JavaScript的嵌入式环境。</p>
+</li>
+<li>
+<p><strong>API简洁</strong>：提供了简洁易用的接口，方便快速执行JavaScript代码。</p>
+</li>
+<li>
+<p>`pyexecjs``</p>
+</li>
+</ul>
+<p><code>pyexecjs</code>是另一个Python库，用于执行JavaScript代码。它支持多种JavaScript运行时（如Node.js、PhantomJS、Nashorn等）。它的主要特点和优点包括：</p>
+<ul>
+<li>
+<p><strong>多引擎支持</strong>：可以选择和切换不同的JavaScript引擎，如Node.js、PhantomJS等，这使得它更灵活。</p>
+</li>
+<li>
+<p><strong>跨平台</strong>：支持在不同的操作系统上运行，只要有相应的JavaScript引擎。</p>
+</li>
+<li>
+<p><strong>兼容性好</strong>：因为可以选择不同的引擎，所以在不同的环境下有更好的兼容性。</p>
+</li>
+<li>
+<p>区别总结</p>
+</li>
+</ul>
+<p><strong>依赖和体积</strong>：</p>
+<ul>
+<li><code>py_mini_racer</code>依赖于<code>libv8</code>，安装时可能需要编译，体积相对较小。</li>
+<li><code>pyexecjs</code>依赖于外部JavaScript引擎（如Node.js），安装时需要先安装这些引擎，体积相对较大。</li>
+</ul>
+<p><strong>性能</strong>：</p>
+<ul>
+<li>
+<p><code>py_mini_racer</code>使用V8引擎，性能较高，适合需要高性能JavaScript执行的场景。</p>
+</li>
+<li>
+<p><code>pyexecjs</code>的性能取决于所选择的JavaScript引擎，一般情况下使用Node.js也能获得不错的性能，但总体略逊于<code>py_mini_racer</code>。</p>
+</li>
+</ul>
+<p><strong>灵活性</strong>：</p>
+<ul>
+<li>
+<p><code>pyexecjs</code>支持多种JavaScript引擎，灵活性更高，适合需要兼容多种环境的场景。</p>
+</li>
+<li>
+<p><code>py_mini_racer</code>则比较专注于V8引擎，灵活性稍逊。</p>
+</li>
+</ul>
+<p><strong>易用性</strong>：</p>
+<ul>
+<li>
+<p>两者的API设计都比较简洁，但<code>py_mini_racer</code>的依赖更少，安装和使用相对更简单。</p>
+</li>
+<li>
+<p>选择建议</p>
+</li>
+<li>
+<p>如果你需要高性能、轻量级的JavaScript执行环境，并且能够接受V8引擎的依赖，那么<code>py_mini_racer</code>是一个不错的选择。</p>
+</li>
+<li>
+<p>如果你需要在不同的平台和环境中运行，并且希望有多种JavaScript引擎的选择，那么<code>pyexecjs</code>可能更适合你。</p>
+</li>
+<li>
+<p>示例代码</p>
+</li>
+</ul>
+<p><strong>使用<code>py_mini_racer</code>：</strong></p>
+<p>```python
+  from py_mini_racer import py_mini_racer</p>
+<p>ctx = py_mini_racer.MiniRacer()
+  result = ctx.eval("1 + 1")
+  print(result)  # 输出：2
+  ```</p>
+<p><strong>使用<code>pyexecjs</code>：</strong></p>
+<p>```python
+  python
+  复制代码
+  import execjs</p>
+<p>ctx = execjs.compile("function add(x, y) { return x + y; }")
+  result = ctx.call("add", 1, 1)
+  print(result)  # 输出：2
+  ```</p>
+<p>希望这些信息能帮助你更好地理解这两个库的区别和选择。</p>
+<h4 id="7-pycharm">(7) 使用pycharm运行网易加密代码</h4>
+<ul>
+<li>
+<p>新建wangyiyun.js文件</p>
+</li>
+<li>
+<p>将从刚才捋的加密代码进行复制，运行过程中需要哪个代码就粘贴哪个代码</p>
+</li>
+<li>
+<p>对于加密参数是固定的，直接在console中运行出结果粘贴 过来即可</p>
+</li>
+<li>
+<p>加密库</p>
+</li>
+<li>
+<p>crypto-js 加密算法库</p>
+<p>包含MD5,SHA-1,SHA-256,AES,Rabbit,MARC4,HMAC,HMAC-MD5,HMAC-SHA1,HMAC-SHA256,PBKDF2等</p>
+<ul>
+<li>
+<p>npm install  crypto-js</p>
+</li>
+<li>
+<p>查看当前node安装了哪些包</p>
+</li>
+</ul>
+<p>npm ls --depth 0</p>
+</li>
+<li>
+<p>注意：</p>
+<p>在Node.js中，<code>crypto-js</code>和<code>cryptojs</code>是两个不同的库。</p>
+<p><code>crypto-js</code>是一个JavaScript加密库，它提供了许多常见的加密算法，如AES、DES、SHA等。使用<code>crypto-js</code>可以在Node.js环境中进行数据加密和解密操作。</p>
+<p>而<code>cryptojs</code>（也称为<code>crypto-js@3.x.x</code>）是一个非官方的、过时的版本的<code>crypto-js</code>库。在2018年之前，<code>cryptojs</code>是<code>crypto-js</code>的官方名称，但后来由于一些原因，官方将其库名改为了<code>crypto-js</code>。因此，现在推荐使用官方的<code>crypto-js</code>库，而不是<code>cryptojs</code>。</p>
+<p>所以，在现代的Node.js项目中，应该使用<code>crypto-js</code>库来进行加密相关的操作。你可以通过npm安装它，并在js代码中引入它：</p>
+<p><code>javascript
+const CryptoJS = require('crypto-js');</code></p>
+<p>这样就可以使用<code>CryptoJS</code>对象来调用库中的各种加密算法了。</p>
+</li>
+<li>
+<p>用到的RSA加密官网</p>
+<ul>
+<li>RSAKeyPair</li>
+</ul>
+<p>https://ohdave.com/rsa/</p>
+<ul>
+<li>将其中用到的库的js代码复制粘贴过来，保存为rsa.js，并在代码中添加要导出用到的加密函数</li>
+</ul>
+<p><code>module.exports = {
+      setMaxDigits,
+      RSAKeyPair,
+      encryptedString,
+  }</code></p>
+<ul>
+<li>在test.js文件中进行导入使用 需要注意给路径</li>
+</ul>
+<p>var mysa = require('./rsa.js')</p>
+</li>
+<li>
+<p>完整代码</p>
+</li>
+</ul>
+<p>```javascript
+  var CryptoJS = require('crypto-js')
+  var {setMaxDigits,RSAKeyPair,encryptedString} = require('./rsa.js')</p>
+<p>var bitsPerDigit = 16
+  function d(d, e, f, g) {
+      var h = {}, i = a(16);
+      return h.encText = b(d, g),
+      h.encText = b(h.encText, i),
+      h.encSecKey = c(i, e, f), h
+  }
+  function a(a) {
+          var d, e, b = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789", c = "";
+          for (d = 0; a &gt; d; d += 1)
+              e = Math.random() * b.length,
+              e = Math.floor(e),
+              c += b.charAt(e);
+          return c
+  }
+  function b(a, b) {
+          var c = CryptoJS.enc.Utf8.parse(b)
+            , d = CryptoJS.enc.Utf8.parse("0102030405060708")
+            , e = CryptoJS.enc.Utf8.parse(a)
+            , f = CryptoJS.AES.encrypt(e, c, {
+              iv: d,
+              mode: CryptoJS.mode.CBC
+          });
+          return f.toString()
+  }
+  function c(a, b, c) {
+          var d, e;
+          return setMaxDigits(131),
+          d = new RSAKeyPair(b,"",c),
+          e = encryptedString(d, a)
+  }</p>
+<p>i7b = '{"logs":"[{\"action\":\"play\",\"json\":{\"id\":\"188451\",\"type\":\"song\",\"content\":\"id=188451\"}}]","csrf_token":""}'
+  bs = '010001'
+  k = '00e0b509f6259df8642dbc35662901477df22677ec152b5ff68ace615bb7b725152b3ab17a876aea8a5aa76d2e417629ec4ee341f56135fccf695280104e0312ecbda92557c93870114af6c9d05c4f7f0c3685b7a46bee255932575cce10b424d813cfe4875d3e82047b97ddef52741d546b8e289dc6935b3ece0462db0a22b8e7'
+  f5 = '0CoJUm6Qyw8W8jud'
+  console.log(d(i7b, bs, k, f5))
+  ```</p>
+<h4 id="8-pyexecjsjs">(8) pyexecjs调用js 获取网易云加密</h4>
+<ul>
+<li>wangyiyun.js</li>
+</ul>
+<p>```javascript
+  var CryptoJS = require('crypto-js')
+  var {setMaxDigits,RSAKeyPair,encryptedString} = require('./rsa.js')</p>
+<p>var bitsPerDigit = 16
+  function d(d, e, f, g) {
+      var h = {}, i = a(16);
+      return h.encText = b(d, g),
+      h.encText = b(h.encText, i),
+      h.encSecKey = c(i, e, f), h
+  }
+  function a(a) {
+          var d, e, b = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789", c = "";
+          for (d = 0; a &gt; d; d += 1)
+              e = Math.random() * b.length,
+              e = Math.floor(e),
+              c += b.charAt(e);
+          return c
+  }
+  function b(a, b) {
+          var c = CryptoJS.enc.Utf8.parse(b)
+            , d = CryptoJS.enc.Utf8.parse("0102030405060708")
+            , e = CryptoJS.enc.Utf8.parse(a)
+            , f = CryptoJS.AES.encrypt(e, c, {
+              iv: d,
+              mode: CryptoJS.mode.CBC
+          });
+          return f.toString()
+  }
+  function c(a, b, c) {
+          var d, e;
+          return setMaxDigits(131),
+          d = new RSAKeyPair(b,"",c),
+          e = encryptedString(d, a)
+  }</p>
+<p>function main(){
+      var i7b = {ids: '[188451]', level: 'standard', encodeType: 'aac', csrf_token: ''}
+      var bs = '010001'
+      var k = '00e0b509f6259df8642dbc35662901477df22677ec152b5ff68ace615bb7b725152b3ab17a876aea8a5aa76d2e417629ec4ee341f56135fccf695280104e0312ecbda92557c93870114af6c9d05c4f7f0c3685b7a46bee255932575cce10b424d813cfe4875d3e82047b97ddef52741d546b8e289dc6935b3ece0462db0a22b8e7'
+      var f5 = '0CoJUm6Qyw8W8jud'
+      return d(JSON.stringify(i7b), bs, k, f5)
+  }
+  ```</p>
+<ul>
+<li>python 代码</li>
+</ul>
+<p>```python
+  import execjs</p>
+<p>with open('wangyiyun.js', 'r', encoding='UTF-8') as f:
+      js_code = f.read()
+  context = execjs.compile(js_code)
+  result = context.call('main')
+  print(result)
+  ```</p>
+<h4 id="9">(9)  注意</h4>
+<ul>
+<li><strong>说明：</strong></li>
+</ul>
+<p>pyexecjs调用js的时候. 有可能会出现错误</p>
+<p><code>UnicodeDecodeError: 'gbk' codec can't decode byte 0xbd in position 37: illegal multibyte sequence</code></p>
+<ul>
+<li>
+<p><strong>原因：</strong>
+  是由于编码集默认是gbk导致的.</p>
+</li>
+<li>
+<p><strong>解决：</strong> 锁定subprocess的encoding参数.</p>
+</li>
+</ul>
+<p><code>python
+  import subprocess
+  from functools import partial  # 专门用来固定参数的
+  subprocess.Popen = partial(subprocess.Popen, encoding="utf-8")</code></p>
+<ul>
+<li><strong>注意：</strong></li>
+</ul>
+<p>请注意. 一定要放在代码的最前面.</p>
+<h4 id="10-python">(10) python逆向网易云完整代码</h4>
+<pre><code class="language-Python">import subprocess
+from functools import partial  # 专门用来固定参数的
+subprocess.Popen = partial(subprocess.Popen, encoding=&quot;utf-8&quot;)
+import execjs
+import requests
+import json
+
+with open('wangyiyun.js', 'r') as f:
+    js_code = f.read()
+context = execjs.compile(js_code)
+result = context.call('main')
+print(result)
+
+url = 'https://music.163.com/weapi/song/enhance/player/url/v1?csrf_token='
+headers = {
+    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36',
+    'Referer': 'https://music.163.com/',
+}
+data = {
+    'params': result['encText'],
+    'encSecKey': result['encSecKey'],
+}
+res = requests.post(url, headers=headers, data=data)
+print(res, res.text)
+# 获取歌曲的URL地址
+url = res.json()['data'][0]['url']
+# 下载音乐
+with open('音乐.mp3', 'wb') as f:
+    f.write(requests.get(url, headers=headers).content)
+</code></pre>
+<p>响应</p>
+<pre><code class="language-python">{&quot;data&quot;:[{&quot;id&quot;:188451,&quot;url&quot;:&quot;http://m701.music.126.net/20230905150222/37727dd7d43e2e5d58c26bb1a525cfa1/jdyyaac/obj/w5rDlsOJwrLDjj7CmsOj/5637633350/e015/782a/b070/0001721641e4a098620da30fbb307bd6.m4a&quot;,&quot;br&quot;:96020,&quot;size&quot;:3706079,&quot;md5&quot;:&quot;0001721641e4a098620da30fbb307bd6&quot;,&quot;code&quot;:200,&quot;expi&quot;:1200,&quot;type&quot;:&quot;m4a&quot;,&quot;gain&quot;:0.0,&quot;peak&quot;:0.9521,&quot;fee&quot;:8,&quot;uf&quot;:null,&quot;payed&quot;:0,&quot;flag&quot;:260,&quot;canExtend&quot;:false,&quot;freeTrialInfo&quot;:null,&quot;level&quot;:&quot;standard&quot;,&quot;encodeType&quot;:&quot;aac&quot;,&quot;freeTrialPrivilege&quot;:{&quot;resConsumable&quot;:false,&quot;userConsumable&quot;:false,&quot;listenType&quot;:null,&quot;cannotListenReason&quot;:null},&quot;freeTimeTrialPrivilege&quot;:{&quot;resConsumable&quot;:false,&quot;userConsumable&quot;:false,&quot;type&quot;:0,&quot;remainTime&quot;:0},&quot;urlSource&quot;:0,&quot;rightSource&quot;:0,&quot;podcastCtrp&quot;:null,&quot;effectTypes&quot;:null,&quot;time&quot;:304293}],&quot;code&quot;:200}
+</code></pre>
+<h2 id="_8">四、针对网站加密的解决方式</h2>
+<h4 id="1js">1、仿照网页上的js, 完成本地代码编写.</h4>
+<p>原则：尽可能的不去改它的代码.</p>
+<h4 id="2_1">2、借助第三方库, 完成代码的拼写</h4>
+<p>比如里面用到一些三方库，我们可以安装当前库并导入</p>
+<h4 id="3_2">3、如果碰到不使用第三方库, 对第三方库进行更改过的.</h4>
+<p>如何确认是否是被魔改了的? 找个标准库实验一下即可...</p>
+<p>准备好抠代码的思路.</p>
+<ul>
+<li>准备好入口函数, 以及测试用例...</li>
+<li>尝试运行代码. 根据报错提示, 补充相关的代码</li>
+<li>如果需要补充的东西过多. 可以考虑找边界. 然后批量的进行代码抠取</li>
+</ul>
+<p>万能的解决方案... 缺点...太慢了|碰到promise会头疼...</p>
+<h4 id="4_2">4、补环境.</h4>
+<ul>
+<li>
+<p>网站的代码不希望. 它的代码在node环境运行...
+  网站的作者会对运行环境进行检测.</p>
+</li>
+<li>
+<p>node环境是一个后端环境. 没有window, document</p>
+</li>
+</ul>
+<h4 id="5python">5、用python完成加密逻辑.</h4>
+<h4 id="_9"></h4>
+<h2 id="pythonschedule">五、python中定时任务schedule库用法详解</h2>
+<p>schedule是一个第三方轻量级的任务调度模块，可以按照秒，分，小时，日期或者自定义事件执行时间。
+    如果想执行多个任务，也可以添加多个task。</p>
+<p>首先安装schedule库：</p>
+<pre><code>pip install schedule
+</code></pre>
+<h3 id="1_3">1、按时间间隔执行定时任务</h3>
+<p>示例代码1：</p>
+<pre><code class="language-python">import schedule
+from datetime import datetime
+
+
+def task():
+    now = datetime.now()
+    ts = now.strftime(&quot;%Y-%m-%d %H:%M:%S&quot;)
+    print(ts)
+
+
+def task2():
+    now = datetime.now()
+    ts = now.strftime(&quot;%Y-%m-%d %H:%M:%S&quot;)
+    print(ts + '666!')
+
+
+def func():
+    # 清空任务
+    schedule.clear()
+    # 创建一个按3秒间隔执行任务
+    schedule.every(3).seconds.do(task)
+    # 创建一个按2秒间隔执行任务
+    schedule.every(2).seconds.do(task2)
+    while True:
+        schedule.run_pending()
+
+
+func()
+</code></pre>
+<p>运行结果：</p>
+<p><img src="./imgs/27、逆向01.assets/image-20240710152140441-9938173.png" alt="image-20240710152140441" style="zoom:50%;" /></p>
+<p>示例代码2：</p>
+<pre><code class="language-python">import schedule
+import time
+
+
+def job(name):
+    print(&quot;her name is : &quot;, name)
+
+
+name = &quot;张三&quot;
+schedule.every(10).minutes.do(job, name)
+schedule.every().hour.do(job, name)
+schedule.every().day.at(&quot;10:30&quot;).do(job, name)
+schedule.every(5).to(10).days.do(job, name)
+schedule.every().monday.do(job, name)
+schedule.every().wednesday.at(&quot;13:15&quot;).do(job, name)
+
+while True:
+    schedule.run_pending()
+    time.sleep(1)
+</code></pre>
+<p>参数解释：</p>
+<ul>
+<li>每隔十分钟执行一次任务</li>
+<li>每隔一小时执行一次任务</li>
+<li>每天的10:30执行一次任务</li>
+<li>每隔5到10天执行一次任务 </li>
+<li>每周一的这个时候执行一次任务</li>
+<li>每周三13:15执行一次任务</li>
+<li>run_pending：运行所有可以运行的任务</li>
+</ul>
+<p><strong><em>*注意：*</em></strong>schedule方法是串行的，也就是说，如果各个任务之间时间不冲突，那是没问题的；如果时间有冲突的话，会串行的执行命令。</p>
+<h3 id="2-repeat">2、装饰器：通过 @<a href="https://so.csdn.net/so/search?q=repeat&amp;spm=1001.2101.3001.7020">repeat</a>() 装饰静态方法</h3>
+<p>示例代码：</p>
+<pre><code class="language-python">from datetime import datetime
+from schedule import every, repeat, run_pending
+
+
+@repeat(every(3).seconds)
+def task():
+    now = datetime.now()
+    ts = now.strftime(&quot;%Y-%m-%d %H:%M:%S&quot;)
+    print(ts + '-333!')
+
+
+@repeat(every(5).seconds)
+def task2():
+    now = datetime.now()
+    ts = now.strftime(&quot;%Y-%m-%d %H:%M:%S&quot;)
+    print(ts + &quot;-555555!&quot;)
+
+
+while True:
+    run_pending()
+</code></pre>
+<p>运行结果：</p>
+<p><img src="./imgs/27、逆向01.assets/image-20240710152242694-9938173.png" alt="image-20240710152242694" style="zoom: 50%;" /></p>
+<h3 id="3_3">3、传递参数</h3>
+<p>示例代码：</p>
+<pre><code class="language-python">from datetime import datetime
+import schedule
+
+
+def task(s):
+    now = datetime.now()
+    ts = now.strftime(&quot;%Y-%m-%d %H:%M:%S&quot;)
+    print(ts + s)
+
+
+def task2(s):
+    now = datetime.now()
+    ts = now.strftime(&quot;%Y-%m-%d %H:%M:%S&quot;)
+    print(ts + s)
+
+
+schedule.every(3).seconds.do(task, s='-333')
+schedule.every(5).seconds.do(task, s='-555')
+while True:
+    schedule.run_pending()
+</code></pre>
+<p>运行结果：</p>
+<p><img src="./imgs/27、逆向01.assets/image-20240710152327262-9938173.png" alt="image-20240710152327262" style="zoom:50%;" /></p>
+<h3 id="4_3">4、使用装饰器传递参数</h3>
+<p>示例代码：</p>
+<pre><code class="language-python">from datetime import datetime
+from schedule import every, repeat, run_pending
+
+
+@repeat(every(3).seconds, '-333')
+def task(s):
+    now = datetime.now()
+    ts = now.strftime(&quot;%Y-%m-%d %H:%M:%S&quot;)
+    print(ts + s)
+
+
+@repeat(every(5).seconds, '-555')
+def task2(s):
+    now = datetime.now()
+    ts = now.strftime(&quot;%Y-%m-%d %H:%M:%S&quot;)
+    print(ts + s)
+
+
+while True:
+    run_pending()
+</code></pre>
+<p>运行结果：</p>
+<p><img src="./imgs/27、逆向01.assets/image-20240710152405865-9938173.png" alt="image-20240710152405865" style="zoom:50%;" /></p>
+<h3 id="5_1">5、取消定时任务</h3>
+<p>示例代码： </p>
+<pre><code class="language-python">import schedule
+
+i = 0
+
+
+def some_task():
+    global i
+    i += 1
+    print(i)
+    if i == 5:
+        schedule.cancel_job(job)
+        print('cancel job')
+        exit(0)
+
+
+job = schedule.every().second.do(some_task)
+while True:
+    schedule.run_pending()
+</code></pre>
+<p>运行结果：</p>
+<p><img src="./imgs/27、逆向01.assets/image-20240710152434405-9938173.png" alt="image-20240710152434405" style="zoom:50%;" /></p>
+<h3 id="6">6、在指定时间执行一次任务</h3>
+<p>示例代码：</p>
+<pre><code class="language-python">import time
+import schedule
+
+
+def job_that_executes_once():
+    print('Hello')
+    return schedule.CancelJob
+
+
+schedule.every().minute.at(':30').do(job_that_executes_once)
+while True:
+    schedule.run_pending()
+    time.sleep(1)
+</code></pre>
+<p>运行结果：</p>
+<p><img alt="image-20240710152500412" src="imgs/27%E3%80%81%E9%80%86%E5%90%9101.assets/image-20240710152500412-9938173.png" /></p>
+<h3 id="7">7、根据标签检索任务</h3>
+<p>示例代码：</p>
+<pre><code class="language-python"># 检索所有任务：schedule.get_jobs()
+import schedule
+
+
+def greet(name):
+    print('Hello {}'.format(name))
+
+
+schedule.every().day.do(greet, 'Andrea').tag('daily-tasks', 'friend')
+schedule.every().hour.do(greet, 'John').tag('hourly-tasks', 'friend')
+schedule.every().hour.do(greet, 'Monica').tag('hourly-tasks', 'customer')
+schedule.every().day.do(greet, 'Derek').tag('daily-tasks', 'guest')
+friends = schedule.get_jobs('friend')
+print(friends)
+</code></pre>
+<p>运行结果：</p>
+<p><img alt="image-20240710152542087" src="imgs/27%E3%80%81%E9%80%86%E5%90%9101.assets/image-20240710152542087-9938173.png" /></p>
+<h3 id="8">8、根据标签取消任务</h3>
+<p>示例代码：</p>
+<pre><code class="language-python"># 取消所有任务：schedule.clear()
+import schedule
+
+
+def greet(name):
+    print('Hello {}'.format(name))
+    if name == 'Cancel':
+        schedule.clear('second-tasks')
+        print('cancel second-tasks')
+
+
+schedule.every().second.do(greet, 'Andrea').tag('second-tasks', 'friend')
+schedule.every().second.do(greet, 'John').tag('second-tasks', 'friend')
+schedule.every().hour.do(greet, 'Monica').tag('hourly-tasks', 'customer')
+schedule.every(5).seconds.do(greet, 'Cancel').tag('daily-tasks', 'guest')
+while True:
+    schedule.run_pending()
+</code></pre>
+<p>运行结果：</p>
+<p><img src="./imgs/27、逆向01.assets/image-20240710152632794-9938173.png" alt="image-20240710152632794" style="zoom:50%;" /></p>
+<h3 id="9_1">9、运行任务到某时间</h3>
+<p>示例代码：</p>
+<pre><code class="language-python">import schedule
+from datetime import datetime, timedelta, time
+
+
+def job():
+    print('working...')
+
+
+schedule.every().second.until('23:59').do(job)  # 今天23:59停止
+schedule.every().second.until('2030-01-01 18:30').do(job)  # 2030-01-01 18:30停止
+schedule.every().second.until(timedelta(hours=8)).do(job)  # 8小时后停止
+schedule.every().second.until(time(23, 59, 59)).do(job)  # 今天23:59:59停止
+schedule.every().second.until(datetime(2030, 1, 1, 18, 30, 0)).do(job)  # 2030-01-01 18:30停止
+while True:
+    schedule.run_pending()
+</code></pre>
+<p>运行结果：</p>
+<p><img src="./imgs/27、逆向01.assets/image-20240710152709309-9938173.png" alt="image-20240710152709309" style="zoom:50%;" /></p>
+<h3 id="10">10、马上运行所有任务（主要用于测试）</h3>
+<p>示例代码：</p>
+<pre><code class="language-python">import schedule
+
+
+def job():
+    print('working...')
+
+
+def job1():
+    print('Hello...')
+
+
+schedule.every().monday.at('12:40').do(job)
+schedule.every().tuesday.at('16:40').do(job1)
+schedule.run_all()
+schedule.run_all(delay_seconds=3)  # 任务间延迟3秒
+</code></pre>
+<p>运行结果：</p>
+<p><img alt="image-20240710152746136" src="imgs/27%E3%80%81%E9%80%86%E5%90%9101.assets/image-20240710152746136-9938173.png" /></p>
+<h3 id="11-python">11、并行运行：使用 Python 内置队列实现</h3>
+<p>示例代码： </p>
+<pre><code class="language-python">import threading
+import time
+import schedule
+
+
+def job1():
+    print(&quot;I'm running on thread %s&quot; % threading.current_thread())
+
+
+def job2():
+    print(&quot;I'm running on thread %s&quot; % threading.current_thread())
+
+
+def job3():
+    print(&quot;I'm running on thread %s&quot; % threading.current_thread())
+
+
+def run_threaded(job_func):
+    job_thread = threading.Thread(target=job_func)
+    job_thread.start()
+
+
+schedule.every(10).seconds.do(run_threaded, job1)
+schedule.every(10).seconds.do(run_threaded, job2)
+schedule.every(10).seconds.do(run_threaded, job3)
+while True:
+    schedule.run_pending()
+    time.sleep(1)
+</code></pre>
+<p>运行结果：</p>
+<p><img src="./imgs/27、逆向01.assets/image-20240710152814258-9938173.png" alt="image-20240710152814258" style="zoom:50%;" /></p>
+
+
+</section>
+</div> <!-- end of search-noresults -->
+<div class="search-results">
+<div class="has-results">
+
+<h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+<ul class="search-results-list"></ul>
+
+</div> <!-- end of has-results -->
+<div class="no-results">
+
+<h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+
+</div> <!-- end of no-results -->
+</div> <!-- end of search-results -->
+</div> <!-- end of book-search-results -->
+
+</div> <!-- end of page-inner -->
+</div> <!-- end of page-wrapper -->
+
+</div> <!-- end of body-inner -->
+
+</div> <!-- end of book-body -->
+<script src="./js/main.js"></script>
+<script src="search/main.js"></script>
+<script src="./js/gitbook.min.js"></script>
+<script src="./js/theme.min.js"></script>
+</body>
+</html>

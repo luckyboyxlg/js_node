@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>二十、js字符串 - js node</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="generator" content="mkdocs-1.6.1, mkdocs-gitbook-1.0.7">
+
+<link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta rel="next" href="" />
+<link href="./css/style.min.css" rel="stylesheet"> 
+</head>
+
+<body>
+<div class="book">
+<div class="book-summary">
+<div id="book-search-input" role="search">
+<input type="text" placeholder="Type to search" />
+</div> <!-- end of book-search-input -->
+
+<nav role="navigation">
+<ul class="summary">
+<li>
+<a href="index.html" target="_blank" class="custom-link">js node</a>
+</li>
+<li class="divider"></li>
+<li class="chapter" data-path="index.html">
+<a href="index.html">Welcome to MkDocs</a>
+<li class="chapter" data-path="01%E3%80%81html.html">
+<a href="01%E3%80%81html.html">一、HTML</a>
+<li class="chapter" data-path="02%E3%80%81CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8.html">
+<a href="02%E3%80%81CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8.html">二、CSS层叠样式表</a>
+<li class="chapter" data-path="03%E3%80%81%E6%AD%A3%E5%88%99.html">
+<a href="03%E3%80%81%E6%AD%A3%E5%88%99.html">三、正则</a>
+<li class="chapter" data-path="04%E3%80%81BS4%E8%A7%A3%E6%9E%90%E5%AE%8C%E6%95%B4.html">
+<a href="04%E3%80%81BS4%E8%A7%A3%E6%9E%90%E5%AE%8C%E6%95%B4.html">四、beautifulsoup</a>
+<li class="chapter" data-path="05%E3%80%81xpath.html">
+<a href="05%E3%80%81xpath.html">五、xpath</a>
+<li class="chapter" data-path="06%E3%80%81%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E4%B8%8Eurllib%26requests.html">
+<a href="06%E3%80%81%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E4%B8%8Eurllib%26requests.html">六、爬虫入门</a>
+<li class="chapter" data-path="07%E3%80%81urllib%E4%B8%8Erequests.html">
+<a href="07%E3%80%81urllib%E4%B8%8Erequests.html">七、urllib与requests</a>
+<li class="chapter" data-path="08%E3%80%81%E5%A4%9A%E8%BF%9B%E7%A8%8B.html">
+<a href="08%E3%80%81%E5%A4%9A%E8%BF%9B%E7%A8%8B.html">八、多进程</a>
+<li class="chapter" data-path="09%E3%80%81%E7%BA%BF%E7%A8%8B.html">
+<a href="09%E3%80%81%E7%BA%BF%E7%A8%8B.html">九、线程</a>
+<li class="chapter" data-path="10%E3%80%81%E5%8D%8F%E7%A8%8B.html">
+<a href="10%E3%80%81%E5%8D%8F%E7%A8%8B.html">十、携程</a>
+<li class="chapter" data-path="11%E3%80%81selenium.html">
+<a href="11%E3%80%81selenium.html">十一、selenium</a>
+<li class="chapter" data-path="12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.html">
+<a href="12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.html">十二、MySQL数据库</a>
+<li class="chapter" data-path="13%E3%80%81Mongodb.html">
+<a href="13%E3%80%81Mongodb.html">十三、Mongodb</a>
+<li class="chapter" data-path="14%E3%80%81redis.html">
+<a href="14%E3%80%81redis.html">十四、Redis数据库</a>
+<li class="chapter" data-path="15%E3%80%81%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.html">
+<a href="15%E3%80%81%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.html">十五、面向对象</a>
+<li class="chapter" data-path="16-Scrapy01-%E6%A1%86%E6%9E%B6%E5%88%9D%E8%AE%A4%E8%AF%86.html">
+<a href="16-Scrapy01-%E6%A1%86%E6%9E%B6%E5%88%9D%E8%AE%A4%E8%AF%86.html">十六、Scrapy框架初认识</a>
+<li class="chapter" data-path="16-Scrapy02%E6%B7%B1%E5%85%A5%E4%BD%BF%E7%94%A8-%E5%AD%98%E5%82%A8.html">
+<a href="16-Scrapy02%E6%B7%B1%E5%85%A5%E4%BD%BF%E7%94%A8-%E5%AD%98%E5%82%A8.html">十六、Scrapy深入使用-存储</a>
+<li class="chapter" data-path="16-Scrapy03-%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86%E4%BB%A5%E5%8F%8A%E5%88%86%E9%A1%B5.html">
+<a href="16-Scrapy03-%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86%E4%BB%A5%E5%8F%8A%E5%88%86%E9%A1%B5.html">十六、scrapy模拟登陆&amp;分页</a>
+<li class="chapter" data-path="16-Scrapy04-%E4%B8%AD%E9%97%B4%E4%BB%B6.html">
+<a href="16-Scrapy04-%E4%B8%AD%E9%97%B4%E4%BB%B6.html">十六、Scrapy中间件</a>
+<li class="chapter" data-path="16-Scrapy05-%E5%88%86%E9%A1%B5%E6%8A%93%E5%8F%96.html">
+<a href="16-Scrapy05-%E5%88%86%E9%A1%B5%E6%8A%93%E5%8F%96.html">十六、scrapy的crawlspider爬虫</a>
+<li class="chapter" data-path="16-Scrapy06-scrapy_redis.html">
+<a href="16-Scrapy06-scrapy_redis.html">十六、scrapy_redis</a>
+<li class="chapter" data-path="17%E3%80%81js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html">
+<a href="17%E3%80%81js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html">十七、js数据类型</a>
+<li class="chapter" data-path="18%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%8E%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6.html">
+<a href="18%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%8E%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6.html">十八、js运算符与流程控制</a>
+<li class="chapter" data-path="19%E3%80%81js%E6%95%B0%E7%BB%84.html">
+<a href="19%E3%80%81js%E6%95%B0%E7%BB%84.html">十九、js数组</a>
+<li class="chapter active" data-path="20%E3%80%81js%E5%AD%97%E7%AC%A6%E4%B8%B2.html">
+<a href="20%E3%80%81js%E5%AD%97%E7%AC%A6%E4%B8%B2.html">二十、js字符串</a>
+<li class="chapter" data-path="21%E3%80%81js%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%97%B6%E9%97%B4.html">
+<a href="21%E3%80%81js%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%97%B6%E9%97%B4.html">二十一、js对象与时间</a>
+<li class="chapter" data-path="22%E3%80%81%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89.html">
+<a href="22%E3%80%81%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89.html">二十二、js函数</a>
+<li class="chapter" data-path="23%E3%80%81js%E8%BF%9B%E9%98%B6.html">
+<a href="23%E3%80%81js%E8%BF%9B%E9%98%B6.html">二十三、Javascript进阶</a>
+<li class="chapter" data-path="24%E3%80%81BOM%E6%93%8D%E4%BD%9C.html">
+<a href="24%E3%80%81BOM%E6%93%8D%E4%BD%9C.html">二十四、浏览器对象模型BOM</a>
+<li class="chapter" data-path="25%E3%80%81DOM%E6%93%8D%E4%BD%9C.html">
+<a href="25%E3%80%81DOM%E6%93%8D%E4%BD%9C.html">二十五、DOM操作</a>
+<li class="chapter" data-path="26%E3%80%81jQuery%E6%93%8D%E4%BD%9C.html">
+<a href="26%E3%80%81jQuery%E6%93%8D%E4%BD%9C.html">二十六、jQuery</a>
+<li class="chapter" data-path="27%E3%80%81%E9%80%86%E5%90%9101.html">
+<a href="27%E3%80%81%E9%80%86%E5%90%9101.html">二十七、JS逆向01</a>
+<li class="chapter" data-path="28%E3%80%81%E9%80%86%E5%90%9102.html">
+<a href="28%E3%80%81%E9%80%86%E5%90%9102.html">二十八、逆向02</a>
+<li class="chapter" data-path="29%E3%80%81%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html">
+<a href="29%E3%80%81%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html">二十九、微信小程序逆向开发</a>
+<li class="chapter" data-path="30%E3%80%81%E7%BD%91%E6%98%93%E6%BB%91%E5%9D%97.html">
+<a href="30%E3%80%81%E7%BD%91%E6%98%93%E6%BB%91%E5%9D%97.html">三十、网易易盾</a>
+<li class="chapter" data-path="31%E3%80%81rpc.html">
+<a href="31%E3%80%81rpc.html">三十一、RPC</a>
+<li class="chapter" data-path="32%E3%80%81TLS%E6%8C%87%E7%BA%B9%E7%BB%95%E8%BF%87.html">
+<a href="32%E3%80%81TLS%E6%8C%87%E7%BA%B9%E7%BB%95%E8%BF%87.html">三十二、TLS指纹绕过</a>
+<li class="chapter" data-path="33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">
+<a href="33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">三十三、高级逆向</a>
+<li class="chapter" data-path="34%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">
+<a href="34%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">三十四、高级逆向</a>
+<li class="chapter" data-path="%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B%E7%AC%94%E8%AE%B0.html">
+<a href="%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B%E7%AC%94%E8%AE%B0.html">逆向实战案例笔记</a>
+<li class="header">Pyexecjs与npm配置</li>
+
+<li>
+<a href="pyexecjs%E4%B8%8Enpm%E9%85%8D%E7%BD%AE/execjs%E4%BB%8B%E7%BB%8D%E4%BB%A5%E5%8F%8A%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8.html" class="">Execjs介绍以及安装和使用</a>
+</li>
+
+<li>
+<a href="pyexecjs%E4%B8%8Enpm%E9%85%8D%E7%BD%AE/%E4%B8%80%E6%AC%A1%E6%80%A7%E8%A7%A3%E5%86%B3%E6%8E%89npm%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5%E7%9A%84%E9%97%AE%E9%A2%98.html" class="">更换npm为国内镜像</a>
+</li>
+
+<li class="header">补环境</li>
+
+<li>
+<a href="%E8%A1%A5%E7%8E%AF%E5%A2%83/1%E3%80%81%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8E%E4%BA%8B%E4%BB%B6.html" class="">补环境</a>
+</li>
+
+<li>
+<a href="%E8%A1%A5%E7%8E%AF%E5%A2%83/2%E3%80%81Proxy%E4%BB%A3%E7%90%86%E5%99%A8.html" class="">Proxy代理</a>
+</li>
+
+<li>
+<a href="%E8%A1%A5%E7%8E%AF%E5%A2%83/3%E3%80%81vm2%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83.html" class="">3、vm2运行环境</a>
+</li>
+
+<li class="divider"></li>
+
+
+
+<li><a href="http://www.mkdocs.org">
+Published with MkDocs
+</a></li>
+
+<li><a href="https://github.com/GitbookIO/theme-default">
+Theme by GitBook
+</a></li>
+</ul>
+
+</nav>
+
+</div> <!-- end of book-summary -->
+
+<div class="book-body">
+<div class="body-inner">
+<div class="book-header" role="navigation">
+
+<!-- Title -->
+<h1>
+<i class="fa fa-circle-o-notch fa-spin"></i>
+<a href="." ></a>
+</h1>
+
+</div> <!-- end of book-header -->
+
+<div class="page-wrapper" tabindex="-1" role="main">
+<div class="page-inner">
+<div id="book-search-results">
+<div class="search-noresults">
+
+<section class="normal markdown-section">
+
+
+
+<h1 id="js">二十、js字符串</h1>
+<h2 id="_1">一、字符串的属性</h2>
+<ul>
+<li>字符串的属性</li>
+</ul>
+<p><strong>length</strong>:  表示字符串的长度</p>
+<p>例如 :  </p>
+<p><code>javascript
+  var str = "howareyou";
+  console.log(str.length);
+  console.log(str[0]);  //获取字符串中对应下标的字符</code></p>
+<ul>
+<li><strong>注意</strong>: ECMAScript 中的字符串是不可变的; 也就是说，字符串一旦创建，它们的值就不能改变.</li>
+</ul>
+<p>例如:</p>
+<p><code>javascript
+  var str = "亲,包邮哦";
+  str[0] = "lucky"; //不会改变</code></p>
+<p>如果要改变某个变量保存的字符串，首先要销毁原来的字符串，然后再用另一个包含新值的字符串填充该变量.</p>
+<p><code>javascript
+  var str = "Hello";
+  str = str + " world!";</code></p>
+<h3 id="1">1、字符串使用</h3>
+<ul>
+<li>概述</li>
+</ul>
+<p>在js中 使用单引号或者双引号的类型为字符串类型</p>
+<ul>
+<li>创建</li>
+</ul>
+<p>var str = ''</p>
+<p><code>javascript
+  var str = 'abcefg'
+  console.log(typeof str);
+  console.log(str.length);</code></p>
+<ul>
+<li>
+<p>属性</p>
+</li>
+<li>
+<p>length   获取字符串的长度</p>
+<p><code>javascript
+var str = 'abcefg'
+console.log(str.length);</code></p>
+<p>对于字符串 length只可以获取长度不能更改长度</p>
+</li>
+<li>
+<p>读取</p>
+</li>
+</ul>
+<p>str[索引值]</p>
+<p><code>javascript
+  console.log(str[0]);</code></p>
+<p><strong>注意：</strong>字符串索引所对应的值只能获取  不能更改</p>
+<h3 id="2">2、字符串的格式化</h3>
+<p><strong>使用反引号实现</strong></p>
+<p>ES6 模板字符串(Template String)是增强版的字符串，用反引号(`)标识，它可以当作普通字符串使用，也可以用来定义多行字符串，或者在字符串中嵌入变量。</p>
+<p>语法格式：</p>
+<pre><code class="language-javascript">`想要输出的字符串……${变量名称}想要输出的字符串……${变量名称}`
+</code></pre>
+<p>实例</p>
+<pre><code class="language-javascript"> &lt;script&gt;
+        window.onload = function() {
+            var name = &quot;lucky&quot;;
+            var age = 25;
+            var sex = &quot;男&quot;;
+            console.log(`大家好，我叫${name}，性别${sex},今年${age}岁了`);
+        }
+ &lt;/script&gt;
+</code></pre>
+<h3 id="3">3、字符串的方法</h3>
+<p>字符串的方法(函数)</p>
+<pre><code class="language-javascript">var str = 'abcd';
+</code></pre>
+<ul>
+<li>
+<p><strong>str.charAt(3)</strong>           获取下标为3的字符</p>
+</li>
+<li>
+<p><strong>str.charCodeAt(3)</strong>  获取下标为3的字符的编码(ASCII码)</p>
+</li>
+<li>
+<p><strong>String.fromCharCode(94)</strong>  ASCII编码转换成字符</p>
+</li>
+</ul>
+<p>该方法是String的静态方法，所以用String调用，       </p>
+<p>如：var str = String.fromCharCode(98,99); //可传入多个参数</p>
+<p>ASCII（AmericanStandard Code for Information Interchange，美国标准信息交换代码）</p>
+<ul>
+<li><strong>str.concat()</strong> 连接字符串</li>
+</ul>
+<p>例如:</p>
+<p>```javascript
+  var str1 = "hello";</p>
+<p>var str2 = str1.concat(" world");
+  ```</p>
+<p><img alt="image-20231201175035855" src="imgs/20%E3%80%81js%E5%AD%97%E7%AC%A6%E4%B8%B2.assets/image-20231201175035855.png" /></p>
+<ul>
+<li>字符串的查找方法</li>
+</ul>
+<p><strong>str.indexOf("abc")</strong>  查找字符串第一次出现的位置,如果没找到则返回-1</p>
+<p>例如:  </p>
+<p><code>python
+  var str = "abcdabcd";
+  var subStr = "bcd";
+  var index = str.indexOf(subStr);</code></p>
+<ul>
+<li>
+<p><strong>str.lastIndexOf("abc")</strong>  查找字符串最后一次出现的位置,如果没找到则返回-1</p>
+<p>例如: <code>var index = str.lastIndexOf("abc");</code></p>
+</li>
+<li>
+<p><strong>str.search();</strong> 正则匹配(返回第一次出现的位置)</p>
+</li>
+</ul>
+<p>例如:</p>
+<p><code>javascript
+  var str = "Abcdabcd";
+  var index = str.search(/abc/ig);</code></p>
+<p>注: g表示进行全局匹配，i表示匹配的时候忽略大小写</p>
+<ul>
+<li><strong>str.replace()</strong> 替换字符串</li>
+</ul>
+<p>例如:</p>
+<p><code>javascript
+  var str = "how are Are are you!";
+  //替换一次
+  var newStr = str.replace("are", "old are");
+  //替换多次
+  var newStr = str.replace(/are/g, "x");
+  console.log(newStr)</code></p>
+<p>这里的替换只能执行一次，不能够进行全局匹配，如果需要全局匹配，则应使用正则表达式</p>
+<ul>
+<li><strong>str.substring(start,end)</strong> 截取字符串范围是[start,end)</li>
+</ul>
+<p>例如:</p>
+<p><code>javascript
+  var str=  "Helloworld!";
+  console.log(str.substring(2,5));</code></p>
+<p>注:如果只有一个参数, 则表示到字符串最后  不包含end</p>
+<ul>
+<li>
+<p><strong>str.split(separator, howmany)</strong>  根据分隔符、拆分成数组</p>
+</li>
+<li>
+<p>separator(字符串或正则表达式)</p>
+</li>
+<li>
+<p>howmany(可以指定返回的数组的最大长度,可以省略)</p>
+</li>
+</ul>
+<p><code>javascript
+  var str=  "Helloworld!";
+  console.log(str.split(''));</code></p>
+<pre><code>  注:如果空字符串("")用作separator,那么stringObject中的每个字符之间都会被分割。
+</code></pre>
+<ul>
+<li>大小写转换</li>
+</ul>
+<p><strong>str.toLowerCase()</strong>   把字符串转换成小写</p>
+<p><strong>str.toUpperCase()</strong>   把字符串转换成大写</p>
+<p><img alt="image-20231201175620935" src="imgs/20%E3%80%81js%E5%AD%97%E7%AC%A6%E4%B8%B2.assets/image-20231201175620935.png" /></p>
+<p>在网页逆向中</p>
+<p><img alt="image-20231228164338417" src="imgs/20%E3%80%81js%E5%AD%97%E7%AC%A6%E4%B8%B2.assets/image-20231228164338417.png" /></p>
+<h3 id="4">4、<strong>混淆案例</strong></h3>
+<ul>
+<li>示例一</li>
+</ul>
+<p><code>javascript
+  var H = function (t, e) {
+      for (var n = e['slice'](-2), r = [], i = 0; i &lt; n['length']; i++) {
+          var o = n['charCodeAt'](i);
+          r[i] = 57 &lt; o ? o - 87 : o - 48;
+      }
+      n = 36 * r[0] + r[1];
+      var s, a = Math['round'](t) + n, _ = [[], [], [], [], []], c = {}, u = 0;
+      i = 0;</code></p>
+<p><img alt="image-20231219164706772" src="imgs/20%E3%80%81js%E5%AD%97%E7%AC%A6%E4%B8%B2.assets/image-20231219164706772.png" /></p>
+<ul>
+<li>示例二</li>
+</ul>
+<p>```javascript
+  // 原始字符串
+  var originalString = "Hello, World!";</p>
+<p>// 将每个字符的 Unicode 值保存在数组中
+  var charCodes = [];
+  for (var i = 0; i &lt; originalString.length; i++) {
+    charCodes.push(originalString.charCodeAt(i));
+  }</p>
+<p>// 使用 String.fromCharCode将数组转换回字符串
+  var obfuscatedString = String.fromCharCode(...charCodes);</p>
+<p>console.log(obfuscatedString);
+  ```</p>
+<p><strong>扩展运算符</strong>：这种用法通常用于动态地将字符码数组转换为字符串，特别是当字符码的数量不确定或动态生成时。在现代 JavaScript 中，更常见的是使用扩展运算符（<code>...</code>）来达到相同</p>
+<ul>
+<li>示例三 （重度混淆）</li>
+</ul>
+<p>在线eval： http://tools.jb51.net/password/evalencode</p>
+<p><code>javascript
+  eval(function(p,a,c,k,e,d){e=function(c){return(c&lt;a?'':e(parseInt(c/a)))+((c=c%a)&gt;35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)d[e(c)]=k[c]||e(c);k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('1.4(\'5 3 0 2 6\')',62,7,'a|console|good|is|log|lucky|man'.split('|'),0,{}))</code></p>
+<h6 id="_2"></h6>
+<h2 id="_3">二、正则表达式的概念</h2>
+<h3 id="1_1">1、正则表达式修饰符</h3>
+<p>修饰符 可以在全局搜索中不区分大小写:</p>
+<table>
+<thead>
+<tr>
+<th>修饰符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>i</td>
+<td>执行对大小写不敏感的匹配。</td>
+</tr>
+<tr>
+<td>g</td>
+<td>执行全局匹配（查找所有匹配而非在找到第一个匹配后停止）。</td>
+</tr>
+<tr>
+<td>m</td>
+<td>执行多行匹配。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2_1">2、正则表达式模式</h3>
+<p>方括号用于查找某个范围内的字符：</p>
+<table>
+<thead>
+<tr>
+<th>表达式</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[abc]</td>
+<td>查找方括号之间的任何字符。</td>
+</tr>
+<tr>
+<td>[0-9]</td>
+<td>查找任何从 0 至 9 的数字。</td>
+</tr>
+<tr>
+<td>(x|y)</td>
+<td>查找任何以 | 分隔的选项。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3_1">3、元字符</h3>
+<ul>
+<li>概述</li>
+</ul>
+<p>元字符是拥有特殊含义的字符：</p>
+<table>
+<thead>
+<tr>
+<th>元字符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\d</td>
+<td>查找数字。</td>
+</tr>
+<tr>
+<td>\D</td>
+<td>非数字</td>
+</tr>
+<tr>
+<td>\w</td>
+<td>数字字母下划线</td>
+</tr>
+<tr>
+<td>\W</td>
+<td>非数字字母下划线</td>
+</tr>
+<tr>
+<td>\s</td>
+<td>查找空白字符。</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>匹配单词边界。</td>
+</tr>
+<tr>
+<td>\uxxxx</td>
+<td>查找以十六进制数 xxxx 规定的 Unicode 字符。</td>
+</tr>
+</tbody>
+</table>
+<p>中文的 Unicode 范围通常是 <code>\u4e00-\u9fa5</code>，包括了常用的汉字。</p>
+<pre><code class="language-javascript">// 使用正则表达式匹配中文字符
+var chineseCharacters = &quot;你好，世界！&quot;;
+var chineseRegex = /[\u4e00-\u9fa5]/g;
+var result = chineseCharacters.match(chineseRegex);
+console.log(result); // 输出: [&quot;你&quot;, &quot;好&quot;, &quot;世&quot;, &quot;界&quot;]
+</code></pre>
+<h3 id="4_1">4、量词</h3>
+<table>
+<thead>
+<tr>
+<th>量词</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>n+</td>
+<td>匹配任何包含至少一个 <em>n</em> 的字符串。</td>
+</tr>
+<tr>
+<td>n*</td>
+<td>匹配任何包含零个或多个 <em>n</em> 的字符串。</td>
+</tr>
+<tr>
+<td>n?</td>
+<td>匹配任何包含零个或一个 <em>n</em> 的字符串。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="5">5、方法</h3>
+<ul>
+<li>match 方法 </li>
+</ul>
+<p>使用正则表达式模式对字符串执行查找，并将包含查找的结果作为数组返回。 
+  stringObj.match(rgExp) </p>
+<ul>
+<li>
+<p>参数 
+    stringObj 
+    必选项。对其进行查找的 String 对象或字符串文字。 
+    rgExp 
+    必选项。为包含正则表达式模式和可用标志的正则表达式对象。也可以是包含正则表达式模式和可用标志的变量名或字符串文字。 
+    其余说明与exec一样，不同的是如果match的表达式匹配了全局标记g将出现所有匹配项，而不用循环，但所有匹配中不会包含子匹配项。</p>
+</li>
+<li>
+<p>实例</p>
+<p>```javascript
+var str="Hello world!"
+document.write(str.match("world") + "<br />")
+document.write(str.match("World") + "<br />")
+document.write(str.match("worlld") + "<br />")
+document.write(str.match("world!"))
+document.write(str.match("[a-z]{5}") + "<br />")
+输出：
+world
+null
+null
+world!
+world</p>
+<p>var str="1 plus 2 equal 3"
+console.log(str.match(/\d+/g)) // [1,2,3]
+```</p>
+</li>
+<li>
+<p>exec 方法 </p>
+</li>
+</ul>
+<p>是一个正则表达式方法。</p>
+<p>该方法用于检索字符串中的正则表达式的匹配。</p>
+<p>该函数返回一个数组，其中存放匹配的结果。如果未找到匹配，则返回值为 null。
+  rgExp.exec(str) </p>
+<ul>
+<li>实例</li>
+</ul>
+<p><code>javascript
+  /e/.exec("The best things in life are free!");
+  /[a-z]/i.exec("The best things in life are free!");</code></p>
+<ul>
+<li>test 方法 </li>
+</ul>
+<p>test() 方法用于检测一个字符串是否匹配某个模式，如果字符串中含有匹配的文本，则返回 true，否则返回 false。
+  rgexp.test(str) </p>
+<ul>
+<li>实例</li>
+</ul>
+<p>```javascript
+  var patt = /e/;
+  patt.test("The best things in life are free!");</p>
+<p>/^1[3-8][0-9]{9}$/.test('15611833906')
+  ```</p>
+<ul>
+<li>search 方法 </li>
+</ul>
+<p>search 方法可使用字符串作为参数。字符串参数会转换为正则表达式：</p>
+<p>返回与正则表达式查找内容匹配的第一个子字符串的位置（偏移位）。 
+  stringObj.search(rgExp) </p>
+<ul>
+<li>实例</li>
+</ul>
+<p><code>javascript
+  var str="Visit lucky!"
+  document.write(str.search(/lucky/i))</code></p>
+<ul>
+<li>replace 方法 </li>
+</ul>
+<p>返回根据正则表达式进行文字替换后的字符串的复制。 
+  stringObj.replace(rgExp, replaceText) </p>
+<ul>
+<li>
+<p>实例</p>
+<p><code>javascript
+&lt;p&gt;替换 "张三" 为 "lucky" :&lt;/p&gt;
+&lt;button onclick="myFunction()"&gt;点我&lt;/button&gt;
+&lt;p id="demo"&gt;Visit 张三!&lt;/p&gt;
+&lt;script&gt;
+    function myFunction() {
+        var str = document.getElementById("demo").innerHTML;
+        var txt = str.replace(/张三/i,"lucky");
+        document.getElementById("demo").innerHTML = txt;
+    }
+&lt;/script&gt;</code></p>
+</li>
+<li>
+<p>split 方法 </p>
+</li>
+</ul>
+<p>将一个字符串分割为子字符串，然后将结果作为字符串数组返回。 
+  stringObj.split([separator[, limit]]) </p>
+<ul>
+<li>
+<p>说明 
+    split 方法的结果是一个字符串数组，在 stingObj 中每个出现 separator 的位置都要进行分解。separator 不作为任何数组元素的部分返回。</p>
+</li>
+<li>
+<p>实例</p>
+<p><code>javascript
+'156118 339\t06'.split(/\s/)</code></p>
+</li>
+<li>
+<p>正则匹配实例</p>
+</li>
+</ul>
+<p>```javascript
+  //.号元字符, 代表除了换行之外的所有单个字符
+  var pattern = /g..gle/;   //一个点.匹配一个任意的字符
+  var str = "goagle";
+  console.log(pattern.test(str));</p>
+<p>//<em>号元字符, 配合其他字符使用, 允许其他字符出现任意多次
+  // 重复多次匹配, 可以出现任意次, 
+  var  pattern = /g.</em>gle/; //.* 匹配0到多个字符
+  var  str = "google" 
+  console.log(pattern.test(str)); </p>
+<p>// [ ] : 表示字符可以出现的范围
+  //[a-z]<em>表示任意0到多个a-z的字母
+  var pattern = /g[a-z]</em>gle/;
+  var str = "google";
+  console.log(pattern.test(str));</p>
+<p>//非字符:  ^
+  var pattern = /g[^0-9]*gle/; //可以有任意多个非0-9的字符
+  var str = "google";
+  console.log(pattern.test(str)); </p>
+<p>//+ 表示至少出现1次
+  //[A-Z]+: 至少出现一个A-Z的字符
+  var pattern = /[a-z][A-Z]+/;
+  var str = "gooGle";
+  console.log(pattern.test(str)); </p>
+<p>//使用元符号匹配
+  //\w<em> :匹配任意多个数字字母下划线 , \w : 等价于[a-zA-Z0-9_] 
+  var pattern = /g\w</em>gle/;
+  var str = "gooA3gle";
+  console.log(pattern.test(str));</p>
+<p>//\d 代表数字, 等价于 [0-9]
+  //\d<em> 表示任意多个数字
+  var pattern = /g\d</em>gle/;
+  var str = "g3243gle";
+  console.log(pattern.test(str)); </p>
+<p>//\D: 匹配非数字, 相当于[^0-9]
+  var pattern = /g\Dgle/;
+  var str = "ga3gle";
+  console.log(pattern.test(str)); </p>
+<p>//\D{7,}: 匹配至少7个非数字, 相当于[^0-9]{7,}
+  var pattern = /\D{7,}/;
+  var str = "g3243gle";
+  console.log(pattern.test(str)); </p>
+<p>/使用锚元字符
+  // /^ 匹配开始,从头开始匹配
+  // $/ 匹配结尾,从结尾开始匹配
+  var pattern = /^google$/;
+  var str = "google";
+  console.log(pattern.test(str));</p>
+<p>// \s 匹配空格
+  var pattern = /goo\sgle/;
+  var str = "goo gle";
+  console.log(pattern.test(str));</p>
+<p>//m 多行匹配
+  var str = "first second\nthird fourth\nfifth sixth";
+  var patt = /\w+$/gm
+  var patt = /\w+/gm
+  console.log(str.match(patt));
+  ```</p>
+<p>​      </p>
+
+
+</section>
+</div> <!-- end of search-noresults -->
+<div class="search-results">
+<div class="has-results">
+
+<h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+<ul class="search-results-list"></ul>
+
+</div> <!-- end of has-results -->
+<div class="no-results">
+
+<h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+
+</div> <!-- end of no-results -->
+</div> <!-- end of search-results -->
+</div> <!-- end of book-search-results -->
+
+</div> <!-- end of page-inner -->
+</div> <!-- end of page-wrapper -->
+
+</div> <!-- end of body-inner -->
+
+</div> <!-- end of book-body -->
+<script src="./js/main.js"></script>
+<script src="search/main.js"></script>
+<script src="./js/gitbook.min.js"></script>
+<script src="./js/theme.min.js"></script>
+</body>
+</html>

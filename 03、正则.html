@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>三、正则 - js node</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="generator" content="mkdocs-1.6.1, mkdocs-gitbook-1.0.7">
+
+<link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta rel="next" href="" />
+<link href="./css/style.min.css" rel="stylesheet"> 
+</head>
+
+<body>
+<div class="book">
+<div class="book-summary">
+<div id="book-search-input" role="search">
+<input type="text" placeholder="Type to search" />
+</div> <!-- end of book-search-input -->
+
+<nav role="navigation">
+<ul class="summary">
+<li>
+<a href="index.html" target="_blank" class="custom-link">js node</a>
+</li>
+<li class="divider"></li>
+<li class="chapter" data-path="index.html">
+<a href="index.html">Welcome to MkDocs</a>
+<li class="chapter" data-path="01%E3%80%81html.html">
+<a href="01%E3%80%81html.html">一、HTML</a>
+<li class="chapter" data-path="02%E3%80%81CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8.html">
+<a href="02%E3%80%81CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8.html">二、CSS层叠样式表</a>
+<li class="chapter active" data-path="03%E3%80%81%E6%AD%A3%E5%88%99.html">
+<a href="03%E3%80%81%E6%AD%A3%E5%88%99.html">三、正则</a>
+<li class="chapter" data-path="04%E3%80%81BS4%E8%A7%A3%E6%9E%90%E5%AE%8C%E6%95%B4.html">
+<a href="04%E3%80%81BS4%E8%A7%A3%E6%9E%90%E5%AE%8C%E6%95%B4.html">四、beautifulsoup</a>
+<li class="chapter" data-path="05%E3%80%81xpath.html">
+<a href="05%E3%80%81xpath.html">五、xpath</a>
+<li class="chapter" data-path="06%E3%80%81%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E4%B8%8Eurllib%26requests.html">
+<a href="06%E3%80%81%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E4%B8%8Eurllib%26requests.html">六、爬虫入门</a>
+<li class="chapter" data-path="07%E3%80%81urllib%E4%B8%8Erequests.html">
+<a href="07%E3%80%81urllib%E4%B8%8Erequests.html">七、urllib与requests</a>
+<li class="chapter" data-path="08%E3%80%81%E5%A4%9A%E8%BF%9B%E7%A8%8B.html">
+<a href="08%E3%80%81%E5%A4%9A%E8%BF%9B%E7%A8%8B.html">八、多进程</a>
+<li class="chapter" data-path="09%E3%80%81%E7%BA%BF%E7%A8%8B.html">
+<a href="09%E3%80%81%E7%BA%BF%E7%A8%8B.html">九、线程</a>
+<li class="chapter" data-path="10%E3%80%81%E5%8D%8F%E7%A8%8B.html">
+<a href="10%E3%80%81%E5%8D%8F%E7%A8%8B.html">十、携程</a>
+<li class="chapter" data-path="11%E3%80%81selenium.html">
+<a href="11%E3%80%81selenium.html">十一、selenium</a>
+<li class="chapter" data-path="12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.html">
+<a href="12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.html">十二、MySQL数据库</a>
+<li class="chapter" data-path="13%E3%80%81Mongodb.html">
+<a href="13%E3%80%81Mongodb.html">十三、Mongodb</a>
+<li class="chapter" data-path="14%E3%80%81redis.html">
+<a href="14%E3%80%81redis.html">十四、Redis数据库</a>
+<li class="chapter" data-path="15%E3%80%81%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.html">
+<a href="15%E3%80%81%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.html">十五、面向对象</a>
+<li class="chapter" data-path="16-Scrapy01-%E6%A1%86%E6%9E%B6%E5%88%9D%E8%AE%A4%E8%AF%86.html">
+<a href="16-Scrapy01-%E6%A1%86%E6%9E%B6%E5%88%9D%E8%AE%A4%E8%AF%86.html">十六、Scrapy框架初认识</a>
+<li class="chapter" data-path="16-Scrapy02%E6%B7%B1%E5%85%A5%E4%BD%BF%E7%94%A8-%E5%AD%98%E5%82%A8.html">
+<a href="16-Scrapy02%E6%B7%B1%E5%85%A5%E4%BD%BF%E7%94%A8-%E5%AD%98%E5%82%A8.html">十六、Scrapy深入使用-存储</a>
+<li class="chapter" data-path="16-Scrapy03-%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86%E4%BB%A5%E5%8F%8A%E5%88%86%E9%A1%B5.html">
+<a href="16-Scrapy03-%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86%E4%BB%A5%E5%8F%8A%E5%88%86%E9%A1%B5.html">十六、scrapy模拟登陆&amp;分页</a>
+<li class="chapter" data-path="16-Scrapy04-%E4%B8%AD%E9%97%B4%E4%BB%B6.html">
+<a href="16-Scrapy04-%E4%B8%AD%E9%97%B4%E4%BB%B6.html">十六、Scrapy中间件</a>
+<li class="chapter" data-path="16-Scrapy05-%E5%88%86%E9%A1%B5%E6%8A%93%E5%8F%96.html">
+<a href="16-Scrapy05-%E5%88%86%E9%A1%B5%E6%8A%93%E5%8F%96.html">十六、scrapy的crawlspider爬虫</a>
+<li class="chapter" data-path="16-Scrapy06-scrapy_redis.html">
+<a href="16-Scrapy06-scrapy_redis.html">十六、scrapy_redis</a>
+<li class="chapter" data-path="17%E3%80%81js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html">
+<a href="17%E3%80%81js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html">十七、js数据类型</a>
+<li class="chapter" data-path="18%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%8E%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6.html">
+<a href="18%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%8E%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6.html">十八、js运算符与流程控制</a>
+<li class="chapter" data-path="19%E3%80%81js%E6%95%B0%E7%BB%84.html">
+<a href="19%E3%80%81js%E6%95%B0%E7%BB%84.html">十九、js数组</a>
+<li class="chapter" data-path="20%E3%80%81js%E5%AD%97%E7%AC%A6%E4%B8%B2.html">
+<a href="20%E3%80%81js%E5%AD%97%E7%AC%A6%E4%B8%B2.html">二十、js字符串</a>
+<li class="chapter" data-path="21%E3%80%81js%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%97%B6%E9%97%B4.html">
+<a href="21%E3%80%81js%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%97%B6%E9%97%B4.html">二十一、js对象与时间</a>
+<li class="chapter" data-path="22%E3%80%81%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89.html">
+<a href="22%E3%80%81%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89.html">二十二、js函数</a>
+<li class="chapter" data-path="23%E3%80%81js%E8%BF%9B%E9%98%B6.html">
+<a href="23%E3%80%81js%E8%BF%9B%E9%98%B6.html">二十三、Javascript进阶</a>
+<li class="chapter" data-path="24%E3%80%81BOM%E6%93%8D%E4%BD%9C.html">
+<a href="24%E3%80%81BOM%E6%93%8D%E4%BD%9C.html">二十四、浏览器对象模型BOM</a>
+<li class="chapter" data-path="25%E3%80%81DOM%E6%93%8D%E4%BD%9C.html">
+<a href="25%E3%80%81DOM%E6%93%8D%E4%BD%9C.html">二十五、DOM操作</a>
+<li class="chapter" data-path="26%E3%80%81jQuery%E6%93%8D%E4%BD%9C.html">
+<a href="26%E3%80%81jQuery%E6%93%8D%E4%BD%9C.html">二十六、jQuery</a>
+<li class="chapter" data-path="27%E3%80%81%E9%80%86%E5%90%9101.html">
+<a href="27%E3%80%81%E9%80%86%E5%90%9101.html">二十七、JS逆向01</a>
+<li class="chapter" data-path="28%E3%80%81%E9%80%86%E5%90%9102.html">
+<a href="28%E3%80%81%E9%80%86%E5%90%9102.html">二十八、逆向02</a>
+<li class="chapter" data-path="29%E3%80%81%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html">
+<a href="29%E3%80%81%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html">二十九、微信小程序逆向开发</a>
+<li class="chapter" data-path="30%E3%80%81%E7%BD%91%E6%98%93%E6%BB%91%E5%9D%97.html">
+<a href="30%E3%80%81%E7%BD%91%E6%98%93%E6%BB%91%E5%9D%97.html">三十、网易易盾</a>
+<li class="chapter" data-path="31%E3%80%81rpc.html">
+<a href="31%E3%80%81rpc.html">三十一、RPC</a>
+<li class="chapter" data-path="32%E3%80%81TLS%E6%8C%87%E7%BA%B9%E7%BB%95%E8%BF%87.html">
+<a href="32%E3%80%81TLS%E6%8C%87%E7%BA%B9%E7%BB%95%E8%BF%87.html">三十二、TLS指纹绕过</a>
+<li class="chapter" data-path="33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">
+<a href="33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">三十三、高级逆向</a>
+<li class="chapter" data-path="34%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">
+<a href="34%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">三十四、高级逆向</a>
+<li class="chapter" data-path="%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B%E7%AC%94%E8%AE%B0.html">
+<a href="%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B%E7%AC%94%E8%AE%B0.html">逆向实战案例笔记</a>
+<li class="header">Pyexecjs与npm配置</li>
+
+<li>
+<a href="pyexecjs%E4%B8%8Enpm%E9%85%8D%E7%BD%AE/execjs%E4%BB%8B%E7%BB%8D%E4%BB%A5%E5%8F%8A%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8.html" class="">Execjs介绍以及安装和使用</a>
+</li>
+
+<li>
+<a href="pyexecjs%E4%B8%8Enpm%E9%85%8D%E7%BD%AE/%E4%B8%80%E6%AC%A1%E6%80%A7%E8%A7%A3%E5%86%B3%E6%8E%89npm%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5%E7%9A%84%E9%97%AE%E9%A2%98.html" class="">更换npm为国内镜像</a>
+</li>
+
+<li class="header">补环境</li>
+
+<li>
+<a href="%E8%A1%A5%E7%8E%AF%E5%A2%83/1%E3%80%81%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8E%E4%BA%8B%E4%BB%B6.html" class="">补环境</a>
+</li>
+
+<li>
+<a href="%E8%A1%A5%E7%8E%AF%E5%A2%83/2%E3%80%81Proxy%E4%BB%A3%E7%90%86%E5%99%A8.html" class="">Proxy代理</a>
+</li>
+
+<li>
+<a href="%E8%A1%A5%E7%8E%AF%E5%A2%83/3%E3%80%81vm2%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83.html" class="">3、vm2运行环境</a>
+</li>
+
+<li class="divider"></li>
+
+
+
+<li><a href="http://www.mkdocs.org">
+Published with MkDocs
+</a></li>
+
+<li><a href="https://github.com/GitbookIO/theme-default">
+Theme by GitBook
+</a></li>
+</ul>
+
+</nav>
+
+</div> <!-- end of book-summary -->
+
+<div class="book-body">
+<div class="body-inner">
+<div class="book-header" role="navigation">
+
+<!-- Title -->
+<h1>
+<i class="fa fa-circle-o-notch fa-spin"></i>
+<a href="." ></a>
+</h1>
+
+</div> <!-- end of book-header -->
+
+<div class="page-wrapper" tabindex="-1" role="main">
+<div class="page-inner">
+<div id="book-search-results">
+<div class="search-noresults">
+
+<section class="normal markdown-section">
+
+
+
+<h1 id="_1">三、正则</h1>
+<h2 id="_2">一、正则基础</h2>
+<h3 id="1">1、为什么使用正则</h3>
+<ul>
+<li>需求</li>
+</ul>
+<p>抓取bs4和xpath都无法进行抓取的数据，比如jsonp</p>
+<ul>
+<li>解决</li>
+</ul>
+<p>使用正则进行获取</p>
+<ul>
+<li>代码</li>
+</ul>
+<p>```python
+  import json
+  data = 'geetest_1706090168784({
+      "gt": "019924a82c70bb123aae90d483087f94",
+      "challenge": "507751fb388e4d6d1c399eee2c675ebah1",
+      "id": "a507751fb388e4d6d1c399eee2c675eba",
+      "s": "47576432",
+      "so": 0,
+      "i18n_labels": {
+          "cancel": "\u53d6\u6d88",
+      },
+      "gct_path": "/static/js/gct.b71a9027509bc6bcfef9fc6a196424f5.js"
+  })''</p>
+<p>result = re.match('geetest_\d+((.*?))', data).groups()[0]
+  last_data = json.loads(result)
+  ```</p>
+<h3 id="2re">2、正则与re模块简介</h3>
+<p><strong>概述：</strong> <strong>正则表达式</strong>，又称规则表达式</p>
+<p>正则表达式(regular expression)描述了一种字符串匹配的模式（pattern）</p>
+<p>正则匹配是一个 模糊的匹配(不是精确匹配)</p>
+<p><strong>re：</strong>python自1.5版本开始增加了re模块，该模块提供了perl风格的正则表达式模式，re模块是python语言拥有了所有正则表达式的功能</p>
+<ul>
+<li>如下四个方法经常使用</li>
+<li>match()</li>
+<li>search()</li>
+<li>findall()</li>
+<li>finditer()</li>
+</ul>
+<h2 id="_3">二、正则表达式</h2>
+<h3 id="1_1">1、匹配单个字符与数字</h3>
+<table>
+<thead>
+<tr>
+<th>匹配</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.</td>
+<td>匹配除换行符以外的任意字符，当flags被设置为re.S时，可以匹配包含换行符以内的所有字符，如果没有设置并且还匹配所有字符需要[.\n]</td>
+</tr>
+<tr>
+<td>[]</td>
+<td>里面是字符集合，匹配[]里任意一个字符</td>
+</tr>
+<tr>
+<td>[0123456789]</td>
+<td>匹配任意一个数字字符</td>
+</tr>
+<tr>
+<td>[0-9]</td>
+<td>匹配任意一个数字字符</td>
+</tr>
+<tr>
+<td>[a-z]</td>
+<td>匹配任意一个小写英文字母字符</td>
+</tr>
+<tr>
+<td>[A-Z]</td>
+<td>匹配任意一个大写英文字母字符</td>
+</tr>
+<tr>
+<td>[A-Za-z]</td>
+<td>匹配任意一个英文字母字符</td>
+</tr>
+<tr>
+<td>[A-Za-z0-9]</td>
+<td>匹配任意一个数字或英文字母字符</td>
+</tr>
+<tr>
+<td>[^lucky]</td>
+<td>[]里的^称为脱字符，表示非，匹配不在[]内的任意一个字符</td>
+</tr>
+<tr>
+<td>^[lucky]</td>
+<td>以[]里的某个字符作为开头</td>
+</tr>
+<tr>
+<td>\d</td>
+<td>匹配任意一个数字字符，相当于[0-9]</td>
+</tr>
+<tr>
+<td>\D</td>
+<td>匹配任意一个非数字字符，相当于<code>[^0-9]</code></td>
+</tr>
+<tr>
+<td>\w</td>
+<td>匹配字母、下划线、数字中的任意一个字符，相当于[0-9A-Za-z_]</td>
+</tr>
+<tr>
+<td>\W</td>
+<td>匹配非字母、下划线、数字中的任意一个字符，相当于<code>[^0-9A-Za-z_]</code></td>
+</tr>
+<tr>
+<td>\s</td>
+<td>匹配空白符(空格、换页、换行、回车、制表)，相当于[ \f\n\r\t]</td>
+</tr>
+<tr>
+<td>\S</td>
+<td>匹配非空白符(空格、换页、换行、回车、制表)，相当于<code>[^ \f\n\r\t]</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="2">2、匹配锚字符</h3>
+<p>锚字符:用来判定是否按照规定开始或者结尾</p>
+<table>
+<thead>
+<tr>
+<th>匹配</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>^</td>
+<td>行首匹配，和[]里的^不是一个意思</td>
+</tr>
+<tr>
+<td>$</td>
+<td>行尾匹配</td>
+</tr>
+<tr>
+<td>\A</td>
+<td>匹配字符串的开始，和^的区别是\A只匹配整个字符串的开头，即使在re.M模式下也不会匹配其他行的行首</td>
+</tr>
+<tr>
+<td>\Z</td>
+<td>匹配字符串的结尾，和$的区别是\Z只匹配整个字符串的结尾，即使在re.M模式下也不会匹配其他行的行尾</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3">3、限定符</h3>
+<p>限定符用来指定正则表达式的一个给定组件必须要出现多少次才能满足匹配。有 * 或 + 或 ? 或 {n} 或 {n,} 或 {n,m} 共6种。</p>
+<table>
+<thead>
+<tr>
+<th>匹配</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(xyz)</td>
+<td>匹配括号内的xyz，作为一个整体去匹配  一个单元 子存储</td>
+</tr>
+<tr>
+<td>x?</td>
+<td>匹配0个或者1个x，非贪婪匹配</td>
+</tr>
+<tr>
+<td>x*</td>
+<td>匹配0个或任意多个x</td>
+</tr>
+<tr>
+<td>x+</td>
+<td>匹配至少一个x</td>
+</tr>
+<tr>
+<td>x{n}</td>
+<td>确定匹配n个x，n是非负数</td>
+</tr>
+<tr>
+<td>x{n,}</td>
+<td>至少匹配n个x</td>
+</tr>
+<tr>
+<td>x{n,m}</td>
+<td>匹配至少n个最多m个x</td>
+</tr>
+<tr>
+<td>x|y</td>
+<td>|表示或的意思，匹配x或y</td>
+</tr>
+</tbody>
+</table>
+<p>示例</p>
+<pre><code class="language-python">1.[]                    #代表原子表  存储表达式  字符集合。匹配所包含的任意一个字符
+  [a]               #匹配一个字母a  
+  [abc]             #匹配字母a/b/c
+  [a-z]             #匹配任意一位小写字母
+  [AaBb]            #匹配任意一位大小写字母a/b
+  [a-zA-Z]      #匹配任意一位字母
+  [0-9]             #匹配任意一位数字
+  [a-zA-Z0-9] #匹配任意一位数字或字母
+
+2. ^                        #以什么开头    在原子表外开头 以什么...开头 在原子表内 取反  相当于 \A
+  [^a-z]                #小写字母以外的字符
+  ^a[a-zA-Z]        #匹配 以字母a开头的俩位字母
+  ^[a-zA-Z]         #以任意一位字母开头的字符
+
+3. $                        #以...结尾   ^和 $ 搭配来使用的  这样才能够真正的去限制你匹配的内容和长度  相当于\Z
+    ^1[3-8][0-9]{9}$ #匹配手机号
+  ^1[38][0-9]{9}$ #匹配手机号
+
+4.{m}                   #表示前面的数量m个  不能单独使用
+  [a][a][a]         #匹配3个a
+  a{3}
+  [a-zA-Z]{3}   #匹配任意3位字母
+  ^[a-zA-Z]{3}  #匹配任意3位字母作为开头的字符串
+  ^[a-zA-Z]{3}[0-9]{8}$
+
+5.{m,n}             #表示前面的数量m-n个  不能单独使用
+  ^[1-9][0-9]{4,10}$#匹配QQ号
+
+6.{m,}                  #表示前面的数量至少m个  不能单独使用
+
+7. ?                        # 可有可无    匹配前面的子表达式零次或一次，或指明一个非贪婪限定符。要匹配 ? 字符，请使用 \?
+  [1-9][0-9]?
+  [1-9][0-9]{0,1}
+  -?[1-9]  #一位整数
+8. .            #匹配换行符\n以外的任意字符
+
+9. *            #匹配前面字符任意次{0,}
+
+10. .*      #匹配换行符以外任意字符任意次  （贪婪模式）
+
+11. .*?     #匹配换行符以外任意字符任意次   (非贪婪模式)
+
+12. +           #表示匹配数量 最少 1次   {1,}
+
+13. .+      #表示匹配换行符 以外的任意字符 至少一次 （贪婪模式）
+
+14. .+?     #表示匹配换行符 以外的任意字符 至少一次 （非贪婪模式）
+
+15. ()              #1.一个单元 2.子存储
+    (?P&lt;起别名&gt;)
+    (?:pattern) #只做为一个单元使用 而不是作为子存储
+  (?=pattern) #返回不包含括号里面的值
+  re.findall(&quot;Windows(?=95|98|NT|2000)&quot;,'WindowsNT')#Windows
+  (?!pattern) #与上面的相反 只要后面的不想等 就会将前面的内容匹配返回
+
+16. |                    #表示或
+        [ab] 等同于 （a|b) # 匹配字母a或者b
+        res = re.search('(?P&lt;qq&gt;^[1-9][0-9]{4,10}$)|(?P&lt;phone&gt;^1[3-8][0-9]{9}$)', '1833904571')  # 手机号码或qq号码
+常用组合
+[.*?]
+[\s\S]
+</code></pre>
+<h3 id="4">4、练习</h3>
+<ul>
+<li><code>^[a-zA-Z0-9_]{1,}$</code>      所有包含一个以上的字母、数字或下划线的字符串 </li>
+<li><code>^[a-zA-Z0-9_]+$</code>       所有包含一个以上的字母、数字或下划线的字符串 </li>
+<li><code>^\-{0,1}[0-9]{1,}$</code>     所有的整数</li>
+<li><code>^[1-9][0-9]{0,}$</code>       所有的正整数  </li>
+<li><code>^[-]?[0-9]+\.?[0-9]+$</code>     所有的浮点数</li>
+<li><code>^\-?[0-9]+\.?[0-9]*$</code>    所有的浮点数</li>
+<li><code>^[1-9][0-9]*$</code>       所有的正整数 </li>
+<li><code>^\-?[0-9]+$</code>        所有的整数 </li>
+<li><code>^\-?[0-9]{1,}\.?[0-9]{1,}$</code>    以上正负整数浮点数的简写</li>
+</ul>
+<h2 id="re">三、re模块中常用函数</h2>
+<p><strong>通用flags（修正符）</strong></p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>re.I</td>
+<td>是匹配对大小写不敏感</td>
+</tr>
+<tr>
+<td>re.L</td>
+<td>做本地化识别匹配</td>
+</tr>
+<tr>
+<td>re.M</td>
+<td>多行匹配，影响到^和$</td>
+</tr>
+<tr>
+<td>re.S</td>
+<td>使.匹配包括换行符在内的所有字符</td>
+</tr>
+<tr>
+<td>re.U</td>
+<td>根据Unicode字符集解析字符，影响\w、\W、\b、\B</td>
+</tr>
+<tr>
+<td>re.X</td>
+<td>通过给予我们功能灵活的格式以便更好的理解正则表达式</td>
+</tr>
+</tbody>
+</table>
+<p><strong>通用函数</strong></p>
+<ul>
+<li>
+<p>获取匹配结果</p>
+</li>
+<li>
+<p>使用group()方法 获取到匹配的值</p>
+</li>
+<li>
+<p>groups()    返回一个包含所有小组字符串的元组(也就是自存储的值)，从 1 到 所含的小组号。</p>
+</li>
+<li>
+<p>获取匹配后的索引位置</p>
+</li>
+</ul>
+<p>obj.span()</p>
+<h3 id="1match">1、match()函数</h3>
+<ul>
+<li>原型</li>
+</ul>
+<p><code>def match(pattern, string, flags=0)</code></p>
+<ul>
+<li>功能</li>
+</ul>
+<p>匹配成功返回 匹配的对象  </p>
+<p>匹配失败 返回 None</p>
+<ul>
+<li>
+<p>获取匹配结果</p>
+</li>
+<li>
+<p>使用group()方法 获取到匹配的值</p>
+</li>
+<li>
+<p>groups()    返回一个包含所有小组字符串的元组，从 1 到 所含的小组号。</p>
+</li>
+<li>
+<p>获取匹配后的索引位置</p>
+</li>
+</ul>
+<p>obj.span()</p>
+<ul>
+<li>
+<p>注意：从第一位开始匹配  只匹配一次</p>
+</li>
+<li>
+<p>参数</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pattern</td>
+<td>匹配的正则表达式(一种字符串的模式)</td>
+</tr>
+<tr>
+<td>string</td>
+<td>要匹配的字符串</td>
+</tr>
+<tr>
+<td>flags</td>
+<td>标识位，用于控制正则表达式的匹配方式</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>代码</li>
+</ul>
+<p>```python
+  import re</p>
+<p>res = re.match('\d{2}','123')
+  print(res.group())
+  print(res.span())</p>
+<p>#给当前匹配到的结果起别名
+  s = '3G4HFD567'
+  re.match("(?P<value>\d+)",s)
+  print(x.group(0))
+  print(x.group('value'))
+  ```</p>
+<h3 id="2searce">2、searce()函数</h3>
+<ul>
+<li>原型</li>
+</ul>
+<p><code>def search(pattern, string, flags=0)</code></p>
+<ul>
+<li>功能</li>
+</ul>
+<p>扫描整个字符串string，并返回第一个pattern模式成功的匹配</p>
+<p>匹配失败 返回 None</p>
+<ul>
+<li>参数</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pattern</td>
+<td>匹配的正则表达式(一种字符串的模式)</td>
+</tr>
+<tr>
+<td>string</td>
+<td>要匹配的字符串</td>
+</tr>
+<tr>
+<td>flags</td>
+<td>标识位，用于控制正则表达式的匹配方式</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>注意：</li>
+</ul>
+<p>只要字符串包含就可以</p>
+<p>只匹配一次</p>
+<ul>
+<li>示例</li>
+</ul>
+<p>```python
+  import re</p>
+<p>res = re.search('[a-z]', '131A3ab889s')
+  print(res)
+  print(res.span())
+  print(res.group()
+  ```</p>
+<ul>
+<li>注意</li>
+</ul>
+<p>与search的区别</p>
+<p>相同点：</p>
+<p>都只匹配一次</p>
+<p>不同点：</p>
+<ul>
+<li>search是在要匹配的字符串中  包含正则表达式的内容就可以</li>
+<li>match 必须第一位就开始匹配  否则匹配失败</li>
+</ul>
+<h3 id="3findall">3、findall()函数（返回列表）</h3>
+<ul>
+<li>原型</li>
+</ul>
+<p><code>def findall(pattern, string, flags=0)</code></p>
+<ul>
+<li>功能</li>
+</ul>
+<p>扫描整个字符串string，并返回所有匹配的pattern模式结果的字符串列表</p>
+<ul>
+<li>参数</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pattern</td>
+<td>匹配的正则表达式(一种字符串的模式)</td>
+</tr>
+<tr>
+<td>string</td>
+<td>要匹配的字符串</td>
+</tr>
+<tr>
+<td>flags</td>
+<td>标识位，用于控制正则表达式的匹配方式</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>示例</li>
+</ul>
+<p>```python</p>
+<p>myStr = """
+  <a href="http://www.baidu.com">百度</a>
+  <A href="http://www.taobao.com">淘宝</A>
+  <a href="http://www.id97.com">电
+  影网站</a>
+  <i>我是倾斜1</i>
+  <i>我是倾斜2</i>
+  <em>我是倾斜2</em>
+  """
+  # html里是不区分大小写
+  # （1）给正则里面匹配的 加上圆括号 会将括号里面的内容进行 单独的返回
+  res = re.findall("(<a href=\"http://www\.(.*?)\.com\">(.*?)</a>)",myStr) #[('<a href="http://www.baidu.com">百度</a>', 'baidu', '百度')]</p>
+<p># 括号的区别
+  res = re.findall("<a href=\"http://www\..*?\.com\">.*?</a>",myStr) #['<a href="http://www.baidu.com">百度</a>']</p>
+<p>#(2) 不区分大小写的匹配
+  res = re.findall("<a href=\"http://www\..*?\.com\">.<em>?</a>",myStr,re.I) #['<a href="http://www.baidu.com">百度</a>', '<A href="http://www.taobao.com">淘宝</A>']
+  res = re.findall("&lt;[aA] href=\"http://www..</em>?.com\"&gt;.*?&lt;/[aA]&gt;",myStr) #['<a href="http://www.baidu.com">百度</a>']</p>
+<p># (3) 使.支持换行匹配
+  res = re.findall("<a href=\"http://www\..*?\.com\">.*?</a>",myStr,re.S) #</p>
+<p># (4) 支持换行 支持不区分大小写匹配
+  res = re.findall("<a href=\"http://www\..*?\.com\">.*?</a>",myStr,re.S|re.I) #</p>
+<p>print(res)
+  ```</p>
+<ul>
+<li>贪婪与非贪婪模式</li>
+</ul>
+<p>```html
+<br />
+<H1>Chapter 1 - 介绍正则表达式</H1></p>
+<p>```</p>
+<p><strong>贪婪：</strong>下面的表达式匹配从开始小于符号 (&lt;) 到关闭 H1 标记的大于符号 (&gt;) 之间的所有内容。</p>
+<p><code>html
+  /&lt;.*&gt;/</code></p>
+<p><strong>非贪婪：</strong>如果您只需要匹配开始和结束 H1 标签，下面的非贪婪表达式只匹配 <H1>。</p>
+<p><code>python
+  /&lt;.*?&gt;/</code></p>
+<p>如果只想匹配开始的 H1 标签，表达式则是：</p>
+<p><code>python
+  /&lt;\w+?&gt;</code></p>
+<h3 id="4finditer">4、finditer()函数</h3>
+<ul>
+<li>原型</li>
+</ul>
+<p><code>def finditer(pattern, string, flags=0)</code></p>
+<ul>
+<li>功能</li>
+</ul>
+<p>与findall()类似，返回一个迭代器</p>
+<ul>
+<li>参数</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pattern</td>
+<td>匹配的正则表达式(一种字符串的模式)</td>
+</tr>
+<tr>
+<td>string</td>
+<td>要匹配的字符串</td>
+</tr>
+<tr>
+<td>flags</td>
+<td>标识位，用于控制正则表达式的匹配方式</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>代码</li>
+</ul>
+<p>```python
+  import re</p>
+<p>res = re.finditer('\w', '12hsakda1')
+  print(res)
+  print(next(res))</p>
+<p>for i in res:
+      print(i)
+  ```</p>
+<h3 id="5split">5、split()函数</h3>
+<ul>
+<li>
+<p>作用：切割字符串</p>
+</li>
+<li>
+<p>原型：</p>
+</li>
+</ul>
+<p><code>def split(patter, string, maxsplit=0, flags=0)</code></p>
+<ul>
+<li>参数</li>
+</ul>
+<p>pattern   正则表达式</p>
+<p>string      要拆分的字符串</p>
+<p>maxsplit   最大拆分次数  默认拆分全部</p>
+<p>flags          修正符</p>
+<ul>
+<li>示例</li>
+</ul>
+<p><code>python
+  import re
+  myStr = "asdas\rd&amp;a\ts12d\n*a3sd@a_1sd"
+  #通过特殊字符 对其进行拆分 成列表
+  res = re.split("[^a-z]",myStr)
+  res = re.split("\W",myStr)</code></p>
+<h3 id="6subsubn">6、sub()/subn()函数</h3>
+<ul>
+<li>
+<p>作用：字符串替换</p>
+</li>
+<li>
+<p>说明</p>
+</li>
+</ul>
+<p>在目标字符串string中查找匹配的pattern模式的字符串，再把它们替换成指定repl字符串，可以指定最多替换count次，否则替换所有</p>
+<ul>
+<li>原型</li>
+</ul>
+<p><code>def sub(pattern, repl, string, count=0, flags=0)  返回匹配后的结果
+  def subn(pattern, repl, string, count=0, flags=0)  返回匹配后的结果和次数</code></p>
+<ul>
+<li>
+<p>参数</p>
+</li>
+<li>
+<p>pattern : 正则中的模式字符串。</p>
+</li>
+<li>repl : 替换的字符串，也可为一个函数。</li>
+<li>string : 要被查找替换的原始字符串。</li>
+<li>count : 模式匹配后替换的最大次数，默认 0 表示替换所有的匹配。</li>
+<li>
+<p>flags      修正符</p>
+</li>
+<li>
+<p>区别</p>
+</li>
+</ul>
+<p>a、sub返回一个替代后的字符串</p>
+<p>b、subn返回一个元组，元组的第一个元素为替换后的字符串，第二个元素为替换的次数</p>
+<ul>
+<li>示例</li>
+</ul>
+<p>```python
+  import re</p>
+<p># 将匹配的数字乘于 2
+  def double(matched):
+      value = int(matched.group('value'))
+      return str(value * 2)</p>
+<p>s = 'A23G4HFD567'
+  print(re.sub('(?P<value>\d+)', double, s))
+  ```</p>
+<p>进阶</p>
+<p>```python
+  myStr = "2017/10/1"  #10-1-2017
+  res = re.search("[0-9]{4}/[0-9]{2}/[0-9]",myStr)</p>
+<p>myStr = "<b>加粗1</b><i>倾斜3</i><b>加粗2</b>"</p>
+<p># html = '<i>我是b标签</i><i>我是加粗标签</i>'
+  # 将b标签换成i标签
+  #用到了括号的子存储 通过\1-\n进行取值 \1-\n的顺序 就是你()的顺序
+  res = re.sub("<b>", "<i>", html)
+  res = re.sub("<b>(.*?)</b>", "<i>\1</i>", html)
+  print(res)
+  # 2021/08/26  替换成 08-26-2021
+  print(re.sub('(\d{4})/(\d{2})/(\d{2})','\2-\3-\1', '2021/08/26'))
+  ```</p>
+<h3 id="7">7、修正符</h3>
+<ul>
+<li>作用</li>
+</ul>
+<p>对正则进行修正</p>
+<ul>
+<li>使用</li>
+</ul>
+<p>search/match/findall/sub/subn/finditer 等函数 flags参数的使用</p>
+<ul>
+<li>修正符</li>
+</ul>
+<p>re.I   不区分大小写匹配</p>
+<p>re.M   多行匹配   影响到^ 和 $ 的功能</p>
+<p>re.S    使.可以匹配换行符   匹配任意字符</p>
+<ul>
+<li>使用</li>
+</ul>
+<p>re.I</p>
+<p><code>python
+  print(re.findall('[a-z]','AaBb'))
+  print(re.findall('[a-z]','AaBb', flags=re.I))</code></p>
+<p>re.M</p>
+<p><code>python
+  myStr = """asadasdd1\nbsadasdd2\ncsadasdd3"""
+  print(re.findall('^[a-z]',myStr, ))
+  print(re.findall('\A[a-z]',myStr))
+  print(re.findall('\d$',myStr))
+  print(re.findall('\d\Z',myStr))
+  # re.M
+  print(re.findall('^[a-z]',myStr, flags=re.M))
+  print(re.findall('\A[a-z]',myStr, flags=re.M))
+  print(re.findall('\d$',myStr, flags=re.M))
+  print(re.findall('\d\Z',myStr, flags=re.M))</code></p>
+<p>re.S</p>
+<p><code>python
+  print(re.findall('&lt;b&gt;.*?&lt;/b&gt;','&lt;b&gt;b标签&lt;/b&gt;'))
+  print(re.findall('&lt;b&gt;.*?&lt;/b&gt;','&lt;b&gt;b标\n签&lt;/b&gt;', flags=re.S))</code></p>
+<h2 id="_4">四、正则高级</h2>
+<h3 id="1_2">1、分组&amp;起名称</h3>
+<ul>
+<li>概念</li>
+</ul>
+<p>处理简单的判断是否匹配之外，正则表达式还有提取子串的功能，用()表示的就是要提取的分组</p>
+<ul>
+<li>代码</li>
+</ul>
+<p><code>python
+  #给当前匹配到的结果起别名
+  s = '3G4HFD567'
+  re.match("(?P&lt;value&gt;\d+)",s)
+  print(x.group(0))
+  print(x.group('value'))</code></p>
+<ul>
+<li>
+<p>说明</p>
+</li>
+<li>
+<p>正则表达式中定义了组，就可以在Match对象上用group()方法提取出子串来</p>
+</li>
+<li>group(0)永远是原始字符串，group(1)、group(2)……表示第1、2、……个子串</li>
+</ul>
+<h3 id="2_1">2、编译</h3>
+<ul>
+<li>概念</li>
+</ul>
+<p>当在python中使用正则表达式时，re模块会做两件事，一件是编译正则表达式，如果表达式的字符串本身不合法，会报错。另一件是用编译好的正则表达式提取匹配字符串</p>
+<ul>
+<li>编译优点</li>
+</ul>
+<p>如果一个正则表达式要使用几千遍，每一次都会编译，出于效率的考虑进行正则表达式的编译，就不需要每次都编译了，节省了编译的时间，从而提升效率</p>
+<ul>
+<li>
+<p>compile()函数</p>
+</li>
+<li>
+<p>原型</p>
+<p><code>def compile(pattern, flags=0)</code></p>
+</li>
+<li>
+<p>作用</p>
+<p>将pattern模式编译成正则对象</p>
+</li>
+<li>
+<p>参数</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pattern</td>
+<td>匹配的正则表达式(一种字符串的模式)</td>
+</tr>
+<tr>
+<td>flags</td>
+<td>标识位，用于控制正则表达式的匹配方式</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>flags</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>re.I</td>
+<td>是匹配对大小写不敏感</td>
+</tr>
+<tr>
+<td>re.M</td>
+<td>多行匹配，影响到^和$</td>
+</tr>
+<tr>
+<td>re.S</td>
+<td>使.匹配包括换行符在内的所有字符</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>返回值</p>
+<p>编译好的正则对象</p>
+</li>
+<li>
+<p>示例</p>
+<p>```python
+import re</p>
+<p>re_phone = re.compile(r"(0\d{2,3}-\d{7,8})")
+print(re_phone, type(re_phone))
+```</p>
+</li>
+<li>
+<p>编译后其他方法的使用</p>
+</li>
+</ul>
+<p>原型</p>
+<p><code>def match(self, string, pos=0, endpos=-1)
+  def search(self, string, pos=0, endpos=-1)
+  def findall(self, string, pos=0, endpos=-1)
+  def finditer(self, string, pos=0, endpos=-1)</code></p>
+<p>参数</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>string</td>
+<td>待匹配的字符串</td>
+</tr>
+<tr>
+<td>pos</td>
+<td>从string字符串pos下标开始</td>
+</tr>
+<tr>
+<td>endpos</td>
+<td>结束下标</td>
+</tr>
+</tbody>
+</table>
+<p>示例</p>
+<p><code>python
+  s1 = "lucky's phone is 010-88888888"
+  s2 = "kaige's phone is 010-99999999"
+  ret1 = re_phone.search(s1)
+  print(ret1, ret1.group(1))
+  ret2 = re_phone.search(s2)
+  print(ret2, ret2.group(1))</code></p>
+<h3 id="3_1">3、贪婪与非贪婪</h3>
+<ul>
+<li>贪婪模式  </li>
+</ul>
+<p>贪婪概念：匹配尽可能多的字符</p>
+<ul>
+<li>.+  匹配换行符以外的字符至少一次</li>
+<li>.*  匹配换行符以外的字符任意次</li>
+</ul>
+<p>实例</p>
+<p><code>python
+  res = re.search('&lt;b&gt;.+&lt;/b&gt;', '&lt;b&gt;&lt;/b&gt;&lt;b&gt;b标签&lt;/b&gt;')
+  res = re.search('&lt;b&gt;.*&lt;/b&gt;', '&lt;b&gt;b标签&lt;/b&gt;&lt;b&gt;b标签&lt;/b&gt;&lt;b&gt;b标签&lt;/b&gt;&lt;b&gt;b标签&lt;/b&gt;')</code></p>
+<ul>
+<li>非贪婪模式</li>
+</ul>
+<p>非贪婪概念：尽可能少的匹配称为非贪婪匹配，*?、+?即可</p>
+<ul>
+<li>.+?  匹配换行符以外的字符至少一次  拒绝贪婪</li>
+<li>.*?   匹配换行符以外的字符任意次      拒绝贪婪</li>
+</ul>
+<p>实例</p>
+<p><code>python
+  res = re.search('&lt;b&gt;.+?&lt;/b&gt;', '&lt;b&gt;b标签&lt;/b&gt;&lt;b&gt;b标签&lt;/b&gt;')
+  res = re.search('&lt;b&gt;.*?&lt;/b&gt;', '&lt;b&gt;b标签&lt;/b&gt;&lt;b&gt;b标签&lt;/b&gt;&lt;b&gt;b标签&lt;/b&gt;&lt;b&gt;b标签&lt;/b&gt;')</code></p>
+
+
+</section>
+</div> <!-- end of search-noresults -->
+<div class="search-results">
+<div class="has-results">
+
+<h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+<ul class="search-results-list"></ul>
+
+</div> <!-- end of has-results -->
+<div class="no-results">
+
+<h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+
+</div> <!-- end of no-results -->
+</div> <!-- end of search-results -->
+</div> <!-- end of book-search-results -->
+
+</div> <!-- end of page-inner -->
+</div> <!-- end of page-wrapper -->
+
+</div> <!-- end of body-inner -->
+
+</div> <!-- end of book-body -->
+<script src="./js/main.js"></script>
+<script src="search/main.js"></script>
+<script src="./js/gitbook.min.js"></script>
+<script src="./js/theme.min.js"></script>
+</body>
+</html>

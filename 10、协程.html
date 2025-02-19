@@ -1,0 +1,1820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>十、携程 - js node</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="generator" content="mkdocs-1.6.1, mkdocs-gitbook-1.0.7">
+
+<link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta rel="next" href="" />
+<link href="./css/style.min.css" rel="stylesheet"> 
+</head>
+
+<body>
+<div class="book">
+<div class="book-summary">
+<div id="book-search-input" role="search">
+<input type="text" placeholder="Type to search" />
+</div> <!-- end of book-search-input -->
+
+<nav role="navigation">
+<ul class="summary">
+<li>
+<a href="index.html" target="_blank" class="custom-link">js node</a>
+</li>
+<li class="divider"></li>
+<li class="chapter" data-path="index.html">
+<a href="index.html">Welcome to MkDocs</a>
+<li class="chapter" data-path="01%E3%80%81html.html">
+<a href="01%E3%80%81html.html">一、HTML</a>
+<li class="chapter" data-path="02%E3%80%81CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8.html">
+<a href="02%E3%80%81CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8.html">二、CSS层叠样式表</a>
+<li class="chapter" data-path="03%E3%80%81%E6%AD%A3%E5%88%99.html">
+<a href="03%E3%80%81%E6%AD%A3%E5%88%99.html">三、正则</a>
+<li class="chapter" data-path="04%E3%80%81BS4%E8%A7%A3%E6%9E%90%E5%AE%8C%E6%95%B4.html">
+<a href="04%E3%80%81BS4%E8%A7%A3%E6%9E%90%E5%AE%8C%E6%95%B4.html">四、beautifulsoup</a>
+<li class="chapter" data-path="05%E3%80%81xpath.html">
+<a href="05%E3%80%81xpath.html">五、xpath</a>
+<li class="chapter" data-path="06%E3%80%81%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E4%B8%8Eurllib%26requests.html">
+<a href="06%E3%80%81%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E4%B8%8Eurllib%26requests.html">六、爬虫入门</a>
+<li class="chapter" data-path="07%E3%80%81urllib%E4%B8%8Erequests.html">
+<a href="07%E3%80%81urllib%E4%B8%8Erequests.html">七、urllib与requests</a>
+<li class="chapter" data-path="08%E3%80%81%E5%A4%9A%E8%BF%9B%E7%A8%8B.html">
+<a href="08%E3%80%81%E5%A4%9A%E8%BF%9B%E7%A8%8B.html">八、多进程</a>
+<li class="chapter" data-path="09%E3%80%81%E7%BA%BF%E7%A8%8B.html">
+<a href="09%E3%80%81%E7%BA%BF%E7%A8%8B.html">九、线程</a>
+<li class="chapter active" data-path="10%E3%80%81%E5%8D%8F%E7%A8%8B.html">
+<a href="10%E3%80%81%E5%8D%8F%E7%A8%8B.html">十、携程</a>
+<li class="chapter" data-path="11%E3%80%81selenium.html">
+<a href="11%E3%80%81selenium.html">十一、selenium</a>
+<li class="chapter" data-path="12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.html">
+<a href="12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.html">十二、MySQL数据库</a>
+<li class="chapter" data-path="13%E3%80%81Mongodb.html">
+<a href="13%E3%80%81Mongodb.html">十三、Mongodb</a>
+<li class="chapter" data-path="14%E3%80%81redis.html">
+<a href="14%E3%80%81redis.html">十四、Redis数据库</a>
+<li class="chapter" data-path="15%E3%80%81%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.html">
+<a href="15%E3%80%81%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.html">十五、面向对象</a>
+<li class="chapter" data-path="16-Scrapy01-%E6%A1%86%E6%9E%B6%E5%88%9D%E8%AE%A4%E8%AF%86.html">
+<a href="16-Scrapy01-%E6%A1%86%E6%9E%B6%E5%88%9D%E8%AE%A4%E8%AF%86.html">十六、Scrapy框架初认识</a>
+<li class="chapter" data-path="16-Scrapy02%E6%B7%B1%E5%85%A5%E4%BD%BF%E7%94%A8-%E5%AD%98%E5%82%A8.html">
+<a href="16-Scrapy02%E6%B7%B1%E5%85%A5%E4%BD%BF%E7%94%A8-%E5%AD%98%E5%82%A8.html">十六、Scrapy深入使用-存储</a>
+<li class="chapter" data-path="16-Scrapy03-%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86%E4%BB%A5%E5%8F%8A%E5%88%86%E9%A1%B5.html">
+<a href="16-Scrapy03-%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86%E4%BB%A5%E5%8F%8A%E5%88%86%E9%A1%B5.html">十六、scrapy模拟登陆&amp;分页</a>
+<li class="chapter" data-path="16-Scrapy04-%E4%B8%AD%E9%97%B4%E4%BB%B6.html">
+<a href="16-Scrapy04-%E4%B8%AD%E9%97%B4%E4%BB%B6.html">十六、Scrapy中间件</a>
+<li class="chapter" data-path="16-Scrapy05-%E5%88%86%E9%A1%B5%E6%8A%93%E5%8F%96.html">
+<a href="16-Scrapy05-%E5%88%86%E9%A1%B5%E6%8A%93%E5%8F%96.html">十六、scrapy的crawlspider爬虫</a>
+<li class="chapter" data-path="16-Scrapy06-scrapy_redis.html">
+<a href="16-Scrapy06-scrapy_redis.html">十六、scrapy_redis</a>
+<li class="chapter" data-path="17%E3%80%81js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html">
+<a href="17%E3%80%81js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html">十七、js数据类型</a>
+<li class="chapter" data-path="18%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%8E%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6.html">
+<a href="18%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%8E%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6.html">十八、js运算符与流程控制</a>
+<li class="chapter" data-path="19%E3%80%81js%E6%95%B0%E7%BB%84.html">
+<a href="19%E3%80%81js%E6%95%B0%E7%BB%84.html">十九、js数组</a>
+<li class="chapter" data-path="20%E3%80%81js%E5%AD%97%E7%AC%A6%E4%B8%B2.html">
+<a href="20%E3%80%81js%E5%AD%97%E7%AC%A6%E4%B8%B2.html">二十、js字符串</a>
+<li class="chapter" data-path="21%E3%80%81js%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%97%B6%E9%97%B4.html">
+<a href="21%E3%80%81js%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%97%B6%E9%97%B4.html">二十一、js对象与时间</a>
+<li class="chapter" data-path="22%E3%80%81%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89.html">
+<a href="22%E3%80%81%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89.html">二十二、js函数</a>
+<li class="chapter" data-path="23%E3%80%81js%E8%BF%9B%E9%98%B6.html">
+<a href="23%E3%80%81js%E8%BF%9B%E9%98%B6.html">二十三、Javascript进阶</a>
+<li class="chapter" data-path="24%E3%80%81BOM%E6%93%8D%E4%BD%9C.html">
+<a href="24%E3%80%81BOM%E6%93%8D%E4%BD%9C.html">二十四、浏览器对象模型BOM</a>
+<li class="chapter" data-path="25%E3%80%81DOM%E6%93%8D%E4%BD%9C.html">
+<a href="25%E3%80%81DOM%E6%93%8D%E4%BD%9C.html">二十五、DOM操作</a>
+<li class="chapter" data-path="26%E3%80%81jQuery%E6%93%8D%E4%BD%9C.html">
+<a href="26%E3%80%81jQuery%E6%93%8D%E4%BD%9C.html">二十六、jQuery</a>
+<li class="chapter" data-path="27%E3%80%81%E9%80%86%E5%90%9101.html">
+<a href="27%E3%80%81%E9%80%86%E5%90%9101.html">二十七、JS逆向01</a>
+<li class="chapter" data-path="28%E3%80%81%E9%80%86%E5%90%9102.html">
+<a href="28%E3%80%81%E9%80%86%E5%90%9102.html">二十八、逆向02</a>
+<li class="chapter" data-path="29%E3%80%81%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html">
+<a href="29%E3%80%81%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html">二十九、微信小程序逆向开发</a>
+<li class="chapter" data-path="30%E3%80%81%E7%BD%91%E6%98%93%E6%BB%91%E5%9D%97.html">
+<a href="30%E3%80%81%E7%BD%91%E6%98%93%E6%BB%91%E5%9D%97.html">三十、网易易盾</a>
+<li class="chapter" data-path="31%E3%80%81rpc.html">
+<a href="31%E3%80%81rpc.html">三十一、RPC</a>
+<li class="chapter" data-path="32%E3%80%81TLS%E6%8C%87%E7%BA%B9%E7%BB%95%E8%BF%87.html">
+<a href="32%E3%80%81TLS%E6%8C%87%E7%BA%B9%E7%BB%95%E8%BF%87.html">三十二、TLS指纹绕过</a>
+<li class="chapter" data-path="33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">
+<a href="33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">三十三、高级逆向</a>
+<li class="chapter" data-path="34%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">
+<a href="34%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">三十四、高级逆向</a>
+<li class="chapter" data-path="%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B%E7%AC%94%E8%AE%B0.html">
+<a href="%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B%E7%AC%94%E8%AE%B0.html">逆向实战案例笔记</a>
+<li class="header">Pyexecjs与npm配置</li>
+
+<li>
+<a href="pyexecjs%E4%B8%8Enpm%E9%85%8D%E7%BD%AE/execjs%E4%BB%8B%E7%BB%8D%E4%BB%A5%E5%8F%8A%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8.html" class="">Execjs介绍以及安装和使用</a>
+</li>
+
+<li>
+<a href="pyexecjs%E4%B8%8Enpm%E9%85%8D%E7%BD%AE/%E4%B8%80%E6%AC%A1%E6%80%A7%E8%A7%A3%E5%86%B3%E6%8E%89npm%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5%E7%9A%84%E9%97%AE%E9%A2%98.html" class="">更换npm为国内镜像</a>
+</li>
+
+<li class="header">补环境</li>
+
+<li>
+<a href="%E8%A1%A5%E7%8E%AF%E5%A2%83/1%E3%80%81%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8E%E4%BA%8B%E4%BB%B6.html" class="">补环境</a>
+</li>
+
+<li>
+<a href="%E8%A1%A5%E7%8E%AF%E5%A2%83/2%E3%80%81Proxy%E4%BB%A3%E7%90%86%E5%99%A8.html" class="">Proxy代理</a>
+</li>
+
+<li>
+<a href="%E8%A1%A5%E7%8E%AF%E5%A2%83/3%E3%80%81vm2%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83.html" class="">3、vm2运行环境</a>
+</li>
+
+<li class="divider"></li>
+
+
+
+<li><a href="http://www.mkdocs.org">
+Published with MkDocs
+</a></li>
+
+<li><a href="https://github.com/GitbookIO/theme-default">
+Theme by GitBook
+</a></li>
+</ul>
+
+</nav>
+
+</div> <!-- end of book-summary -->
+
+<div class="book-body">
+<div class="body-inner">
+<div class="book-header" role="navigation">
+
+<!-- Title -->
+<h1>
+<i class="fa fa-circle-o-notch fa-spin"></i>
+<a href="." ></a>
+</h1>
+
+</div> <!-- end of book-header -->
+
+<div class="page-wrapper" tabindex="-1" role="main">
+<div class="page-inner">
+<div id="book-search-results">
+<div class="search-noresults">
+
+<section class="normal markdown-section">
+
+
+
+<h1 id="_1">十、携程</h1>
+<h2 id="_2">一、协程</h2>
+<h3 id="_3">概念</h3>
+<ul>
+<li>协程</li>
+</ul>
+<p>又称微线程(纤程)，是一种用户态的轻量级线程</p>
+<ul>
+<li>子程序</li>
+</ul>
+<p>在所有的语言中都是层级调用的，比如A中调用B，B在执行过程中调用C，C执行完返回，B执行完返回，最后是A执行完毕。这是通过栈实现的，一个函数就是一个执行的子程序，子程序的调用总是有一个入口、一次返回，调用的顺序是明确的</p>
+<ul>
+<li>理解协程</li>
+</ul>
+<p>普通理解：线程是系统级别的，它们是由操作系统调度。协程是程序级别，由程序员根据需求自己调度。我们把一个线程中的一个个函数称为子程序，那么一个子程序在执行的过程中可以中断去执行别的子程序，这就是协程。也就是说同一个线程下的一段代码1执行执行着就中断，然后去执行另一段代码2，当再次回来执行代码1时，接着从之前的中断的位置继续向下执行</p>
+<p>专业理解：协程拥有自己的寄存器上下文和栈，协程在调度切换时，将寄存器上下文和栈保存到其他的地方，在切换回来时，恢复先前保存的寄存器上下文和栈。因此，协程能后保留一次调用的状态，每次过程重入时，就相当于进入上一次调用的状态</p>
+<ul>
+<li>优点</li>
+</ul>
+<p>a、最大的优势就是协程极高的执行效率。因为子程序切换不是线程切换，而是由程序自身控制，因此，没有线程切换的开销，和多线程比，线程数量越多，协程的性能优势就越明显。</p>
+<p>b、不需要多线程的锁机制，因为只有一个线程，也不存在同时写变量冲突，在协程中控制共享资源不加锁，只需要判断状态就好了，所以执行效率比多线程高很多。</p>
+<ul>
+<li>缺点</li>
+</ul>
+<p>a、无法利用多核CPU，协程的本质是单个线程，它不能同时将多个CPU的多个核心使用上，失去了标准线程使用多CPU的能力。协程需要和进程匹配使用才能运行在多个CPU上。但是一般不需要，除非是CPU计算密集型的应用</p>
+<p>b、进行阻塞操作(操作IO)会阻塞整个程序</p>
+<ul>
+<li>实现</li>
+</ul>
+<p>Python对协程的支持是通过generator实现的。</p>
+<p>在generator中，我们不但可以通过for循环来迭代，还可以不断调用next()函数获取由yield语句返回的下一个值。</p>
+<p>但是Python的yield不但可以返回一个值，它还可以接收调用者发出的参数。</p>
+<ul>
+<li>注意</li>
+</ul>
+<p>启动协程需要send(None)进行启动</p>
+<ul>
+<li>代码</li>
+</ul>
+<p><code>python
+  def run1():
+      print(1)
+      print(2)
+      print(3)
+      print(4)
+  def run2():
+      print("a")
+      print("b")
+      print("c")
+      print("d")
+  run1()
+  run2()</code></p>
+<ul>
+<li>结果</li>
+</ul>
+<p>正常结果</p>
+<p><code>1
+  2
+  3
+  4
+  a
+  b
+  c
+  d</code></p>
+<p>协程实现的结果（假设）</p>
+<p><code>python
+  1
+  a
+  b
+  2
+  3
+  c
+  4
+  d</code></p>
+<h2 id="_4">二、同步与异步</h2>
+<h3 id="1">1、同步与异步的概念</h3>
+<ul>
+<li>前言</li>
+</ul>
+<p>python由于GIL（全局锁）的存在，不能发挥多核的优势，其性能一直饱受诟病。然而在IO密集型的网络编程里，异步处理比同步处理能提升成百上千倍的效率</p>
+<p>IO密集型就是磁盘的读取数据和输出数据非常大的时候就是属于IO密集型
+  由于IO操作的运行时间远远大于cpu、内存运行时间，所以任务的大部分时间都是在等待IO操作完成，IO的特点是cpu消耗小，所以，IO任务越多，cpu效率越高，当然不是越多越好，有一个极限值。</p>
+<ul>
+<li>同步</li>
+</ul>
+<p>指完成事务的逻辑，先执行第一个事务，如果阻塞了，会一直等待，直到这个事务完成，再执行第二个事务，顺序执行</p>
+<ul>
+<li>异步</li>
+</ul>
+<p>是和同步相对的，异步是指在处理调用这个事务的之后，不会等待这个事务的处理结果，直接处理第二个事务去了，通过状态、通知、回调来通知调用者处理结果</p>
+<ul>
+<li>说明</li>
+</ul>
+<p>假设用户访问一个网站并得到响应的时间为5秒，使用同步思想则一共需要20秒以上，那么使用异步思想则一共需要5秒左右</p>
+<ul>
+<li>解决方式</li>
+</ul>
+<p>多线程和多进程的模型虽然解决了并发问题，但是系统不能无上限地增加线程。由于系统切换线程的开销也很大，所以，一旦线程数量过多，CPU的时间就花在线程切换上了，真正运行代码的时间就少了，结果导致性能严重下降。</p>
+<p>由于我们要解决的问题是CPU高速执行能力和IO设备的龟速严重不匹配，多线程和多进程只是解决这一问题的一种方法。</p>
+<ul>
+<li>异步的好处</li>
+</ul>
+<p>另一种解决IO问题的方法是异步IO。当代码需要执行一个耗时的IO操作时，它只发出IO指令，并不等待IO结果，然后就去执行其他代码了。一段时间后，当IO返回结果时，再通知CPU进行处理。</p>
+<p>在“发出IO请求”到收到“IO完成”的这段时间里，同步IO模型下，主线程只能挂起，但异步IO模型下，主线程并没有休息，而是在消息循环中继续处理其他消息。这样，在异步IO模型下，一个线程就可以同时处理多个IO请求，并且没有切换线程的操作。对于大多数IO密集型的应用程序，使用异步IO将大大提升系统的多任务处理能力。</p>
+<p><img alt="截屏2020-01-1317.02.32" src="imgs/10%E3%80%81%E5%8D%8F%E7%A8%8B.assets/%E6%88%AA%E5%B1%8F2020-01-1317.02.32-9937880.png" /></p>
+<h3 id="2">2、同步与异步代码</h3>
+<ul>
+<li>同步</li>
+</ul>
+<p>```python
+  import time</p>
+<p>def run(index):
+      print("lucky is a good man", index)
+      time.sleep(2)
+      print("lucky is a nice man", index)</p>
+<p>for i in range(1, 5):
+      run(i)
+  ```</p>
+<ul>
+<li>异步</li>
+</ul>
+<p>说明：后面的课程中会使用到asyncio模块，现在的目的是使同学们理解异步思想</p>
+<p>```python
+  import time
+  import asyncio</p>
+<p>async def run(i):
+      print("lucky is a good man", i)
+      # 模拟一个耗时IO
+      await asyncio.sleep(2)
+      print("lucky is a nice man", i)</p>
+<p>if <strong>name</strong> == "<strong>main</strong>":
+      loop = asyncio.get_event_loop()
+      tasks = []
+      t1 = time.time()</p>
+<pre><code>  for url in range(1, 5):
+      coroutine = run(url)
+      task = asyncio.ensure_future(coroutine)
+      tasks.append(task)
+  loop.run_until_complete(asyncio.wait(tasks))
+  t2 = time.time()
+  print("总耗时：%.2f" % (t2 - t1))
+</code></pre>
+<p>```</p>
+<h2 id="asyncio">三、asyncio模块</h2>
+<h3 id="1_1">1、概述</h3>
+<ul>
+<li>asyncio模块</li>
+</ul>
+<p>是python3.4版本引入的标准库，直接内置了对异步IO的操作</p>
+<ul>
+<li>编程模式</li>
+</ul>
+<p>是一个消息循环，我们从asyncio模块中直接获取一个EventLoop的引用，然后把需要执行的协程扔到EventLoop中执行，就实现了异步IO</p>
+<ul>
+<li>说明</li>
+</ul>
+<p>到目前为止实现协程的不仅仅只有asyncio,tornado和gevent都实现了类似功能</p>
+<ul>
+<li>关键字的说明</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>关键字</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>event_loop</td>
+<td>消息循环，程序开启一个无限循环，把一些函数注册到事件循环上，当满足事件发生的时候，调用相应的协程函数</td>
+</tr>
+<tr>
+<td>coroutine</td>
+<td>协程对象，指一个使用async关键字定义的函数，它的调用不会立即执行函数，而是会返回一个协程对象。协程对象需要注册到事件循环，由事件循环调用</td>
+</tr>
+<tr>
+<td>task</td>
+<td>任务，一个协程对象就是一个原生可以挂起的函数，任务则是对协程进一步封装，其中包含了任务的各种状态</td>
+</tr>
+<tr>
+<td>future</td>
+<td>代表将来执行或没有执行的任务的结果，它和task上没有本质上的区别</td>
+</tr>
+<tr>
+<td>async/await</td>
+<td>python3.5用于定义协程的关键字，async定义一个协程，await用于挂起阻塞的异步调用接口</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2asyncio">2、asyncio基本使用</h3>
+<ul>
+<li>定义一个协程</li>
+</ul>
+<p>```python
+  import asyncio
+  import time</p>
+<p># 通过async关键字定义了一个协程，协程是不能直接运行的，需要将协程放到消息循环中
+  async def run(x):
+      print("waiting：%d"%x)
+      await asyncio.sleep(x)
+      print("结束run")</p>
+<p>#得到一个协程对象
+  coroutine = run(2)
+  asyncio.run(coroutine)
+  ```</p>
+<p>等同于</p>
+<p>```python
+  import asyncio
+  import time</p>
+<p># 通过async关键字定义了一个协程，协程是不能直接运行的，需要将协程放到消息循环中
+  async def run(x):
+      print("waiting：%d"%x)
+      await asyncio.sleep(x)
+      print("结束run")</p>
+<p>#得到一个协程对象
+  coroutine = run(2)</p>
+<p># 创建一个消息循环
+  loop = asyncio.get_event_loop()</p>
+<p>#将协程对象加入到消息循环
+  loop.run_until_complete(coroutine)
+  ```</p>
+<ul>
+<li>创建一个任务</li>
+</ul>
+<p>```python
+  import asyncio
+  import time</p>
+<p>async def run(x):
+      print("waiting：%d"%x)
+      await asyncio.sleep(x)
+      print("结束run")</p>
+<p>coroutine = run(2)
+  #创建任务
+  task = asyncio.ensure_future(coroutine)</p>
+<p>loop = asyncio.get_event_loop()</p>
+<p># 将任务加入到消息循环
+  loop.run_until_complete(task)
+  ```</p>
+<ul>
+<li>获取返回值</li>
+</ul>
+<p>```python
+  import time
+  import asyncio</p>
+<p>async def run(url):
+      print("开始向'%s'要数据……"%(url))
+      # 向百度要数据，网络IO
+      await asyncio.sleep(5)
+      data = "'%s'的数据"%(url)
+      print("给你数据")
+      return data</p>
+<p># 定义一个回调函数
+  def call_back(future):
+      print("call_back:", future.result())</p>
+<p>coroutine = run("百度")
+  # 创建一个任务对象
+  task = asyncio.ensure_future(coroutine)</p>
+<p># 给任务添加回调，在任务结束后调用回调函数
+  task.add_done_callback(call_back)</p>
+<p>loop = asyncio.get_event_loop()
+  loop.run_until_complete(task)
+  ```</p>
+<ul>
+<li>阻塞和await</li>
+</ul>
+<p>async可以定义协程，使用await可以针对耗时操作进行挂起，就与生成器的yield一样，函数交出控制权。协程遇到await，消息循环会挂起该协程，执行别的协程，直到其他协程也会挂起或者执行完毕，在进行下一次执行</p>
+<p>```python
+  import time
+  import asyncio</p>
+<p>async def run(url):
+      print("开始向'%s'要数据……"%(url))
+      # 向百度要数据，网络IO
+      await asyncio.sleep(5)
+      data = "'%s'的数据"%(url)
+      print("给你数据")
+      return data</p>
+<p># 定义一个回调函数（不需要手动调用，触发某种条件才会调用）
+  def call_back(future):
+      print("call_back:", future.result())</p>
+<p>coroutine = run("百度")
+  task = asyncio.ensure_future(coroutine)
+  task.add_done_callback(call_back)</p>
+<p>loop = asyncio.get_event_loop()
+  loop.run_until_complete(task)</p>
+<p>print("-------over------")
+  ```</p>
+<h3 id="3">3、多任务</h3>
+<ul>
+<li>同步</li>
+</ul>
+<p>同时请求"百度", "阿里", "腾讯", "新浪"四个网站，假设响应时长均为2秒</p>
+<p>```python
+  import time</p>
+<p>def run(url):
+      print("开始向'%s'要数据……"%(url))
+      # 向百度要数据，网络IO
+      time.sleep(2)
+      data = "'%s'的数据"%(url)
+      return data</p>
+<p>if <strong>name</strong> == "<strong>main</strong>":
+      t1 = time.time()
+      for url in ["百度", "阿里", "腾讯", "新浪"]:
+          print(run(url))
+      t2 = time.time()
+      print("总耗时：%.2f"%(t2-t1))
+  ```</p>
+<ul>
+<li>异步</li>
+</ul>
+<p>同时请求"百度", "阿里", "腾讯", "新浪"四个网站，假设响应时长均为2秒</p>
+<p>使用ensure_future创建多任务</p>
+<p>```python
+  import time
+  import asyncio</p>
+<p>async def run(url):
+      print("开始向'%s'要数据……"%(url))
+      await asyncio.sleep(2)
+      data = "'%s'的数据"%(url)
+      return data</p>
+<p>def call_back(future):
+      print("call_back:", future.result())</p>
+<p>if <strong>name</strong> == "<strong>main</strong>":
+      loop = asyncio.get_event_loop()
+      tasks = []
+      t1 = time.time()</p>
+<pre><code>  for url in ["百度", "阿里", "腾讯", "新浪"]:
+      coroutine = run(url)
+      task = asyncio.ensure_future(coroutine)
+      task.add_done_callback(call_back)
+      tasks.append(task)
+
+  # 同时添加4个异步任务
+  # asyncio.wait(tasks) 将任务的列表又变成 &lt;coroutine object wait at 0x7f80f43408c0&gt;
+  loop.run_until_complete(asyncio.wait(tasks))
+
+  t2 = time.time()
+  print("总耗时：%.2f" % (t2 - t1))
+</code></pre>
+<p>```</p>
+<ul>
+<li>
+<p>封装成异步函数</p>
+<p>```python
+import time
+import asyncio</p>
+<p>async def run(url):
+    print("开始向'%s'要数据……" % (url))
+    await asyncio.sleep(2)
+    data = "'%s'的数据" % (url)
+    return data</p>
+<p>def call_back(future):
+    print("call_back:", future.result())</p>
+<p>async def main():
+    tasks = []
+    t1 = time.time()</p>
+<pre><code>for url in ["百度", "阿里", "腾讯", "新浪"]:
+    coroutine = run(url)
+    task = asyncio.ensure_future(coroutine)
+    task.add_done_callback(call_back)
+    tasks.append(task)
+
+# 同时添加4个异步任务
+await asyncio.wait(tasks)
+t2 = time.time()
+print("总耗时：%.2f" % (t2 - t1))
+</code></pre>
+<p>if <strong>name</strong> == "<strong>main</strong>":
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(main())
+```</p>
+</li>
+</ul>
+<p>使用loop.create_task创建多任务</p>
+<p>```python
+  import time
+  import asyncio</p>
+<p>async def run(url):
+      print("开始向'%s'要数据……" % (url))
+      await asyncio.sleep(2)
+      data = "'%s'的数据" % (url)
+      return data</p>
+<p>def call_back(future):
+      print("call_back:", future.result())</p>
+<p>if <strong>name</strong> == "<strong>main</strong>":
+      loop = asyncio.get_event_loop()
+      tasks = []
+      t1 = time.time()</p>
+<pre><code>  for url in ["百度", "阿里", "腾讯", "新浪"]:
+      coroutine = run(url)
+      # task = asyncio.ensure_future(coroutine)
+      task = loop.create_task(coroutine)
+      task.add_done_callback(call_back)
+      tasks.append(task)
+      # 同时添加4个异步任务
+  loop.run_until_complete(asyncio.wait(tasks))
+
+  t2 = time.time()
+  print("总耗时：%.2f" % (t2 - t1))
+</code></pre>
+<p>```</p>
+<ul>
+<li>
+<p>封装成异步函数</p>
+<p>```python
+import time
+import asyncio</p>
+<p>async def run(url):
+    print("开始向'%s'要数据……" % (url))
+    await asyncio.sleep(2)
+    data = "'%s'的数据" % (url)
+    return data</p>
+<p>def call_back(future):
+    print("call_back:", future.result())</p>
+<p>async def main():
+    tasks = []
+    t1 = time.time()
+    for url in ["百度", "阿里", "腾讯", "新浪"]:
+        coroutine = run(url)
+        task = loop.create_task(coroutine)
+        task.add_done_callback(call_back)
+        tasks.append(task)
+    # 同时添加4个异步任务
+    await asyncio.wait(tasks)
+    t2 = time.time()
+    print("总耗时：%.2f" % (t2 - t1))</p>
+<p>if <strong>name</strong> == "<strong>main</strong>":
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(main())
+```</p>
+</li>
+</ul>
+<p>使用asyncio.create_task创建多任务</p>
+<p>```python
+  import time
+  import asyncio</p>
+<p>async def run(url):
+      print("开始向'%s'要数据……" % (url))
+      await asyncio.sleep(2)
+      data = "'%s'的数据" % (url)
+      return data</p>
+<p>def call_back(future):
+      print("call_back:", future.result())</p>
+<p>async def main():
+      tasks = []
+      t1 = time.time()
+      for url in ["百度", "阿里", "腾讯", "新浪"]:
+          coroutine = run(url)
+          task = asyncio.create_task(coroutine)
+          task.add_done_callback(call_back)
+          tasks.append(task)
+      # 同时添加4个异步任务
+      await asyncio.wait(tasks)
+      t2 = time.time()
+      print("总耗时：%.2f" % (t2 - t1))</p>
+<p>if <strong>name</strong> == "<strong>main</strong>":
+        # asyncio.run(main())
+      loop = asyncio.get_event_loop()
+      loop.run_until_complete(main())
+  ```</p>
+<h3 id="4pythontaskfuture">4、Python:协程中Task和Future的理解及使用</h3>
+<h4 id="41task">4.1、Task 概念及用法</h4>
+<ul>
+<li>Task，是 python 中与事件循环进行交互的一种主要方式。</li>
+</ul>
+<p>​   创建 Task，意思就是把协程封装成 Task 实例，并追踪协程的 运行 / 完成状态，用于未来获取协程的结果。</p>
+<ul>
+<li>Task 核心作用: 在事件循环中添加多个并发任务;</li>
+</ul>
+<p>​   具体来说，是通过 asyncio.create_task() 创建 Task，让协程对象加入时事件循环中，等待被调度执行。</p>
+<p>​   <strong>注意:</strong>Python 3.7 以后的版本支持 asyncio.create_task() ，在此之前的写法为 loop.create_task() ，开发过程中需要注意代码写 法对不同版本 python 的兼容性。</p>
+<ul>
+<li>需要指出的是，协程封装为 Task 后不会立马启动，当某个代码 await 这个 Task 的时候才会被执行。</li>
+</ul>
+<p>​   当多个 Task 被加入一个 task_list 的时候，添加 Task 的过程中 Task 不会执行，必须要用 <code>await asyncio.wait()</code>或 <code>await asyncio.gather()</code> 将 Task 对象加入事件循环中异步执行。</p>
+<ul>
+<li>一般在开发中，常用的写法是这样的:</li>
+</ul>
+<p>​   -- 先创建 task_list 空列表;
+​   -- 然后用 asyncio.create_task() 创建 Task;</p>
+<p>​   -- 再把 Task 对象加入 task_list ;</p>
+<p>​   -- 最后使用 await asyncio.wait 或 await asyncio.gather 将 Task 对象加入事件循环中异步执行。</p>
+<p>​   <strong>注意:</strong> 创建 Task 对象时，除了可以使用 asyncio.create_task() 之外，还可以用最低层级的 loop.create_task() 或 asyncio.ensure_future() ，他们都可以用来创建 Task 对象，其中关于 ensure_future 相关内容本文接下来会一起讲。</p>
+<ul>
+<li>Task 简单用法</li>
+</ul>
+<pre><code class="language-python">import asyncio
+
+async def func():
+    print(1)
+    await asyncio.sleep(2)
+    print(2)
+    return &quot;test&quot;
+
+
+async def main():
+    print(&quot;main start&quot;)
+
+    # python 3.7及以上版本的写法
+    task1 = asyncio.create_task(func())
+    task2 = asyncio.create_task(func())
+
+    # python3.7以前的写法
+    # task1 = asyncio.ensure_future(func())
+    # task2 = asyncio.ensure_future(func())
+    print(&quot;main end&quot;)
+
+    ret1 = await task1
+    ret2 = await task2
+
+    print(ret1, ret2)
+
+
+# python3.7以后的写法
+asyncio.run(main())
+
+# python3.7以前的写法
+# loop = asyncio.get_event_loop()
+# loop.run_until_complete(main())
+
+&quot;&quot;&quot;
+在创建task的时候，就将创建好的task添加到了事件循环当中，所以说必须得有事件循环，才可以创建task，否则会报错
+&quot;&quot;&quot;
+</code></pre>
+<ul>
+<li>task用法实例</li>
+</ul>
+<p>```python
+  import asyncio
+  import arrow</p>
+<p>def current_time():
+      '''
+      获取当前时间
+      :return:
+      '''
+      cur_time = arrow.now().to('Asia/Shanghai').format('YYYY-MM-DD HH:mm:ss')
+      return cur_time</p>
+<p>async def func(sleep_time):
+      func_name_suffix = sleep_time # 使用 sleep_time (函数 I/O 等待时长)作为函数名后缀，以区分任务对象
+      print(f"[{current_time()}] 执行异步函数 {func.<strong>name</strong>}-{func_name_suffix}")
+      await asyncio.sleep(sleep_time)
+      print(f"[{current_time()}]函数{func.<strong>name</strong>}-{func_name_suffix} 执行完毕")
+      return f"【[{current_time()}] 得到函数 {func.<strong>name</strong>}-{func_name_suffix} 执行结果】"</p>
+<p>async def run():
+      task_list = []
+      for i in range(5):
+          task = asyncio.create_task(func(i))
+          task_list.append(task)
+      done, pending = await asyncio.wait(task_list, timeout=None)
+      for done_task in done:
+          print((f"[{current_time()}]得到执行结果 {done_task.result()}"))
+  def main():
+      loop = asyncio.get_event_loop()
+      loop.run_until_complete(run())</p>
+<p>if <strong>name</strong> == '<strong>main</strong>':
+      main()
+  ```</p>
+<ul>
+<li>代码执行结果如下:</li>
+</ul>
+<p>```python
+  /usr/local/bin/python3.7 /Users/xialigang/PycharmProjects/爬虫/123.py
+  [2022-07-01 16:44:57] 执行异步函数 func-0
+  [2022-07-01 16:44:57] 执行异步函数 func-1
+  [2022-07-01 16:44:57] 执行异步函数 func-2
+  [2022-07-01 16:44:57] 执行异步函数 func-3
+  [2022-07-01 16:44:57] 执行异步函数 func-4
+  [2022-07-01 16:44:57]函数func-0 执行完毕
+  [2022-07-01 16:44:58]函数func-1 执行完毕
+  [2022-07-01 16:44:59]函数func-2 执行完毕
+  [2022-07-01 16:45:00]函数func-3 执行完毕
+  [2022-07-01 16:45:01]函数func-4 执行完毕
+  [2022-07-01 16:45:01]得到执行结果 【[2022-07-01 16:44:59] 得到函数 func-2 执行结果】
+  [2022-07-01 16:45:01]得到执行结果 【[2022-07-01 16:44:57] 得到函数 func-0 执行结果】
+  [2022-07-01 16:45:01]得到执行结果 【[2022-07-01 16:45:00] 得到函数 func-3 执行结果】
+  [2022-07-01 16:45:01]得到执行结果 【[2022-07-01 16:44:58] 得到函数 func-1 执行结果】
+  [2022-07-01 16:45:01]得到执行结果 【[2022-07-01 16:45:01] 得到函数 func-4 执行结果】</p>
+<p>Process finished with exit code 0
+  ```</p>
+<h4 id="42future">4.2、Future 概念解读</h4>
+<ul>
+<li>在介绍 Future 之前有两点问题需要先说明:</li>
+<li>Future 相较于 Task 属于更底层的概念，在开发过程中用到的并不多，这里介绍 Future 主要是为了加深对于 Task 的理解;</li>
+<li>这里指的是 <code>asyncio.Future</code> 而不是<code>coroutines.futures.Future</code> ， <code>coroutines.futures.Future</code> 常用于 多进程、多线程实现并发。 </li>
+<li>
+<p>Future，又称 未来对象、期程对象，其本质上是一个容器，用于接受异步执行的结果;</p>
+</li>
+<li>
+<p>我们前面讲的 Task 是继承自 Future !</p>
+</li>
+<li>
+<p>Furture 对象内部封装了一个 _state ，这个 _state 维护着四种状态:Pending、Running、Done，Cancelled，如果变成 Done 完成，就 不再等待，而是往后执行，这四种状态的存在其实类似与进程的 运行态、就绪态、阻塞态，事件循环凭借着四种状态对 Future\协程对象 进 行调度。</p>
+</li>
+<li>
+<p>在开发中，如果直接创建 Future 需要使用 <code>asyncio.ensure_future()</code> 函数，下面是 <code>ensure_future</code> 函数的源码，仔细阅读源码我们会发现， <code>ensure_future</code> 函数最后返回的一定是一个 awaitable 对象，即满足 <code>Awaitable</code> 协议。</p>
+</li>
+<li>
+<p>正因为 <code>ensure_future</code> 函数最后返回的一定是一个 <code>awaitable</code> 对象，所以才保证了继承自 Future 的 Task 是 awaitable 的。 同时，协程对象一位内无法自己执行，需要将其注册到事件循环中转变为一个 Task 对象才会被执行，所以协程对象一定的。</p>
+</li>
+<li>
+<p>一般只有在一定要确保需要创建一个 awaitable 对象的时候，才会使用 ensure_future 函数。</p>
+</li>
+</ul>
+<h3 id="5">5、协程嵌套与返回值</h3>
+<h4 id="51">5.1 协程嵌套</h4>
+<p>使用async可以定义协程，协程用于耗时的io操作，我们也可以封装更多的io操作过程，这样就实现了嵌套的协程，即一个协程中await了另外一个协程，如此连接起来</p>
+<pre><code class="language-python">import time
+import asyncio
+
+
+async def run(url):
+    print(&quot;开始向'%s'要数据……&quot; % (url))
+    await asyncio.sleep(2)
+    data = &quot;'%s'的数据&quot; % (url)
+    return data
+
+
+def call_back(future):
+    print(&quot;call_back:&quot;, future.result())
+
+
+if __name__ == &quot;__main__&quot;:
+    loop = asyncio.get_event_loop()
+    tasks = []
+    t1 = time.time()
+
+    for url in [&quot;百度&quot;, &quot;阿里&quot;, &quot;腾讯&quot;, &quot;新浪&quot;]:
+        coroutine = run(url)
+        task = asyncio.ensure_future(coroutine)
+        task.add_done_callback(call_back)
+        tasks.append(task)
+
+    # 同时添加4个异步任务
+    # asyncio.wait(tasks) 将任务的列表又变成 &lt;coroutine object wait at 0x7f80f43408c0&gt;
+    loop.run_until_complete(asyncio.wait(tasks))
+
+    t2 = time.time()
+    print(&quot;总耗时：%.2f&quot; % (t2 - t1))
+</code></pre>
+<h4 id="52">5.2 获取返回值</h4>
+<h5 id="521-wait">5.2.1 wait内部返回值</h5>
+<pre><code class="language-python">import time
+import asyncio
+
+async def run(url):
+    print(&quot;开始向'%s'要数据……&quot;%(url))
+    await asyncio.sleep(2)
+    data = &quot;'%s'的数据&quot;%(url)
+    return data
+
+async def main():
+    tasks = []
+    for url in [&quot;百度&quot;, &quot;阿里&quot;, &quot;腾讯&quot;, &quot;新浪&quot;]:
+        coroutine = run(url)
+        task = asyncio.ensure_future(coroutine)
+        # task.add_done_callback(call_back)
+        tasks.append(task)
+
+    #1、可以没有回调函数
+    dones, pendings = await asyncio.wait(tasks)
+    #处理数据，类似回调，建议使用回调
+    for t in dones:
+        print(&quot;数据：%s&quot;%(t.result()))
+
+
+if __name__ == &quot;__main__&quot;:
+    t1 = time.time()
+    # loop = asyncio.get_event_loop()
+    # loop.run_until_complete(main())
+    asyncio.run(main()) # 等同于上面两行代码
+</code></pre>
+<h5 id="522-wait">5.2.2 wait外部返回值</h5>
+<pre><code class="language-python">import time
+import asyncio
+
+async def run(url):
+    print(&quot;开始向'%s'要数据……&quot;%(url))
+    await asyncio.sleep(2)
+    data = &quot;'%s'的数据&quot;%(url)
+    return data
+
+def call_back(future):
+    print(&quot;call_back:&quot;, future.result())
+
+async def main():
+    tasks = []
+    for url in [&quot;百度&quot;, &quot;阿里&quot;, &quot;腾讯&quot;, &quot;新浪&quot;]:
+        coroutine = run(url)
+        task = asyncio.ensure_future(coroutine)
+        # task.add_done_callback(call_back)
+        tasks.append(task)
+
+    return await asyncio.wait(tasks)
+
+
+if __name__ == &quot;__main__&quot;:
+    t1 = time.time()
+    # loop = asyncio.get_event_loop()
+    # dones, pendings = loop.run_until_complete(main())
+    dones, pendings = asyncio.run(main())
+    # 处理数据，类似回调，建议使用回调
+    for t in dones:
+        print(&quot;数据：%s&quot;%(t.result()))
+
+    t2 = time.time()
+    print(&quot;总耗时：%.2f&quot; % (t2 - t1))
+</code></pre>
+<h5 id="522-gather">5.2.2 gather内部获取返回值</h5>
+<pre><code class="language-python">import time
+import asyncio
+
+async def run(url):
+    print(&quot;开始向'%s'要数据……&quot;%(url))
+    await asyncio.sleep(2)
+    data = &quot;'%s'的数据&quot;%(url)
+    return data
+
+def call_back(future):
+    print(&quot;call_back:&quot;, future.result())
+
+async def main():
+    tasks = []
+    for url in [&quot;百度&quot;, &quot;阿里&quot;, &quot;腾讯&quot;, &quot;新浪&quot;]:
+        coroutine = run(url)
+        task = asyncio.ensure_future(coroutine)
+        # task.add_done_callback(call_back)
+        tasks.append(task)
+
+    #2、可以没有回调函数
+    results = await asyncio.gather(*tasks)
+    # 处理数据，类似回调，建议使用回调
+    for result in results:
+        print(&quot;数据：%s&quot;%(result))
+
+if __name__ == &quot;__main__&quot;:
+    t1 = time.time()
+    asyncio.run(main()) # 等同于上面两行代码
+
+    t2 = time.time()
+    print(&quot;总耗时：%.2f&quot; % (t2 - t1))
+</code></pre>
+<h5 id="523-gather">5.2.3 gather外部获取返回值</h5>
+<pre><code class="language-python">import time
+import asyncio
+
+async def run(url):
+    print(&quot;开始向'%s'要数据……&quot;%(url))
+    await asyncio.sleep(2)
+    data = &quot;'%s'的数据&quot;%(url)
+    return data
+
+def call_back(future):
+    print(&quot;call_back:&quot;, future.result())
+
+async def main():
+    tasks = []
+    for url in [&quot;百度&quot;, &quot;阿里&quot;, &quot;腾讯&quot;, &quot;新浪&quot;]:
+        coroutine = run(url)
+        task = asyncio.ensure_future(coroutine)
+        # task.add_done_callback(call_back)
+        tasks.append(task)
+
+    # 4、有无回调函数均可以
+    return await asyncio.gather(*tasks)
+
+
+if __name__ == &quot;__main__&quot;:
+    t1 = time.time()
+    # loop = asyncio.get_event_loop()
+    # results = loop.run_until_complete(main())
+    results = asyncio.run(main())
+    for result in results:
+        print(&quot;数据：%s&quot;%(result))
+
+    t2 = time.time()
+    print(&quot;总耗时：%.2f&quot; % (t2 - t1))
+</code></pre>
+<h4 id="53-asynciowaitasynciogather">5.3 asyncio.wait和asyncio.gather的异同</h4>
+<ol>
+<li>异同点综述</li>
+</ol>
+<p>相同:从功能上看， asyncio.wait 和 asyncio.gather 实现的效果是相同的，都是把所有 Task 任务结果收集起来。</p>
+<p>不同: asyncio.wait 会返回两个值: done 和 pending ， done 为已完成的协程 Task ， pending 为超时未完成的协程 Task ，需通过 future.result 调用 Task 的 result ;而 asyncio.gather 返回的是所有已完成 Task 的 result ，不需要再进行调用或其他操作，就可以得到全部结果。</p>
+<ol>
+<li>asyncio.wait 用法:</li>
+</ol>
+<p>最常见的写法是: <code>await asyncio.wait(task_list) 。</code></p>
+<pre><code class="language-python">import asyncio
+import arrow
+
+def current_time():
+    '''
+    获取当前时间
+    :return:
+     '''
+    cur_time = arrow.now().to('Asia/Shanghai').format('YYYY-MM-DD HH:mm:ss')
+    return cur_time
+
+async def func(sleep_time):
+    func_name_suffix = sleep_time # 使用 sleep_time (函数 I/O 等待时长)作为函数名后缀，以区分任务对象
+    print(f&quot;[{current_time()}] 执行异步函数 {func.name}-{func_name_suffix}&quot;)
+    await asyncio.sleep(sleep_time)
+    print(f&quot;[{current_time()}]函数{func.name}-{func_name_suffix} 执行完毕&quot;)
+    return f&quot;【[{current_time()}] 得到函数 {func.name}-{func_name_suffix} 执行结果】&quot;
+
+async def run():
+    task_list = []
+    for i in range(5):
+        task = asyncio.create_task(func(i))
+        task_list.append(task)
+
+    done, pending = await asyncio.wait(task_list, timeout=None)
+    for done_task in done:
+        print((f&quot;[{current_time()}]得到执行结果 {done_task.result()}&quot;))
+
+def main():
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(run())
+
+if __name__ == '__main__':
+    main()
+</code></pre>
+<p>代码执行结果如下:</p>
+<pre><code class="language-python">/usr/local/bin/python3.7 /Users/xialigang/PycharmProjects/爬虫/123.py
+[2022-07-04 15:31:47] 执行异步函数 func-0
+[2022-07-04 15:31:47] 执行异步函数 func-1
+[2022-07-04 15:31:47] 执行异步函数 func-2
+[2022-07-04 15:31:47] 执行异步函数 func-3
+[2022-07-04 15:31:47] 执行异步函数 func-4
+[2022-07-04 15:31:47]函数func-0 执行完毕
+[2022-07-04 15:31:48]函数func-1 执行完毕
+[2022-07-04 15:31:49]函数func-2 执行完毕
+[2022-07-04 15:31:50]函数func-3 执行完毕
+[2022-07-04 15:31:51]函数func-4 执行完毕
+[2022-07-04 15:31:51]得到执行结果 【[2022-07-04 15:31:49] 得到函数 func-2 执行结果】
+[2022-07-04 15:31:51]得到执行结果 【[2022-07-04 15:31:47] 得到函数 func-0 执行结果】
+[2022-07-04 15:31:51]得到执行结果 【[2022-07-04 15:31:50] 得到函数 func-3 执行结果】
+[2022-07-04 15:31:51]得到执行结果 【[2022-07-04 15:31:48] 得到函数 func-1 执行结果】
+[2022-07-04 15:31:51]得到执行结果 【[2022-07-04 15:31:51] 得到函数 func-4 执行结果】
+
+Process finished with exit code 0
+</code></pre>
+<ol>
+<li>asyncio.gather 用法:</li>
+</ol>
+<p>最常见的用法是: <code>await asyncio.gather(*task_list)</code> ，注意这里 <code>task_list</code> 前面有一个 <code>*</code>。</p>
+<pre><code class="language-python">import asyncio
+import arrow
+
+def current_time():
+    '''
+    获取当前时间
+    :return:
+     '''
+    cur_time = arrow.now().to('Asia/Shanghai').format('YYYY-MM-DD HH:mm:ss')
+    return cur_time
+
+async def func(sleep_time):
+    func_name_suffix = sleep_time # 使用 sleep_time (函数 I/O 等待时长)作为函数名后缀，以区分任务对象
+    print(f&quot;[{current_time()}] 执行异步函数 {func.__name__}-{func_name_suffix}&quot;)
+    await asyncio.sleep(sleep_time)
+    print(f&quot;[{current_time()}]函数{func.__name__}-{func_name_suffix} 执行完毕&quot;)
+    return f&quot;【[{current_time()}] 得到函数 {func.__name__}-{func_name_suffix} 执行结果】&quot;
+
+async def run():
+    task_list = []
+    for i in range(5):
+        task = asyncio.create_task(func(i))
+        task_list.append(task)
+
+    results = await asyncio.gather(*task_list)
+    for result in results:
+        print((f&quot;[{current_time()}]得到执行结果 {result}&quot;))
+
+def main():
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(run())
+
+if __name__ == '__main__':
+    main()
+</code></pre>
+<p>代码执行结果如下:</p>
+<pre><code class="language-python">/usr/local/bin/python3.7 /Users/xialigang/PycharmProjects/爬虫/123.py
+[2022-07-04 15:33:24] 执行异步函数 func-0
+[2022-07-04 15:33:24] 执行异步函数 func-1
+[2022-07-04 15:33:24] 执行异步函数 func-2
+[2022-07-04 15:33:24] 执行异步函数 func-3
+[2022-07-04 15:33:24] 执行异步函数 func-4
+[2022-07-04 15:33:24]函数func-0 执行完毕
+[2022-07-04 15:33:25]函数func-1 执行完毕
+[2022-07-04 15:33:26]函数func-2 执行完毕
+[2022-07-04 15:33:27]函数func-3 执行完毕
+[2022-07-04 15:33:28]函数func-4 执行完毕
+[2022-07-04 15:33:28]得到执行结果 【[2022-07-04 15:33:24] 得到函数 func-0 执行结果】
+[2022-07-04 15:33:28]得到执行结果 【[2022-07-04 15:33:25] 得到函数 func-1 执行结果】
+[2022-07-04 15:33:28]得到执行结果 【[2022-07-04 15:33:26] 得到函数 func-2 执行结果】
+[2022-07-04 15:33:28]得到执行结果 【[2022-07-04 15:33:27] 得到函数 func-3 执行结果】
+[2022-07-04 15:33:28]得到执行结果 【[2022-07-04 15:33:28] 得到函数 func-4 执行结果】
+
+Process finished with exit code 0
+</code></pre>
+<h3 id="6">6、消息循环在另一个线程中启动</h3>
+<p>很多时候，我们的事件循环用于注册协程，而有的协程需要动态的添加到事件循环中。一个简单的方式就是使用多线程。当前线程创建一个事件循环，然后在新建一个线程，在新线程中启动事件循环。当前线程不会被block</p>
+<pre><code class="language-python">import asyncio
+import threading
+import time
+
+def run(url):
+    print(&quot;开始向'%s'要数据……&quot;%(url))
+    time.sleep(2)
+    data = &quot;'%s'的数据&quot;%(url)
+    print(&quot;结束请求&quot;)
+    return data
+
+def start_loop(loop):
+    # 启动消息循环
+    asyncio.set_event_loop(loop)
+    loop.run_forever()
+
+if __name__ == &quot;__main__&quot;:
+    # 创建消息循环(类似死循环)
+    # 注意：此时消息循环没有启动
+    loop = asyncio.get_event_loop()
+    threading.Thread(target=start_loop, args=(loop,)).start()
+
+    t1 = time.time()
+    # 给消息循环添加任务
+    # loop.run_until_complete(create_tasks())
+    loop.call_soon_threadsafe(run, &quot;百度&quot;)
+    loop.call_soon_threadsafe(run, &quot;腾讯&quot;)
+    t2 = time.time()
+    print(&quot;总耗时：%.2f&quot; % (t2 - t1))
+</code></pre>
+<h3 id="7asyncio">7、asyncio终极使用</h3>
+<p>使用到协程嵌套与消息循环在另一个线程中启动相关联</p>
+<pre><code class="language-python">import asyncio
+import threading
+
+async def run(url):
+    print(&quot;开始向'%s'要数据……&quot;%(url))
+    await asyncio.sleep(2)
+    data = &quot;'%s'的数据&quot;%(url)
+    print(&quot;结束请求&quot;)
+    return data
+
+def call_back(future):
+    print(&quot;call_back:&quot;, future.result())
+
+async def create_tasks():
+    tasks = []
+    for url in [&quot;百度&quot;, &quot;阿里&quot;, &quot;腾讯&quot;, &quot;新浪&quot;]:
+        coroutine = run(url)
+        task = asyncio.ensure_future(coroutine)
+        task.add_done_callback(call_back)
+        tasks.append(task)
+    await asyncio.wait(tasks)
+
+def start_loop(loop):
+    # 启动消息循环
+    asyncio.set_event_loop(loop)
+    loop.run_forever()
+
+if __name__ == &quot;__main__&quot;:
+    # 创建消息循环(类似死循环)
+    # 注意：此时消息循环没有启动
+    loop = asyncio.get_event_loop()
+    threading.Thread(target=start_loop, args=(loop,)).start()
+
+    #给消息循环添加任务
+    asyncio.run_coroutine_threadsafe(create_tasks(), loop)
+
+    # asyncio.run_coroutine_threadsafe(run(&quot;百度&quot;), loop)
+    # asyncio.run_coroutine_threadsafe(run(&quot;腾讯&quot;), loop)
+    # asyncio.run_coroutine_threadsafe(run(&quot;阿里&quot;), loop)
+    # asyncio.run_coroutine_threadsafe(run(&quot;新浪&quot;), loop)
+</code></pre>
+<h3 id="8">8、获取网页信息</h3>
+<pre><code class="language-python">import asyncio
+import threading
+
+async def run(url):
+    print(&quot;开始加载'%s'页面……&quot; % (url))
+
+    # 发起链接，耗时IO
+    connet = asyncio.open_connection(url, 80)
+    reader, writer = await connet
+
+    # 链接成功
+    # 发起请求，耗时IO
+    header = &quot;GET / HTTP/1.0\r\nHost: %s\r\n\r\n&quot;%(url)
+    writer.write(header.encode(&quot;utf-8&quot;))
+    await writer.drain()
+
+    #接收数据
+    with open(url + &quot;.html&quot;, &quot;wb&quot;) as fp:
+        while True:
+            line = await reader.readline()
+            if line == b&quot;\r\n&quot;:
+                break
+            else:
+                fp.write(line)
+                fp.flush()
+
+async def create_tasks():
+    tasks = []
+    for url in [&quot;www.baidu.html&quot;, &quot;www.163.com&quot;, &quot;www.sina.com.cn&quot;]:
+        coroutine = run(url)
+        task = asyncio.ensure_future(coroutine)
+        tasks.append(task)
+    await asyncio.wait(tasks)
+
+
+def start_loop(loop):
+    asyncio.set_event_loop(loop)
+    loop.run_forever()
+
+if __name__ == &quot;__main__&quot;:
+    loop = asyncio.get_event_loop()
+    threading.Thread(target=start_loop, args=(loop,)).start()
+    asyncio.run_coroutine_threadsafe(create_tasks(), loop)
+</code></pre>
+<h2 id="aiohttp">四、aiohttp</h2>
+<p><strong>入门使用</strong></p>
+<p>官方推荐使用一个客户端会话来发起所有请求，会话中记录了请求的cookie，但你还可以使用aiohttp.request来发送请求。</p>
+<p>当我们使用 async def 就是定义了一个异步函数，异步逻辑由asyncio提供支持。</p>
+<p>async with aiohttp.ClientSession() as session 为异步上下文管理器，在请求结束时或者发生异常请求时支持自动关闭实例化的客户端会话。</p>
+<pre><code class="language-python">import asyncio
+import aiohttp
+
+
+async def main():
+    async with aiohttp.ClientSession() as session:
+        async with session.get('http://httpbin.org/get') as resp:
+            print(resp.status)
+            print(await resp.text())
+
+
+if __name__ == '__main__':
+    # python3.7才支持这种写法，作为一个入口函数，以debug模式运行事件循环
+    asyncio.run(main(), debug=True)
+    # python3.6及以下版本写法
+    event_loop = asyncio.get_event_loop()
+    results = event_loop.run_until_complete(asyncio.gather(main()))
+    event_loop.close()
+</code></pre>
+<h3 id="1_2">1、安装与使用</h3>
+<pre><code class="language-undefined">pip install aiohttp 
+</code></pre>
+<h3 id="2_1">2、简单实例使用</h3>
+<p>aiohttp的自我介绍中就包含了客户端和服务器端，所以我们分别来看下客户端和服务器端的简单实例代码。</p>
+<p>客户端：</p>
+<pre><code class="language-python">import aiohttp
+import asyncio
+
+async def fetch(session, url):
+    async with session.get(url) as response:
+        return await response.text()
+
+
+async def main():
+    async with aiohttp.ClientSession() as session:
+        html = await fetch(session, &quot;http://httpbin.org/headers&quot;)
+        print(html)
+
+asyncio.run(main())
+
+
+&quot;&quot;&quot;输出结果：
+{
+  &quot;headers&quot;: {
+    &quot;Accept&quot;: &quot;*/*&quot;, 
+    &quot;Accept-Encoding&quot;: &quot;gzip, deflate&quot;, 
+    &quot;Host&quot;: &quot;httpbin.org&quot;, 
+    &quot;User-Agent&quot;: &quot;Python/3.7 aiohttp/3.6.2&quot;
+  }
+}
+&quot;&quot;&quot;
+</code></pre>
+<p>这个代码是不是很简单，一个函数用来发起请求，另外一个函数用来下载网页。</p>
+<p>服务器端</p>
+<pre><code class="language-python">from aiohttp import web
+
+
+async def handle(request):
+    name = request.match_info.get('name', &quot;Anonymous&quot;)
+    text = &quot;Hello, &quot; + name
+    return web.Response(text=text)
+
+app = web.Application()
+app.add_routes([web.get('/', handle),
+                web.get('/{name}', handle)])
+
+if __name__ == '__main__':
+    web.run_app(app)
+</code></pre>
+<p>运行这个代码，然后访问http://127.0.0.1:8080就可以看到你的网站了，很 基础的一个网页，你可以在后面跟上你的名字。</p>
+<p>这是两个简单的关于aiohttp的使用示例，下面快速开始。</p>
+<h3 id="3_1">3、入门</h3>
+<p>简单示范</p>
+<p>首先是学习客户端，也就是用来发送http请求的用法。首先看一段代码，会在代码中讲述需要注意的地方：</p>
+<pre><code class="language-python">import aiohttp
+import asyncio
+
+async def main():
+    async with aiohttp.ClientSession() as session:
+        async with session.get('http://httpbin.org/get') as resp:
+            print(resp.status)
+            print(await resp.text())
+
+asyncio.run(main())
+</code></pre>
+<p>代码解释：</p>
+<p>在网络请求中，一个请求就是一个会话，然后<strong>aiohttp</strong>使用的是<strong>ClientSession</strong>来管理会话，所以第一个重点，看一下<strong>ClientSession</strong>:</p>
+<pre><code class="language-python">class ClientSession:
+    &quot;&quot;&quot;First-class interface for making HTTP requests.&quot;&quot;&quot;
+</code></pre>
+<p>在源码中，这个类的注释是使用HTTP请求接口的第一个类。然后上面的代码就是实例化一个<em>ClientSession</em>类然后命名为session，然后用session去发送请求。这里有一个坑，那就是<code>ClientSession.get()</code>协程的必需参数只能是<code>str</code>类和<code>yarl.URL</code>的实例。</p>
+<p>备注：yarl 模块提供了用于url解析和更改的便捷的URL类</p>
+<p>当然这只是get请求，其他的post、put都是支持的：</p>
+<pre><code class="language-python">session.put('http://httpbin.org/put', data=b'data')
+session.delete('http://httpbin.org/delete')
+session.head('http://httpbin.org/get')
+session.options('http://httpbin.org/get')
+session.patch('http://httpbin.org/patch', data=b'data')
+</code></pre>
+<h3 id="4url">4、在URL中传递参数</h3>
+<p>有时候在发起网络请求的时候需要附加一些参数到url中，这一点也是支持的。</p>
+<pre><code class="language-csharp">import aiohttp
+import asyncio
+
+async def main():
+    async with aiohttp.ClientSession() as session:
+        params = {'key1': 'value1', 'key2': 'value2'}
+        async with session.get('http://httpbin.org/get',
+                               params=params) as resp:
+            print(resp.url)
+            expect = 'http://httpbin.org/get?key2=value2&amp;key1=value1'
+                    assert str(resp.url) == expect
+</code></pre>
+<p>我们可以通过<code>params</code>参数来指定要传递的参数，</p>
+<p>同时如果需要指定一个键对应多个值的参数，那么<code>MultiDict</code>就在这个时候起作用了。你可以传递两个元祖列表来作为参数：</p>
+<pre><code class="language-python">import aiohttp
+import asyncio
+
+async def main():
+    async with aiohttp.ClientSession() as session:
+        params = [('key', 'value1'), ('key', 'value2')]
+
+        async with session.get('http://httpbin.org/get',
+                               params=params) as r:
+            expect = 'http://httpbin.org/get?key=value2&amp;key=value1'
+            # assert str(r.url) == expect
+            print(r.url)
+asyncio.run(main())
+</code></pre>
+<h3 id="5_1">5、读取响应内容</h3>
+<p>我们可以读取到服务器的响应状态和响应内容，这也是使用请求的一个很重要的部分。通过<code>status</code>来获取响应状态码，<code>text()</code>来获取到响应内容，当然也可以之计指明编码格式为你想要的编码格式：</p>
+<pre><code class="language-python">async def main():
+    async with aiohttp.ClientSession() as session:
+        async with session.get('http://httpbin.org/get') as resp:
+            print(resp.status)
+            print(await resp.text(encoding=utf-8))
+
+&quot;&quot;&quot;输出结果：
+200
+&lt;!doctype html&gt;
+&lt;html lang=&quot;zh-CN&quot;&gt;
+&lt;head&gt;
+......
+
+&quot;&quot;&quot;
+</code></pre>
+<h3 id="6_1">6、非文本内容格式</h3>
+<p>对于网络请求，有时候是去访问一张图片，这种返回值是二进制的也是可以读取到的：</p>
+<pre><code class="language-python">await resp.read()
+</code></pre>
+<p>将<code>text()</code>方法换成<code>read()</code>方法就好。</p>
+<h3 id="7">7、请求的自定义</h3>
+<p><em>ClientResponse（客户端响应）</em>对象含有request_info(请求信息)，主要是<em>url</em>和<em>headers</em>信息。 <em>raise_for_status</em>结构体上的信息会被复制给ClientResponseError实例。</p>
+<h4 id="1-headers">(1) 自定义Headers</h4>
+<p>有时候做请求的时候需要自定义headers，主要是为了让服务器认为我们是一个浏览器。然后就需要我们自己来定义一个headers：</p>
+<pre><code class="language-python">headers = {
+        &quot;User-Agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) &quot;
+                      &quot;AppleWebKit/537.36 (KHTML, like Gecko)&quot;
+                      &quot; Chrome/78.0.3904.108 Safari/537.36&quot;
+    }
+await session.post(url, headers=headers)
+</code></pre>
+<h4 id="2-ssl">(2) 如果出现ssl验证失败的处理</h4>
+<pre><code class="language-python">import aiohttp
+import asyncio
+from aiohttp import TCPConnector
+
+
+async def main():
+    async with aiohttp.ClientSession(connector=TCPConnector(ssl=False)) as session:
+        pass
+asyncio.run(main())
+</code></pre>
+<p>或</p>
+<pre><code class="language-python">r = await session.get('https://example.com', ssl=False)
+</code></pre>
+<h4 id="3-cookie">(3) 自定义cookie</h4>
+<p>发送你自己的cookies给服务器，你可以为ClientSession对象指定cookies参数:</p>
+<pre><code class="language-python">url = 'http://httpbin.org/cookies'
+cookies = {'cookies_are': 'working'}
+async with ClientSession(cookies=cookies) as session:
+    async with session.get(url) as resp:
+        assert await resp.json() == {
+           &quot;cookies&quot;: {&quot;cookies_are&quot;: &quot;working&quot;}}
+</code></pre>
+<h4 id="4">(4) 使用代理</h4>
+<p>有时候在写爬虫的时候需要使用到代理，所以<em>aiohttp</em>也是支持使用代理的，我们可以在发起请求的时候使用代理，只需要使用关键字<code>proxy</code>来指明就好，但是有一个很难受的地方就是它只支持<code>http</code>代理，不支持<strong>HTTPS</strong>代理。使用起来大概是这样：</p>
+<p><strong>使用无授权代理</strong></p>
+<pre><code class="language-python">async with aiohttp.ClientSession() as session:
+    async with session.get(&quot;http://python.org&quot;, proxy=&quot;http://proxy.com&quot;) as resp:
+        print(resp.status)
+使用起来大概是这样，然后代理记得改成自己的。
+</code></pre>
+<p><strong>代理授权的两种方式</strong></p>
+<ul>
+<li>第一种</li>
+</ul>
+<p><code>python
+  async with aiohttp.ClientSession() as session:
+      proxy_auth = aiohttp.BasicAuth('user', 'pass')
+      async with session.get("http://python.org", proxy="http://proxy.com", proxy_auth=proxy_auth) as resp:
+          print(resp.status)</code></p>
+<ul>
+<li>第二种</li>
+</ul>
+<p><code>python
+  session.get("http://python.org", proxy="http://user:pass@some.proxy.com")</code></p>
+<h4 id="5-post">(5) 发送post请求</h4>
+<p>除了常用的get和post请求还有以下几种请求方式：</p>
+<ul>
+<li>put: <code>session.put('http://httpbin.org/put', data=b'data')</code></li>
+<li>delete: <code>session.delete('http://httpbin.org/delete')</code></li>
+<li>head: <code>session.head('http://httpbin.org/get')</code></li>
+<li>options: <code>session.options('http://httpbin.org/get')</code></li>
+<li>patch: <code>session.patch('http://httpbin.org/patch', data=b'data')</code></li>
+</ul>
+<pre><code class="language-python">import asyncio
+import aiohttp
+
+async def main():
+    data = b'x00Binary-datax00'  # 未经编码的数据通过bytes数据上传
+    data = 'text'  # 传递文本数据
+    data = {'key': 'value'}  # 传递form表单
+    async with aiohttp.ClientSession() as sess:
+        async with sess.post('http://httpbin.org/post', data=data) as resp:
+            print(resp.status)
+            print(await resp.text())
+</code></pre>
+<p>复杂的post请求</p>
+<pre><code class="language-python">async def main2():
+    pyload = {'key': 'value'}  # 传递pyload
+    async with aiohttp.ClientSession() as sess:
+        async with sess.post('http://httpbin.org/post', json=pyload) as resp:
+            print(resp.status)
+            print(await resp.text())
+
+
+if __name__ == '__main__':
+    asyncio.run(main())
+    asyncio.run(main2())
+</code></pre>
+<h4 id="6_2">(6) 响应和状态码</h4>
+<p>由于获取响应内容是一个阻塞耗时过程，所以我们使用await实现协程切换</p>
+<ul>
+<li>resp.history 查看重定向历史</li>
+<li>resp.headers 获取响应头</li>
+<li>resp.cookies 获取响应cookie</li>
+<li>resp.status 获取响应状态码</li>
+<li>resp.text(encoding='utf-8) 获取响应文本</li>
+<li>resp.json() 获取json响应数据</li>
+<li>resp.read() 获取二进制响应数据</li>
+<li>resp.content.read(100) 获取流响应，每次获取100个字节</li>
+</ul>
+<pre><code class="language-python">import asyncio
+import aiohttp
+
+
+async def main():
+    params = {'key1': 'value1', 'key2': 'value2'}
+    async with aiohttp.ClientSession() as sess:
+        async with sess.get('http://httpbin.org/get', params=params) as resp:
+            print(resp.status)  # 状态码
+            print(await resp.text(encoding='utf-8'))  # 文本响应，可以设置响应编码，默认是utf-8
+            print(await resp.json())  # json响应
+            print(await resp.read())  # 二进制响应，适用于下载图片等
+
+
+async def main2():
+    async with aiohttp.ClientSession() as sess:
+        async with sess.get('https://api.github.com/events') as resp:
+            print(resp.status)  # 状态码
+            print(await resp.content.read(100))  # 流响应，适用于大文件，分次读取
+
+            # await生成一个迭代器，通过不断循环拿到每一次100个字节码
+            while True:
+                chunk = await resp.content.read(100)
+                print(chunk)
+                if not chunk:
+                    break
+
+
+if __name__ == '__main__':
+    asyncio.run(main())
+    asyncio.run(main2())
+</code></pre>
+<h4 id="7_1">(7) 向目标服务器上传文件</h4>
+<pre><code class="language-python">import asyncio
+import aiohttp
+
+
+async def main():
+    &quot;&quot;&quot;传递文件&quot;&quot;&quot;
+    files = {'file': open('report.xls', 'rb')}
+    async with aiohttp.ClientSession() as sess:
+        async with sess.post('http://httpbin.org/post', data=files) as resp:
+            print(resp.status)
+            print(await resp.text())
+
+
+async def main2():
+    &quot;&quot;&quot;实例化FormData可以指定filename和content_type&quot;&quot;&quot;
+    data = aiohttp.FormData()
+    data.add_field('file',
+                   open('report.xls', 'rb'),
+                   filename='report.xls',
+                   content_type='application/vnd.ms-excel')
+    async with aiohttp.ClientSession() as sess:
+        async with sess.post('http://httpbin.org/post', data=data) as resp:
+            print(resp.status)
+            print(await resp.text())
+
+
+async def main3():
+    &quot;&quot;&quot;流式上传文件&quot;&quot;&quot;
+    async with aiohttp.ClientSession() as sess:
+        with open('report.xls', 'rb') as f:
+            async with sess.post('http://httpbin.org/post', data=f) as resp:
+                print(resp.status)
+                print(await resp.text())
+
+
+async def main4():
+    &quot;&quot;&quot;因为content属性是 StreamReader（提供异步迭代器协议），所以您可以将get和post请求链接在一起。python3.6及以上才能使用&quot;&quot;&quot;
+    async with aiohttp.ClientSession() as sess:
+        async with sess.get('http://python.org') as resp:
+            async with sess.post('http://httpbin.org/post', data=resp.content) as r:
+                print(r.status)
+                print(await r.text())
+
+
+if __name__ == '__main__':
+    asyncio.run(main())
+    asyncio.run(main2())
+    asyncio.run(main3())
+    asyncio.run(main4())
+</code></pre>
+<h4 id="9">(9) 设置请求超时</h4>
+<p>ClientTimeout类有四个类属性:</p>
+<ul>
+<li>total:整个操作时间包括连接建立，请求发送和响应读取。</li>
+<li>connect:该时间包括建立新连接或在超过池连接限制时等待池中的空闲连接的连接。</li>
+<li>sock_connect:连接到对等点以进行新连接的超时，不是从池中给出的。</li>
+<li>sock_read:从对等体读取新数据部分之间的时间段内允许的最大超时。</li>
+</ul>
+<pre><code class="language-python">import aiohttp
+import asyncio
+timeout = aiohttp.ClientTimeout(total=60)
+
+
+async def main():
+    async with aiohttp.ClientSession(timeout=timeout) as sess:
+        async with sess.get('http://httpbin.org/get') as resp:
+            print(resp.status)
+            print(await resp.text())
+
+
+if __name__ == &quot;__main__&quot;:
+    asyncio.run(main())
+</code></pre>
+<h3 id="8aiofiles">8、aiofiles异步模式</h3>
+<h4 id="81">8.1 概述</h4>
+<p>平常使用的file操作模式为同步，并且为线程阻塞。当程序I/O<a href="https://so.csdn.net/so/search?q=并发&amp;spm=1001.2101.3001.7020">并发</a>次数高的时候，CPU被阻塞，形成闲置。</p>
+<p>线程开启文件读取异步模式</p>
+<p>用线程（Thread）方式来解决。硬盘缓存可以被多个线程访问，因此通过不同线程访问文件可以部分解决。但此方案涉及线程开启关闭的开销，而且不同线程间数据交互比较麻烦。</p>
+<pre><code class="language-python">from threading import Thread
+for file in list_file:
+     tr = Thread(target=file.write, args=(data,))
+     tr.start()
+</code></pre>
+<p>使用已编写好的第三方插件-aiofiles，支持异步模式</p>
+<p>使用aio插件来开启文件的非阻塞异步模式。</p>
+<h4 id="82">8.2 安装方法</h4>
+<pre><code class="language-bash">pip install aiofiles
+</code></pre>
+<p>这个插件的使用和python原生open 一致，而且可以支持异步迭代：</p>
+<h4 id="83">8.3 实例</h4>
+<p>打开文件</p>
+<pre><code class="language-python">import aiofiles
+
+async with aiofiles.open('filename', mode='r') as f:
+    contents = await f.read()
+    print(contents)
+    'My file contents'
+</code></pre>
+<p>迭代，</p>
+<pre><code class="language-python">import asyncio
+import aiofiles
+
+async def main():
+    async with aiofiles.open('filename') as f:
+        async for line in f:
+            print(line)
+
+if __name__ == '__main__':
+    asyncio.run(main())
+</code></pre>
+<h3 id="9_1">9、抓取鬼吹灯案例 并发控制</h3>
+<p>semaphore，控制并发</p>
+<pre><code>semaphore = asyncio.Semaphore(10) 
+</code></pre>
+<p>实例</p>
+<pre><code class="language-python">#!/usr/bin/python
+
+import asyncio
+import os
+import aiofiles
+import aiohttp
+import requests
+from bs4 import BeautifulSoup
+
+
+def get_page_source(web):
+    headers = {
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.75 Safari/537.36'
+    }
+    response = requests.get(web, headers=headers)
+    response.encoding = 'utf-8'
+    return response.text
+
+
+def parse_page_source(html):
+    book_list = []
+    soup = BeautifulSoup(html, 'html.parser')
+    a_list = soup.find_all('div', attrs={'class': 'mulu-list quanji'})
+    for a in a_list:
+        a_list = a.find_all('a')
+        for href in a_list:
+            chapter_url = href['href']
+            book_list.append(chapter_url)
+    return book_list
+
+
+def get_book_name(book_page):
+    book_number = book_page.split('/')[-1].split('.')[0]
+    book_chapter_name = book_page.split('/')[-2]
+    return book_number, book_chapter_name
+
+
+async def aio_download_one(chapter_url, signal):
+    number, c_name = get_book_name(chapter_url)
+    for c in range(10):
+        try:
+            async with signal:
+                async with aiohttp.ClientSession() as session:
+                    async with session.get(chapter_url) as resp:
+                        page_source = await resp.text()
+                        soup = BeautifulSoup(page_source, 'html.parser')
+                        chapter_name = soup.find('h1').text
+                        p_content = soup.find('div', attrs={'class': 'neirong'}).find_all('p')
+                        content = [p.text + '\n' for p in p_content]
+                        chapter_content = '\n'.join(content)
+                        if not os.path.exists(f'{book_name}/{c_name}'):
+                            os.makedirs(f'{book_name}/{c_name}')
+                        async with aiofiles.open(f'{book_name}/{c_name}/{number}_{chapter_name}.txt', mode=&quot;w&quot;,
+                                                 encoding='utf-8') as f:
+                            await f.write(chapter_content)
+                        print(chapter_url, &quot;下载完毕!&quot;)
+                        return &quot;&quot;
+        except Exception as e:
+            print(e)
+            print(chapter_url, &quot;下载失败!, 重新下载. &quot;)
+    return chapter_url
+
+
+async def aio_download(url_list):
+    tasks = []
+    semaphore = asyncio.Semaphore(10)
+    for h in url_list:
+        tasks.append(asyncio.create_task(aio_download_one(h, semaphore)))
+    await asyncio.wait(tasks)
+
+
+if __name__ == '__main__':
+    url = 'https://www.51shucheng.net/daomu/guichuideng'
+    book_name = '鬼吹灯'
+    if not os.path.exists(book_name):
+        os.makedirs(book_name)
+    source = get_page_source(url)
+    href_list = parse_page_source(source)
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(aio_download(href_list))
+    loop.close()
+</code></pre>
+<h3 id="10asyncio">10、和asyncio结合使用爬取案例</h3>
+<p>其实aiohttp最适合的伴侣就是asyncio，这两个结合起来使用是最好不过的了。然后这里我就写一个简单的实例代码来对比一下。同步和异步的差别。</p>
+<p><strong>示例代码</strong></p>
+<p>示例用豆瓣电影</p>
+<ul>
+<li>lxml</li>
+<li>requests</li>
+<li>datetime</li>
+<li>asyncio</li>
+<li>aiohttp</li>
+</ul>
+<p>然后需要大家安装好这些库，然后提取网页内容使用的是<em>xpath</em>。</p>
+<h4 id="1_3">(1) 同步</h4>
+<p>其实同步写了很多次了，然后把之前的代码放上来就好：</p>
+<pre><code class="language-python">from datetime import datetime
+
+import requests
+from lxml import etree
+
+headers = {&quot;User-Agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit&quot;
+                         &quot;/537.36 (KHTML, like Gecko) &quot;
+                         &quot;Chrome/72.0.3626.121 Safari/537.36&quot;}
+
+
+def get_movie_url():
+    req_url = &quot;https://movie.douban.com/chart&quot;
+    response = requests.get(url=req_url, headers=headers)
+    html = etree.HTML(response.text)
+    movies_url = html.xpath(
+        &quot;//*[@id='content']/div/div[1]/div/div/table/tr/td/a/@href&quot;)
+    return movies_url
+
+
+def get_movie_content(movie_url):
+    response = requests.get(movie_url, headers=headers)
+    result = etree.HTML(response.text)
+    movie = dict()
+    name = result.xpath('//*[@id=&quot;content&quot;]/h1/span[1]//text()')
+    author = result.xpath('//*[@id=&quot;info&quot;]/span[1]/span[2]//text()')
+    movie[&quot;name&quot;] = name
+    movie[&quot;author&quot;] = author
+    return movie
+
+
+if __name__ == '__main__':
+    start = datetime.now()
+    movie_url_list = get_movie_url()
+    movies = dict()
+    for url in movie_url_list:
+        movies[url] = get_movie_content(url)
+    print(movies)
+    print(&quot;同步用时为：{}&quot;.format(datetime.now() - start))
+</code></pre>
+<p>看一下同步的结果：</p>
+<pre><code class="language-shell">{'https://movie.douban.com/subject/35372415/': {'name': ['套装 The Outfit'], 'author': ['格拉汉姆·摩尔']}, 'https://movie.douban.com/subject/35284253/': {'name': ['青春变形记 Turning Red'], 'author': ['石之予']}, 'https://movie.douban.com/subject/35774719/': {'name': ['星期四 A Thursday'], 'author': ['毕查德·汉巴塔']}, 'https://movie.douban.com/subject/35788143/': {'name': ['破碎太阳之心'], 'author': ['毕赣']}, 'https://movie.douban.com/subject/27203644/': {'name': ['尼罗河上的惨案 Death on the Nile'], 'author': ['肯尼思·布拉纳']}, 'https://movie.douban.com/subject/35240920/': {'name': ['X'], 'author': ['缇·威斯特']}, 'https://movie.douban.com/subject/33442722/': {'name': ['承包商 The Contractor'], 'author': ['塔里克·萨利赫']}, 'https://movie.douban.com/subject/35206186/': {'name': ['诡扯 詭扯'], 'author': ['许富翔']}, 'https://movie.douban.com/subject/34994748/': {'name': ['登山家 The Alpinist'], 'author': ['彼得·莫蒂默', ' / ', '尼克·罗森']}}
+同步用时为：0:00:06.967015
+</code></pre>
+<h4 id="2_2">(2) 异步</h4>
+<p>异步也很简单，关于异步的文章我还在整理，因为涉及到太多的东西了。先看这个爬虫代码：</p>
+<pre><code class="language-python">import asyncio
+from datetime import datetime
+from aiohttp import TCPConnector
+
+import aiohttp
+from lxml import etree
+headers = {&quot;User-Agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit&quot;
+                         &quot;/537.36 (KHTML, like Gecko) &quot;
+                         &quot;Chrome/72.0.3626.121 Safari/537.36&quot;}
+
+
+async def get_movie_url():
+    req_url = &quot;https://movie.douban.com/chart&quot;
+    async with aiohttp.ClientSession(connector=TCPConnector(ssl=False), headers=headers) as session:
+        async with session.get(url=req_url, headers=headers) as response:
+            result = await response.text()
+            result = etree.HTML(result)
+        return result.xpath(&quot;//*[@id='content']/div/div[1]/div/div/table/tr/td/a/@href&quot;)
+
+
+async def get_movie_content(movie_url):
+    async with aiohttp.ClientSession(connector=TCPConnector(ssl=False), headers=headers) as session:
+        async with session.get(url=movie_url, headers=headers) as response:
+            result = await response.text()
+            result = etree.HTML(result)
+        movie = dict()
+        name = result.xpath('//*[@id=&quot;content&quot;]/h1/span[1]//text()')
+        author = result.xpath('//*[@id=&quot;info&quot;]/span[1]/span[2]//text()')
+        movie[&quot;name&quot;] = name
+        movie[&quot;author&quot;] = author
+    return movie
+
+if __name__ == '__main__':
+    start = datetime.now()
+    loop = asyncio.get_event_loop()
+    movie_url_list = loop.run_until_complete(get_movie_url())
+    tasks = [get_movie_content(url) for url in movie_url_list]
+    movies = loop.run_until_complete(asyncio.gather(*tasks))
+    print(movies)
+    print(&quot;异步用时为：{}&quot;.format(datetime.now() - start))
+</code></pre>
+<p>看一下结果，你就知道差距了：</p>
+<pre><code class="language-shell">[{'name': ['套装 The Outfit'], 'author': ['格拉汉姆·摩尔']}, {'name': ['青春变形记 Turning Red'], 'author': ['石之予']}, {'name': ['星期四 A Thursday'], 'author': ['毕查德·汉巴塔']}, {'name': ['破碎太阳之心'], 'author': ['毕赣']}, {'name': ['尼罗河上的惨案 Death on the Nile'], 'author': ['肯尼思·布拉纳']}, {'name': ['X'], 'author': ['缇·威斯特']}, {'name': ['承包商 The Contractor'], 'author': ['塔里克·萨利赫']}, {'name': ['诡扯 詭扯'], 'author': ['许富翔']}, {'name': ['登山家 The Alpinist'], 'author': ['彼得·莫蒂默', ' / ', '尼克·罗森']}]
+异步用时为：0:00:00.978084
+</code></pre>
+
+
+</section>
+</div> <!-- end of search-noresults -->
+<div class="search-results">
+<div class="has-results">
+
+<h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+<ul class="search-results-list"></ul>
+
+</div> <!-- end of has-results -->
+<div class="no-results">
+
+<h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+
+</div> <!-- end of no-results -->
+</div> <!-- end of search-results -->
+</div> <!-- end of book-search-results -->
+
+</div> <!-- end of page-inner -->
+</div> <!-- end of page-wrapper -->
+
+</div> <!-- end of body-inner -->
+
+</div> <!-- end of book-body -->
+<script src="./js/main.js"></script>
+<script src="search/main.js"></script>
+<script src="./js/gitbook.min.js"></script>
+<script src="./js/theme.min.js"></script>
+</body>
+</html>

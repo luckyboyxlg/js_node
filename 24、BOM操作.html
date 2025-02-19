@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>二十四、浏览器对象模型BOM - js node</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="generator" content="mkdocs-1.6.1, mkdocs-gitbook-1.0.7">
+
+<link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta rel="next" href="" />
+<link href="./css/style.min.css" rel="stylesheet"> 
+</head>
+
+<body>
+<div class="book">
+<div class="book-summary">
+<div id="book-search-input" role="search">
+<input type="text" placeholder="Type to search" />
+</div> <!-- end of book-search-input -->
+
+<nav role="navigation">
+<ul class="summary">
+<li>
+<a href="index.html" target="_blank" class="custom-link">js node</a>
+</li>
+<li class="divider"></li>
+<li class="chapter" data-path="index.html">
+<a href="index.html">Welcome to MkDocs</a>
+<li class="chapter" data-path="01%E3%80%81html.html">
+<a href="01%E3%80%81html.html">一、HTML</a>
+<li class="chapter" data-path="02%E3%80%81CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8.html">
+<a href="02%E3%80%81CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8.html">二、CSS层叠样式表</a>
+<li class="chapter" data-path="03%E3%80%81%E6%AD%A3%E5%88%99.html">
+<a href="03%E3%80%81%E6%AD%A3%E5%88%99.html">三、正则</a>
+<li class="chapter" data-path="04%E3%80%81BS4%E8%A7%A3%E6%9E%90%E5%AE%8C%E6%95%B4.html">
+<a href="04%E3%80%81BS4%E8%A7%A3%E6%9E%90%E5%AE%8C%E6%95%B4.html">四、beautifulsoup</a>
+<li class="chapter" data-path="05%E3%80%81xpath.html">
+<a href="05%E3%80%81xpath.html">五、xpath</a>
+<li class="chapter" data-path="06%E3%80%81%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E4%B8%8Eurllib%26requests.html">
+<a href="06%E3%80%81%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E4%B8%8Eurllib%26requests.html">六、爬虫入门</a>
+<li class="chapter" data-path="07%E3%80%81urllib%E4%B8%8Erequests.html">
+<a href="07%E3%80%81urllib%E4%B8%8Erequests.html">七、urllib与requests</a>
+<li class="chapter" data-path="08%E3%80%81%E5%A4%9A%E8%BF%9B%E7%A8%8B.html">
+<a href="08%E3%80%81%E5%A4%9A%E8%BF%9B%E7%A8%8B.html">八、多进程</a>
+<li class="chapter" data-path="09%E3%80%81%E7%BA%BF%E7%A8%8B.html">
+<a href="09%E3%80%81%E7%BA%BF%E7%A8%8B.html">九、线程</a>
+<li class="chapter" data-path="10%E3%80%81%E5%8D%8F%E7%A8%8B.html">
+<a href="10%E3%80%81%E5%8D%8F%E7%A8%8B.html">十、携程</a>
+<li class="chapter" data-path="11%E3%80%81selenium.html">
+<a href="11%E3%80%81selenium.html">十一、selenium</a>
+<li class="chapter" data-path="12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.html">
+<a href="12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.html">十二、MySQL数据库</a>
+<li class="chapter" data-path="13%E3%80%81Mongodb.html">
+<a href="13%E3%80%81Mongodb.html">十三、Mongodb</a>
+<li class="chapter" data-path="14%E3%80%81redis.html">
+<a href="14%E3%80%81redis.html">十四、Redis数据库</a>
+<li class="chapter" data-path="15%E3%80%81%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.html">
+<a href="15%E3%80%81%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.html">十五、面向对象</a>
+<li class="chapter" data-path="16-Scrapy01-%E6%A1%86%E6%9E%B6%E5%88%9D%E8%AE%A4%E8%AF%86.html">
+<a href="16-Scrapy01-%E6%A1%86%E6%9E%B6%E5%88%9D%E8%AE%A4%E8%AF%86.html">十六、Scrapy框架初认识</a>
+<li class="chapter" data-path="16-Scrapy02%E6%B7%B1%E5%85%A5%E4%BD%BF%E7%94%A8-%E5%AD%98%E5%82%A8.html">
+<a href="16-Scrapy02%E6%B7%B1%E5%85%A5%E4%BD%BF%E7%94%A8-%E5%AD%98%E5%82%A8.html">十六、Scrapy深入使用-存储</a>
+<li class="chapter" data-path="16-Scrapy03-%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86%E4%BB%A5%E5%8F%8A%E5%88%86%E9%A1%B5.html">
+<a href="16-Scrapy03-%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86%E4%BB%A5%E5%8F%8A%E5%88%86%E9%A1%B5.html">十六、scrapy模拟登陆&amp;分页</a>
+<li class="chapter" data-path="16-Scrapy04-%E4%B8%AD%E9%97%B4%E4%BB%B6.html">
+<a href="16-Scrapy04-%E4%B8%AD%E9%97%B4%E4%BB%B6.html">十六、Scrapy中间件</a>
+<li class="chapter" data-path="16-Scrapy05-%E5%88%86%E9%A1%B5%E6%8A%93%E5%8F%96.html">
+<a href="16-Scrapy05-%E5%88%86%E9%A1%B5%E6%8A%93%E5%8F%96.html">十六、scrapy的crawlspider爬虫</a>
+<li class="chapter" data-path="16-Scrapy06-scrapy_redis.html">
+<a href="16-Scrapy06-scrapy_redis.html">十六、scrapy_redis</a>
+<li class="chapter" data-path="17%E3%80%81js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html">
+<a href="17%E3%80%81js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html">十七、js数据类型</a>
+<li class="chapter" data-path="18%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%8E%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6.html">
+<a href="18%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%8E%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6.html">十八、js运算符与流程控制</a>
+<li class="chapter" data-path="19%E3%80%81js%E6%95%B0%E7%BB%84.html">
+<a href="19%E3%80%81js%E6%95%B0%E7%BB%84.html">十九、js数组</a>
+<li class="chapter" data-path="20%E3%80%81js%E5%AD%97%E7%AC%A6%E4%B8%B2.html">
+<a href="20%E3%80%81js%E5%AD%97%E7%AC%A6%E4%B8%B2.html">二十、js字符串</a>
+<li class="chapter" data-path="21%E3%80%81js%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%97%B6%E9%97%B4.html">
+<a href="21%E3%80%81js%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%97%B6%E9%97%B4.html">二十一、js对象与时间</a>
+<li class="chapter" data-path="22%E3%80%81%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89.html">
+<a href="22%E3%80%81%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89.html">二十二、js函数</a>
+<li class="chapter" data-path="23%E3%80%81js%E8%BF%9B%E9%98%B6.html">
+<a href="23%E3%80%81js%E8%BF%9B%E9%98%B6.html">二十三、Javascript进阶</a>
+<li class="chapter active" data-path="24%E3%80%81BOM%E6%93%8D%E4%BD%9C.html">
+<a href="24%E3%80%81BOM%E6%93%8D%E4%BD%9C.html">二十四、浏览器对象模型BOM</a>
+<li class="chapter" data-path="25%E3%80%81DOM%E6%93%8D%E4%BD%9C.html">
+<a href="25%E3%80%81DOM%E6%93%8D%E4%BD%9C.html">二十五、DOM操作</a>
+<li class="chapter" data-path="26%E3%80%81jQuery%E6%93%8D%E4%BD%9C.html">
+<a href="26%E3%80%81jQuery%E6%93%8D%E4%BD%9C.html">二十六、jQuery</a>
+<li class="chapter" data-path="27%E3%80%81%E9%80%86%E5%90%9101.html">
+<a href="27%E3%80%81%E9%80%86%E5%90%9101.html">二十七、JS逆向01</a>
+<li class="chapter" data-path="28%E3%80%81%E9%80%86%E5%90%9102.html">
+<a href="28%E3%80%81%E9%80%86%E5%90%9102.html">二十八、逆向02</a>
+<li class="chapter" data-path="29%E3%80%81%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html">
+<a href="29%E3%80%81%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html">二十九、微信小程序逆向开发</a>
+<li class="chapter" data-path="30%E3%80%81%E7%BD%91%E6%98%93%E6%BB%91%E5%9D%97.html">
+<a href="30%E3%80%81%E7%BD%91%E6%98%93%E6%BB%91%E5%9D%97.html">三十、网易易盾</a>
+<li class="chapter" data-path="31%E3%80%81rpc.html">
+<a href="31%E3%80%81rpc.html">三十一、RPC</a>
+<li class="chapter" data-path="32%E3%80%81TLS%E6%8C%87%E7%BA%B9%E7%BB%95%E8%BF%87.html">
+<a href="32%E3%80%81TLS%E6%8C%87%E7%BA%B9%E7%BB%95%E8%BF%87.html">三十二、TLS指纹绕过</a>
+<li class="chapter" data-path="33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">
+<a href="33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">三十三、高级逆向</a>
+<li class="chapter" data-path="34%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">
+<a href="34%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">三十四、高级逆向</a>
+<li class="chapter" data-path="%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B%E7%AC%94%E8%AE%B0.html">
+<a href="%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B%E7%AC%94%E8%AE%B0.html">逆向实战案例笔记</a>
+<li class="header">Pyexecjs与npm配置</li>
+
+<li>
+<a href="pyexecjs%E4%B8%8Enpm%E9%85%8D%E7%BD%AE/execjs%E4%BB%8B%E7%BB%8D%E4%BB%A5%E5%8F%8A%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8.html" class="">Execjs介绍以及安装和使用</a>
+</li>
+
+<li>
+<a href="pyexecjs%E4%B8%8Enpm%E9%85%8D%E7%BD%AE/%E4%B8%80%E6%AC%A1%E6%80%A7%E8%A7%A3%E5%86%B3%E6%8E%89npm%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5%E7%9A%84%E9%97%AE%E9%A2%98.html" class="">更换npm为国内镜像</a>
+</li>
+
+<li class="header">补环境</li>
+
+<li>
+<a href="%E8%A1%A5%E7%8E%AF%E5%A2%83/1%E3%80%81%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8E%E4%BA%8B%E4%BB%B6.html" class="">补环境</a>
+</li>
+
+<li>
+<a href="%E8%A1%A5%E7%8E%AF%E5%A2%83/2%E3%80%81Proxy%E4%BB%A3%E7%90%86%E5%99%A8.html" class="">Proxy代理</a>
+</li>
+
+<li>
+<a href="%E8%A1%A5%E7%8E%AF%E5%A2%83/3%E3%80%81vm2%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83.html" class="">3、vm2运行环境</a>
+</li>
+
+<li class="divider"></li>
+
+
+
+<li><a href="http://www.mkdocs.org">
+Published with MkDocs
+</a></li>
+
+<li><a href="https://github.com/GitbookIO/theme-default">
+Theme by GitBook
+</a></li>
+</ul>
+
+</nav>
+
+</div> <!-- end of book-summary -->
+
+<div class="book-body">
+<div class="body-inner">
+<div class="book-header" role="navigation">
+
+<!-- Title -->
+<h1>
+<i class="fa fa-circle-o-notch fa-spin"></i>
+<a href="." ></a>
+</h1>
+
+</div> <!-- end of book-header -->
+
+<div class="page-wrapper" tabindex="-1" role="main">
+<div class="page-inner">
+<div id="book-search-results">
+<div class="search-noresults">
+
+<section class="normal markdown-section">
+
+
+
+<h1 id="bom">二十四、浏览器对象模型BOM</h1>
+<p>浏览器对象模型 (BOM) 使 JavaScript 有能力与浏览器"对话"。</p>
+<p>浏览器对象模型（<strong>B</strong>rowser <strong>O</strong>bject <strong>M</strong>odel (BOM)）</p>
+<h3 id="1-window">1、 Window 对象</h3>
+<p>所有浏览器都支持 window 对象。它表示浏览器窗口。</p>
+<p>HTML DOM 的 document 也是 window 对象的属性之一：</p>
+<p><code>window.document.getElementById("header");</code></p>
+<p>与此相同：</p>
+<p><code>document.getElementById("header");</code></p>
+<h3 id="2window">2、Window 尺寸</h3>
+<p>有三种方法能够确定浏览器窗口的尺寸。</p>
+<p>对于Internet Explorer、Chrome、Firefox、Opera 以及 Safari：</p>
+<ul>
+<li>
+<p>window.innerHeight - 浏览器窗口的内部高度(包括滚动条)  可见区域</p>
+</li>
+<li>
+<p>window.innerWidth - 浏览器窗口的内部宽度(包括滚动条)    可见区域</p>
+</li>
+<li>
+<p><code>javascript
+  window.document.body.offsetHeight
+  window.document.body.offsetWidth
+  //获取的是 整个body体的宽度和高度 需要注意去掉HTML5的头</code></p>
+</li>
+</ul>
+<p>对于 Internet Explorer 8、7、6、5：</p>
+<ul>
+<li>document.documentElement.clientHeight</li>
+<li>document.documentElement.clientWidth</li>
+</ul>
+<p>或者</p>
+<ul>
+<li>document.body.clientHeight == innerHeight   网页可见区域高</li>
+<li>document.body.clientWidth == innerWidth      网页可见区域宽</li>
+</ul>
+<pre><code class="language-javascript">document.write(window.innerWidth+'&lt;br&gt;');
+document.write(window.innerHeight+'&lt;br&gt;');
+document.write(window.document.body.offsetWidth+'&lt;br&gt;');
+document.write(window.document.body.offsetHeight+'&lt;br&gt;');
+document.write(window.document.body.clientWidth+'&lt;br&gt;');
+document.write(window.document.body.clientHeight+'&lt;br&gt;');
+</code></pre>
+<h3 id="3-window">3、其他 Window 方法</h3>
+<p>一些其他方法：</p>
+<ul>
+<li>window.open() - 打开新窗口</li>
+<li>window.close() - 关闭当前窗口</li>
+<li>window.moveTo() - 移动当前窗口（不用）</li>
+<li>window.resizeTo() - 调整当前窗口的尺寸</li>
+</ul>
+<h3 id="4window-screen">4、Window Screen 可用宽度</h3>
+<p>screen.availWidth 属性返回访问者屏幕的宽度，以像素计，减去界面特性，比如窗口任务栏。</p>
+<p>实例:</p>
+<p>返回您的屏幕的可用宽度：</p>
+<pre><code class="language-javascript">&lt;script&gt;
+    document.write(&quot;可用宽度: &quot; + screen.availWidth);
+&lt;/script&gt;
+</code></pre>
+<h3 id="5window-screen">5、Window Screen 可用高度</h3>
+<p>screen.availHeight 属性返回访问者屏幕的高度，以像素计，减去界面特性，比如窗口任务栏</p>
+<p>返回您的屏幕的可用高度：</p>
+<pre><code class="language-javascript">&lt;script&gt;
+    document.write(&quot;可用高度: &quot; + screen.availHeight);
+&lt;/script&gt;
+</code></pre>
+<h3 id="6window-location">6、Window Location 跳转</h3>
+<p>window.location 对象用于获得当前页面的地址 (URL)，并把浏览器重定向到新的页面。</p>
+<p><strong>window.location</strong> 对象在编写时可不使用 window 这个前缀。 一些例子：</p>
+<p>一些实例:</p>
+<ul>
+<li>
+<p>location.hostname 返回 web 主机的域名</p>
+</li>
+<li>
+<p>location.href属性返回当前的URL地址</p>
+</li>
+<li>
+<p>location.href=url   跳转新的地址</p>
+</li>
+<li>
+<p>location.pathname 返回当前页面的路径和文件名</p>
+</li>
+<li>
+<p>location.port 返回 web 主机的端口 （80 或 443）</p>
+</li>
+<li>
+<p>location.protocol 返回所使用的 web 协议（http:// 或 https://）</p>
+</li>
+<li>
+<p>location.assign(url) 方法加载新的文档。</p>
+</li>
+<li>
+<p>window.location.replace(url) ： 通过加载 URL 指定的文档来替换当前文档 ，这个方法是替换当前窗口页面，前后两个页面共用一个窗口，所以是没有后退返回上一页的</p>
+</li>
+<li>
+<p>window.location.reload()  方法用于刷新当前文档。</p>
+</li>
+<li>
+<p><code>javascript
+  说明
+  如果该方法没有规定参数，或者参数是 false，它就会用 HTTP 头 If-Modified-Since 来检测服务器上的文档是否已改变。如果文档已改变，reload() 会再次下载该文档。如果文档未改变，则该方法将从缓存中装载文档。这与用户单击浏览器的刷新按钮的效果是完全一样的。
+  如果把该方法的参数设置为 true，那么无论文档的最后修改日期是什么，它都会绕过缓存，从服务器上重新下载该文档。这与用户在单击浏览器的刷新按钮时按住 Shift 健的效果是完全一样。</code></p>
+</li>
+<li>
+<p>window.location.search  属性用于获取url的参数部分</p>
+</li>
+</ul>
+<h3 id="7window-history">7、Window History  历史</h3>
+<ul>
+<li>history.back() - 与在浏览器点击后退按钮相同  加载历史列表中的前一个 URL</li>
+<li>history.forward() - 与在浏览器中点击向前按钮相同  加载历史列表中的下一个 URL。</li>
+<li>history.go(+1) 前进 </li>
+<li>history.go(-1)  后退+刷新  不同的浏览器有区别</li>
+</ul>
+<p>实例</p>
+<p>1.html</p>
+<pre><code class="language-Javascript">&lt;a href=&quot;2.html&quot;&gt;2.html&lt;/a&gt;
+&lt;button onclick=&quot;history.forward()&quot;&gt;back&lt;/button&gt;
+&lt;button onclick=&quot;history.go(+1)&quot;&gt;go&lt;/button&gt;
+</code></pre>
+<p>2.html</p>
+<pre><code class="language-javascript">&lt;button onclick=&quot;history.back()&quot;&gt;back&lt;/button&gt;
+&lt;button onclick=&quot;history.go(-1)&quot;&gt;go&lt;/button&gt;
+</code></pre>
+<h3 id="8-window-navigator">8、 Window Navigator  对象包含有关访问者浏览器的信息。</h3>
+<p>浏览器代号: " + navigator.appCodeName
+浏览器名称: " + navigator.appName
+浏览器版本: " + navigator.appVersion
+启用Cookies: " + navigator.cookieEnabled
+硬件平台: " + navigator.platform
+用户代理: " + navigator.userAgent
+用户代理语言: " + navigator.systemLanguage</p>
+<h3 id="9javascript">9、JavaScript 弹窗</h3>
+<p>可以在 JavaScript 中创建三种消息框：警告框、确认框、提示框。</p>
+<p>windows可以不加</p>
+<h4 id="1">(1) 警告框</h4>
+<p>警告框经常用于确保用户可以得到某些信息。</p>
+<p>当警告框出现后，用户需要点击确定按钮才能继续进行操作。</p>
+<p><strong>语法</strong></p>
+<p>window.alert("<em>sometext</em>");</p>
+<h4 id="2">(2) 确认框</h4>
+<p>确认框通常用于验证是否接受用户操作。</p>
+<p>当确认卡弹出时，用户可以点击 "确认" 或者 "取消" 来确定用户操作。 </p>
+<p>当你点击 "确认", 确认框返回 true， 如果点击 "取消", 确认框返回 false。</p>
+<p><strong>语法</strong></p>
+<p>window.confirm("<em>sometext</em>"); [kənˈfɜ:rm]</p>
+<p>实例</p>
+<pre><code class="language-javascript">var r=confirm(&quot;按下按钮&quot;);
+if (r==true)
+{
+    x=&quot;你按下了\&quot;确定\&quot;按钮!&quot;;
+}
+else
+{
+    x=&quot;你按下了\&quot;取消\&quot;按钮!&quot;;
+}
+</code></pre>
+<h4 id="3">(3) 提示框</h4>
+<p>提示框经常用于提示用户在进入页面前输入某个值。</p>
+<p>当提示框出现后，用户需要输入某个值，然后点击确认或取消按钮才能继续操纵。</p>
+<p>如果用户点击确认，那么返回值为输入的值。如果用户点击取消，那么返回值为 null。</p>
+<p><strong>语法</strong></p>
+<p>prompt [prɑːmpt] </p>
+<p>window.prompt("<em>sometext</em>","<em>defaultvalue</em>"); [prɑ:mpt] </p>
+<p>实例</p>
+<pre><code class="language-javascript">var person=prompt(&quot;请输入你的名字&quot;,&quot;Harry Potter&quot;);
+if (person!=null &amp;&amp; person!=&quot;&quot;)
+{
+    x=&quot;你好 &quot; + person + &quot;! 今天感觉如何?&quot;;
+    document.getElementById(&quot;demo&quot;).innerHTML=x;
+}
+</code></pre>
+<h4 id="4">(4) 换行</h4>
+<p>弹窗使用 反斜杠 + "n"(\n) 来设置换行。</p>
+<p>实例</p>
+<p>alert("Hello\nHow are you?");</p>
+
+
+</section>
+</div> <!-- end of search-noresults -->
+<div class="search-results">
+<div class="has-results">
+
+<h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+<ul class="search-results-list"></ul>
+
+</div> <!-- end of has-results -->
+<div class="no-results">
+
+<h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+
+</div> <!-- end of no-results -->
+</div> <!-- end of search-results -->
+</div> <!-- end of book-search-results -->
+
+</div> <!-- end of page-inner -->
+</div> <!-- end of page-wrapper -->
+
+</div> <!-- end of body-inner -->
+
+</div> <!-- end of book-body -->
+<script src="./js/main.js"></script>
+<script src="search/main.js"></script>
+<script src="./js/gitbook.min.js"></script>
+<script src="./js/theme.min.js"></script>
+</body>
+</html>
