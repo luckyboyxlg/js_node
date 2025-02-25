@@ -175,6 +175,9 @@ Theme by GitBook
 
 
 <h1 id="03">二十九、高级逆向03</h1>
+<h3 id="_1">注意</h3>
+<p>以后见到chunk这种库是在加载第三方库，所以不用优先去看app.js是程序员自己写的代码</p>
+<p><img alt="image-20250225134327571" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250225134327571.png" /></p>
 <h2 id="webpack">一、Webpack逆向</h2>
 <h3 id="1">1、概念与  安装</h3>
 <p>Webpack是一个现代的静态模块打包工具，它主要用于前端开发中的模块化打包和构建。通过Webpack，开发者可以将多个模块（包括JavaScript、CSS、图片等）进行打包，生成优化后的静态资源文件，以供在浏览器中加载和运行。</p>
@@ -188,13 +191,15 @@ Theme by GitBook
 <pre><code>npm install webpack
 npm install webpack-cli
 </code></pre>
+<h3 id="2">2、格式</h3>
 <pre><code class="language-js">/*
 !function(形参){加载器}([模块1，模块2,...])
 
 !function(形参){加载器}({&quot;k1&quot;:&quot;模块1&quot;,&quot;k2&quot;:&quot;模块2&quot;}) 
 */
 </code></pre>
-<pre><code class="language-js">window = global;
+<pre><code class="language-js">// global在nodejs中代表全局 就相当于浏览器的Window
+var window = global;
 !function (e) {
     var t = {};
 
@@ -258,22 +263,1047 @@ console.log(window.loader(1));
 
 console.log(window.loader(&quot;1001&quot;));
 </code></pre>
-<h3 id="2">【2】医保局案例</h3>
+<p><strong>重点</strong></p>
+<p>找到当前webpack的加载器的位置，然后传入参数函数就可以</p>
+<h3 id="3">3、酷我</h3>
+<h3 id="1_1">【1】网址与参数</h3>
+<ul>
+<li>网址</li>
+</ul>
+<p>https://kuwo.cn/search/list?key=%E5%A4%A9%E9%9B%B7%E6%BB%9A%E6%BB%9A%EF%BC%8C%E6%88%91%E5%A5%BD%E6%80%95%E6%80%95</p>
+<ul>
+<li>解密参数</li>
+</ul>
+<p>Reqid</p>
+<p><img alt="image-20250225114130058" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250225114130058.png" /></p>
+<h3 id="2_1">【2】定位加密入口</h3>
+<ul>
+<li>搜索加密参数</li>
+</ul>
+<p><img alt="image-20250225114442135" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250225114442135.png" /></p>
+<ul>
+<li>点击进入l()加密参数内</li>
+</ul>
+<p><img alt="image-20250225114541984" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250225114541984.png" /></p>
+<ul>
+<li>进入</li>
+</ul>
+<p><img alt="image-20250225114734805" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250225114734805.png" /></p>
+<ul>
+<li>但是我们当前要查找加载n，所以给上一行也加上断点，但是我们断点无法进入，因为当前已经在家完毕，所以加完断点后我们进行刷新、刷新后断点就会停在当前行</li>
+</ul>
+<p><img alt="image-20250225114820327" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250225114820327.png" /></p>
+<ul>
+<li>进入加载器</li>
+</ul>
+<p><img alt="image-20250225114847717" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250225114847717.png" /></p>
+<ul>
+<li>找到加载器</li>
+</ul>
+<p><img alt="image-20250225114954978" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250225114954978.png" /></p>
+<ul>
+<li>回到顶部，折叠代码</li>
+</ul>
+<p><img alt="image-20250225115048465" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250225115048465.png" /></p>
+<ul>
+<li>现在把当前折叠代码复制到本地</li>
+</ul>
+<p><code>javascript
+  !function(e) {
+      function r(data) {
+          for (var r, n, f = data[0], l = data[1], d = data[2], i = 0, v = []; i &lt; f.length; i++)
+              n = f[i],
+              Object.prototype.hasOwnProperty.call(o, n) &amp;&amp; o[n] &amp;&amp; v.push(o[n][0]),
+              o[n] = 0;
+          for (r in l)
+              Object.prototype.hasOwnProperty.call(l, r) &amp;&amp; (e[r] = l[r]);
+          for (h &amp;&amp; h(data); v.length; )
+              v.shift()();
+          return c.push.apply(c, d || []),
+          t()
+      }
+      function t() {
+          for (var e, i = 0; i &lt; c.length; i++) {
+              for (var r = c[i], t = !0, n = 1; n &lt; r.length; n++) {
+                  var l = r[n];
+                  0 !== o[l] &amp;&amp; (t = !1)
+              }
+              t &amp;&amp; (c.splice(i--, 1),
+              e = f(f.s = r[0]))
+          }
+          return e
+      }
+      var n = {}
+        , o = {
+          31: 0
+      }
+        , c = [];
+      function f(r) {
+          if (n[r])
+              return n[r].exports;
+          var t = n[r] = {
+              i: r,
+              l: !1,
+              exports: {}
+          };
+          return e[r].call(t.exports, t, t.exports, f),
+          t.l = !0,
+          t.exports
+      }
+      f.e = function(e) {
+          var r = []
+            , t = o[e];
+          if (0 !== t)
+              if (t)
+                  r.push(t[2]);
+              else {
+                  var n = new Promise((function(r, n) {
+                      t = o[e] = [r, n]
+                  }
+                  ));
+                  r.push(t[2] = n);
+                  var c, script = document.createElement("script");
+                  script.charset = "utf-8",
+                  script.timeout = 120,
+                  f.nc &amp;&amp; script.setAttribute("nonce", f.nc),
+                  script.src = function(e) {
+                      return f.p + "" + {
+                          0: "2b0f4e8",
+                          1: "49279c3",
+                          4: "ea61728",
+                          5: "9528a4a",
+                          6: "de1cb33",
+                          7: "efc8943",
+                          8: "3654d86",
+                          9: "7d2c556",
+                          10: "d3a9202",
+                          11: "afddcc5",
+                          12: "aaf812e",
+                          13: "c6c89c5",
+                          14: "ceb3fb6",
+                          15: "f082381",
+                          16: "d1cb361",
+                          17: "b4d838c",
+                          18: "f2873fb",
+                          19: "a79b111",
+                          20: "7f422df",
+                          21: "5af4fa9",
+                          22: "bfbc0a3",
+                          23: "a6e1bfd",
+                          24: "b9f520b",
+                          25: "e340c98",
+                          26: "920aa02",
+                          27: "6b677dc",
+                          28: "023f614",
+                          29: "5467cb6",
+                          30: "7a8f02b",
+                          33: "414fc82"
+                      }[e] + ".js"
+                  }(e);
+                  var l = new Error;
+                  c = function(r) {
+                      script.onerror = script.onload = null,
+                      clearTimeout(d);
+                      var t = o[e];
+                      if (0 !== t) {
+                          if (t) {
+                              var n = r &amp;&amp; ("load" === r.type ? "missing" : r.type)
+                                , c = r &amp;&amp; r.target &amp;&amp; r.target.src;
+                              l.message = "Loading chunk " + e + " failed.\n(" + n + ": " + c + ")",
+                              l.name = "ChunkLoadError",
+                              l.type = n,
+                              l.request = c,
+                              t[1](l)
+                          }
+                          o[e] = void 0
+                      }
+                  }
+                  ;
+                  var d = setTimeout((function() {
+                      c({
+                          type: "timeout",
+                          target: script
+                      })
+                  }
+                  ), 12e4);
+                  script.onerror = script.onload = c,
+                  document.head.appendChild(script)
+              }
+          return Promise.all(r)
+      }
+      ,
+      f.m = e,
+      f.c = n,
+      f.d = function(e, r, t) {
+          f.o(e, r) || Object.defineProperty(e, r, {
+              enumerable: !0,
+              get: t
+          })
+      }
+      ,
+      f.r = function(e) {
+          "undefined" != typeof Symbol &amp;&amp; Symbol.toStringTag &amp;&amp; Object.defineProperty(e, Symbol.toStringTag, {
+              value: "Module"
+          }),
+          Object.defineProperty(e, "__esModule", {
+              value: !0
+          })
+      }
+      ,
+      f.t = function(e, r) {
+          if (1 &amp; r &amp;&amp; (e = f(e)),
+          8 &amp; r)
+              return e;
+          if (4 &amp; r &amp;&amp; "object" == typeof e &amp;&amp; e &amp;&amp; e.__esModule)
+              return e;
+          var t = Object.create(null);
+          if (f.r(t),
+          Object.defineProperty(t, "default", {
+              enumerable: !0,
+              value: e
+          }),
+          2 &amp; r &amp;&amp; "string" != typeof e)
+              for (var n in e)
+                  f.d(t, n, function(r) {
+                      return e[r]
+                  }
+                  .bind(null, n));
+          return t
+      }
+      ,
+      f.n = function(e) {
+          var r = e &amp;&amp; e.__esModule ? function() {
+              return e.default
+          }
+          : function() {
+              return e
+          }
+          ;
+          return f.d(r, "a", r),
+          r
+      }
+      ,
+      f.o = function(object, e) {
+          return Object.prototype.hasOwnProperty.call(object, e)
+      }
+      ,
+      f.p = "https://h5s.kuwo.cn/www/kw-www/",
+      f.oe = function(e) {
+          throw console.error(e),
+          e
+      }
+      ;
+      var l = window.webpackJsonp = window.webpackJsonp || []
+        , d = l.push.bind(l);
+      l.push = r,
+      l = l.slice();
+      for (var i = 0; i &lt; l.length; i++)
+          r(l[i]);
+      var h = d;
+      t()
+  }([]);</code></p>
+<ul>
+<li>
+<p>这里传参是空的，和下面的案例是不一样的，下面的案例是将加载的包都传入在参数里，那当前证明包在别的js文件中，也就是分发器</p>
+</li>
+<li>
+<p>运行一下，然后补window，把加载器导入外部调用</p>
+</li>
+<li>
+<p>修改位置</p>
+</li>
+</ul>
+<p><img alt="image-20250225115550682" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250225115550682.png" /></p>
+<ul>
+<li>进行调用、没有任何问题、接下来传参</li>
+</ul>
+<p><img alt="image-20250225115650281" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250225115650281.png" /></p>
+<ul>
+<li>修改后代码</li>
+</ul>
+<p>```javascript
+  var window = global;
+  var ff;</p>
+<p>!function(e) {
+      function r(data) {
+          for (var r, n, f = data[0], l = data[1], d = data[2], i = 0, v = []; i &lt; f.length; i++)
+              n = f[i],
+              Object.prototype.hasOwnProperty.call(o, n) &amp;&amp; o[n] &amp;&amp; v.push(o[n][0]),
+              o[n] = 0;
+          for (r in l)
+              Object.prototype.hasOwnProperty.call(l, r) &amp;&amp; (e[r] = l[r]);
+          for (h &amp;&amp; h(data); v.length; )
+              v.shift()();
+          return c.push.apply(c, d || []),
+          t()
+      }
+      function t() {
+          for (var e, i = 0; i &lt; c.length; i++) {
+              for (var r = c[i], t = !0, n = 1; n &lt; r.length; n++) {
+                  var l = r[n];
+                  0 !== o[l] &amp;&amp; (t = !1)
+              }
+              t &amp;&amp; (c.splice(i--, 1),
+              e = f(f.s = r[0]))
+          }
+          return e
+      }
+      var n = {}
+        , o = {
+          31: 0
+      }
+        , c = [];
+      function f(r) {
+          if (n[r])
+              return n[r].exports;
+          var t = n[r] = {
+              i: r,
+              l: !1,
+              exports: {}
+          };
+          return e[r].call(t.exports, t, t.exports, f),
+          t.l = !0,
+          t.exports
+      }
+      ff = f;
+      f.e = function(e) {
+          var r = []
+            , t = o[e];
+          if (0 !== t)
+              if (t)
+                  r.push(t[2]);
+              else {
+                  var n = new Promise((function(r, n) {
+                      t = o[e] = [r, n]
+                  }
+                  ));
+                  r.push(t[2] = n);
+                  var c, script = document.createElement("script");
+                  script.charset = "utf-8",
+                  script.timeout = 120,
+                  f.nc &amp;&amp; script.setAttribute("nonce", f.nc),
+                  script.src = function(e) {
+                      return f.p + "" + {
+                          0: "2b0f4e8",
+                          1: "49279c3",
+                          4: "ea61728",
+                          5: "9528a4a",
+                          6: "de1cb33",
+                          7: "efc8943",
+                          8: "3654d86",
+                          9: "7d2c556",
+                          10: "d3a9202",
+                          11: "afddcc5",
+                          12: "aaf812e",
+                          13: "c6c89c5",
+                          14: "ceb3fb6",
+                          15: "f082381",
+                          16: "d1cb361",
+                          17: "b4d838c",
+                          18: "f2873fb",
+                          19: "a79b111",
+                          20: "7f422df",
+                          21: "5af4fa9",
+                          22: "bfbc0a3",
+                          23: "a6e1bfd",
+                          24: "b9f520b",
+                          25: "e340c98",
+                          26: "920aa02",
+                          27: "6b677dc",
+                          28: "023f614",
+                          29: "5467cb6",
+                          30: "7a8f02b",
+                          33: "414fc82"
+                      }[e] + ".js"
+                  }(e);
+                  var l = new Error;
+                  c = function(r) {
+                      script.onerror = script.onload = null,
+                      clearTimeout(d);
+                      var t = o[e];
+                      if (0 !== t) {
+                          if (t) {
+                              var n = r &amp;&amp; ("load" === r.type ? "missing" : r.type)
+                                , c = r &amp;&amp; r.target &amp;&amp; r.target.src;
+                              l.message = "Loading chunk " + e + " failed.\n(" + n + ": " + c + ")",
+                              l.name = "ChunkLoadError",
+                              l.type = n,
+                              l.request = c,
+                              t<a href="l">1</a>
+                          }
+                          o[e] = void 0
+                      }
+                  }
+                  ;
+                  var d = setTimeout((function() {
+                      c({
+                          type: "timeout",
+                          target: script
+                      })
+                  }
+                  ), 12e4);
+                  script.onerror = script.onload = c,
+                  document.head.appendChild(script)
+              }
+          return Promise.all(r)
+      }
+      ,
+      f.m = e,
+      f.c = n,
+      f.d = function(e, r, t) {
+          f.o(e, r) || Object.defineProperty(e, r, {
+              enumerable: !0,
+              get: t
+          })
+      }
+      ,
+      f.r = function(e) {
+          "undefined" != typeof Symbol &amp;&amp; Symbol.toStringTag &amp;&amp; Object.defineProperty(e, Symbol.toStringTag, {
+              value: "Module"
+          }),
+          Object.defineProperty(e, "__esModule", {
+              value: !0
+          })
+      }
+      ,
+      f.t = function(e, r) {
+          if (1 &amp; r &amp;&amp; (e = f(e)),
+          8 &amp; r)
+              return e;
+          if (4 &amp; r &amp;&amp; "object" == typeof e &amp;&amp; e &amp;&amp; e.__esModule)
+              return e;
+          var t = Object.create(null);
+          if (f.r(t),
+          Object.defineProperty(t, "default", {
+              enumerable: !0,
+              value: e
+          }),
+          2 &amp; r &amp;&amp; "string" != typeof e)
+              for (var n in e)
+                  f.d(t, n, function(r) {
+                      return e[r]
+                  }
+                  .bind(null, n));
+          return t
+      }
+      ,
+      f.n = function(e) {
+          var r = e &amp;&amp; e.__esModule ? function() {
+              return e.default
+          }
+          : function() {
+              return e
+          }
+          ;
+          return f.d(r, "a", r),
+          r
+      }
+      ,
+      f.o = function(object, e) {
+          return Object.prototype.hasOwnProperty.call(object, e)
+      }
+      ,
+      f.p = "https://h5s.kuwo.cn/www/kw-www/",
+      f.oe = function(e) {
+          throw console.error(e),
+          e
+      }
+      ;
+      var l = window.webpackJsonp = window.webpackJsonp || []
+        , d = l.push.bind(l);
+      l.push = r,
+      l = l.slice();
+      for (var i = 0; i &lt; l.length; i++)
+          r(l[i]);
+      var h = d;
+      t()
+  }([]);
+  // 调用
+  console.log(ff)
+  ```</p>
+<ul>
+<li>接下来传参，因为当前加密是在113，所以传入113</li>
+</ul>
+<p><img alt="image-20250225120114058" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250225120114058.png" /></p>
+<p><code>console.log(ff(113))</code></p>
+<ul>
+<li>经典报错</li>
+</ul>
+<p><img alt="image-20250225120216985" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250225120216985.png" /></p>
+<ul>
+<li>因为当前闭包函数没有传入key为113的对象</li>
+</ul>
+<p><img alt="image-20250225120309124" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250225120309124.png" /></p>
+<ul>
+<li>因为当前的js文件并不是在一个文件中，是在别的文件里，所以用到分发器，去别的js文件中进行查看</li>
+</ul>
+<p>当前js文件</p>
+<p><img alt="image-20250225132324556" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250225132324556.png" /></p>
+<ul>
+<li>点击别的js文件</li>
+</ul>
+<p>发现当前文件中存在各种传参的对象</p>
+<p><img alt="image-20250225132411248" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250225132411248.png" /></p>
+<ul>
+<li>复制到本地</li>
+</ul>
+<p><img alt="image-20250225132535210" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250225132535210.png" /></p>
+<ul>
+<li>发现还是报错，在拦截器中添加打印日志，那当前查找的分发器里可能没有我们想要的</li>
+</ul>
+<p><img alt="image-20250225132644022" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250225132644022.png" /></p>
+<ul>
+<li>查找别的js文件</li>
+</ul>
+<p><img alt="image-20250225132743921" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250225132743921.png" /></p>
+<ul>
+<li>
+<p>复制进来</p>
+</li>
+<li>
+<p>出结果</p>
+</li>
+</ul>
+<p><img alt="image-20250225132826972" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250225132826972.png" /></p>
+<ul>
+<li>当前能看到代码2万多行，那我们可以根据当然打印调用日志，把113,148,149单独拿出来，别的不需要的就删除掉，减少代码冗余</li>
+</ul>
+<p><img alt="image-20250225132937831" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250225132937831.png" /></p>
+<ul>
+<li>完整代码</li>
+</ul>
+<pre><code class="language-javascript">var window = global;
+var ff;
+
+!function(e) {
+    function r(data) {
+        for (var r, n, f = data[0], l = data[1], d = data[2], i = 0, v = []; i &lt; f.length; i++)
+            n = f[i],
+            Object.prototype.hasOwnProperty.call(o, n) &amp;&amp; o[n] &amp;&amp; v.push(o[n][0]),
+            o[n] = 0;
+        for (r in l)
+            Object.prototype.hasOwnProperty.call(l, r) &amp;&amp; (e[r] = l[r]);
+        for (h &amp;&amp; h(data); v.length; )
+            v.shift()();
+        return c.push.apply(c, d || []),
+        t()
+    }
+    function t() {
+        for (var e, i = 0; i &lt; c.length; i++) {
+            for (var r = c[i], t = !0, n = 1; n &lt; r.length; n++) {
+                var l = r[n];
+                0 !== o[l] &amp;&amp; (t = !1)
+            }
+            t &amp;&amp; (c.splice(i--, 1),
+            e = f(f.s = r[0]))
+        }
+        return e
+    }
+    var n = {}
+      , o = {
+        31: 0
+    }
+      , c = [];
+    function f(r) {
+        console.log(r);
+        if (n[r])
+            return n[r].exports;
+        var t = n[r] = {
+            i: r,
+            l: !1,
+            exports: {}
+        };
+        return e[r].call(t.exports, t, t.exports, f),
+        t.l = !0,
+        t.exports
+    }
+    ff = f;
+    f.e = function(e) {
+        var r = []
+          , t = o[e];
+        if (0 !== t)
+            if (t)
+                r.push(t[2]);
+            else {
+                var n = new Promise((function(r, n) {
+                    t = o[e] = [r, n]
+                }
+                ));
+                r.push(t[2] = n);
+                var c, script = document.createElement(&quot;script&quot;);
+                script.charset = &quot;utf-8&quot;,
+                script.timeout = 120,
+                f.nc &amp;&amp; script.setAttribute(&quot;nonce&quot;, f.nc),
+                script.src = function(e) {
+                    return f.p + &quot;&quot; + {
+                        0: &quot;2b0f4e8&quot;,
+                        1: &quot;49279c3&quot;,
+                        4: &quot;ea61728&quot;,
+                        5: &quot;9528a4a&quot;,
+                        6: &quot;de1cb33&quot;,
+                        7: &quot;efc8943&quot;,
+                        8: &quot;3654d86&quot;,
+                        9: &quot;7d2c556&quot;,
+                        10: &quot;d3a9202&quot;,
+                        11: &quot;afddcc5&quot;,
+                        12: &quot;aaf812e&quot;,
+                        13: &quot;c6c89c5&quot;,
+                        14: &quot;ceb3fb6&quot;,
+                        15: &quot;f082381&quot;,
+                        16: &quot;d1cb361&quot;,
+                        17: &quot;b4d838c&quot;,
+                        18: &quot;f2873fb&quot;,
+                        19: &quot;a79b111&quot;,
+                        20: &quot;7f422df&quot;,
+                        21: &quot;5af4fa9&quot;,
+                        22: &quot;bfbc0a3&quot;,
+                        23: &quot;a6e1bfd&quot;,
+                        24: &quot;b9f520b&quot;,
+                        25: &quot;e340c98&quot;,
+                        26: &quot;920aa02&quot;,
+                        27: &quot;6b677dc&quot;,
+                        28: &quot;023f614&quot;,
+                        29: &quot;5467cb6&quot;,
+                        30: &quot;7a8f02b&quot;,
+                        33: &quot;414fc82&quot;
+                    }[e] + &quot;.js&quot;
+                }(e);
+                var l = new Error;
+                c = function(r) {
+                    script.onerror = script.onload = null,
+                    clearTimeout(d);
+                    var t = o[e];
+                    if (0 !== t) {
+                        if (t) {
+                            var n = r &amp;&amp; (&quot;load&quot; === r.type ? &quot;missing&quot; : r.type)
+                              , c = r &amp;&amp; r.target &amp;&amp; r.target.src;
+                            l.message = &quot;Loading chunk &quot; + e + &quot; failed.\n(&quot; + n + &quot;: &quot; + c + &quot;)&quot;,
+                            l.name = &quot;ChunkLoadError&quot;,
+                            l.type = n,
+                            l.request = c,
+                            t[1](l)
+                        }
+                        o[e] = void 0
+                    }
+                }
+                ;
+                var d = setTimeout((function() {
+                    c({
+                        type: &quot;timeout&quot;,
+                        target: script
+                    })
+                }
+                ), 12e4);
+                script.onerror = script.onload = c,
+                document.head.appendChild(script)
+            }
+        return Promise.all(r)
+    }
+    ,
+    f.m = e,
+    f.c = n,
+    f.d = function(e, r, t) {
+        f.o(e, r) || Object.defineProperty(e, r, {
+            enumerable: !0,
+            get: t
+        })
+    }
+    ,
+    f.r = function(e) {
+        &quot;undefined&quot; != typeof Symbol &amp;&amp; Symbol.toStringTag &amp;&amp; Object.defineProperty(e, Symbol.toStringTag, {
+            value: &quot;Module&quot;
+        }),
+        Object.defineProperty(e, &quot;__esModule&quot;, {
+            value: !0
+        })
+    }
+    ,
+    f.t = function(e, r) {
+        if (1 &amp; r &amp;&amp; (e = f(e)),
+        8 &amp; r)
+            return e;
+        if (4 &amp; r &amp;&amp; &quot;object&quot; == typeof e &amp;&amp; e &amp;&amp; e.__esModule)
+            return e;
+        var t = Object.create(null);
+        if (f.r(t),
+        Object.defineProperty(t, &quot;default&quot;, {
+            enumerable: !0,
+            value: e
+        }),
+        2 &amp; r &amp;&amp; &quot;string&quot; != typeof e)
+            for (var n in e)
+                f.d(t, n, function(r) {
+                    return e[r]
+                }
+                .bind(null, n));
+        return t
+    }
+    ,
+    f.n = function(e) {
+        var r = e &amp;&amp; e.__esModule ? function() {
+            return e.default
+        }
+        : function() {
+            return e
+        }
+        ;
+        return f.d(r, &quot;a&quot;, r),
+        r
+    }
+    ,
+    f.o = function(object, e) {
+        return Object.prototype.hasOwnProperty.call(object, e)
+    }
+    ,
+    f.p = &quot;https://h5s.kuwo.cn/www/kw-www/&quot;,
+    f.oe = function(e) {
+        throw console.error(e),
+        e
+    }
+    ;
+    var l = window.webpackJsonp = window.webpackJsonp || []
+      , d = l.push.bind(l);
+    l.push = r,
+    l = l.slice();
+    for (var i = 0; i &lt; l.length; i++)
+        r(l[i]);
+    var h = d;
+    t()
+}([]);
+
+(window.webpackJsonp = window.webpackJsonp || []).push([[32], {
+    113: function(e, t, n) {
+        var r, o, l = n(148), c = n(149), d = 0, h = 0;
+        e.exports = function(e, t, n) {
+            var i = t &amp;&amp; n || 0
+              , b = t || []
+              , f = (e = e || {}).node || r
+              , v = void 0 !== e.clockseq ? e.clockseq : o;
+            if (null == f || null == v) {
+                var m = l();
+                null == f &amp;&amp; (f = r = [1 | m[0], m[1], m[2], m[3], m[4], m[5]]),
+                null == v &amp;&amp; (v = o = 16383 &amp; (m[6] &lt;&lt; 8 | m[7]))
+            }
+            var y = void 0 !== e.msecs ? e.msecs : (new Date).getTime()
+              , w = void 0 !== e.nsecs ? e.nsecs : h + 1
+              , dt = y - d + (w - h) / 1e4;
+            if (dt &lt; 0 &amp;&amp; void 0 === e.clockseq &amp;&amp; (v = v + 1 &amp; 16383),
+            (dt &lt; 0 || y &gt; d) &amp;&amp; void 0 === e.nsecs &amp;&amp; (w = 0),
+            w &gt;= 1e4)
+                throw new Error(&quot;uuid.v1(): Can't create more than 10M uuids/sec&quot;);
+            d = y,
+            h = w,
+            o = v;
+            var A = (1e4 * (268435455 &amp; (y += 122192928e5)) + w) % 4294967296;
+            b[i++] = A &gt;&gt;&gt; 24 &amp; 255,
+            b[i++] = A &gt;&gt;&gt; 16 &amp; 255,
+            b[i++] = A &gt;&gt;&gt; 8 &amp; 255,
+            b[i++] = 255 &amp; A;
+            var x = y / 4294967296 * 1e4 &amp; 268435455;
+            b[i++] = x &gt;&gt;&gt; 8 &amp; 255,
+            b[i++] = 255 &amp; x,
+            b[i++] = x &gt;&gt;&gt; 24 &amp; 15 | 16,
+            b[i++] = x &gt;&gt;&gt; 16 &amp; 255,
+            b[i++] = v &gt;&gt;&gt; 8 | 128,
+            b[i++] = 255 &amp; v;
+            for (var T = 0; T &lt; 6; ++T)
+                b[i + T] = f[T];
+            return t || c(b)
+        }
+    },
+    148: function(e, t) {
+        var n = &quot;undefined&quot; != typeof crypto &amp;&amp; crypto.getRandomValues &amp;&amp; crypto.getRandomValues.bind(crypto) || &quot;undefined&quot; != typeof msCrypto &amp;&amp; &quot;function&quot; == typeof window.msCrypto.getRandomValues &amp;&amp; msCrypto.getRandomValues.bind(msCrypto);
+        if (n) {
+            var r = new Uint8Array(16);
+            e.exports = function() {
+                return n(r),
+                r
+            }
+        } else {
+            var o = new Array(16);
+            e.exports = function() {
+                for (var e, i = 0; i &lt; 16; i++)
+                    3 &amp; i || (e = 4294967296 * Math.random()),
+                    o[i] = e &gt;&gt;&gt; ((3 &amp; i) &lt;&lt; 3) &amp; 255;
+                return o
+            }
+        }
+    },
+    149: function(e, t) {
+        for (var n = [], i = 0; i &lt; 256; ++i)
+            n[i] = (i + 256).toString(16).substr(1);
+        e.exports = function(e, t) {
+            var i = t || 0
+              , r = n;
+            return [r[e[i++]], r[e[i++]], r[e[i++]], r[e[i++]], &quot;-&quot;, r[e[i++]], r[e[i++]], &quot;-&quot;, r[e[i++]], r[e[i++]], &quot;-&quot;, r[e[i++]], r[e[i++]], &quot;-&quot;, r[e[i++]], r[e[i++]], r[e[i++]], r[e[i++]], r[e[i++]], r[e[i++]]].join(&quot;&quot;)
+        }
+    },
+}]);
+// 调用
+console.log(ff(113)())
+</code></pre>
+<h3 id="4">4、医保局案例案例</h3>
+<h3 id="1_2">【1】地址</h3>
 <pre><code class="language-bash"># 页面：
-`https://fuwu.nhsa.gov.cn/nationalHallSt/#/search/pharmacies?code=90000&amp;flag=false&amp;gbFlag=true`
+`https://fuwu.nhsa.gov.cn/nationalHallSt/#/search/pharmacies?code=90000&amp;flag=false&amp;gbFlag=true` 
 # 接口：
 `https://fuwu.nhsa.gov.cn/ebus/fuwu/api/nthl/api/CommQuery/queryRtalPhacBInfo`
 </code></pre>
 <p><img alt="image-20250111下午52823371" src="imgs/33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.assets/image-20250111%E4%B8%8B%E5%8D%8852823371.png" /></p>
-<h3 id="3">【3】响应解密</h3>
-<h3 id="4">【4】入口定位</h3>
+<p><img alt="image-20250224161122249" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250224161122249.png" /></p>
+<h3 id="2_2">【2】响应解密</h3>
+<h3 id="3_1">【3】入口定位</h3>
 <p>搜索<code>interceptors.response.use</code></p>
 <p><img alt="image-20250111下午53324344" src="imgs/33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.assets/image-20250111%E4%B8%8B%E5%8D%8853324344-6588005.png" /></p>
 <p><img alt="image-20250111下午53651905" src="imgs/33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.assets/image-20250111%E4%B8%8B%E5%8D%8853651905-6588212.png" /></p>
-<h3 id="5webpack">【5】基于webpack逆向解密</h3>
+<p>进入u.b</p>
+<p><img alt="image-20250225110335199" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250225110335199.png" /></p>
+<p>点进来以后</p>
+<p><img alt="image-20250225110418172" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250225110418172.png" /></p>
+<p>往上翻、找到加载器</p>
+<p><img alt="image-20250225110548945" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250225110548945.png" /></p>
+<p>点击进入加载器</p>
+<p><img alt="image-20250225110640758" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250225110640758.png" /></p>
+<p>或者</p>
+<p><img alt="image-20250111下午53847721" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250111%E4%B8%8B%E5%8D%8853847721-6588328.png" /></p>
+<p>找到加载器</p>
+<p><img alt="image-20250225110708278" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250225110708278.png" /></p>
+<p>去到当前文件最顶部</p>
+<p><img alt="image-20250225110808725" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250225110808725.png" /></p>
+<p>当前格式为</p>
+<pre><code class="language-javascript">!function(e) {
+    function t(t) {
+        for (var n, i, o = t[0], a = t[1], s = 0, l = []; s &lt; o.length; s++)
+            i = o[s],
+            Object.prototype.hasOwnProperty.call(r, i) &amp;&amp; r[i] &amp;&amp; l.push(r[i][0]),
+            r[i] = 0;
+        for (n in a)
+            Object.prototype.hasOwnProperty.call(a, n) &amp;&amp; (e[n] = a[n]);
+        for (u &amp;&amp; u(t); l.length; )
+            l.shift()()
+    }
+    var n = {}
+      , i = {
+        app: 0
+    }
+      , r = {
+        app: 0
+    };
+    function o(t) {
+        if (n[t])
+            return n[t].exports;
+        var i = n[t] = {
+            i: t,
+            l: !1,
+            exports: {}
+        };
+        return e[t].call(i.exports, i, i.exports, o),
+        i.l = !0,
+        i.exports
+    }
+    o.e = function(e) {
+        var t = [];
+        i[e] ? t.push(i[e]) : 0 !== i[e] &amp;&amp; {
+            DetailModule: 1,
+            ServiceCatalog: 1,
+            ServiceSearchModule: 1,
+            &quot;announcement-list&quot;: 1,
+            &quot;download-page&quot;: 1,
+            home: 1,
+            personLogin: 1,
+            search: 1
+        }[e] &amp;&amp; t.push(i[e] = new Promise((function(t, n) {
+            for (var r = &quot;static/css/&quot; + ({
+                DetailModule: &quot;DetailModule&quot;,
+                ServiceCatalog: &quot;ServiceCatalog&quot;,
+                ServiceSearchModule: &quot;ServiceSearchModule&quot;,
+                &quot;announcement-list&quot;: &quot;announcement-list&quot;,
+                &quot;download-page&quot;: &quot;download-page&quot;,
+                home: &quot;home&quot;,
+                personLogin: &quot;personLogin&quot;,
+                redirect: &quot;redirect&quot;,
+                search: &quot;search&quot;,
+                pdfjsWorker: &quot;pdfjsWorker&quot;
+            }[e] || e) + &quot;.&quot; + {
+                DetailModule: &quot;5e631d12&quot;,
+                ServiceCatalog: &quot;8bad003f&quot;,
+                ServiceSearchModule: &quot;580d15e2&quot;,
+                &quot;announcement-list&quot;: &quot;ee54d713&quot;,
+                &quot;download-page&quot;: &quot;a9c8d3ee&quot;,
+                home: &quot;0dc1a1a8&quot;,
+                personLogin: &quot;0291835e&quot;,
+                redirect: &quot;31d6cfe0&quot;,
+                search: &quot;3013d579&quot;,
+                pdfjsWorker: &quot;31d6cfe0&quot;
+            }[e] + &quot;.css&quot;, a = o.p + r, s = document.getElementsByTagName(&quot;link&quot;), l = 0; l &lt; s.length; l++) {
+                var u = (h = s[l]).getAttribute(&quot;data-href&quot;) || h.getAttribute(&quot;href&quot;);
+                if (&quot;stylesheet&quot; === h.rel &amp;&amp; (u === r || u === a))
+                    return t()
+            }
+            var c = document.getElementsByTagName(&quot;style&quot;);
+            for (l = 0; l &lt; c.length; l++) {
+                var h;
+                if ((u = (h = c[l]).getAttribute(&quot;data-href&quot;)) === r || u === a)
+                    return t()
+            }
+            var d = document.createElement(&quot;link&quot;);
+            d.rel = &quot;stylesheet&quot;,
+            d.type = &quot;text/css&quot;,
+            d.onload = t,
+            d.onerror = function(t) {
+                var r = t &amp;&amp; t.target &amp;&amp; t.target.src || a
+                  , o = new Error(&quot;Loading CSS chunk &quot; + e + &quot; failed.\n(&quot; + r + &quot;)&quot;);
+                o.code = &quot;CSS_CHUNK_LOAD_FAILED&quot;,
+                o.request = r,
+                delete i[e],
+                d.parentNode.removeChild(d),
+                n(o)
+            }
+            ,
+            d.href = a,
+            document.getElementsByTagName(&quot;head&quot;)[0].appendChild(d)
+        }
+        )).then((function() {
+            i[e] = 0
+        }
+        )));
+        var n = r[e];
+        if (0 !== n)
+            if (n)
+                t.push(n[2]);
+            else {
+                var a = new Promise((function(t, i) {
+                    n = r[e] = [t, i]
+                }
+                ));
+                t.push(n[2] = a);
+                var s, l = document.createElement(&quot;script&quot;);
+                l.charset = &quot;utf-8&quot;,
+                l.timeout = 120,
+                o.nc &amp;&amp; l.setAttribute(&quot;nonce&quot;, o.nc),
+                l.src = function(e) {
+                    return o.p + &quot;&quot; + ({
+                        DetailModule: &quot;DetailModule&quot;,
+                        ServiceCatalog: &quot;ServiceCatalog&quot;,
+                        ServiceSearchModule: &quot;ServiceSearchModule&quot;,
+                        &quot;announcement-list&quot;: &quot;announcement-list&quot;,
+                        &quot;download-page&quot;: &quot;download-page&quot;,
+                        home: &quot;home&quot;,
+                        personLogin: &quot;personLogin&quot;,
+                        redirect: &quot;redirect&quot;,
+                        search: &quot;search&quot;,
+                        pdfjsWorker: &quot;pdfjsWorker&quot;
+                    }[e] || e) + &quot;.1736492616509.js&quot;
+                }(e);
+                var u = new Error;
+                s = function(t) {
+                    l.onerror = l.onload = null,
+                    clearTimeout(c);
+                    var n = r[e];
+                    if (0 !== n) {
+                        if (n) {
+                            var i = t &amp;&amp; (&quot;load&quot; === t.type ? &quot;missing&quot; : t.type)
+                              , o = t &amp;&amp; t.target &amp;&amp; t.target.src;
+                            u.message = &quot;Loading chunk &quot; + e + &quot; failed.\n(&quot; + i + &quot;: &quot; + o + &quot;)&quot;,
+                            u.name = &quot;ChunkLoadError&quot;,
+                            u.type = i,
+                            u.request = o,
+                            n[1](u)
+                        }
+                        r[e] = void 0
+                    }
+                }
+                ;
+                var c = setTimeout((function() {
+                    s({
+                        type: &quot;timeout&quot;,
+                        target: l
+                    })
+                }
+                ), 12e4);
+                l.onerror = l.onload = s,
+                document.head.appendChild(l)
+            }
+        return Promise.all(t)
+    }
+    ,
+    o.m = e,
+    o.c = n,
+    o.d = function(e, t, n) {
+        o.o(e, t) || Object.defineProperty(e, t, {
+            enumerable: !0,
+            get: n
+        })
+    }
+    ,
+    o.r = function(e) {
+        &quot;undefined&quot; != typeof Symbol &amp;&amp; Symbol.toStringTag &amp;&amp; Object.defineProperty(e, Symbol.toStringTag, {
+            value: &quot;Module&quot;
+        }),
+        Object.defineProperty(e, &quot;__esModule&quot;, {
+            value: !0
+        })
+    }
+    ,
+    o.t = function(e, t) {
+        if (1 &amp; t &amp;&amp; (e = o(e)),
+        8 &amp; t)
+            return e;
+        if (4 &amp; t &amp;&amp; &quot;object&quot; == typeof e &amp;&amp; e &amp;&amp; e.__esModule)
+            return e;
+        var n = Object.create(null);
+        if (o.r(n),
+        Object.defineProperty(n, &quot;default&quot;, {
+            enumerable: !0,
+            value: e
+        }),
+        2 &amp; t &amp;&amp; &quot;string&quot; != typeof e)
+            for (var i in e)
+                o.d(n, i, function(t) {
+                    return e[t]
+                }
+                .bind(null, i));
+        return n
+    }
+    ,
+    o.n = function(e) {
+        var t = e &amp;&amp; e.__esModule ? function() {
+            return e.default
+        }
+        : function() {
+            return e
+        }
+        ;
+        return o.d(t, &quot;a&quot;, t),
+        t
+    }
+    ,
+    o.o = function(e, t) {
+        return Object.prototype.hasOwnProperty.call(e, t)
+    }
+    ,
+    o.p = &quot;&quot;,
+    o.oe = function(e) {
+        throw e
+    }
+    ;
+    var a = window.webpackJsonp = window.webpackJsonp || []
+      , s = a.push.bind(a);
+    a.push = t,
+    a = a.slice();
+    for (var l = 0; l &lt; a.length; l++)
+        t(a[l]);
+    var u = s;
+    o(o.s = 0)
+}({
+      0: function(e, t, n) {...},
+      &quot;010f&quot;: function(e, t, n) {...},
+      ...
+})
+</code></pre>
 <p>可以进入u.b深入挖掘和复原，但是更简单的做法是直接构建u.b</p>
-<p><img alt="image-20250111下午53847721" src="imgs/33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.assets/image-20250111%E4%B8%8B%E5%8D%8853847721-6588328.png" /></p>
-<p>将loader拿到本地,构建loader.js</p>
+<h3 id="4webpack">【4】基于webpack逆向响应解密</h3>
+<p>将当前代码文件中的代码复制到本地,构建main.js</p>
 <ol>
 <li>
 <p>补上window对象</p>
@@ -282,97 +1312,45 @@ console.log(window.loader(&quot;1001&quot;));
 <p>将构建函数赋值给window对象，方便全局调用</p>
 </li>
 <li>
-<p>注释一些初始化代码，防止补无效环境</p>
+<p>注释一些初始化代码，防止补无效环境、因为当前的o(o.s = 0)会上来自动调用，所以进行注释</p>
 </li>
 </ol>
-<p><img src="./imgs/33、高级逆向.assets/image-20250111下午55905880-6589546.png" alt="image-20250111下午55905880" style="zoom:52%;" /></p>
+<p><img alt="image-20250225111420989" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250225111420989.png" /></p>
 <ol>
 <li>将调用模块打上日志，可以观察调用信息</li>
 </ol>
-<p><img src="./imgs/33、高级逆向.assets/image-20250111下午60027402-6589628.png" alt="image-20250111下午60027402" style="zoom:50%;" /></p>
-<p>构建主逻辑main.js</p>
-<pre><code class="language-js">require(&quot;./loader&quot;)
-console.log(window.yuan(&quot;7d92&quot;))
-
-u = window.yuan(&quot;7d92&quot;)
-
-// 1. 测试解密代码
-// 注意e别拿错了
-function decrypt() {
-    e = {
-        &quot;data&quot;: {
-            &quot;code&quot;: 0,
-            &quot;data&quot;: {
-                &quot;signData&quot;: &quot;4QJOwsGQ893uRFwW8Q0VqkJxck81/Qk3gIvEFaQ5QsjkPxHgI7nKWfXLwmTTz2MyIr+riAuQLAq/mOewQoj+eQ==&quot;,
-                &quot;encType&quot;: &quot;SM4&quot;,
-                &quot;data&quot;: {
-                    &quot;encData&quot;: &quot;943195DDA5E5337E08E0A527071CC637E0074CBD73D293A3643B2199C79561872E19ABE7BB2600D23E9CDB14C1A75194C1D3C735D2DCC50E297311A423B72BF0AE4781F770874C1AC923AD26618311F182DFD96DBF46FD4EB0475F347756783DC91AC1A85DDB6CF1E859ED27C0247D0B8E38E87D09B74B6183D722C9C5BC1FC8ABAA64B40827F66C7103DA3EC1CB79357FA4DE3E012936C754BE9094F60BF6B2766C9AE3D07CE1FBB7E810B20BD8C3724DB6D42E72B47D0195A67AE2B577CD1D85691761F12307EFB8EC17C4BB862B453EDEDBBC80BDA91EEA41F58FD3084EE54C4635B12D1596B64ED66980BEAA24874B2922A40A9EB2B42DFA547101ED9203E6C5FE982E8DB540CAABCF72755B3D344B45B84A1FF82F77F00CA1BC99A6E68BDE8A1062158A1E40CC34236D58F32E155DD963A198B81AA0C508CB8912AAF75B92DA07444DA1526331109FAA4B5190B528103F9EDABB6C76CA5A6C1F24BDBFBD81A8A4440B0BB5493048C4001EE2B6F88791A859764475AE5365FE5F2D3207DFF94B8CA83EDEE175700A24EEC5F869495626E7300E3E1C43B432B84E47D8B0109BA756CBF627CA3CA91138F764E4E79AC1D8FD1A1155B7DCE9665B3A1856E1BB6193DDE8EC8D80ECD137DC24B04BFC7DC3EEE373E0A71DDCBEAA0D6F8350F6A423CA60D48BE079AB959EB56975CF1DD2FD2EA5223C14436C0A1BCD6095A980452F7E0A6E85087957FBC1FA19369DCDCF2FF575E5A08224248A668A514D1EFBDB7A11056C9481CD9B3BAD3A6EB6E62B4BCA23D6131B2B2958BD807E1453C5447EAF0BC5D15EFD6B978B4F44C0CD088034929FD30C638E7F5CC7435914EB1582FF2C2BB08DBE0B2BD1B51D9E023B61B03AFDBECFE523CF3EA2DF64CF27421C0DFA374E70E692C52655A4B78BAA0F62FA0B70165FA33E1A32E6430EC13911F08993941400D3F018F4D3E814C13ECD2E8B098DF426A1A90422D40FE350AA784246D2582ED934A2128B607854B0A38F84DAA630D4F1229ED3A1B9A54758C46F1654A6FA86E3F98B0EB5C8BE9E93D8BB65E30097D9663D775BA1483515B9D36E8AF8598BC5CC1309E79CD4D9A6401DA15F5F821A81D03D58A49869A51AB219E228808A37222075760E5D8FD3BFE2FF70D827AA18CAFDBB5EEEAF0DACBB17BDDC993D0F9027473065419DD7AD3B182A745585CA21D57D8782DFB3EAAD3170EE20045CAC80B046CBC22D5D5F71986E59A08EEF3AE412EE5DA72B65BFEFE9CA98FCEFF3DE75D6F24E3D0925FD1B0FBDF905FBB1641DC00B2C059FF432406F67960E6BA12F934748FE06769569BBC4E47D1DBBE6E4DF17DBF0AF690467B3A81157327E1C1B12547A651EC2F1F754187475C3E806AFFA8F635ACA0FA92614BF9B9D02E31BDD417B8840242DF9095293D8240B3736D157246C9C9E24BF8151DE0737E76497F195B88CFE3489F0CC825C24908F0F356D54F2306B41914731409C6E254BB84C870C6B938FB449B3366909044B240D4745961F9F7871370E77A523F9991C659F0CCB3F53A3E33BD924E023CB4D2466FE5FD8808027665DC09B81DD86C4FBAF26D4AD0D3D99C54A971331C1310095F1798A6D5127735CD1B6D22CD0C8C09CDA1E6F972FECBC7DD09970E3A28577413984D5027523668887593B3E35A88FBF7FA063DF18AAC85044EAB1691D6A120810293193A755FE43F994D4A56470C7B0458C80BE5B8CB156B6C07FEAE5DF62DDC46358440021AD99E46B818627912383E163B0705F510B8F1A4BB3EE5241197B24C16DC3271506884F6FC59D86D02876EE5CF2C2FCD02422AECF3892FD08C8EEE0C6D1B004E462B1AC835F03A779BE611D970852E512FB1F52323EADEB7420AD34B9ABF4740826770C4FE19C344AD90AA910DAA361F6FC54CBF9BD275AFD7BFFA665837708052B4BD9B64923A6C39EA92374F9DBAE2E91D757CCFB10FCEFE2E92408CF49C45774F384EA4914C930BC75B26D631CC3D1BFDD4E0A2D4D5C6D2646F8FC6E15C17577ABEA801BCA1E9297489C2F26A03C5630F760D3389C522FDCD358AF61907228575692F06822201465AEF3F844987C9F48ED0ED2F84D721D60709D65998445F52CAAEA8A93FB4FD203C7EACB507942990037055ED3A24F07066B0A82E05CD081B1BA63346C6354C8497CB0862AAD0D3D99C54A971331C1310095F1798AB0A49036B1E8947ED3A6BE0C8083A54B007D758DBE404BBCE666CDDFD56719E55AA1DE72CB2FB53B89CC69386A27D0E115BF94C575D25BE66DD75BFDD7E075D697D9663D775BA1483515B9D36E8AF859E0225BF1FB9E7004DD40097742F940293815FCABFABE9509A2DA3C61A20078B46A855D0BCC3615E3A63A1861677123A2EC6B5C96694E69963053D0A6F0DA70178594696D042559F474208688CE821485D5C1396BAADB01031C1A3B469CA6A60ADAD2ABD62EEF87E582AC769848583ECE29FAC03CA372F7A6D0765D6D68BE08165D4122B52FE86038CA0E7A33AEAE03D21A91C78B848DED57CA24306716CE130E42B1E36871B2AE2FDF14F135CE72FB5BD84F6987D9F23D9FDE76D1CD4EB1B48435FAC7CDF743DB43E10C50355C0AB5537DABBDB59EA2F8549823D373342CCFBC640C947444C755210A36291EC920394FCA37CD8D9BD895566C8462E43F8407CE70E5C50B8BAD6953F84A34FB06FA640218EC6F9A44A974D9B23C10556F766BB7200162303EC72ABC55B1B0A9F40A4ECB97D9663D775BA1483515B9D36E8AF859D256A8CD4A6FA861DFF480017267354824DD5BF0EC07D029D31CE465790837FB1B5799057B17FC5DAA9C2854EC75D5AC00B787AFA653C5964747618DFBCED145843B8A934B01B9CCF6E6DC8CA1045AA8A1BA0CB34A761326BDBA6ED6B4CB64887505E4F46E47B3CA40AC55CB8162BD146EB4471EB225248A5D756F5A9F7EE8598C33F277B985298F23DE9CB2815527DD8FCC5A373E4C2CB2CBF10CCEE7874FAD31B2E8A796AF977BA38F66B781D11F64B814B3C4709EA945FCC22E2564102114900C3F00534BEFC5758CE38A616BE18AD6DDA7119F8428138AABB75A2A291B6BBE5FF87174B9D0288BFC3670B8DBDD431C5D6F06307389DC291E48C151719519493EF7929CF1F3D21CD4F0CCBA3E6507E74492A65EA3BCF285E6573C14EF1C2F2C0DA2D0100600B53858408177C59C05987C9F48ED0ED2F84D721D60709D6599F4961FFD22A3208CD49DD84B8CFAEFE818EC8B31EB047C322A6E8FF34D04C16D2F1274B247E0629F951B7C148B264FFDC98B6EB8989D8202AA3516FFA29B3A1AEE7021A0E3FADE7493B070C9CDDE94E05D0AA02749823F1B93B16ECF30AF6308218550D8DFF01F48E02BD424E92512C5C5B1A27867767F7BEEF279DFCFE4E681BBBD5DB53EA5E7154071E74EF0BE481E71BBECD3DB8BF0D94D5BB630597E70D1BBBD5DB53EA5E7154071E74EF0BE481EC937762E26C1C310788AB9A66822912263CC20EB6AF79BF07AD98986282B0CA1A193DCD8F079025A99D6E4D42EC9370BC08285E0BF5E5852448A15060CE14BC8AD214202C3712F8FB1B3AFE8CB9886E077830FC1D7FF0FCEC441B45B5839C9DF3BF53F786F8C7E12124F7C6D689A648B9F1142B244FF669F76CD2085344C73F5803E042ABF683F9718FA3EE7A21679BABDAD417EB5EDC97C94E7B340CFBE464E17B4768EA5561668E6850B7AE2C37B1CC84AF2A50887752A72B01584E9C0004EF22CDB67245D1A126F384CD163DD825CF3DA643F9DA436999D1F963BFC00285D2C4B51E46CC029AE6E4ECA8EFC4F5100BDFEE756603654E9264669C2E90E56B54E1C1EF869BA6BF4E370AB9EE65307C6534D3F4F84B12E2B578DA72AF53290571473444F8ADDC5E726EF9FB6EA1469A4F71B48E4D7BD653DAD071E0FF53604253C40DA6DA556EF16716BE3D07296E08D8D760DBB39F47EE77675B19498478D239A72D11B42B012A3FECD2F6F25A290F9934B5CF8FC6B9A65AF9540F414FAC1E811AAF12D40A6B62BF3F76DBCA09248770392DB77A7F2D2CA58AEFC1E8686CADDB37F912821EF5FD88C7BF7E4A8BD51A644D25F61DC577194B9B7FE7DB08C03A29BA2727D169BF7B14D998651A2AD2C388111B4EDA3BE273BC7EC402EEDAD329D4D48E440F62D692AFFA3FDC969C2711C6A6FDE1381DCFAC20033D0B114ECE1F7F2E7460846A4D90F253D2F597F40221D7DCB60BBF30E033754691B5509222D89661481F7E683E5D67ECFB4D968FA1A6C640C947444C755210A36291EC920394FC81058A6786D0422B05C18C0CC1D60E94C077BB4831C80E78820138D02A3F3B910C7589B30AA97E737160F13E111A336400B6621C9E19828E1D1BBE352EDBE1798070B0160B2A19B32E913D7BA20375AE84EA79F0E113FFC541D234D451D8E1D523C856783C6E7089E51EA8C1499142E574A19983EAF96C252FD2CA4FB76BD3E8EAC4796E6A4B2C425695DA335940597C70F3AD1203B122E33E4C0EF2DB2E6E4589102D1E82EC3EFAA18996C1825200E26EAE4B33519F04F370F01B9115456393815FCABFABE9509A2DA3C61A20078B4D389B18B6B1C39322647DA4963B40BC483BD82482309349C6940B789B5ABB44565D87627E132D6E8281823416F1B46907C9863497333FCF64E2B7AEDE1B85EC5210F35F57B08B9B878F40C63C649A5B5987C9F48ED0ED2F84D721D60709D659971D9C0926A245E4BED5121356CBC6FBC18EC8B31EB047C322A6E8FF34D04C16DDE809EB0B5A4A449BC2E9402B964FE80EFE6B84B34174F107BF18A7973CCDA7AEC778B189EF445FA79737DB5BE38133F444900A7F1DC60803B5D392B0054FC75663B6A513AAA8686FAE63251D126C31208DCFB0F5D40EF0F18AC8126B0B2A3AF1FCE60A6DBAA20743A287A19310A57711FCA418578F73CC86C032B474492C48332B881964D1DF9197B2B1CF63648A1565F98D5378DE78C8A41A40C053E10205EFF98A4F24F0A5D71CDAE9CB9B232B529F6F80FC310DCF9A05C01F5E125121007D782891DC51DD2FE76D0A6A3E11DBD9888307BF6853C0D24B153FD7CF812BA1B515ADDA4303AFBAE80030E37D1E77DEE97718B79A6C1D2C11C18F0B3AB1E2B3A28359D28B28F791025CD2F7A333964C8994427E653FFB0CA3061E7E6B6846218B446AB60720919F6284D7E4B367AEF4E57EF5554E70DF20419FB905BF6F98DDAAF0F8483CD69C20312A73A7ABB226BAD300628B4ED8F04BD59BBC1BA98C13220AA96A343A18374560F91D963371004EC5EA62FFE81A56DB7B4FCE6D08A383A01444900A7F1DC60803B5D392B0054FC75A2DB48F3FA6E14D5D5F2401E65433BC2961F9F7871370E77A523F9991C659F0C4B19F01672256066F29B06EF7F7FF1B7268E4B6602FF142D01E0860103E90DF9F5A6008408AD264E09112A7317809EF313398FFB689CA58AC611301DD1B37AD3B977432A1F68BB3E6B878728012295CC6A93FB1F98E4B0A12DDDE7A3494616BE181C46666049DE9E13AD1D2B2E085E61C768AD29CFA2B6B32CA347D9F206DD174AC0FD61AD5503F744E927D6D9483E51F39E9029292E41403B95CF3F2E251883629F6B8E51D170F2F0A2FE4CA17891F91E14A5DC37720712CE0F2EA22AF50114C8CABC772776CADEFBD1E0ADC6356B1CD28418CE406FC2C1BA6AF765B3397B47987C9F48ED0ED2F84D721D60709D6599564F2D2F4C08ECBA9CF7E1C9D9EF5FD4DABF2D33EBCBD8B268CC1DEFA5EFC341962625E2EDEF651766FCAFD7CCD294C53815FCABFABE9509A2DA3C61A20078B4CFC8FC2B37372BC988CC8334813A21BD97D9663D775BA1483515B9D36E8AF859175A801AC65C8D6CE7BE5E0285D6AA6F3815FCABFABE9509A2DA3C61A20078B46758C414F8DF0E3C839C66F3425CC5E6A3F712410D40A97CB2B2BBD27E83C14BD03D1D4E2FB7DF972493679EF395559B7942990037055ED3A24F07066B0A82E088BAB2629BD546AEDA7E1C04D24144D0928BE79DC6EADE64277410265C843B404779EE07558B0563C70DCC882F06920DEEFFE04A935B6753ED56B7A7E34A57835EA5355B3A00DC92A40FE29F6F1F1C4E0A8BB8E5972ACD3C0454F966671A0028A76C0967E51EC7A59DC479FDE871384B0DB900551F22DB202380E822B0311C7EE0C21227A0678F5121A42A8D0AEC73A30DB900551F22DB202380E822B0311C7E793EF792D491E0DDDF11EA99F8639A4FA51EFBE85B1660718232C81F7FBB6CCF204ADE2544CD6FCA894BB59990DEB3C51518A23323C8535EEC4FC125010E9390C4D48C14620BF456F4C5688F319B4612E716B3D9C3FFB338EA53382CF610D71AB9FAD7CC239E35538657A66CF301EF0ABA7B1422E824D3C047372237899C4C52B712B224CBD69CE64D734686D2714A9C285322B3C52E8ABC74DF9AF8206F3D26187DDCF931500041E33B714D0D338934F174F1A5200DC2EE0E23DA4EC49DCEDD5EA62FFE81A56DB7B4FCE6D08A383A01444900A7F1DC60803B5D392B0054FC75A2DB48F3FA6E14D5D5F2401E65433BC2961F9F7871370E77A523F9991C659F0C4B19F01672256066F29B06EF7F7FF1B7268E4B6602FF142D01E0860103E90DF9F5A6008408AD264E09112A7317809EF313398FFB689CA58AC611301DD1B37AD3E5638D7EA4D23B75FC48C4695A85952F6A93FB1F98E4B0A12DDDE7A3494616BE181C46666049DE9E13AD1D2B2E085E61C768AD29CFA2B6B32CA347D9F206DD174AC0FD61AD5503F744E927D6D9483E51F39E9029292E41403B95CF3F2E251883629F6B8E51D170F2F0A2FE4CA17891F91E14A5DC37720712CE0F2EA22AF50114C8CABC772776CADEFBD1E0ADC6356B1C8D8FC0CED5F7A956AAF354F16471475E987C9F48ED0ED2F84D721D60709D6599564F2D2F4C08ECBA9CF7E1C9D9EF5FD4DABF2D33EBCBD8B268CC1DEFA5EFC341962625E2EDEF651766FCAFD7CCD294C53815FCABFABE9509A2DA3C61A20078B4CFC8FC2B37372BC988CC8334813A21BD97D9663D775BA1483515B9D36E8AF859175A801AC65C8D6CE7BE5E0285D6AA6F3815FCABFABE9509A2DA3C61A20078B46758C414F8DF0E3C839C66F3425CC5E6A3F712410D40A97CB2B2BBD27E83C14BD03D1D4E2FB7DF972493679EF395559B181C46666049DE9E13AD1D2B2E085E6188BAB2629BD546AEDA7E1C04D24144D042A19DAEB379CA2BC6011DC4A1FB176C7D32930FE120DBBB30585C7327A004AD446BF88DD66F2061F3B48196C3C874CC9700AFBC1F89C4BCEB43C54B3D30C87879BFE00E77258A07010562067813CE59F2A02F00756C8A8BEB8039D420D6D36ED9096C7C2120531BC96EECCFC7DE250B177A69F7A2EDACE2093ACB2BCD47C45B656D5FB82D89286AC381C231F8428931D1FE9E2ACCDC48D54DD0DC4B3DD55F5DB1505B8802CE9347C9B2D0EE0ED66EF09597365E92C07D603B240081D2D9A297B3E67441249CCCF702AA68216D9017F8F4CEDB4EFF2975DA8BFB6D050148BC673324B051B6AB4CA1E3A7D42D14EDA8560D96F51DB4A51B877983975263B15922721624DBCB49BBCDF1B20FFC8AB1EF5DDA7FACF4AE61F63578C15F32826373DA2F512A50FEF595D569AA6FB631EAC04D8B9DB33416EC234496A6AAD671735B24BBBD5DB53EA5E7154071E74EF0BE481EC429551452268BE9C4919E923688457A987C9F48ED0ED2F84D721D60709D65992710F996D1E31CD59B0DA2948536E1ED5D4993D6599F2007E8DD123839F16A3F5205374DBA8E71242A15CBC9A068EFC31A2A4FFAD3221479093EFB3207D13498F9E5D6121EEA43BFF204A958A7A896B86C3E0F10B2FFFFCCF5A13B1766B4870DCE2AD69681A4BF45325339CE9F01DB90A61DF6FAC08BC9F808BE116002CB1C1BC91AC1A85DDB6CF1E859ED27C0247D0B8E38E87D09B74B6183D722C9C5BC1FC8D5E84E1A7ECB9F678655BFDFE7C6185ADE0D4642EC3033A4DC63003938262E8C766C9AE3D07CE1FBB7E810B20BD8C3724DB6D42E72B47D0195A67AE2B577CD1D85691761F12307EFB8EC17C4BB862B453EDEDBBC80BDA91EEA41F58FD3084EE54C4635B12D1596B64ED66980BEAA24874B2922A40A9EB2B42DFA547101ED9203E6C5FE982E8DB540CAABCF72755B3D344B45B84A1FF82F77F00CA1BC99A6E68BDE8A1062158A1E40CC34236D58F32E155DD963A198B81AA0C508CB8912AAF75B9B1648DC03DC2493069270ADFE0B58C5C0F88C2157260C25949B2934A28164AC81A8A4440B0BB5493048C4001EE2B6F88791A859764475AE5365FE5F2D3207DF81A014114D2A35BF113427ECC99BC4BCB95C51588CC417BFA9AB6F43DB55F34CD6047F37D38BE114350EFD1C8D811ABA7F091FCCF971D0B2B17597DC54F0902162E7C55C3C31D5BA0EDB1F9A9D3C19CEC3EEE373E0A71DDCBEAA0D6F8350F6A428A6A7791FCB75AA3EA49208C7A7E3C3AAABD3D76CA9A8A11C42BF5F5FB74B3160AA0AB5EC8EF5E1CB1276645ACE06BBC986BB3AF3A476493CCA7C7FF4E22C052E062A59E6A733D780BFCC2D2D4AABABCE6262DD74FE4E49DC60480748E6B1A992DA614F4D7FAAEF80ECEFE8107264D568D685E0B7A639C4387A43E7789DEB2D791680837C1FF9217DAF5B3AF03D2B39A996331794514801140377E70A74A9D8AB8CE9260F2C3ABF5548FFADB39F01C4BBBD5DB53EA5E7154071E74EF0BE481ECBE780167AA8A242146E3369B7732A2B3815FCABFABE9509A2DA3C61A20078B48A19771A677EDE403A2BA518E5D5ACF87942990037055ED3A24F07066B0A82E07454806472F90D4783C65BA282381D309EF7F74D2A5E852B4E26CD310AF64DDDAD6123B0CFD169D8BC296A04C0F728C4A902FAE39F74B40214651C5200047B0A60A50A9A4E8506A912A75356C2D677DE61AF6A2CEEC3345345E39B12144809A597D9663D775BA1483515B9D36E8AF8593567DB4E4A9011423E13A442EFF6F60A97D9663D775BA1483515B9D36E8AF8591F2CFC1C65A65B934FD56C104FE3640333BF4512BB432390A58F386BB41D3C268CBA1E5C0A86B6C6BAF6371722C96EA22445F6B3FBE14A0B6F6BDD6F1785A88D803E042ABF683F9718FA3EE7A21679BA5E91A3A2D09491FC4806EFE8B6C518390DDEAB7A89CC8E722A89B6B84B2E2539064E75FA72FF95EDE936D931CF9867CD3D3765C46B89D9CEDB6BC24CDC84E1A670E6F2B7E27419F7AF63923503A71E6800484E9FC4FA99C364015E1B1C71DE4AE7D84F6B2091AEB79947C7104CFB4400322870F31AFDC579D440B85A5DFC58D149781294547B1B41D87A0EDE7A6B82FFBBBD5DB53EA5E7154071E74EF0BE481E5F1E209932A07A74284CA6A2B38A6EEC2E60AFAD5B06EBD8BD1168C553E6E63C43CBA3899789DB7D6CC2742B36E171A5A68800C0180A6487C4A11DE09A70AD9A7762D77689AB4C70B818AB1A333C62C7F24E151085638879EC198D3A62FD261BBB724289FF9ADF421138E8D9719A176D342AE8150E7CEF39F66C6FC799C2B708581DCF80F575AFBE4CD2CD589EEB4F17B02CD8F7EA2B9C5BE548D0FB04AC4BB5738215D6C4598C41DADE77782ADF75E3F8F0A1F3608706F0BA78B859D3D8DFC3485CB655C350BDC856AD5A76506922850A17FB9517EA6B059FCC219C0BD98782A3218505C098E22823D6FE0F81AEFE78A8797D1E92CB6B4B8030CFACC8FB57CC907228575692F06822201465AEF3F844987C9F48ED0ED2F84D721D60709D65998445F52CAAEA8A93FB4FD203C7EACB507942990037055ED3A24F07066B0A82E05CD081B1BA63346C6354C8497CB0862AAD0D3D99C54A971331C1310095F1798AB0A49036B1E8947ED3A6BE0C8083A54B007D758DBE404BBCE666CDDFD56719E56854AED9B10AA2C1C82C6143BD6AA8D415BF94C575D25BE66DD75BFDD7E075D697D9663D775BA1483515B9D36E8AF859E0225BF1FB9E7004DD40097742F940293815FCABFABE9509A2DA3C61A20078B46A855D0BCC3615E3A63A1861677123A2EC6B5C96694E69963053D0A6F0DA70178594696D042559F474208688CE821485D5C1396BAADB01031C1A3B469CA6A60A1177FA7A10D393FE326F70356D951EC129FAC03CA372F7A6D0765D6D68BE08165D4122B52FE86038CA0E7A33AEAE03D20F899C42EB990616BE2EEB4EEAA1DC4042B1E36871B2AE2FDF14F135CE72FB5BD84F6987D9F23D9FDE76D1CD4EB1B48435FAC7CDF743DB43E10C50355C0AB5537DABBDB59EA2F8549823D373342CCFBC640C947444C755210A36291EC920394FCA37CD8D9BD895566C8462E43F8407CE70E5C50B8BAD6953F84A34FB06FA640218EC6F9A44A974D9B23C10556F766BB7200162303EC72ABC55B1B0A9F40A4ECB97D9663D775BA1483515B9D36E8AF859D256A8CD4A6FA861DFF480017267354824DD5BF0EC07D029D31CE465790837FB9A13A323744DB41781DC619818F34062B018602D747390CA88298E186A2EDBE43C2B5309E67A21BF89D2C2A7C43064E96A0BAE165ADC39234D05EC8A514C8CF60415B5C89ED64D651402034273A66F06E15DCAB2E9BE6B060C7CFC983D60911AF9BFED3E18BC6E12CFD374FE979F4511F0958EF7545AFB0E9BC8B3B863C43444187E5D73626EEA5856BBEF8CB8F21794C3767CB9A068F9DBDD2BEB65E50241F9CAB0DD5B5A18C48543C2428318BB4474354D09F5EBC845EEF08929E3D8B9DA990B458152E444C1A608286AE20178FA75C2F65FBCAD578FFE2B7541D2BF4C385F2E062A59E6A733D780BFCC2D2D4AABAB304DC51633924B0FE0D4D3ACFBF2055CE53EE6E3150396DE1D60B3B7435DAAC8212BFF39A31D407E2F8E1352D46D51C198EB9FEF9BF90ABDC3BDC228DA5F5C05403886195DEC70209990180F4D8291104DA1C6B11562D46194578A5BB1B95324493EF7929CF1F3D21CD4F0CCBA3E6507E74492A65EA3BCF285E6573C14EF1C2F2C0DA2D0100600B53858408177C59C05987C9F48ED0ED2F84D721D60709D6599F4961FFD22A3208CD49DD84B8CFAEFE818EC8B31EB047C322A6E8FF34D04C16D2F1274B247E0629F951B7C148B264FFDC98B6EB8989D8202AA3516FFA29B3A1A502BDB6869C7D0CA8ED04501D481F0F85C49DBE377E736AA4E8ACF7B70373A8C3D49E10769ADF903F53E58FBB514FC2332F763EDD3197C938C322D46B3231B2080C83A717C0DD2C4513CBEC008A07432CB4C761CAE1DC4452664292099E09A8A24BB18281CF5B37B1BB7046EF26BD1BF35FF0C62640FDE24BA32BB172BBF45F24F6D231DD03926E08B733492616DA2987A749A04019F42FE6BC721013AF4CA8CCFB3E92CB7A47470A5D154588BE22E404AB3CD75FBE5589EDB5008A512CC1B40A5B9328442FDE48667E19087CD3AEBA89FABC82F326D3AE62AEBBFBE71D425C442E75B4597DCD21C5C6C29E49A002860802F5456AF8E1A53E18A4E92A76E7F4E&quot;
-                },
-                &quot;signType&quot;: &quot;SM2&quot;,
-                &quot;appCode&quot;: &quot;T98HPCGN5ZVVQBS8LZQNOAEXVI9GYHKQ&quot;,
-                &quot;version&quot;: &quot;1.0.0&quot;,
-                &quot;timestamp&quot;: &quot;1736589824238&quot;
-            },
-            &quot;message&quot;: &quot;成功&quot;,
-            &quot;timestamp&quot;: &quot;1736589824&quot;,
-            &quot;type&quot;: &quot;success&quot;
-        },
-        &quot;status&quot;: 200,
-        &quot;statusText&quot;: &quot;OK&quot;,
-        &quot;headers&quot;: {
-            &quot;access-control-allow-credentials&quot;: &quot;true&quot;,
-            &quot;access-control-allow-methods&quot;: &quot;GET,POST,OPTIONS&quot;,
-            &quot;access-control-allow-origin&quot;: &quot;https://fuwu.nhsa.gov.cn&quot;,
-            &quot;access-control-expose-headers&quot;: &quot;Content-Length,Content-Range&quot;,
-            &quot;cache-control&quot;: &quot;no-store&quot;,
-            &quot;connection&quot;: &quot;keep-alive&quot;,
-            &quot;content-language&quot;: &quot;zh-CN&quot;,
-            &quot;content-type&quot;: &quot;application/json;charset=UTF-8&quot;,
-            &quot;date&quot;: &quot;Sat, 11 Jan 2025 10:03:44 GMT&quot;,
-            &quot;server&quot;: &quot;WAF&quot;,
-            &quot;strict-transport-security&quot;: &quot;max-age=0; preload&quot;,
-            &quot;transfer-encoding&quot;: &quot;chunked&quot;,
-            &quot;x-mg-code&quot;: &quot;200&quot;,
-            &quot;x-mg-timestamp&quot;: &quot;1736589824243&quot;,
-            &quot;x-mg-traceid&quot;: &quot;647f0aae-9ee9-4f75-8e7f-ec56188a98ec&quot;,
-            &quot;x-request-id&quot;: &quot;71a2300fd91fe9be166c43c4a40ae906&quot;,
-            &quot;x-ser&quot;: &quot;i32399_c4103, i32859_c25015&quot;
-        },
-        &quot;config&quot;: {
-            &quot;transformRequest&quot;: {},
-            &quot;transformResponse&quot;: {},
-            &quot;timeout&quot;: 30000,
-            &quot;xsrfCookieName&quot;: &quot;XSRF-TOKEN&quot;,
-            &quot;xsrfHeaderName&quot;: &quot;X-XSRF-TOKEN&quot;,
-            &quot;maxContentLength&quot;: -1,
-            &quot;headers&quot;: {
-                &quot;Accept&quot;: &quot;application/json&quot;,
-                &quot;Content-Type&quot;: &quot;application/json&quot;,
-                &quot;channel&quot;: &quot;web&quot;,
-                &quot;x-tif-signature&quot;: &quot;cfef8145813ab89ee6d9f36db876e211d9cfd2a9e864b9c26d10922c05804d6e&quot;,
-                &quot;x-tif-timestamp&quot;: 1736589824,
-                &quot;x-tif-nonce&quot;: &quot;L3aL9aHK&quot;,
-                &quot;contentType&quot;: &quot;application/x-www-form-urlencoded&quot;
-            },
-            &quot;withCredentials&quot;: false,
-            &quot;baseURL&quot;: &quot;/ebus/fuwu/api&quot;,
-            &quot;method&quot;: &quot;post&quot;,
-            &quot;url&quot;: &quot;/ebus/fuwu/api/nthl/api/CommQuery/queryRtalPhacBInfo&quot;,
-            &quot;data&quot;: &quot;{\&quot;data\&quot;:{\&quot;data\&quot;:{\&quot;encData\&quot;:\&quot;3DFBCA4667B978F639BB23B95DCE4CC74CE34C33DC32F1068E9E23CA546C9EA8CCD20943B4DAE96380B41164D761DE97BBBD5DB53EA5E7154071E74EF0BE481E2BADC2FDCC843E425B4CA14CEDBC102CA979CA4202C06C9F2CD837D90C6DA45E64DE712DF3683DE81C358841664CBE17561D0390069F11B0D412FE38BE15BA5C\&quot;},\&quot;appCode\&quot;:\&quot;T98HPCGN5ZVVQBS8LZQNOAEXVI9GYHKQ\&quot;,\&quot;version\&quot;:\&quot;1.0.0\&quot;,\&quot;encType\&quot;:\&quot;SM4\&quot;,\&quot;signType\&quot;:\&quot;SM2\&quot;,\&quot;timestamp\&quot;:1736589824,\&quot;signData\&quot;:\&quot;Ugk5SiJz4NMjy1pn5rbAHzbBaDJAeyHjkjWqn0nbFVaqYhVBP1Xcv4fnXon5s6yvPVmlJKtaoMrm1FYT7svv0w==\&quot;}}&quot;
-        },
-        &quot;request&quot;: {
-            &quot;_ty_rum&quot;: 1,
-            &quot;__ty_xhr_hooked_type&quot;: &quot;onreadystatechange&quot;
-        }
-    }
-    ret = u.b(&quot;SM4&quot;, e.data)
-    console.log(ret)
-    return ret
-}
-decrypt()
-</code></pre>
-<p><img alt="image-20250111下午62029826" src="imgs/33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.assets/image-20250111%E4%B8%8B%E5%8D%8862029826-6590830.png" /></p>
-<h3 id="6">【6】请求加密</h3>
+<p><img alt="image-20250225111603940" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250225111603940.png" /></p>
+<ol>
+<li>
+<p>整体代码复制到本地，除了当前图中需要修改的以外，别的地方都不需要动</p>
+</li>
+<li>
+<p>进行调用</p>
+</li>
+</ol>
+<p><code>javascript
+   let data = {
+       "code": 0,
+       "data": {
+           "signData": "Op5ope8tA+2I1Yn8P+Di2FSwz5zzAzCfj2maMXvPlDeoTjbD38I9TYdkS6MwU3NdIFessDNsoaK8AZwYeW3A4Q==",
+           "encType": "SM4",
+           "data": {
+               "encData": "943195DDA5E5337E08E0A527071CC637E0074CBD73D293A3643B2199C79561872E19ABE7BB2600D23E9CDB14C1A75194C1D3C735D2DCC50E297311A423B72BF0AE4781F770874C1AC923AD26618311F182DFD96DBF46FD4EB0475F347756783DC91AC1A85DDB6CF1E859ED27C0247D0B8E38E87D09B74B6183D722C9C5BC1FC8ABAA64B40827F66C7103DA3EC1CB79357FA4DE3E012936C754BE9094F60BF6B2766C9AE3D07CE1FBB7E810B20BD8C3724DB6D42E72B47D0195A67AE2B577CD1D85691761F12307EFB8EC17C4BB862B453EDEDBBC80BDA91EEA41F58FD3084EE54C4635B12D1596B64ED66980BEAA24874B2922A40A9EB2B42DFA547101ED9203E6C5FE982E8DB540CAABCF72755B3D344B45B84A1FF82F77F00CA1BC99A6E68BDE8A1062158A1E40CC34236D58F32E155DD963A198B81AA0C508CB8912AAF75B92DA07444DA1526331109FAA4B5190B528103F9EDABB6C76CA5A6C1F24BDBFBD81A8A4440B0BB5493048C4001EE2B6F88791A859764475AE5365FE5F2D3207DFF94B8CA83EDEE175700A24EEC5F869495626E7300E3E1C43B432B84E47D8B0109BA756CBF627CA3CA91138F764E4E79AC1D8FD1A1155B7DCE9665B3A1856E1BB6193DDE8EC8D80ECD137DC24B04BFC7DC3EEE373E0A71DDCBEAA0D6F8350F6A423CA60D48BE079AB959EB56975CF1DD2FD2EA5223C14436C0A1BCD6095A980452F7E0A6E85087957FBC1FA19369DCDCF2FF575E5A08224248A668A514D1EFBDB7A11056C9481CD9B3BAD3A6EB6E62B4BCA23D6131B2B2958BD807E1453C5447EAF0BC5D15EFD6B978B4F44C0CD088034929FD30C638E7F5CC7435914EB1582FF2C2BB08DBE0B2BD1B51D9E023B61B03AFDBECFE523CF3EA2DF64CF27421C0DFA374E70E692C52655A4B78BAA0F62FA0B70165FA33E1A32E6430EC13911F08993941400D3F018F4D3E814C13ECD2E8B098DF426A1A90422D40FE350AA784246D2582ED934A2128B607854B0A38F84DAA630D4F1229ED3A1B9A54758C46F1654A6FA86E3F98B0EB5C8BE9E93D8BB65E30097D9663D775BA1483515B9D36E8AF8598BC5CC1309E79CD4D9A6401DA15F5F821A81D03D58A49869A51AB219E228808A37222075760E5D8FD3BFE2FF70D827AA18CAFDBB5EEEAF0DACBB17BDDC993D0F9027473065419DD7AD3B182A745585CA21D57D8782DFB3EAAD3170EE20045CAC80B046CBC22D5D5F71986E59A08EEF3AE412EE5DA72B65BFEFE9CA98FCEFF3DE75D6F24E3D0925FD1B0FBDF905FBB1641DC00B2C059FF432406F67960E6BA12F934748FE06769569BBC4E47D1DBBE6E4DF17DBF0AF690467B3A81157327E1C1B12547A651EC2F1F754187475C3E806AFFA8F635ACA0FA92614BF9B9D02E31BDD417B8840242DF9095293D8240B3736D157246C9C9E24BF8151DE0737E76497F195B88CFE3489F0CC825C24908F0F356D54F2306B41914731409C6E254BB84C870C6B938FB449B3366909044B240D4745961F9F7871370E77A523F9991C659F0CCB3F53A3E33BD924E023CB4D2466FE5FD8808027665DC09B81DD86C4FBAF26D4AD0D3D99C54A971331C1310095F1798A6D5127735CD1B6D22CD0C8C09CDA1E6F972FECBC7DD09970E3A28577413984D5027523668887593B3E35A88FBF7FA063DF18AAC85044EAB1691D6A120810293193A755FE43F994D4A56470C7B0458C80BE5B8CB156B6C07FEAE5DF62DDC46358440021AD99E46B818627912383E163B0705F510B8F1A4BB3EE5241197B24C16DC3271506884F6FC59D86D02876EE5CF2C2FCD02422AECF3892FD08C8EEE0C6D1B004E462B1AC835F03A779BE611D970852E512FB1F52323EADEB7420AD34B9ABF4740826770C4FE19C344AD90AA910DAA361F6FC54CBF9BD275AFD7BFFA665837708052B4BD9B64923A6C39EA92374F9DBAE2E91D757CCFB10FCEFE2E92408CF49C45774F384EA4914C930BC75B26D631CC3D1BFDD4E0A2D4D5C6D2646F8FC6E15C17577ABEA801BCA1E9297489C2F26A03C5630F760D3389C522FDCD358AF61907228575692F06822201465AEF3F844987C9F48ED0ED2F84D721D60709D65998445F52CAAEA8A93FB4FD203C7EACB507942990037055ED3A24F07066B0A82E05CD081B1BA63346C6354C8497CB0862AAD0D3D99C54A971331C1310095F1798AB0A49036B1E8947ED3A6BE0C8083A54B007D758DBE404BBCE666CDDFD56719E55AA1DE72CB2FB53B89CC69386A27D0E115BF94C575D25BE66DD75BFDD7E075D697D9663D775BA1483515B9D36E8AF859E0225BF1FB9E7004DD40097742F940293815FCABFABE9509A2DA3C61A20078B46A855D0BCC3615E3A63A1861677123A2EC6B5C96694E69963053D0A6F0DA70178594696D042559F474208688CE821485D5C1396BAADB01031C1A3B469CA6A60ADAD2ABD62EEF87E582AC769848583ECE29FAC03CA372F7A6D0765D6D68BE08165D4122B52FE86038CA0E7A33AEAE03D21A91C78B848DED57CA24306716CE130E42B1E36871B2AE2FDF14F135CE72FB5BD84F6987D9F23D9FDE76D1CD4EB1B48435FAC7CDF743DB43E10C50355C0AB5537DABBDB59EA2F8549823D373342CCFBC640C947444C755210A36291EC920394FCA37CD8D9BD895566C8462E43F8407CE70E5C50B8BAD6953F84A34FB06FA6402D1312C3A605CE06C816139A1285561C1200162303EC72ABC55B1B0A9F40A4ECB97D9663D775BA1483515B9D36E8AF859D256A8CD4A6FA861DFF480017267354824DD5BF0EC07D029D31CE465790837FB1B5799057B17FC5DAA9C2854EC75D5AC00B787AFA653C5964747618DFBCED145843B8A934B01B9CCF6E6DC8CA1045AA8A1BA0CB34A761326BDBA6ED6B4CB64887505E4F46E47B3CA40AC55CB8162BD146EB4471EB225248A5D756F5A9F7EE8598C33F277B985298F23DE9CB2815527DD8FCC5A373E4C2CB2CBF10CCEE7874FAD31B2E8A796AF977BA38F66B781D11F64B814B3C4709EA945FCC22E2564102114900C3F00534BEFC5758CE38A616BE18AD6DDA7119F8428138AABB75A2A291B6BBE5FF87174B9D0288BFC3670B8DBDD431C5D6F06307389DC291E48C151719519493EF7929CF1F3D21CD4F0CCBA3E6507E74492A65EA3BCF285E6573C14EF1C2F2C0DA2D0100600B53858408177C59C05987C9F48ED0ED2F84D721D60709D6599F4961FFD22A3208CD49DD84B8CFAEFE818EC8B31EB047C322A6E8FF34D04C16D2F1274B247E0629F951B7C148B264FFDC98B6EB8989D8202AA3516FFA29B3A1AEE7021A0E3FADE7493B070C9CDDE94E05D0AA02749823F1B93B16ECF30AF6308218550D8DFF01F48E02BD424E92512C5C5B1A27867767F7BEEF279DFCFE4E681BBBD5DB53EA5E7154071E74EF0BE481E71BBECD3DB8BF0D94D5BB630597E70D1BBBD5DB53EA5E7154071E74EF0BE481EC937762E26C1C310788AB9A66822912263CC20EB6AF79BF07AD98986282B0CA1A193DCD8F079025A99D6E4D42EC9370BC08285E0BF5E5852448A15060CE14BC8AD214202C3712F8FB1B3AFE8CB9886E077830FC1D7FF0FCEC441B45B5839C9DF3BF53F786F8C7E12124F7C6D689A648B9F1142B244FF669F76CD2085344C73F5803E042ABF683F9718FA3EE7A21679BABDAD417EB5EDC97C94E7B340CFBE464E17B4768EA5561668E6850B7AE2C37B1CC84AF2A50887752A72B01584E9C0004EF22CDB67245D1A126F384CD163DD825CF3DA643F9DA436999D1F963BFC00285D2C4B51E46CC029AE6E4ECA8EFC4F5100BDFEE756603654E9264669C2E90E56B54E1C1EF869BA6BF4E370AB9EE65307C6534D3F4F84B12E2B578DA72AF53290571473444F8ADDC5E726EF9FB6EA1469A4F71B48E4D7BD653DAD071E0FF53604253C40DA6DA556EF16716BE3D07296E08D8D760DBB39F47EE77675B19498478D239A72D11B42B012A3FECD2F6F25A290F9934B5CF8FC6B9A65AF9540F414FAC1E811AAF12D40A6B62BF3F76DBCA09248770392DB77A7F2D2CA58AEFC1E8686CADDB37F912821EF5FD88C7BF7E4A8BD51A644D25F61DC577194B9B7FE7DB08C03A29BA2727D169BF7B14D998651A2AD2C388111B4EDA3BE273BC7EC402EEDAD329D4D48E440F62D692AFFA3FDC969C2711C6A6FDE1381DCFAC20033D0B114ECE1F7F2E7460846A4D90F253D2F597F40221D7DCB60BBF30E033754691B5509222D89661481F7E683E5D67ECFB4D968FA1A6C640C947444C755210A36291EC920394FC81058A6786D0422B05C18C0CC1D60E94C077BB4831C80E78820138D02A3F3B910C7589B30AA97E737160F13E111A336400B6621C9E19828E1D1BBE352EDBE1798070B0160B2A19B32E913D7BA20375AE84EA79F0E113FFC541D234D451D8E1D523C856783C6E7089E51EA8C1499142E574A19983EAF96C252FD2CA4FB76BD3E8EAC4796E6A4B2C425695DA335940597C70F3AD1203B122E33E4C0EF2DB2E6E4589102D1E82EC3EFAA18996C1825200E26EAE4B33519F04F370F01B9115456393815FCABFABE9509A2DA3C61A20078B4D389B18B6B1C39322647DA4963B40BC483BD82482309349C6940B789B5ABB44565D87627E132D6E8281823416F1B46907C9863497333FCF64E2B7AEDE1B85EC5210F35F57B08B9B878F40C63C649A5B5987C9F48ED0ED2F84D721D60709D659971D9C0926A245E4BED5121356CBC6FBC18EC8B31EB047C322A6E8FF34D04C16DDE809EB0B5A4A449BC2E9402B964FE80EFE6B84B34174F107BF18A7973CCDA7AEC778B189EF445FA79737DB5BE38133F444900A7F1DC60803B5D392B0054FC75663B6A513AAA8686FAE63251D126C31208DCFB0F5D40EF0F18AC8126B0B2A3AF1FCE60A6DBAA20743A287A19310A57711FCA418578F73CC86C032B474492C48332B881964D1DF9197B2B1CF63648A1565F98D5378DE78C8A41A40C053E10205EFF98A4F24F0A5D71CDAE9CB9B232B529F6F80FC310DCF9A05C01F5E125121007D782891DC51DD2FE76D0A6A3E11DBD9888307BF6853C0D24B153FD7CF812BA1B515ADDA4303AFBAE80030E37D1E77DEE97718B79A6C1D2C11C18F0B3AB1E2B3A28359D28B28F791025CD2F7A333964C8994427E653FFB0CA3061E7E6B6846218B446AB60720919F6284D7E4B367AEF4E57EF5554E70DF20419FB905BF6F98DDAAF0F8483CD69C20312A73A7ABB226BAD300628B4ED8F04BD59BBC1BA98C13220AA96A343A18374560F91D963371004EC5EA62FFE81A56DB7B4FCE6D08A383A01444900A7F1DC60803B5D392B0054FC75A2DB48F3FA6E14D5D5F2401E65433BC2961F9F7871370E77A523F9991C659F0C4B19F01672256066F29B06EF7F7FF1B7268E4B6602FF142D01E0860103E90DF9F5A6008408AD264E09112A7317809EF313398FFB689CA58AC611301DD1B37AD3B977432A1F68BB3E6B878728012295CC6A93FB1F98E4B0A12DDDE7A3494616BE181C46666049DE9E13AD1D2B2E085E61C768AD29CFA2B6B32CA347D9F206DD174AC0FD61AD5503F744E927D6D9483E51F39E9029292E41403B95CF3F2E251883629F6B8E51D170F2F0A2FE4CA17891F91E14A5DC37720712CE0F2EA22AF50114C8CABC772776CADEFBD1E0ADC6356B1CD28418CE406FC2C1BA6AF765B3397B47987C9F48ED0ED2F84D721D60709D6599564F2D2F4C08ECBA9CF7E1C9D9EF5FD4DABF2D33EBCBD8B268CC1DEFA5EFC341962625E2EDEF651766FCAFD7CCD294C53815FCABFABE9509A2DA3C61A20078B4CFC8FC2B37372BC988CC8334813A21BD97D9663D775BA1483515B9D36E8AF859175A801AC65C8D6CE7BE5E0285D6AA6F3815FCABFABE9509A2DA3C61A20078B46758C414F8DF0E3C839C66F3425CC5E6A3F712410D40A97CB2B2BBD27E83C14BD03D1D4E2FB7DF972493679EF395559B7942990037055ED3A24F07066B0A82E088BAB2629BD546AEDA7E1C04D24144D0928BE79DC6EADE64277410265C843B404779EE07558B0563C70DCC882F06920DEEFFE04A935B6753ED56B7A7E34A57835EA5355B3A00DC92A40FE29F6F1F1C4E0A8BB8E5972ACD3C0454F966671A0028A76C0967E51EC7A59DC479FDE871384B0DB900551F22DB202380E822B0311C7EE0C21227A0678F5121A42A8D0AEC73A30DB900551F22DB202380E822B0311C7E793EF792D491E0DDDF11EA99F8639A4FA51EFBE85B1660718232C81F7FBB6CCF204ADE2544CD6FCA894BB59990DEB3C51518A23323C8535EEC4FC125010E9390C4D48C14620BF456F4C5688F319B4612E716B3D9C3FFB338EA53382CF610D71AB9FAD7CC239E35538657A66CF301EF0ABA7B1422E824D3C047372237899C4C52B712B224CBD69CE64D734686D2714A9C285322B3C52E8ABC74DF9AF8206F3D26187DDCF931500041E33B714D0D338934F174F1A5200DC2EE0E23DA4EC49DCEDD5EA62FFE81A56DB7B4FCE6D08A383A01444900A7F1DC60803B5D392B0054FC75A2DB48F3FA6E14D5D5F2401E65433BC2961F9F7871370E77A523F9991C659F0C4B19F01672256066F29B06EF7F7FF1B7268E4B6602FF142D01E0860103E90DF9F5A6008408AD264E09112A7317809EF313398FFB689CA58AC611301DD1B37AD3E5638D7EA4D23B75FC48C4695A85952F6A93FB1F98E4B0A12DDDE7A3494616BE181C46666049DE9E13AD1D2B2E085E61C768AD29CFA2B6B32CA347D9F206DD174AC0FD61AD5503F744E927D6D9483E51F39E9029292E41403B95CF3F2E251883629F6B8E51D170F2F0A2FE4CA17891F91E14A5DC37720712CE0F2EA22AF50114C8CABC772776CADEFBD1E0ADC6356B1C8D8FC0CED5F7A956AAF354F16471475E987C9F48ED0ED2F84D721D60709D6599564F2D2F4C08ECBA9CF7E1C9D9EF5FD4DABF2D33EBCBD8B268CC1DEFA5EFC341962625E2EDEF651766FCAFD7CCD294C53815FCABFABE9509A2DA3C61A20078B4CFC8FC2B37372BC988CC8334813A21BD97D9663D775BA1483515B9D36E8AF859175A801AC65C8D6CE7BE5E0285D6AA6F3815FCABFABE9509A2DA3C61A20078B46758C414F8DF0E3C839C66F3425CC5E6A3F712410D40A97CB2B2BBD27E83C14BD03D1D4E2FB7DF972493679EF395559B181C46666049DE9E13AD1D2B2E085E6188BAB2629BD546AEDA7E1C04D24144D042A19DAEB379CA2BC6011DC4A1FB176C7D32930FE120DBBB30585C7327A004AD446BF88DD66F2061F3B48196C3C874CC9700AFBC1F89C4BCEB43C54B3D30C87879BFE00E77258A07010562067813CE59F2A02F00756C8A8BEB8039D420D6D36ED9096C7C2120531BC96EECCFC7DE250B177A69F7A2EDACE2093ACB2BCD47C45B656D5FB82D89286AC381C231F8428931D1FE9E2ACCDC48D54DD0DC4B3DD55F5DB1505B8802CE9347C9B2D0EE0ED66EF09597365E92C07D603B240081D2D9A297B3E67441249CCCF702AA68216D9017F8F4CEDB4EFF2975DA8BFB6D050148BC673324B051B6AB4CA1E3A7D42D14EDA8560D96F51DB4A51B877983975263B15922721624DBCB49BBCDF1B20FFC8AB1EF5DDA7FACF4AE61F63578C15F32826373DA2F512A50FEF595D569AA6FB631EAC04D8B9DB33416EC234496A6AAD671735B24BBBD5DB53EA5E7154071E74EF0BE481EC429551452268BE9C4919E923688457A987C9F48ED0ED2F84D721D60709D65992710F996D1E31CD59B0DA2948536E1ED5D4993D6599F2007E8DD123839F16A3F5205374DBA8E71242A15CBC9A068EFC31A2A4FFAD3221479093EFB3207D13498F9E5D6121EEA43BFF204A958A7A896B86C3E0F10B2FFFFCCF5A13B1766B4870DCE2AD69681A4BF45325339CE9F01DB90A61DF6FAC08BC9F808BE116002CB1C1BC91AC1A85DDB6CF1E859ED27C0247D0B8E38E87D09B74B6183D722C9C5BC1FC8D5E84E1A7ECB9F678655BFDFE7C6185ADE0D4642EC3033A4DC63003938262E8C766C9AE3D07CE1FBB7E810B20BD8C3724DB6D42E72B47D0195A67AE2B577CD1D85691761F12307EFB8EC17C4BB862B453EDEDBBC80BDA91EEA41F58FD3084EE54C4635B12D1596B64ED66980BEAA24874B2922A40A9EB2B42DFA547101ED9203E6C5FE982E8DB540CAABCF72755B3D344B45B84A1FF82F77F00CA1BC99A6E68BDE8A1062158A1E40CC34236D58F32E155DD963A198B81AA0C508CB8912AAF75B9B1648DC03DC2493069270ADFE0B58C5C0F88C2157260C25949B2934A28164AC81A8A4440B0BB5493048C4001EE2B6F88791A859764475AE5365FE5F2D3207DF81A014114D2A35BF113427ECC99BC4BCB95C51588CC417BFA9AB6F43DB55F34CD6047F37D38BE114350EFD1C8D811ABA7F091FCCF971D0B2B17597DC54F0902162E7C55C3C31D5BA0EDB1F9A9D3C19CEC3EEE373E0A71DDCBEAA0D6F8350F6A428A6A7791FCB75AA3EA49208C7A7E3C3AAABD3D76CA9A8A11C42BF5F5FB74B3160AA0AB5EC8EF5E1CB1276645ACE06BBC986BB3AF3A476493CCA7C7FF4E22C052E062A59E6A733D780BFCC2D2D4AABABCE6262DD74FE4E49DC60480748E6B1A992DA614F4D7FAAEF80ECEFE8107264D568D685E0B7A639C4387A43E7789DEB2D791680837C1FF9217DAF5B3AF03D2B39A996331794514801140377E70A74A9D8AB8CE9260F2C3ABF5548FFADB39F01C4BBBD5DB53EA5E7154071E74EF0BE481ECBE780167AA8A242146E3369B7732A2B3815FCABFABE9509A2DA3C61A20078B48A19771A677EDE403A2BA518E5D5ACF87942990037055ED3A24F07066B0A82E07454806472F90D4783C65BA282381D309EF7F74D2A5E852B4E26CD310AF64DDDAD6123B0CFD169D8BC296A04C0F728C4A902FAE39F74B40214651C5200047B0A60A50A9A4E8506A912A75356C2D677DE61AF6A2CEEC3345345E39B12144809A597D9663D775BA1483515B9D36E8AF8593567DB4E4A9011423E13A442EFF6F60A97D9663D775BA1483515B9D36E8AF8591F2CFC1C65A65B934FD56C104FE3640333BF4512BB432390A58F386BB41D3C268CBA1E5C0A86B6C6BAF6371722C96EA22445F6B3FBE14A0B6F6BDD6F1785A88D803E042ABF683F9718FA3EE7A21679BA5E91A3A2D09491FC4806EFE8B6C518390DDEAB7A89CC8E722A89B6B84B2E2539064E75FA72FF95EDE936D931CF9867CD3D3765C46B89D9CEDB6BC24CDC84E1A670E6F2B7E27419F7AF63923503A71E6800484E9FC4FA99C364015E1B1C71DE4AE7D84F6B2091AEB79947C7104CFB4400322870F31AFDC579D440B85A5DFC58D149781294547B1B41D87A0EDE7A6B82FFBBBD5DB53EA5E7154071E74EF0BE481E5F1E209932A07A74284CA6A2B38A6EEC2E60AFAD5B06EBD8BD1168C553E6E63C43CBA3899789DB7D6CC2742B36E171A5A68800C0180A6487C4A11DE09A70AD9A7762D77689AB4C70B818AB1A333C62C7F24E151085638879EC198D3A62FD261BBB724289FF9ADF421138E8D9719A176D342AE8150E7CEF39F66C6FC799C2B708581DCF80F575AFBE4CD2CD589EEB4F17B02CD8F7EA2B9C5BE548D0FB04AC4BB5738215D6C4598C41DADE77782ADF75E3F8F0A1F3608706F0BA78B859D3D8DFC3485CB655C350BDC856AD5A76506922850A17FB9517EA6B059FCC219C0BD98782A3218505C098E22823D6FE0F81AEFE78A8797D1E92CB6B4B8030CFACC8FB57CC907228575692F06822201465AEF3F844987C9F48ED0ED2F84D721D60709D65998445F52CAAEA8A93FB4FD203C7EACB507942990037055ED3A24F07066B0A82E05CD081B1BA63346C6354C8497CB0862AAD0D3D99C54A971331C1310095F1798AB0A49036B1E8947ED3A6BE0C8083A54B007D758DBE404BBCE666CDDFD56719E56854AED9B10AA2C1C82C6143BD6AA8D415BF94C575D25BE66DD75BFDD7E075D697D9663D775BA1483515B9D36E8AF859E0225BF1FB9E7004DD40097742F940293815FCABFABE9509A2DA3C61A20078B46A855D0BCC3615E3A63A1861677123A2EC6B5C96694E69963053D0A6F0DA70178594696D042559F474208688CE821485D5C1396BAADB01031C1A3B469CA6A60A1177FA7A10D393FE326F70356D951EC129FAC03CA372F7A6D0765D6D68BE08165D4122B52FE86038CA0E7A33AEAE03D20F899C42EB990616BE2EEB4EEAA1DC4042B1E36871B2AE2FDF14F135CE72FB5BD84F6987D9F23D9FDE76D1CD4EB1B48435FAC7CDF743DB43E10C50355C0AB5537DABBDB59EA2F8549823D373342CCFBC640C947444C755210A36291EC920394FCA37CD8D9BD895566C8462E43F8407CE70E5C50B8BAD6953F84A34FB06FA640218EC6F9A44A974D9B23C10556F766BB7200162303EC72ABC55B1B0A9F40A4ECB97D9663D775BA1483515B9D36E8AF859D256A8CD4A6FA861DFF480017267354824DD5BF0EC07D029D31CE465790837FB9A13A323744DB41781DC619818F34062B018602D747390CA88298E186A2EDBE43C2B5309E67A21BF89D2C2A7C43064E96A0BAE165ADC39234D05EC8A514C8CF60415B5C89ED64D651402034273A66F06E15DCAB2E9BE6B060C7CFC983D60911AF9BFED3E18BC6E12CFD374FE979F4511F0958EF7545AFB0E9BC8B3B863C43444187E5D73626EEA5856BBEF8CB8F21794C3767CB9A068F9DBDD2BEB65E50241F9CAB0DD5B5A18C48543C2428318BB4474354D09F5EBC845EEF08929E3D8B9DA990B458152E444C1A608286AE20178FA75C2F65FBCAD578FFE2B7541D2BF4C385F2E062A59E6A733D780BFCC2D2D4AABAB304DC51633924B0FE0D4D3ACFBF2055CE53EE6E3150396DE1D60B3B7435DAAC8212BFF39A31D407E2F8E1352D46D51C198EB9FEF9BF90ABDC3BDC228DA5F5C05403886195DEC70209990180F4D8291104DA1C6B11562D46194578A5BB1B95324493EF7929CF1F3D21CD4F0CCBA3E6507E74492A65EA3BCF285E6573C14EF1C2F2C0DA2D0100600B53858408177C59C05987C9F48ED0ED2F84D721D60709D6599F4961FFD22A3208CD49DD84B8CFAEFE818EC8B31EB047C322A6E8FF34D04C16D2F1274B247E0629F951B7C148B264FFDC98B6EB8989D8202AA3516FFA29B3A1A502BDB6869C7D0CA8ED04501D481F0F85C49DBE377E736AA4E8ACF7B70373A8C3D49E10769ADF903F53E58FBB514FC2332F763EDD3197C938C322D46B3231B2080C83A717C0DD2C4513CBEC008A07432CB4C761CAE1DC4452664292099E09A8A24BB18281CF5B37B1BB7046EF26BD1BF3491FB35AE27B4032BD24792693D19CA4F6D231DD03926E08B733492616DA2987A749A04019F42FE6BC721013AF4CA8CCFB3E92CB7A47470A5D154588BE22E404AB3CD75FBE5589EDB5008A512CC1B40A5B9328442FDE48667E19087CD3AEBA89FABC82F326D3AE62AEBBFBE71D425C442E75B4597DCD21C5C6C29E49A002860802F5456AF8E1A53E18A4E92A76E7F4E"
+           },
+           "signType": "SM2",
+           "appCode": "T98HPCGN5ZVVQBS8LZQNOAEXVI9GYHKQ",
+           "version": "1.0.0",
+           "timestamp": "1740450088468"
+       },
+       "message": "成功",
+       "timestamp": "1740450088",
+       "type": "success"
+   }
+   console.log(dy("7d92").b("SM4", data));</code></p>
+<ol>
+<li>运行结果<img alt="image-20250111下午62029826" src="imgs/33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.assets/image-20250111%E4%B8%8B%E5%8D%8862029826-6590830.png" /></li>
+</ol>
+<h3 id="5">【5】入口定位</h3>
 <ul>
 <li>入口定位</li>
 </ul>
@@ -382,7 +1360,10 @@ decrypt()
 <p><img alt="image-20250111下午62311497" src="imgs/33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.assets/image-20250111%E4%B8%8B%E5%8D%8862311497-6590992.png" /></p>
 <p><img alt="image-20250111下午62354758" src="imgs/33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.assets/image-20250111%E4%B8%8B%E5%8D%8862354758-6591035.png" /></p>
 <p><img alt="image-20250111下午62553243" src="imgs/33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.assets/image-20250111%E4%B8%8B%E5%8D%8862553243-6591154.png" /></p>
-<h3 id="7">【7】逆向加密</h3>
+<p><strong>或者搜索加密参数</strong>  </p>
+<p>一步到位直接定位到</p>
+<p><img alt="image-20250225113836622" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250225113836622.png" /></p>
+<h3 id="6webpack">【6】基于webpack逆向加密</h3>
 <p>发现这个u对象和上面响应解密的是一个,上面是u.b，这里是u.a</p>
 <pre><code class="language-js">function encrypt(page) {
     let source_data = {
@@ -431,138 +1412,57 @@ decrypt()
 
 console.log(encrypt(1))
 </code></pre>
-<h3 id="8">【8】完整实现</h3>
-<p><code>main.js</code></p>
-<pre><code class="language-js">require(&quot;./loader&quot;)
-
-console.log(window.yuan(&quot;7d92&quot;))
-
-u = window.yuan(&quot;7d92&quot;)
-
-// 1. 测试解密代码
-// 注意e别拿错了
-function decrypt(e) {
-   /* e = {
+<h3 id="7">【7】完整实现</h3>
+<p>上面的代码用的响应解密的，都不用动，就是同一个文件，响应解密调用b方法，响应请求调用a方法</p>
+<pre><code class="language-js">let data = {
+    &quot;transformRequest&quot;: {},
+    &quot;transformResponse&quot;: {},
+    &quot;timeout&quot;: 30000,
+    &quot;xsrfCookieName&quot;: &quot;XSRF-TOKEN&quot;,
+    &quot;xsrfHeaderName&quot;: &quot;X-XSRF-TOKEN&quot;,
+    &quot;maxContentLength&quot;: -1,
+    &quot;headers&quot;: {
+        &quot;common&quot;: {
+            &quot;Accept&quot;: &quot;application/json, text/plain, */*&quot;
+        },
+        &quot;delete&quot;: {},
+        &quot;get&quot;: {},
+        &quot;head&quot;: {},
+        &quot;post&quot;: {
+            &quot;Content-Type&quot;: &quot;application/x-www-form-urlencoded&quot;
+        },
+        &quot;put&quot;: {
+            &quot;Content-Type&quot;: &quot;application/x-www-form-urlencoded&quot;
+        },
+        &quot;patch&quot;: {
+            &quot;Content-Type&quot;: &quot;application/x-www-form-urlencoded&quot;
+        },
+        &quot;Accept&quot;: &quot;application/json&quot;,
+        &quot;Content-Type&quot;: &quot;application/json&quot;,
+        &quot;channel&quot;: &quot;web&quot;,
+        &quot;x-tif-signature&quot;: &quot;6c94b2156e1597318eadfb45178885d37e1024870eec497a78eb5fb567ee4320&quot;,
+        &quot;x-tif-timestamp&quot;: 1740454320,
+        &quot;x-tif-nonce&quot;: &quot;E36eM0BO&quot;,
+        &quot;contentType&quot;: &quot;application/x-www-form-urlencoded&quot;
+    },
+    &quot;withCredentials&quot;: false,
+    &quot;baseURL&quot;: &quot;/ebus/fuwu/api&quot;,
+    &quot;method&quot;: &quot;post&quot;,
+    &quot;url&quot;: &quot;/pss/pw/sysDict/selectByKeys&quot;,
+    &quot;data&quot;: {
         &quot;data&quot;: {
-            &quot;code&quot;: 0,
-            &quot;data&quot;: {
-                &quot;signData&quot;: &quot;4QJOwsGQ893uRFwW8Q0VqkJxck81/Qk3gIvEFaQ5QsjkPxHgI7nKWfXLwmTTz2MyIr+riAuQLAq/mOewQoj+eQ==&quot;,
-                &quot;encType&quot;: &quot;SM4&quot;,
-                &quot;data&quot;: {
-                    &quot;encData&quot;: &quot;943195DDA5E5337E08E0A527071CC637E0074CBD73D293A3643B2199C79561872E19ABE7BB2600D23E9CDB14C1A75194C1D3C735D2DCC50E297311A423B72BF0AE4781F770874C1AC923AD26618311F182DFD96DBF46FD4EB0475F347756783DC91AC1A85DDB6CF1E859ED27C0247D0B8E38E87D09B74B6183D722C9C5BC1FC8ABAA64B40827F66C7103DA3EC1CB79357FA4DE3E012936C754BE9094F60BF6B2766C9AE3D07CE1FBB7E810B20BD8C3724DB6D42E72B47D0195A67AE2B577CD1D85691761F12307EFB8EC17C4BB862B453EDEDBBC80BDA91EEA41F58FD3084EE54C4635B12D1596B64ED66980BEAA24874B2922A40A9EB2B42DFA547101ED9203E6C5FE982E8DB540CAABCF72755B3D344B45B84A1FF82F77F00CA1BC99A6E68BDE8A1062158A1E40CC34236D58F32E155DD963A198B81AA0C508CB8912AAF75B92DA07444DA1526331109FAA4B5190B528103F9EDABB6C76CA5A6C1F24BDBFBD81A8A4440B0BB5493048C4001EE2B6F88791A859764475AE5365FE5F2D3207DFF94B8CA83EDEE175700A24EEC5F869495626E7300E3E1C43B432B84E47D8B0109BA756CBF627CA3CA91138F764E4E79AC1D8FD1A1155B7DCE9665B3A1856E1BB6193DDE8EC8D80ECD137DC24B04BFC7DC3EEE373E0A71DDCBEAA0D6F8350F6A423CA60D48BE079AB959EB56975CF1DD2FD2EA5223C14436C0A1BCD6095A980452F7E0A6E85087957FBC1FA19369DCDCF2FF575E5A08224248A668A514D1EFBDB7A11056C9481CD9B3BAD3A6EB6E62B4BCA23D6131B2B2958BD807E1453C5447EAF0BC5D15EFD6B978B4F44C0CD088034929FD30C638E7F5CC7435914EB1582FF2C2BB08DBE0B2BD1B51D9E023B61B03AFDBECFE523CF3EA2DF64CF27421C0DFA374E70E692C52655A4B78BAA0F62FA0B70165FA33E1A32E6430EC13911F08993941400D3F018F4D3E814C13ECD2E8B098DF426A1A90422D40FE350AA784246D2582ED934A2128B607854B0A38F84DAA630D4F1229ED3A1B9A54758C46F1654A6FA86E3F98B0EB5C8BE9E93D8BB65E30097D9663D775BA1483515B9D36E8AF8598BC5CC1309E79CD4D9A6401DA15F5F821A81D03D58A49869A51AB219E228808A37222075760E5D8FD3BFE2FF70D827AA18CAFDBB5EEEAF0DACBB17BDDC993D0F9027473065419DD7AD3B182A745585CA21D57D8782DFB3EAAD3170EE20045CAC80B046CBC22D5D5F71986E59A08EEF3AE412EE5DA72B65BFEFE9CA98FCEFF3DE75D6F24E3D0925FD1B0FBDF905FBB1641DC00B2C059FF432406F67960E6BA12F934748FE06769569BBC4E47D1DBBE6E4DF17DBF0AF690467B3A81157327E1C1B12547A651EC2F1F754187475C3E806AFFA8F635ACA0FA92614BF9B9D02E31BDD417B8840242DF9095293D8240B3736D157246C9C9E24BF8151DE0737E76497F195B88CFE3489F0CC825C24908F0F356D54F2306B41914731409C6E254BB84C870C6B938FB449B3366909044B240D4745961F9F7871370E77A523F9991C659F0CCB3F53A3E33BD924E023CB4D2466FE5FD8808027665DC09B81DD86C4FBAF26D4AD0D3D99C54A971331C1310095F1798A6D5127735CD1B6D22CD0C8C09CDA1E6F972FECBC7DD09970E3A28577413984D5027523668887593B3E35A88FBF7FA063DF18AAC85044EAB1691D6A120810293193A755FE43F994D4A56470C7B0458C80BE5B8CB156B6C07FEAE5DF62DDC46358440021AD99E46B818627912383E163B0705F510B8F1A4BB3EE5241197B24C16DC3271506884F6FC59D86D02876EE5CF2C2FCD02422AECF3892FD08C8EEE0C6D1B004E462B1AC835F03A779BE611D970852E512FB1F52323EADEB7420AD34B9ABF4740826770C4FE19C344AD90AA910DAA361F6FC54CBF9BD275AFD7BFFA665837708052B4BD9B64923A6C39EA92374F9DBAE2E91D757CCFB10FCEFE2E92408CF49C45774F384EA4914C930BC75B26D631CC3D1BFDD4E0A2D4D5C6D2646F8FC6E15C17577ABEA801BCA1E9297489C2F26A03C5630F760D3389C522FDCD358AF61907228575692F06822201465AEF3F844987C9F48ED0ED2F84D721D60709D65998445F52CAAEA8A93FB4FD203C7EACB507942990037055ED3A24F07066B0A82E05CD081B1BA63346C6354C8497CB0862AAD0D3D99C54A971331C1310095F1798AB0A49036B1E8947ED3A6BE0C8083A54B007D758DBE404BBCE666CDDFD56719E55AA1DE72CB2FB53B89CC69386A27D0E115BF94C575D25BE66DD75BFDD7E075D697D9663D775BA1483515B9D36E8AF859E0225BF1FB9E7004DD40097742F940293815FCABFABE9509A2DA3C61A20078B46A855D0BCC3615E3A63A1861677123A2EC6B5C96694E69963053D0A6F0DA70178594696D042559F474208688CE821485D5C1396BAADB01031C1A3B469CA6A60ADAD2ABD62EEF87E582AC769848583ECE29FAC03CA372F7A6D0765D6D68BE08165D4122B52FE86038CA0E7A33AEAE03D21A91C78B848DED57CA24306716CE130E42B1E36871B2AE2FDF14F135CE72FB5BD84F6987D9F23D9FDE76D1CD4EB1B48435FAC7CDF743DB43E10C50355C0AB5537DABBDB59EA2F8549823D373342CCFBC640C947444C755210A36291EC920394FCA37CD8D9BD895566C8462E43F8407CE70E5C50B8BAD6953F84A34FB06FA640218EC6F9A44A974D9B23C10556F766BB7200162303EC72ABC55B1B0A9F40A4ECB97D9663D775BA1483515B9D36E8AF859D256A8CD4A6FA861DFF480017267354824DD5BF0EC07D029D31CE465790837FB1B5799057B17FC5DAA9C2854EC75D5AC00B787AFA653C5964747618DFBCED145843B8A934B01B9CCF6E6DC8CA1045AA8A1BA0CB34A761326BDBA6ED6B4CB64887505E4F46E47B3CA40AC55CB8162BD146EB4471EB225248A5D756F5A9F7EE8598C33F277B985298F23DE9CB2815527DD8FCC5A373E4C2CB2CBF10CCEE7874FAD31B2E8A796AF977BA38F66B781D11F64B814B3C4709EA945FCC22E2564102114900C3F00534BEFC5758CE38A616BE18AD6DDA7119F8428138AABB75A2A291B6BBE5FF87174B9D0288BFC3670B8DBDD431C5D6F06307389DC291E48C151719519493EF7929CF1F3D21CD4F0CCBA3E6507E74492A65EA3BCF285E6573C14EF1C2F2C0DA2D0100600B53858408177C59C05987C9F48ED0ED2F84D721D60709D6599F4961FFD22A3208CD49DD84B8CFAEFE818EC8B31EB047C322A6E8FF34D04C16D2F1274B247E0629F951B7C148B264FFDC98B6EB8989D8202AA3516FFA29B3A1AEE7021A0E3FADE7493B070C9CDDE94E05D0AA02749823F1B93B16ECF30AF6308218550D8DFF01F48E02BD424E92512C5C5B1A27867767F7BEEF279DFCFE4E681BBBD5DB53EA5E7154071E74EF0BE481E71BBECD3DB8BF0D94D5BB630597E70D1BBBD5DB53EA5E7154071E74EF0BE481EC937762E26C1C310788AB9A66822912263CC20EB6AF79BF07AD98986282B0CA1A193DCD8F079025A99D6E4D42EC9370BC08285E0BF5E5852448A15060CE14BC8AD214202C3712F8FB1B3AFE8CB9886E077830FC1D7FF0FCEC441B45B5839C9DF3BF53F786F8C7E12124F7C6D689A648B9F1142B244FF669F76CD2085344C73F5803E042ABF683F9718FA3EE7A21679BABDAD417EB5EDC97C94E7B340CFBE464E17B4768EA5561668E6850B7AE2C37B1CC84AF2A50887752A72B01584E9C0004EF22CDB67245D1A126F384CD163DD825CF3DA643F9DA436999D1F963BFC00285D2C4B51E46CC029AE6E4ECA8EFC4F5100BDFEE756603654E9264669C2E90E56B54E1C1EF869BA6BF4E370AB9EE65307C6534D3F4F84B12E2B578DA72AF53290571473444F8ADDC5E726EF9FB6EA1469A4F71B48E4D7BD653DAD071E0FF53604253C40DA6DA556EF16716BE3D07296E08D8D760DBB39F47EE77675B19498478D239A72D11B42B012A3FECD2F6F25A290F9934B5CF8FC6B9A65AF9540F414FAC1E811AAF12D40A6B62BF3F76DBCA09248770392DB77A7F2D2CA58AEFC1E8686CADDB37F912821EF5FD88C7BF7E4A8BD51A644D25F61DC577194B9B7FE7DB08C03A29BA2727D169BF7B14D998651A2AD2C388111B4EDA3BE273BC7EC402EEDAD329D4D48E440F62D692AFFA3FDC969C2711C6A6FDE1381DCFAC20033D0B114ECE1F7F2E7460846A4D90F253D2F597F40221D7DCB60BBF30E033754691B5509222D89661481F7E683E5D67ECFB4D968FA1A6C640C947444C755210A36291EC920394FC81058A6786D0422B05C18C0CC1D60E94C077BB4831C80E78820138D02A3F3B910C7589B30AA97E737160F13E111A336400B6621C9E19828E1D1BBE352EDBE1798070B0160B2A19B32E913D7BA20375AE84EA79F0E113FFC541D234D451D8E1D523C856783C6E7089E51EA8C1499142E574A19983EAF96C252FD2CA4FB76BD3E8EAC4796E6A4B2C425695DA335940597C70F3AD1203B122E33E4C0EF2DB2E6E4589102D1E82EC3EFAA18996C1825200E26EAE4B33519F04F370F01B9115456393815FCABFABE9509A2DA3C61A20078B4D389B18B6B1C39322647DA4963B40BC483BD82482309349C6940B789B5ABB44565D87627E132D6E8281823416F1B46907C9863497333FCF64E2B7AEDE1B85EC5210F35F57B08B9B878F40C63C649A5B5987C9F48ED0ED2F84D721D60709D659971D9C0926A245E4BED5121356CBC6FBC18EC8B31EB047C322A6E8FF34D04C16DDE809EB0B5A4A449BC2E9402B964FE80EFE6B84B34174F107BF18A7973CCDA7AEC778B189EF445FA79737DB5BE38133F444900A7F1DC60803B5D392B0054FC75663B6A513AAA8686FAE63251D126C31208DCFB0F5D40EF0F18AC8126B0B2A3AF1FCE60A6DBAA20743A287A19310A57711FCA418578F73CC86C032B474492C48332B881964D1DF9197B2B1CF63648A1565F98D5378DE78C8A41A40C053E10205EFF98A4F24F0A5D71CDAE9CB9B232B529F6F80FC310DCF9A05C01F5E125121007D782891DC51DD2FE76D0A6A3E11DBD9888307BF6853C0D24B153FD7CF812BA1B515ADDA4303AFBAE80030E37D1E77DEE97718B79A6C1D2C11C18F0B3AB1E2B3A28359D28B28F791025CD2F7A333964C8994427E653FFB0CA3061E7E6B6846218B446AB60720919F6284D7E4B367AEF4E57EF5554E70DF20419FB905BF6F98DDAAF0F8483CD69C20312A73A7ABB226BAD300628B4ED8F04BD59BBC1BA98C13220AA96A343A18374560F91D963371004EC5EA62FFE81A56DB7B4FCE6D08A383A01444900A7F1DC60803B5D392B0054FC75A2DB48F3FA6E14D5D5F2401E65433BC2961F9F7871370E77A523F9991C659F0C4B19F01672256066F29B06EF7F7FF1B7268E4B6602FF142D01E0860103E90DF9F5A6008408AD264E09112A7317809EF313398FFB689CA58AC611301DD1B37AD3B977432A1F68BB3E6B878728012295CC6A93FB1F98E4B0A12DDDE7A3494616BE181C46666049DE9E13AD1D2B2E085E61C768AD29CFA2B6B32CA347D9F206DD174AC0FD61AD5503F744E927D6D9483E51F39E9029292E41403B95CF3F2E251883629F6B8E51D170F2F0A2FE4CA17891F91E14A5DC37720712CE0F2EA22AF50114C8CABC772776CADEFBD1E0ADC6356B1CD28418CE406FC2C1BA6AF765B3397B47987C9F48ED0ED2F84D721D60709D6599564F2D2F4C08ECBA9CF7E1C9D9EF5FD4DABF2D33EBCBD8B268CC1DEFA5EFC341962625E2EDEF651766FCAFD7CCD294C53815FCABFABE9509A2DA3C61A20078B4CFC8FC2B37372BC988CC8334813A21BD97D9663D775BA1483515B9D36E8AF859175A801AC65C8D6CE7BE5E0285D6AA6F3815FCABFABE9509A2DA3C61A20078B46758C414F8DF0E3C839C66F3425CC5E6A3F712410D40A97CB2B2BBD27E83C14BD03D1D4E2FB7DF972493679EF395559B7942990037055ED3A24F07066B0A82E088BAB2629BD546AEDA7E1C04D24144D0928BE79DC6EADE64277410265C843B404779EE07558B0563C70DCC882F06920DEEFFE04A935B6753ED56B7A7E34A57835EA5355B3A00DC92A40FE29F6F1F1C4E0A8BB8E5972ACD3C0454F966671A0028A76C0967E51EC7A59DC479FDE871384B0DB900551F22DB202380E822B0311C7EE0C21227A0678F5121A42A8D0AEC73A30DB900551F22DB202380E822B0311C7E793EF792D491E0DDDF11EA99F8639A4FA51EFBE85B1660718232C81F7FBB6CCF204ADE2544CD6FCA894BB59990DEB3C51518A23323C8535EEC4FC125010E9390C4D48C14620BF456F4C5688F319B4612E716B3D9C3FFB338EA53382CF610D71AB9FAD7CC239E35538657A66CF301EF0ABA7B1422E824D3C047372237899C4C52B712B224CBD69CE64D734686D2714A9C285322B3C52E8ABC74DF9AF8206F3D26187DDCF931500041E33B714D0D338934F174F1A5200DC2EE0E23DA4EC49DCEDD5EA62FFE81A56DB7B4FCE6D08A383A01444900A7F1DC60803B5D392B0054FC75A2DB48F3FA6E14D5D5F2401E65433BC2961F9F7871370E77A523F9991C659F0C4B19F01672256066F29B06EF7F7FF1B7268E4B6602FF142D01E0860103E90DF9F5A6008408AD264E09112A7317809EF313398FFB689CA58AC611301DD1B37AD3E5638D7EA4D23B75FC48C4695A85952F6A93FB1F98E4B0A12DDDE7A3494616BE181C46666049DE9E13AD1D2B2E085E61C768AD29CFA2B6B32CA347D9F206DD174AC0FD61AD5503F744E927D6D9483E51F39E9029292E41403B95CF3F2E251883629F6B8E51D170F2F0A2FE4CA17891F91E14A5DC37720712CE0F2EA22AF50114C8CABC772776CADEFBD1E0ADC6356B1C8D8FC0CED5F7A956AAF354F16471475E987C9F48ED0ED2F84D721D60709D6599564F2D2F4C08ECBA9CF7E1C9D9EF5FD4DABF2D33EBCBD8B268CC1DEFA5EFC341962625E2EDEF651766FCAFD7CCD294C53815FCABFABE9509A2DA3C61A20078B4CFC8FC2B37372BC988CC8334813A21BD97D9663D775BA1483515B9D36E8AF859175A801AC65C8D6CE7BE5E0285D6AA6F3815FCABFABE9509A2DA3C61A20078B46758C414F8DF0E3C839C66F3425CC5E6A3F712410D40A97CB2B2BBD27E83C14BD03D1D4E2FB7DF972493679EF395559B181C46666049DE9E13AD1D2B2E085E6188BAB2629BD546AEDA7E1C04D24144D042A19DAEB379CA2BC6011DC4A1FB176C7D32930FE120DBBB30585C7327A004AD446BF88DD66F2061F3B48196C3C874CC9700AFBC1F89C4BCEB43C54B3D30C87879BFE00E77258A07010562067813CE59F2A02F00756C8A8BEB8039D420D6D36ED9096C7C2120531BC96EECCFC7DE250B177A69F7A2EDACE2093ACB2BCD47C45B656D5FB82D89286AC381C231F8428931D1FE9E2ACCDC48D54DD0DC4B3DD55F5DB1505B8802CE9347C9B2D0EE0ED66EF09597365E92C07D603B240081D2D9A297B3E67441249CCCF702AA68216D9017F8F4CEDB4EFF2975DA8BFB6D050148BC673324B051B6AB4CA1E3A7D42D14EDA8560D96F51DB4A51B877983975263B15922721624DBCB49BBCDF1B20FFC8AB1EF5DDA7FACF4AE61F63578C15F32826373DA2F512A50FEF595D569AA6FB631EAC04D8B9DB33416EC234496A6AAD671735B24BBBD5DB53EA5E7154071E74EF0BE481EC429551452268BE9C4919E923688457A987C9F48ED0ED2F84D721D60709D65992710F996D1E31CD59B0DA2948536E1ED5D4993D6599F2007E8DD123839F16A3F5205374DBA8E71242A15CBC9A068EFC31A2A4FFAD3221479093EFB3207D13498F9E5D6121EEA43BFF204A958A7A896B86C3E0F10B2FFFFCCF5A13B1766B4870DCE2AD69681A4BF45325339CE9F01DB90A61DF6FAC08BC9F808BE116002CB1C1BC91AC1A85DDB6CF1E859ED27C0247D0B8E38E87D09B74B6183D722C9C5BC1FC8D5E84E1A7ECB9F678655BFDFE7C6185ADE0D4642EC3033A4DC63003938262E8C766C9AE3D07CE1FBB7E810B20BD8C3724DB6D42E72B47D0195A67AE2B577CD1D85691761F12307EFB8EC17C4BB862B453EDEDBBC80BDA91EEA41F58FD3084EE54C4635B12D1596B64ED66980BEAA24874B2922A40A9EB2B42DFA547101ED9203E6C5FE982E8DB540CAABCF72755B3D344B45B84A1FF82F77F00CA1BC99A6E68BDE8A1062158A1E40CC34236D58F32E155DD963A198B81AA0C508CB8912AAF75B9B1648DC03DC2493069270ADFE0B58C5C0F88C2157260C25949B2934A28164AC81A8A4440B0BB5493048C4001EE2B6F88791A859764475AE5365FE5F2D3207DF81A014114D2A35BF113427ECC99BC4BCB95C51588CC417BFA9AB6F43DB55F34CD6047F37D38BE114350EFD1C8D811ABA7F091FCCF971D0B2B17597DC54F0902162E7C55C3C31D5BA0EDB1F9A9D3C19CEC3EEE373E0A71DDCBEAA0D6F8350F6A428A6A7791FCB75AA3EA49208C7A7E3C3AAABD3D76CA9A8A11C42BF5F5FB74B3160AA0AB5EC8EF5E1CB1276645ACE06BBC986BB3AF3A476493CCA7C7FF4E22C052E062A59E6A733D780BFCC2D2D4AABABCE6262DD74FE4E49DC60480748E6B1A992DA614F4D7FAAEF80ECEFE8107264D568D685E0B7A639C4387A43E7789DEB2D791680837C1FF9217DAF5B3AF03D2B39A996331794514801140377E70A74A9D8AB8CE9260F2C3ABF5548FFADB39F01C4BBBD5DB53EA5E7154071E74EF0BE481ECBE780167AA8A242146E3369B7732A2B3815FCABFABE9509A2DA3C61A20078B48A19771A677EDE403A2BA518E5D5ACF87942990037055ED3A24F07066B0A82E07454806472F90D4783C65BA282381D309EF7F74D2A5E852B4E26CD310AF64DDDAD6123B0CFD169D8BC296A04C0F728C4A902FAE39F74B40214651C5200047B0A60A50A9A4E8506A912A75356C2D677DE61AF6A2CEEC3345345E39B12144809A597D9663D775BA1483515B9D36E8AF8593567DB4E4A9011423E13A442EFF6F60A97D9663D775BA1483515B9D36E8AF8591F2CFC1C65A65B934FD56C104FE3640333BF4512BB432390A58F386BB41D3C268CBA1E5C0A86B6C6BAF6371722C96EA22445F6B3FBE14A0B6F6BDD6F1785A88D803E042ABF683F9718FA3EE7A21679BA5E91A3A2D09491FC4806EFE8B6C518390DDEAB7A89CC8E722A89B6B84B2E2539064E75FA72FF95EDE936D931CF9867CD3D3765C46B89D9CEDB6BC24CDC84E1A670E6F2B7E27419F7AF63923503A71E6800484E9FC4FA99C364015E1B1C71DE4AE7D84F6B2091AEB79947C7104CFB4400322870F31AFDC579D440B85A5DFC58D149781294547B1B41D87A0EDE7A6B82FFBBBD5DB53EA5E7154071E74EF0BE481E5F1E209932A07A74284CA6A2B38A6EEC2E60AFAD5B06EBD8BD1168C553E6E63C43CBA3899789DB7D6CC2742B36E171A5A68800C0180A6487C4A11DE09A70AD9A7762D77689AB4C70B818AB1A333C62C7F24E151085638879EC198D3A62FD261BBB724289FF9ADF421138E8D9719A176D342AE8150E7CEF39F66C6FC799C2B708581DCF80F575AFBE4CD2CD589EEB4F17B02CD8F7EA2B9C5BE548D0FB04AC4BB5738215D6C4598C41DADE77782ADF75E3F8F0A1F3608706F0BA78B859D3D8DFC3485CB655C350BDC856AD5A76506922850A17FB9517EA6B059FCC219C0BD98782A3218505C098E22823D6FE0F81AEFE78A8797D1E92CB6B4B8030CFACC8FB57CC907228575692F06822201465AEF3F844987C9F48ED0ED2F84D721D60709D65998445F52CAAEA8A93FB4FD203C7EACB507942990037055ED3A24F07066B0A82E05CD081B1BA63346C6354C8497CB0862AAD0D3D99C54A971331C1310095F1798AB0A49036B1E8947ED3A6BE0C8083A54B007D758DBE404BBCE666CDDFD56719E56854AED9B10AA2C1C82C6143BD6AA8D415BF94C575D25BE66DD75BFDD7E075D697D9663D775BA1483515B9D36E8AF859E0225BF1FB9E7004DD40097742F940293815FCABFABE9509A2DA3C61A20078B46A855D0BCC3615E3A63A1861677123A2EC6B5C96694E69963053D0A6F0DA70178594696D042559F474208688CE821485D5C1396BAADB01031C1A3B469CA6A60A1177FA7A10D393FE326F70356D951EC129FAC03CA372F7A6D0765D6D68BE08165D4122B52FE86038CA0E7A33AEAE03D20F899C42EB990616BE2EEB4EEAA1DC4042B1E36871B2AE2FDF14F135CE72FB5BD84F6987D9F23D9FDE76D1CD4EB1B48435FAC7CDF743DB43E10C50355C0AB5537DABBDB59EA2F8549823D373342CCFBC640C947444C755210A36291EC920394FCA37CD8D9BD895566C8462E43F8407CE70E5C50B8BAD6953F84A34FB06FA640218EC6F9A44A974D9B23C10556F766BB7200162303EC72ABC55B1B0A9F40A4ECB97D9663D775BA1483515B9D36E8AF859D256A8CD4A6FA861DFF480017267354824DD5BF0EC07D029D31CE465790837FB9A13A323744DB41781DC619818F34062B018602D747390CA88298E186A2EDBE43C2B5309E67A21BF89D2C2A7C43064E96A0BAE165ADC39234D05EC8A514C8CF60415B5C89ED64D651402034273A66F06E15DCAB2E9BE6B060C7CFC983D60911AF9BFED3E18BC6E12CFD374FE979F4511F0958EF7545AFB0E9BC8B3B863C43444187E5D73626EEA5856BBEF8CB8F21794C3767CB9A068F9DBDD2BEB65E50241F9CAB0DD5B5A18C48543C2428318BB4474354D09F5EBC845EEF08929E3D8B9DA990B458152E444C1A608286AE20178FA75C2F65FBCAD578FFE2B7541D2BF4C385F2E062A59E6A733D780BFCC2D2D4AABAB304DC51633924B0FE0D4D3ACFBF2055CE53EE6E3150396DE1D60B3B7435DAAC8212BFF39A31D407E2F8E1352D46D51C198EB9FEF9BF90ABDC3BDC228DA5F5C05403886195DEC70209990180F4D8291104DA1C6B11562D46194578A5BB1B95324493EF7929CF1F3D21CD4F0CCBA3E6507E74492A65EA3BCF285E6573C14EF1C2F2C0DA2D0100600B53858408177C59C05987C9F48ED0ED2F84D721D60709D6599F4961FFD22A3208CD49DD84B8CFAEFE818EC8B31EB047C322A6E8FF34D04C16D2F1274B247E0629F951B7C148B264FFDC98B6EB8989D8202AA3516FFA29B3A1A502BDB6869C7D0CA8ED04501D481F0F85C49DBE377E736AA4E8ACF7B70373A8C3D49E10769ADF903F53E58FBB514FC2332F763EDD3197C938C322D46B3231B2080C83A717C0DD2C4513CBEC008A07432CB4C761CAE1DC4452664292099E09A8A24BB18281CF5B37B1BB7046EF26BD1BF35FF0C62640FDE24BA32BB172BBF45F24F6D231DD03926E08B733492616DA2987A749A04019F42FE6BC721013AF4CA8CCFB3E92CB7A47470A5D154588BE22E404AB3CD75FBE5589EDB5008A512CC1B40A5B9328442FDE48667E19087CD3AEBA89FABC82F326D3AE62AEBBFBE71D425C442E75B4597DCD21C5C6C29E49A002860802F5456AF8E1A53E18A4E92A76E7F4E&quot;
-                },
-                &quot;signType&quot;: &quot;SM2&quot;,
-                &quot;appCode&quot;: &quot;T98HPCGN5ZVVQBS8LZQNOAEXVI9GYHKQ&quot;,
-                &quot;version&quot;: &quot;1.0.0&quot;,
-                &quot;timestamp&quot;: &quot;1736589824238&quot;
-            },
-            &quot;message&quot;: &quot;成功&quot;,
-            &quot;timestamp&quot;: &quot;1736589824&quot;,
-            &quot;type&quot;: &quot;success&quot;
+            &quot;keys&quot;: &quot;&quot;
         },
-        &quot;status&quot;: 200,
-        &quot;statusText&quot;: &quot;OK&quot;,
-        &quot;headers&quot;: {
-            &quot;access-control-allow-credentials&quot;: &quot;true&quot;,
-            &quot;access-control-allow-methods&quot;: &quot;GET,POST,OPTIONS&quot;,
-            &quot;access-control-allow-origin&quot;: &quot;https://fuwu.nhsa.gov.cn&quot;,
-            &quot;access-control-expose-headers&quot;: &quot;Content-Length,Content-Range&quot;,
-            &quot;cache-control&quot;: &quot;no-store&quot;,
-            &quot;connection&quot;: &quot;keep-alive&quot;,
-            &quot;content-language&quot;: &quot;zh-CN&quot;,
-            &quot;content-type&quot;: &quot;application/json;charset=UTF-8&quot;,
-            &quot;date&quot;: &quot;Sat, 11 Jan 2025 10:03:44 GMT&quot;,
-            &quot;server&quot;: &quot;WAF&quot;,
-            &quot;strict-transport-security&quot;: &quot;max-age=0; preload&quot;,
-            &quot;transfer-encoding&quot;: &quot;chunked&quot;,
-            &quot;x-mg-code&quot;: &quot;200&quot;,
-            &quot;x-mg-timestamp&quot;: &quot;1736589824243&quot;,
-            &quot;x-mg-traceid&quot;: &quot;647f0aae-9ee9-4f75-8e7f-ec56188a98ec&quot;,
-            &quot;x-request-id&quot;: &quot;71a2300fd91fe9be166c43c4a40ae906&quot;,
-            &quot;x-ser&quot;: &quot;i32399_c4103, i32859_c25015&quot;
-        },
-        &quot;config&quot;: {
-            &quot;transformRequest&quot;: {},
-            &quot;transformResponse&quot;: {},
-            &quot;timeout&quot;: 30000,
-            &quot;xsrfCookieName&quot;: &quot;XSRF-TOKEN&quot;,
-            &quot;xsrfHeaderName&quot;: &quot;X-XSRF-TOKEN&quot;,
-            &quot;maxContentLength&quot;: -1,
-            &quot;headers&quot;: {
-                &quot;Accept&quot;: &quot;application/json&quot;,
-                &quot;Content-Type&quot;: &quot;application/json&quot;,
-                &quot;channel&quot;: &quot;web&quot;,
-                &quot;x-tif-signature&quot;: &quot;cfef8145813ab89ee6d9f36db876e211d9cfd2a9e864b9c26d10922c05804d6e&quot;,
-                &quot;x-tif-timestamp&quot;: 1736589824,
-                &quot;x-tif-nonce&quot;: &quot;L3aL9aHK&quot;,
-                &quot;contentType&quot;: &quot;application/x-www-form-urlencoded&quot;
-            },
-            &quot;withCredentials&quot;: false,
-            &quot;baseURL&quot;: &quot;/ebus/fuwu/api&quot;,
-            &quot;method&quot;: &quot;post&quot;,
-            &quot;url&quot;: &quot;/ebus/fuwu/api/nthl/api/CommQuery/queryRtalPhacBInfo&quot;,
-            &quot;data&quot;: &quot;{\&quot;data\&quot;:{\&quot;data\&quot;:{\&quot;encData\&quot;:\&quot;3DFBCA4667B978F639BB23B95DCE4CC74CE34C33DC32F1068E9E23CA546C9EA8CCD20943B4DAE96380B41164D761DE97BBBD5DB53EA5E7154071E74EF0BE481E2BADC2FDCC843E425B4CA14CEDBC102CA979CA4202C06C9F2CD837D90C6DA45E64DE712DF3683DE81C358841664CBE17561D0390069F11B0D412FE38BE15BA5C\&quot;},\&quot;appCode\&quot;:\&quot;T98HPCGN5ZVVQBS8LZQNOAEXVI9GYHKQ\&quot;,\&quot;version\&quot;:\&quot;1.0.0\&quot;,\&quot;encType\&quot;:\&quot;SM4\&quot;,\&quot;signType\&quot;:\&quot;SM2\&quot;,\&quot;timestamp\&quot;:1736589824,\&quot;signData\&quot;:\&quot;Ugk5SiJz4NMjy1pn5rbAHzbBaDJAeyHjkjWqn0nbFVaqYhVBP1Xcv4fnXon5s6yvPVmlJKtaoMrm1FYT7svv0w==\&quot;}}&quot;
-        },
-        &quot;request&quot;: {
-            &quot;_ty_rum&quot;: 1,
-            &quot;__ty_xhr_hooked_type&quot;: &quot;onreadystatechange&quot;
-        }
-    }*/
-    ret = u.b(&quot;SM4&quot;, e)
-    console.log(ret)
-    return ret
-}
-// decrypt()
-
-// 2. 测试加密代码
-
-function encrypt(page) {
-    let source_data = {
-        &quot;transformRequest&quot;: {},
-        &quot;transformResponse&quot;: {},
-        &quot;timeout&quot;: 30000,
-        &quot;xsrfCookieName&quot;: &quot;XSRF-TOKEN&quot;,
-        &quot;xsrfHeaderName&quot;: &quot;X-XSRF-TOKEN&quot;,
-        &quot;maxContentLength&quot;: -1,
-        &quot;headers&quot;: {
-            &quot;common&quot;: {
-                &quot;Accept&quot;: &quot;application/json, text/plain, */*&quot;
-            },
-            &quot;delete&quot;: {},
-            &quot;get&quot;: {},
-            &quot;head&quot;: {},
-            &quot;post&quot;: {
-                &quot;Content-Type&quot;: &quot;application/x-www-form-urlencoded&quot;
-            },
-            &quot;put&quot;: {
-                &quot;Content-Type&quot;: &quot;application/x-www-form-urlencoded&quot;
-            },
-            &quot;patch&quot;: {
-                &quot;Content-Type&quot;: &quot;application/x-www-form-urlencoded&quot;
-            },
-            &quot;Accept&quot;: &quot;application/json&quot;,
-            &quot;Content-Type&quot;: &quot;application/json&quot;,
-            &quot;channel&quot;: &quot;web&quot;
-        },
-        &quot;withCredentials&quot;: false,
-        &quot;baseURL&quot;: &quot;/ebus/fuwu/api&quot;,
-        &quot;method&quot;: &quot;post&quot;,
-        &quot;url&quot;: &quot;/nthl/api/CommQuery/queryRtalPhacBInfo&quot;,
-        &quot;data&quot;: {
-            &quot;addr&quot;: &quot;&quot;,
-            &quot;regnCode&quot;: &quot;110000&quot;,
-            &quot;medinsName&quot;: &quot;&quot;,
-            &quot;businessLvOutMedOtp&quot;: &quot;&quot;,
-            &quot;pageNum&quot;: page,
-            &quot;pageSize&quot;: 10,
-            &quot;queryDataSource&quot;: &quot;es&quot;
-        }
+        &quot;appCode&quot;: &quot;T98HPCGN5ZVVQBS8LZQNOAEXVI9GYHKQ&quot;,
+        &quot;version&quot;: &quot;1.0.0&quot;,
+        &quot;encType&quot;: &quot;SM4&quot;,
+        &quot;signType&quot;: &quot;SM2&quot;,
+        &quot;timestamp&quot;: 1740454320
     }
-    return u.a(source_data)[&quot;data&quot;]
 }
-
-// console.log(encrypt(1))
+console.log(dy(&quot;7d92&quot;).a(data));
 </code></pre>
+<h3 id="8python">【8】python请求</h3>
 <p><code>main.py</code></p>
 <pre><code class="language-python">import json
 import time
@@ -599,8 +1499,52 @@ for i in range(10):
         print(i.get(&quot;medinsName&quot;), i.get(&quot;addr&quot;))
     time.sleep(2)
 </code></pre>
+<h3 id="5_1">5、财新登录案例</h3>
+<h3 id="1_3">【1】网址与参数</h3>
+<ul>
+<li>网址</li>
+</ul>
+<p>https://u.caixin.com/web/login</p>
+<ul>
+<li>解密地址</li>
+</ul>
+<p>https://gateway.caixin.com/api/ucenter/user/v1/loginJsonp?account=17312121212&amp;password=TcYlNmGGlgUlJPsb2bE8rA%253D%253D&amp;deviceType=5&amp;unit=1&amp;areaCode=%2B86&amp;callback=__caixincallback1740466534635</p>
+<ul>
+<li>解密参数</li>
+</ul>
+<p>Password</p>
+<ul>
+<li>图例<img alt="image-20250225145601198" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250225145601198.png" /></li>
+</ul>
+<h3 id="2_3">【2】注意</h3>
+<p>以后见到chunk这种库是在加载第三方库，所以不用优先去看app.js是程序员自己写的代码</p>
+<p><img alt="image-20250225134327571" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250225134327571.png" /></p>
+<h3 id="3_2">【3】找到加密入口</h3>
+<ul>
+<li>通过调用栈、打印断点找到加密入口位置</li>
+</ul>
+<p><img alt="image-20250225150123915" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250225150123915.png" /></p>
+<ul>
+<li>点进去</li>
+</ul>
+<p><img alt="image-20250225150445386" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250225150445386.png" /></p>
+<p>找到加密位置</p>
+<ul>
+<li>接下来找当当前对应的值 为ed08</li>
+</ul>
+<p><img alt="image-20250225150518516" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250225150518516.png" /></p>
+<ul>
+<li>按照上面案例的操作，接下断点打到n上、刷新、进入n、找到加载器、然后开始补环境、添加打印日志等</li>
+</ul>
+<h3 id="4_1">【4】补完结果</h3>
+<p><img alt="image-20250225151253619" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250225151253619.png" /></p>
+<h3 id="5_2">【5】注意</h3>
+<p>补完环境后的代码，和浏览器中代码函数的对应关系</p>
+<p><img alt="image-20250225151606681" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250225151606681.png" /></p>
+<p><img alt="image-20250225145208315" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250225145208315.png" /></p>
+<h3 id="_2"></h3>
 <h2 id="js">二、JS逆向实战案例解析【补环境】</h2>
-<h3 id="1_1">【1】补环境的原理</h3>
+<h3 id="1_4">【1】补环境的原理</h3>
 <p>浏览器环境和node环境对比：</p>
 <p><img alt="image-20250113下午70540645" src="imgs/33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.assets/image-20250113%E4%B8%8B%E5%8D%8870540645-6766341.png" /></p>
 <p>浏览器下：</p>
@@ -1020,7 +1964,7 @@ console.log(yuan.age);
 }
 
 </code></pre>
-<h2 id="_1">三、瑞数之补环境</h2>
+<h2 id="_3">三、瑞数之补环境</h2>
 <h3 id="31">3.1、瑞数介绍</h3>
 <p><img alt="image-20240910下午74639085" src="imgs/33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.assets/image-20240910%E4%B8%8B%E5%8D%8874639085-5968800.png" /></p>
 <p><strong>‌瑞数信息是一家专注于提供互联网动态业务应用安全防护解决方案的公司</strong></p>
@@ -1059,7 +2003,7 @@ console.log(yuan.age);
 <p>瑞数 3、4 代有以 T 和 S 结尾的两个 Cookie，其中以 S 开头的 Cookie 是第一次的 201 那个请求返回的，以 T 开头的 Cookie 是由 JS 生成的，动态变化的，T 和 S 前面一般会跟 80 或 443 的数字，Cookie 值第一个数字为瑞数的版本。</p>
 <p>瑞数 5 代也有以 T 和 S 结尾的两个 Cookie，但有些特殊的 5 代瑞数也有以 O 和 P 结尾的，同样的，以 O 开头的是第一次的 412 那个请求返回的，以 P 开头的是由 JS 生成的，Cookie 值第一个数字同样为瑞数的版本。</p>
 <h3 id="33">3.3、瑞数案例解析</h3>
-<h4 id="1_2">【1】入口定位</h4>
+<h4 id="1_5">【1】入口定位</h4>
 <p>先定位入口，这里涉及一个VM环境</p>
 <ul>
 <li>
@@ -1082,7 +2026,7 @@ console.log(yuan.age);
 <p>最后在入口位置单步调试，即可进入到VM环境！</p>
 <p><img src="./imgs/33、高级逆向.assets/image-20240727下午60038606-2074439-5968741.png" alt="image-20240727下午60038606" style="zoom:50%;" /></p>
 <p>后面的断点调试就在这个环境中。</p>
-<h4 id="2_1">【2】补环境</h4>
+<h4 id="2_4">【2】补环境</h4>
 <p><img alt="image-20240727下午61624696" src="imgs/33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.assets/image-20240727%E4%B8%8B%E5%8D%8861624696-2075385-5968741.png" /></p>
 <blockquote>
 <p>注意content的值和auto.js是关联的，必须保持一致！</p>
@@ -1225,7 +2169,7 @@ print(res.response.body)  # 输出响应内容
 <h4 id="1get">【1】get方法</h4>
 <p>该方法用于跳转到一个网址。当连接失败时，程序会进行重试：</p>
 <p><img alt="image-20240922下午70100105" src="imgs/33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.assets/image-20240922%E4%B8%8B%E5%8D%8870100105-7002861.png" /></p>
-<h4 id="2_2">【2】元素查找</h4>
+<h4 id="2_5">【2】元素查找</h4>
 <pre><code class="language-python"># 根据属性查找，@ 后面可跟任意属性
 page.ele('@id:ele_id', timeout=2)  # 查找 id 为 ele_id 的元素，设置等待时间2秒  
 page.eles('@class')  # 查找所有拥有 class 属性的元素
@@ -1327,7 +2271,7 @@ ele2 = ele1('tag:li').next('some text')
 </tr>
 </tbody>
 </table>
-<h4 id="3_1">【3】元素操作</h4>
+<h4 id="3_3">【3】元素操作</h4>
 <pre><code class="language-python">element.click(by_js)  # 点击元素，可选择是否用 js 方式点击
 element.input(value)  # 输入文本
 element.run_script(js)  # 对元素运行 JavaScript 脚本
@@ -1342,7 +2286,7 @@ element.drag_to(ele_or_loc, speed, shake)  # 拖动元素到另一个元素或�
 element.hover()  # 在元素上悬停鼠标
 
 </code></pre>
-<h4 id="4_1">【4】元素属性和方法</h4>
+<h4 id="4_2">【4】元素属性和方法</h4>
 <pre><code class="language-python">element.html  # 返回元素 outerHTML
 element.inner_html  # 返回元素 innerHTML
 element.tag  # 返回元素 tag name
@@ -1400,7 +2344,7 @@ cp.quit()
 
 </code></pre>
 <h3 id="43">4.3、案例解析</h3>
-<h4 id="1_3">【1】招聘平台</h4>
+<h4 id="1_6">【1】招聘平台</h4>
 <pre><code class="language-python">import time
 
 from DrissionPage import ChromiumPage, ChromiumOptions
@@ -1484,7 +2428,7 @@ for i in range(100):
     cp.ele(&quot;.btn-next&quot;).click()
 
 </code></pre>
-<h4 id="4_2">【4】淘宝案例</h4>
+<h4 id="4_3">【4】淘宝案例</h4>
 <pre><code class="language-python">import re
 import time
 
