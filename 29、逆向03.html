@@ -110,6 +110,8 @@
 <a href="33%E3%80%81%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html">三十三、微信小程序逆向开发</a>
 <li class="chapter" data-path="34%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">
 <a href="34%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">三十四、高级逆向</a>
+<li class="chapter" data-path="apiv1search-flight.html">
+<a href="apiv1search-flight.html">Apiv1search flight</a>
 <li class="chapter" data-path="%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B%E7%AC%94%E8%AE%B0.html">
 <a href="%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B%E7%AC%94%E8%AE%B0.html">逆向实战案例笔记</a>
 <li class="header">Pyexecjs与npm配置</li>
@@ -266,7 +268,7 @@ console.log(window.loader(&quot;1001&quot;));
 <p><strong>重点</strong></p>
 <p>找到当前webpack的加载器的位置，然后传入参数函数就可以</p>
 <h3 id="3">3、酷我</h3>
-<h3 id="1_1">【1】网址与参数</h3>
+<h4 id="1_1">【1】网址与参数</h4>
 <ul>
 <li>网址</li>
 </ul>
@@ -276,7 +278,7 @@ console.log(window.loader(&quot;1001&quot;));
 </ul>
 <p>Reqid</p>
 <p><img alt="image-20250225114130058" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250225114130058.png" /></p>
-<h3 id="2_1">【2】定位加密入口</h3>
+<h4 id="2_1">【2】定位加密入口</h4>
 <ul>
 <li>搜索加密参数</li>
 </ul>
@@ -1043,7 +1045,7 @@ var ff;
 console.log(ff(113)())
 </code></pre>
 <h3 id="4">4、医保局案例案例</h3>
-<h3 id="1_2">【1】地址</h3>
+<h4 id="1_2">【1】地址</h4>
 <pre><code class="language-bash"># 页面：
 `https://fuwu.nhsa.gov.cn/nationalHallSt/#/search/pharmacies?code=90000&amp;flag=false&amp;gbFlag=true` 
 # 接口：
@@ -1051,8 +1053,8 @@ console.log(ff(113)())
 </code></pre>
 <p><img alt="image-20250111下午52823371" src="imgs/33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.assets/image-20250111%E4%B8%8B%E5%8D%8852823371.png" /></p>
 <p><img alt="image-20250224161122249" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250224161122249.png" /></p>
-<h3 id="2_2">【2】响应解密</h3>
-<h3 id="3_1">【3】入口定位</h3>
+<h4 id="2_2">【2】响应解密</h4>
+<h4 id="3_1">【3】入口定位</h4>
 <p>搜索<code>interceptors.response.use</code></p>
 <p><img alt="image-20250111下午53324344" src="imgs/33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.assets/image-20250111%E4%B8%8B%E5%8D%8853324344-6588005.png" /></p>
 <p><img alt="image-20250111下午53651905" src="imgs/33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.assets/image-20250111%E4%B8%8B%E5%8D%8853651905-6588212.png" /></p>
@@ -1302,7 +1304,7 @@ console.log(ff(113)())
 })
 </code></pre>
 <p>可以进入u.b深入挖掘和复原，但是更简单的做法是直接构建u.b</p>
-<h3 id="4webpack">【4】基于webpack逆向响应解密</h3>
+<h4 id="4webpack">【4】基于webpack逆向响应解密</h4>
 <p>将当前代码文件中的代码复制到本地,构建main.js</p>
 <ol>
 <li>
@@ -1350,7 +1352,7 @@ console.log(ff(113)())
 <ol>
 <li>运行结果<img alt="image-20250111下午62029826" src="imgs/33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.assets/image-20250111%E4%B8%8B%E5%8D%8862029826-6590830.png" /></li>
 </ol>
-<h3 id="5">【5】入口定位</h3>
+<h4 id="5">【5】入口定位</h4>
 <ul>
 <li>入口定位</li>
 </ul>
@@ -1363,7 +1365,7 @@ console.log(ff(113)())
 <p><strong>或者搜索加密参数</strong>  </p>
 <p>一步到位直接定位到</p>
 <p><img alt="image-20250225113836622" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250225113836622.png" /></p>
-<h3 id="6webpack">【6】基于webpack逆向加密</h3>
+<h4 id="6webpack">【6】基于webpack逆向加密</h4>
 <p>发现这个u对象和上面响应解密的是一个,上面是u.b，这里是u.a</p>
 <pre><code class="language-js">function encrypt(page) {
     let source_data = {
@@ -1412,7 +1414,7 @@ console.log(ff(113)())
 
 console.log(encrypt(1))
 </code></pre>
-<h3 id="7">【7】完整实现</h3>
+<h4 id="7">【7】完整实现</h4>
 <p>上面的代码用的响应解密的，都不用动，就是同一个文件，响应解密调用b方法，响应请求调用a方法</p>
 <pre><code class="language-js">let data = {
     &quot;transformRequest&quot;: {},
@@ -1462,7 +1464,7 @@ console.log(encrypt(1))
 }
 console.log(dy(&quot;7d92&quot;).a(data));
 </code></pre>
-<h3 id="8python">【8】python请求</h3>
+<h4 id="8python">【8】python请求</h4>
 <p><code>main.py</code></p>
 <pre><code class="language-python">import json
 import time
@@ -1500,7 +1502,7 @@ for i in range(10):
     time.sleep(2)
 </code></pre>
 <h3 id="5_1">5、财新登录案例</h3>
-<h3 id="1_3">【1】网址与参数</h3>
+<h4 id="1_3">【1】网址与参数</h4>
 <ul>
 <li>网址</li>
 </ul>
@@ -1516,10 +1518,10 @@ for i in range(10):
 <ul>
 <li>图例<img alt="image-20250225145601198" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250225145601198.png" /></li>
 </ul>
-<h3 id="2_3">【2】注意</h3>
+<h4 id="2_3">【2】注意</h4>
 <p>以后见到chunk这种库是在加载第三方库，所以不用优先去看app.js是程序员自己写的代码</p>
 <p><img alt="image-20250225134327571" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250225134327571.png" /></p>
-<h3 id="3_2">【3】找到加密入口</h3>
+<h4 id="3_2">【3】找到加密入口</h4>
 <ul>
 <li>通过调用栈、打印断点找到加密入口位置</li>
 </ul>
@@ -1536,15 +1538,15 @@ for i in range(10):
 <ul>
 <li>按照上面案例的操作，接下断点打到n上、刷新、进入n、找到加载器、然后开始补环境、添加打印日志等</li>
 </ul>
-<h3 id="4_1">【4】补完结果</h3>
+<h4 id="4_1">【4】补完结果</h4>
 <p><img alt="image-20250225151253619" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250225151253619.png" /></p>
-<h3 id="5_2">【5】注意</h3>
+<h4 id="5_2">【5】注意</h4>
 <p>补完环境后的代码，和浏览器中代码函数的对应关系</p>
 <p><img alt="image-20250225151606681" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250225151606681.png" /></p>
 <p><img alt="image-20250225145208315" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250225145208315.png" /></p>
-<h3 id="_2"></h3>
 <h2 id="js">二、JS逆向实战案例解析【补环境】</h2>
-<h3 id="1_4">【1】补环境的原理</h3>
+<h3 id="1_4">1、前导</h3>
+<h4 id="1_5">【1】补环境的原理</h4>
 <p>浏览器环境和node环境对比：</p>
 <p><img alt="image-20250113下午70540645" src="imgs/33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.assets/image-20250113%E4%B8%8B%E5%8D%8870540645-6766341.png" /></p>
 <p>浏览器下：</p>
@@ -1557,7 +1559,7 @@ for i in range(10):
 <p><img alt="image-20240120152715427" src="imgs/33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.assets/image-20240120152715427-5735636-0955999-5156176.png" /></p>
 <p>所以我们所说的 <strong>“补浏览器环境</strong>” 其实是补浏览器有 而Node没有的环境，即 补BOM和DOM的对象；</p>
 <p>当我们辛苦将浏览器环境的加密或者解密入口找到，把加密或者解密的JS的代码拷贝到本地，由node解释器驱动执行的时候，会因为拷贝的JS代码中包括只能由浏览器调用的API，现在被node执行就会报错，为了解决这个问题，我们需要在拷贝的代码环境中模拟补充需要的前端对象，所以我们就非常有必要掌握浏览器接口对象常用的==八大前端对象==</p>
-<h3 id="28">【2】前端8大必备对象</h3>
+<h4 id="28">【2】前端8大必备对象</h4>
 <ul>
 <li>window:窗口对象，也是最重要的一个对象</li>
 </ul>
@@ -1672,7 +1674,8 @@ if (navigator.toString() === '[object Navigator]') {
 <p>console.log(get_sign())
  ```</p>
 <p>在这里，整层的JS加密代码对于我们而言就是一个黑匣子，有千千万万行代码，甚至做了混淆处理，我们不能去一行行读，看看整个过程到底用到了哪些对象以及对应的属性和方法的。所以这里就涉及到了到了补环境最终的一件事情：==代理监控==</p>
-<h3 id="3proxy">【3】Proxy代理</h3>
+<h3 id="2node-inspect">2、node-inspect</h3>
+<h4 id="3proxy">【3】Proxy代理</h4>
 <p>JavaScript中的Proxy是一种内置对象，它允许你在访问或操作对象之前拦截和自定义底层操作的行为。通过使用Proxy，你可以修改对象的默认行为，添加额外的逻辑或进行验证，以实现更高级的操作和控制。</p>
 <p>Proxy对象包装了另一个对象（目标对象），并允许你定义一个处理程序（handler）来拦截对目标对象的操作。处理程序是一个带有特定方法的对象，这些方法被称为"捕获器"（traps），它们会在执行相应的操作时被调用。</p>
 <pre><code class="language-js">var yuan = {
@@ -1964,7 +1967,7 @@ console.log(yuan.age);
 }
 
 </code></pre>
-<h2 id="_3">三、瑞数之补环境</h2>
+<h2 id="_2">三、瑞数之补环境</h2>
 <h3 id="31">3.1、瑞数介绍</h3>
 <p><img alt="image-20240910下午74639085" src="imgs/33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.assets/image-20240910%E4%B8%8B%E5%8D%8874639085-5968800.png" /></p>
 <p><strong>‌瑞数信息是一家专注于提供互联网动态业务应用安全防护解决方案的公司</strong></p>
@@ -2003,7 +2006,7 @@ console.log(yuan.age);
 <p>瑞数 3、4 代有以 T 和 S 结尾的两个 Cookie，其中以 S 开头的 Cookie 是第一次的 201 那个请求返回的，以 T 开头的 Cookie 是由 JS 生成的，动态变化的，T 和 S 前面一般会跟 80 或 443 的数字，Cookie 值第一个数字为瑞数的版本。</p>
 <p>瑞数 5 代也有以 T 和 S 结尾的两个 Cookie，但有些特殊的 5 代瑞数也有以 O 和 P 结尾的，同样的，以 O 开头的是第一次的 412 那个请求返回的，以 P 开头的是由 JS 生成的，Cookie 值第一个数字同样为瑞数的版本。</p>
 <h3 id="33">3.3、瑞数案例解析</h3>
-<h4 id="1_5">【1】入口定位</h4>
+<h4 id="1_6">【1】入口定位</h4>
 <p>先定位入口，这里涉及一个VM环境</p>
 <ul>
 <li>
@@ -2344,7 +2347,7 @@ cp.quit()
 
 </code></pre>
 <h3 id="43">4.3、案例解析</h3>
-<h4 id="1_6">【1】招聘平台</h4>
+<h4 id="1_7">【1】招聘平台</h4>
 <pre><code class="language-python">import time
 
 from DrissionPage import ChromiumPage, ChromiumOptions
