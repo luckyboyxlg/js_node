@@ -110,6 +110,12 @@
 <a href="33%E3%80%81%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html">三十三、微信小程序逆向开发</a>
 <li class="chapter" data-path="34%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">
 <a href="34%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">三十四、高级逆向</a>
+<li class="chapter" data-path="35%E3%80%81AST.html">
+<a href="35%E3%80%81AST.html">Ast系列篇</a>
+<li class="chapter" data-path="36%E3%80%81Akamai%E5%88%9D%E7%BA%A7.html">
+<a href="36%E3%80%81Akamai%E5%88%9D%E7%BA%A7.html">了解akamai的执行过程</a>
+<li class="chapter" data-path="37-%E4%BA%91%E7%89%87%E9%AA%8C%E8%AF%81%E7%A0%81.html">
+<a href="37-%E4%BA%91%E7%89%87%E9%AA%8C%E8%AF%81%E7%A0%81.html">1 云片滑块</a>
 <li class="chapter" data-path="apiv1search-flight.html">
 <a href="apiv1search-flight.html">Apiv1search flight</a>
 <li class="chapter" data-path="%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B%E7%AC%94%E8%AE%B0.html">
@@ -181,6 +187,9 @@ Theme by GitBook
 <p>以后见到chunk这种库是在加载第三方库，所以不用优先去看app.js是程序员自己写的代码</p>
 <p><img alt="image-20250225134327571" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250225134327571.png" /></p>
 <h2 id="webpack">一、Webpack逆向</h2>
+<p><strong>前言</strong></p>
+<p>当在调用栈遇到exports的形式，可以认定为当前是webpack的形式</p>
+<p><img alt="image-20250618105803339" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250618105803339.png" /></p>
 <h3 id="1">1、概念与  安装</h3>
 <p>Webpack是一个现代的静态模块打包工具，它主要用于前端开发中的模块化打包和构建。通过Webpack，开发者可以将多个模块（包括JavaScript、CSS、图片等）进行打包，生成优化后的静态资源文件，以供在浏览器中加载和运行。</p>
 <p><strong>Webpack的主要功能和特点包括：</strong></p>
@@ -1675,7 +1684,7 @@ if (navigator.toString() === '[object Navigator]') {
  ```</p>
 <p>在这里，整层的JS加密代码对于我们而言就是一个黑匣子，有千千万万行代码，甚至做了混淆处理，我们不能去一行行读，看看整个过程到底用到了哪些对象以及对应的属性和方法的。所以这里就涉及到了到了补环境最终的一件事情：==代理监控==</p>
 <h3 id="2node-inspect">2、node-inspect</h3>
-<h4 id="3proxy">【3】Proxy代理</h4>
+<h4 id="1proxy">【1】Proxy代理</h4>
 <p>JavaScript中的Proxy是一种内置对象，它允许你在访问或操作对象之前拦截和自定义底层操作的行为。通过使用Proxy，你可以修改对象的默认行为，添加额外的逻辑或进行验证，以实现更高级的操作和控制。</p>
 <p>Proxy对象包装了另一个对象（目标对象），并允许你定义一个处理程序（handler）来拦截对目标对象的操作。处理程序是一个带有特定方法的对象，这些方法被称为"捕获器"（traps），它们会在执行相应的操作时被调用。</p>
 <pre><code class="language-js">var yuan = {
@@ -2005,7 +2014,171 @@ console.log(yuan.age);
 <p><img alt="image-20240726下午54307164" src="imgs/33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.assets/image-20240726%E4%B8%8B%E5%8D%8854307164-1986988-5968741.png" /></p>
 <p>瑞数 3、4 代有以 T 和 S 结尾的两个 Cookie，其中以 S 开头的 Cookie 是第一次的 201 那个请求返回的，以 T 开头的 Cookie 是由 JS 生成的，动态变化的，T 和 S 前面一般会跟 80 或 443 的数字，Cookie 值第一个数字为瑞数的版本。</p>
 <p>瑞数 5 代也有以 T 和 S 结尾的两个 Cookie，但有些特殊的 5 代瑞数也有以 O 和 P 结尾的，同样的，以 O 开头的是第一次的 412 那个请求返回的，以 P 开头的是由 JS 生成的，Cookie 值第一个数字同样为瑞数的版本。</p>
-<h3 id="33">3.3、瑞数案例解析</h3>
+<h3 id="336">3.3、定位于思路分析（瑞数6为例）</h3>
+<p><strong>URL：</strong> https://sugh.szu.edu.cn/Html/News/Columns/7/Index.html</p>
+<h4 id="1412cookie">【1】定位到第一个响应412的文件（也就是第一次生成cookie的位置）</h4>
+<ul>
+<li>
+<p>清除应用中的localStorage和cookie值中的值<img alt="image-20250516102723100" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250516102723100.png" /></p>
+</li>
+<li>
+<p>勾选脚本(这样加载的所有脚本都会被断点拦截)</p>
+</li>
+</ul>
+<p><img alt="image-20250516102913031" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250516102913031.png" /></p>
+<ul>
+<li>
+<p>重新刷新当前页面</p>
+</li>
+<li>
+<p>第一个断点拦截</p>
+</li>
+</ul>
+<p><img alt="image-20250516103039507" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250516103039507.png" /></p>
+<ul>
+<li>
+<p>点击跳到下一个断点</p>
+</li>
+<li>
+<p>继续点击下一个断点</p>
+</li>
+</ul>
+<p><img alt="image-20250516103112839" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250516103112839.png" /></p>
+<ul>
+<li>到这儿就能看到当前自运行解析瑞数的代码</li>
+</ul>
+<p><img alt="image-20250516103156844" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250516103156844.png" /></p>
+<ul>
+<li>再点击执行下一个断点、就会跳到vm环境</li>
+</ul>
+<p><img alt="image-20250516110512164" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250516110512164.png" /></p>
+<ul>
+<li>如果不想当前页面出现调试，则可以右键-》将所有匿名脚本....</li>
+</ul>
+<p><img alt="image-20250516110542608" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250516110542608.png" /></p>
+<ul>
+<li>下方就会出现如下显示</li>
+</ul>
+<p><img alt="image-20250516110601231" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250516110601231.png" /></p>
+<ul>
+<li>
+<p>再次执行断点往下走</p>
+</li>
+<li>
+<p>就会出现当前页面</p>
+</li>
+</ul>
+<p><img alt="image-20250516103821148" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250516103821148.png" /></p>
+<ul>
+<li>
+<p>页面中内容还是分为三部分</p>
+</li>
+<li>
+<p>第一部分</p>
+<ul>
+<li>content部分 （相较于瑞数5 变短了）</li>
+</ul>
+<p><code>javascript
+  &lt;meta id="HugPYbOHyOWN" content="WGsBpsjwwr7nncXaYg_sRqD9fuv_w7lsT5rByJIcX1AF5_XlDLuIGebz6sccNRo3uZT9T.wHILIr60TUthEjC6u8LpoTjDQ4LJ1Tvt5igj.y9.b7lnI29q" r='m'&gt;</code></p>
+</li>
+<li>
+<p>第二部分</p>
+<ul>
+<li>执行的函数（执行解析字符串为js代码）</li>
+</ul>
+<p><code>javascript
+  &lt;script type="text/javascript" r='m'&gt;
+     $_ts = window['$_ts'];
+     if (!$_ts)
+        $_ts = {};
+        $_ts.nsd = 123359;
+        $_ts.cd = "qxyErrAlxSgqEqEGqSW..."
+        if ($_ts.lcd)
+           $_ts.lcd();
+  &lt;/script&gt;</code></p>
+<ul>
+<li>瑞数5中为自运行函数（下图为瑞数5截图）</li>
+</ul>
+<p><img alt="image-20240727下午61624696" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20240727%E4%B8%8B%E5%8D%8861624696-2075385-5968741.png" /></p>
+</li>
+<li>
+<p>第三部分</p>
+<ul>
+<li>外链的JS</li>
+</ul>
+<p><code>javascript
+  &lt;script type="text/javascript" charset="utf-8" src="/ymwuCYY2EAZT/0hQf2xF3qjHj.0515a6f.js" r='m'&gt;&lt;/script&gt;</code></p>
+</li>
+<li>
+<p>所以我们只需要把content，window.$_ts， 外链的JS
+  放到一个里面 就能生成cookie
+  看 还是和四代五代一样。换汤不换药。</p>
+</li>
+<li>
+<p>由于每次请求返回的页面中的瑞数都是不同的，方便后期调试补环境，可以将当前页面进行本地替换(右键-&gt;替换内容)既可</p>
+</li>
+</ul>
+<h4 id="2vm">【2】搜索入口，进入vm</h4>
+<ul>
+<li>找到引入的瑞数0hQf2xF3qjHj.0515a6f.js</li>
+</ul>
+<p><img alt="image-20250516110948557" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250516110948557.png" /></p>
+<ul>
+<li>找到以后进行入口搜索<code>.call</code>  搜索入口</li>
+</ul>
+<p><img alt="image-20250516111223994" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250516111223994.png" /></p>
+<ul>
+<li>
+<p>重新清除cookie和localStorge</p>
+</li>
+<li>
+<p>刷新页面</p>
+</li>
+<li>
+<p>点击几次断点就会跳到入口位置</p>
+</li>
+</ul>
+<p><img alt="image-20250516111408634" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250516111408634.png" /></p>
+<ul>
+<li>点击第五个按钮进入vm环境</li>
+</ul>
+<p><img alt="image-20250516111440767" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250516111440767.png" /></p>
+<ul>
+<li>接下来在补环境的过程中，如果比如遇到类似<code>_$hp[_$g6[78]]</code> is not a function等报错提示时，可以在当前页面中进行搜索，并添加断点进行调试查看</li>
+</ul>
+<p><img alt="image-20250516112339763" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250516112339763.png" /></p>
+<h4 id="3debugger">【3】过无限debugger</h4>
+<ul>
+<li>
+<p>上面的执行到debugger以后</p>
+</li>
+<li>
+<p>在控制台输入</p>
+</li>
+</ul>
+<p><code>javascript
+  let _Function = Function;
+  Function = function(s){
+    if(s === "debugger"){
+        console.log(s);
+        return null;
+    }
+    return _Function(s);
+  }</code></p>
+<ul>
+<li>右键  -&gt; 一律不在此执行</li>
+</ul>
+<p><img alt="image-20250516113038877" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250516113038877.png" /></p>
+<ul>
+<li>接下来在补环境的过程中，如果比如遇到类似<code>_$hp[_$g6[78]]</code> is not a function等报错提示时，可以在当前页面中进行搜索，并添加断点进行调试查看</li>
+</ul>
+<p><strong>示例</strong></p>
+<p><img alt="image-20250516113202907" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250516113202907.png" /></p>
+<ul>
+<li>就会跳到这个断点位置</li>
+</ul>
+<p><img alt="image-20250516113248607" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250516113248607.png" /></p>
+<h3 id="34">3.4、瑞数案例解析</h3>
 <h4 id="1_6">【1】入口定位</h4>
 <p>先定位入口，这里涉及一个VM环境</p>
 <ul>
@@ -2076,6 +2249,39 @@ getEnv(proxy_array)
 </code></pre>
 <p><img alt="image-20240727下午62016683" src="imgs/33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.assets/image-20240727%E4%B8%8B%E5%8D%8862016683-2075618-5968741.png" /></p>
 <p>接下来就是按之前教给大家的监控器补环境。</p>
+<h4 id="3hookdebugger">【3】hook无限debugger</h4>
+<pre><code class="language-javascript">let _Function = Function;
+Function = function(s){
+    if(s === &quot;debugger&quot;){
+        console.log(s);
+        return null;
+    }
+    return _Function(s);
+}
+
+
+Function.prototype. constructor back = Function.prototype.constructor;
+Function.prototype.constructor= function(){
+    if(arguments &amp;&amp; typeof arguments[e]==='string'){
+        //alert(&quot;new function:&quot;+ auments[e]);
+        if( &quot;debugger&quot; === arguments[0]){
+            // arguments[e]=&quot;consoLe.Log(\&quot;anti debugger\&quot;);&quot;;
+            //arguments[e]=&quot;;&quot;;
+            return
+            }
+        }
+    return Function.prototype._constructor_back.apply(this,arguments);
+}
+
+var constructor =constructor;
+Function.prototype.constructor = function(s){
+    if(s==&quot;debugger&quot;){
+        console.log(s);
+        return null;
+    }
+    return _constructor(s);
+}
+</code></pre>
 <h2 id="web-drissionpage">四、Web自动化-DrissionPage</h2>
 <h3 id="41dp">4.1、DP初识</h3>
 <p>在当今互联网高速发展的时代，网页数据的获取和处理变得愈发重要。传统的自动化工具如 Selenium 在某些方面逐渐显露出一些局限性，而 DrissionPage 正是在这样的背景下崭露头角。
@@ -2112,7 +2318,7 @@ DrissionPage 的发展历程充满了创新与突破。它最初的设计理念�
 <p>首先，你需要安装 <code>drissionpage</code>。可以通过以下命令进行安装：</p>
 <pre><code class="language-python">pip install drissionpage
 </code></pre>
-<p>官网：<code>https://drissionpage.cn/</code></p>
+<p>官网：<code>https://drissionpage.cn/browser_control/connect_browser/</code></p>
 <pre><code class="language-apl"># 安装及导入
 pip install DrissionPage -i https://pypi.org/simple
 

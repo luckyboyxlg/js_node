@@ -110,6 +110,12 @@
 <a href="33%E3%80%81%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html">三十三、微信小程序逆向开发</a>
 <li class="chapter" data-path="34%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">
 <a href="34%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">三十四、高级逆向</a>
+<li class="chapter" data-path="35%E3%80%81AST.html">
+<a href="35%E3%80%81AST.html">Ast系列篇</a>
+<li class="chapter" data-path="36%E3%80%81Akamai%E5%88%9D%E7%BA%A7.html">
+<a href="36%E3%80%81Akamai%E5%88%9D%E7%BA%A7.html">了解akamai的执行过程</a>
+<li class="chapter" data-path="37-%E4%BA%91%E7%89%87%E9%AA%8C%E8%AF%81%E7%A0%81.html">
+<a href="37-%E4%BA%91%E7%89%87%E9%AA%8C%E8%AF%81%E7%A0%81.html">1 云片滑块</a>
 <li class="chapter" data-path="apiv1search-flight.html">
 <a href="apiv1search-flight.html">Apiv1search flight</a>
 <li class="chapter" data-path="%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B%E7%AC%94%E8%AE%B0.html">
@@ -982,7 +988,7 @@ print(bs)
 <pre><code class="language-python">from Crypto.PublicKey import RSA
 
 # 生成秘钥
-rsakey = RSA.generate(2048)p
+rsakey = RSA.generate(2048)
 
 # 生成公钥
 public_key = rsakey.publickey().exportKey()
@@ -1160,7 +1166,7 @@ function _(data) {
 }
 </code></pre>
 <h3 id="4-rsa">(4) RSA 加密</h3>
-<pre><code class="language-javascript">var JSEncrypt = require('node-jsencrypt')
+<pre><code class="language-javascript">var {JSEncrypt} = require('node-jsencrypt')
 
 function rsa_encrypt(e) {
         var o = new JSEncrypt;
@@ -1408,7 +1414,29 @@ console.log(&quot;解密字符串: &quot;, decryptedData)
 // 加密字符串:  U2FsdGVkX1+ZVCHRXlhmG5Xw87YPWMNIBlbukuh8
 // 解密字符串:  I love Python!
 </code></pre>
-<h2 id="_4">九、抓包工具安装</h2>
+<h2 id="_4">九、解密</h2>
+<h3 id="1-rsa">(1) RSA 解密</h3>
+<pre><code class="language-javascript">var {JSEncrypt} = require('node-jsencrypt');
+
+function rsa_decrypt(encryptedData) {
+    // 创建 JSEncrypt 实例
+    var o = new JSEncrypt;
+    // 设置私钥
+    o.setPrivateKey(`-----BEGIN RSA PRIVATE KEY-----
+MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCD8ms35xvfghRi1cx0OQcLeR6tNSPO/ciDV81wkt0mbDNTbE5MFSALtWZSvKdRStS8QyfEBfW5pc/NIcV66/YCgLLqb42zYIZWm3zzTJkmL56zDe6mzz4bzE58BVay2kipUQQqPoGjPd2EBQSV8HIsE4fo6DyEBJ1gktd9EJrc9dEqz1C/nG8H10vPSOLSex4gsoWmhboPA/qjv4Pf5xKuGyy8Srr1bDmiAV3o9X9kJ9YcbUcgXhpoUNChkfBSiz5DBdw4xe+oz7tnKItT5sJ+aY6oGYR/MFpocPgl7laexFIZMqRKQ8HN2RApVbhu0QJWUVUQ8uviivW/7120oBY7AgMBAAECggEAKoJdXKNObZHA856hwgflZyLcaT0njjZg9T/CZjRKn2hYmNXZ29Uqf9svXhR9a0lKhGS2WQb6hZcP/ayVrOZ8WY4RFkpeQp4kaZ6qgM/6vzy0SkeAzakS/22xE2+84N5GbpY1W07MAUWbKj9bnNrcTar1LGo1pOq/sS9d0WMaIXlxN/JaFKOrMIcgv6hffJ6QeSl8DxSaZxI8c8RdIQEYw2y3j2DkXlls/XmKQZ3+6lJW257hJ79UPP+9glkxh4fw9mn2vhuV4rgekdKxTfFbbDeQpnw3Bwn9hg+uRCFj5K9lIq8C1OuQfFx4EsRpTD88AkEpot1J/QBfztLZtRmOcQKBgQDRqrpTbIxJEArX4DFy44RTrW8vHv1tcdz2psgkQQ0h/tBZ7NT+MvLocIwt5Le/hU7l82HXQDtgye5SVGZsHBZNYMtsJrSAy9aqNlY292ndkWKKzvuVHRVDyDmHo8yhfFXwCv52bYCpxW3+StNaq7x6Tr16NrkvcE7cPPn0vhcXVQKBgQChGutHyDbsz1jREOfe1ni6ydub4CfXfl9N08f0iw+nvInogyqE38s3ENYEsXmpwFOZ4bsKh7FJdi38yOfcwy6WdCY/kjKOxYYV5VF0e+H5G0JFFAIN5d0+7XXUOUp4ac437vgL9m/zP2E+WgeEuQKh3H8fgH3qM39VS7wmpEpXTwKBgD5F0AuBHPWCX0YY33b5Hk9gHrrHIIxGGlPj22PxMj5bmXRsBCLv7PeenfPvj6fBp1pi/Ddba4dm0nL/gGAxw2n+Cs03fbsXT83ET70JpRba3ILP0SdLuQolyPiBbQC1liyyhzuTcHh8HBxACyBOC6/j/SD0afIuEC4XqkHHx8H1AoGAWXwMR7jL2UlqeeW8BSh3srjAhJpDRwzofuAtZoV/UpoEt+NzUI7F33Y4ii7R9xne1dBuBfFM5hMAhDJLp3G6hNNLE3BvKKJKUgsn7V2KLMWZT6lHYtTUyUk4c4LG/I84fhT8LhjaIfCIYQu8tVnWPnWtHqBOUDH+fjAs+AG1UT0CgYA6Fseqn0GWFL2QF1iTIg/TNscqwZ5eFAB3PYMoUACQA9kuKLUG3b5JsGU6+fxHicjnx+bp9snSwXQCR+awuAzuLR29M72j4ui0Fgpx2OREwn/cT4a14bJcOaRmgv+50UdVoT5GAtj/Ic1HTibvhhnodKFCTRrIIkcKnvqovDq/lg==
+-----END RSA PRIVATE KEY-----`);
+
+    // 解密数据
+    return o.decrypt(encryptedData);
+}
+
+const encryptedData = 'UQ18U8v6chwRiIX8a4/ew1sm+4ayHTXBIEcqMud9xbyIYAXCxBSpluHts5hc9xRJvJb81/XAFg0mNb90XSLmobbD0uLENgcUtI2uhUxn4oBnPi9YtnQgjrW6Dr3RbFNkbQ6i32kIZDG9x2sZVDPD14mC8tdeAdOMWyGTRAGvyCxD3JaDHCrM9363qypFgRQN8NcnIbMmU4LdHwDIN+lCs1akqSRJuFjegOM7m6HsHTFk40WCcG0U3wMqkqpauAam4Kzr1pO63ty6O8WcgWOP9CJpjVibfdRnPyjWsRJgyH/wg/Tj23er9Aj2yzfQDYNQDUCRg+XRzxC4uWC92+hweg=='; // 加密数据
+
+// 调用解密函数
+const decryptedData = rsa_decrypt(encryptedData);
+console.log(&quot;解密后的数据:&quot;, decryptedData);
+</code></pre>
+<h2 id="_5">十、抓包工具安装</h2>
 <h3 id="1-fidder">(1) fidder</h3>
 <h4 id="911">9.1.1  配置证书</h4>
 <ul>
@@ -1731,6 +1759,166 @@ res = requests.get(url, headers=headers, proxies=proxy, verify=False)
 content = res.content.decode()
 print(content)
 </code></pre>
+<h2 id="mitmproxy">十一、自定义代理工具mitmproxy</h2>
+<h3 id="1_5">1、介绍</h3>
+<ul>
+<li>功能简介</li>
+</ul>
+<p>实时拦截、修改 HTTP/HTTPS 请求和响应
+  可保存完整的 http 会话，方便后续分析和重放
+  支持反向代理模式将流量转发到指定服务器
+  支持用 Python 脚本对 HTTP 通信进行修改</p>
+<ul>
+<li>官网</li>
+</ul>
+<p>https://mitmproxy.org/</p>
+<ul>
+<li>mitmproxy跟charles区别</li>
+</ul>
+<p>mitmproxy 就是用于 MITM 的 proxy，MITM 即中间人攻击（Man-in-the-middle attack）。用于中间人攻击的代理首先会向正常的代理一样转发请求，保障服务端与客户端的通信，其次，会适时的查、记录其截获的数据，或篡改数据，引发服务端或客户端特定的行为。</p>
+<p>不同于 charles 抓包工具，mitmproxy 不仅可以截获请求帮助开发者查看、分析，更可以通过自定义脚本进行二次开发。举例来说，利用 charles 可以过滤出浏览器对某个特定 url 的请求，并查看、分析其数据，但实现不了高度定制化的需求，比如：“截获对浏览器对该 url 的请求，将返回内容置空，并将真实的返回内容存到某个数据库，出现异常时发出邮件通知”。而对于 mitmproxy，这样的需求可以通过载入自定义 python 脚本轻松实现。</p>
+<p><img alt="image-20240220215731957" src="imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/image-20240220215731957.png" /></p>
+<h3 id="2_2">2、安装</h3>
+<ul>
+<li>方式一</li>
+</ul>
+<p>官网下载安装包，安装，一路下一步安装--》安装后安装路径自动加入环境变量</p>
+<p>https://mitmproxy.org/</p>
+<ul>
+<li>方式二 使用pip 安装</li>
+</ul>
+<p>pip3 install mitmproxy</p>
+<p><img alt="image-20230912183203309" src="imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/image-20230912183203309.png" /></p>
+<p><img alt="image-20230912183328303" src="imgs/28%E3%80%81%E9%80%86%E5%90%9102.assets/image-20230912183328303.png" /></p>
+<h3 id="3_2">3、使用</h3>
+<ul>
+<li>
+<p>安装后 系统将拥有 mitmproxy、mitmdump、mitmweb 三个命令，由于 mitmproxy 命令不支持在 windows 系统中运行</p>
+</li>
+<li>
+<p>使用 mitmdump 测试一下安装是否成功</p>
+</li>
+</ul>
+<p><code>mitmdump --version</code></p>
+<p><strong>输出：</strong></p>
+<p><code>Mitmproxy: 10.0.0 binary
+  Python:    3.11.4
+  OpenSSL:   OpenSSL 3.0.7 1 Nov 2022
+  Platform:  Windows-10-10.0.22621-SP0</code></p>
+<ul>
+<li>启动</li>
+</ul>
+<p><code>python
+  mitmdump   # 命令窗口启动
+  mitmweb    # web页面启动</code></p>
+<ul>
+<li>
+<p>注意</p>
+</li>
+<li>
+<p>分析请求包：推荐mitmweb</p>
+</li>
+<li>命令行：mitmdump + 代码</li>
+</ul>
+<h3 id="4_5">4、电脑配置拦截浏览器的请求</h3>
+<p>要在谷歌浏览器（Google Chrome）中配置使用 mitmproxy 作为代理服务器，你需要调整Chrome的网络设置以通过 mitmproxy 进行连接，并确保安装了 mitmproxy 的CA证书以便能够正确解密HTTPS流量。以下是详细的步骤：</p>
+<h4 id="1-mitmproxy">步骤 1: 启动 <code>mitmproxy</code></h4>
+<p>首先，你需要在你的电脑上启动 <code>mitmproxy</code>。你可以选择使用命令行工具 <code>mitmproxy</code>（提供交互式界面）或 <code>mitmdump</code>（更适合脚本和自动化任务）。默认情况下，它们监听本地的8080端口。</p>
+<ul>
+<li>使用图形界面：</li>
+</ul>
+<p>bash深色版本</p>
+<p><code>mitmproxy</code></p>
+<ul>
+<li>使用命令行界面：</li>
+</ul>
+<p>bash深色版本</p>
+<p><code>mitmdump</code></p>
+<h4 id="2-chrome-mitmproxy">步骤 2: 配置 Chrome 使用 <code>mitmproxy</code> 作为代理</h4>
+<h5 id="chrome">方法一：通过命令行启动 Chrome 并指定代理</h5>
+<p>这是最直接的方法，适用于临时性的代理设置。</p>
+<ol>
+<li>关闭所有已经打开的Chrome窗口。</li>
+<li>打开命令提示符或终端。</li>
+<li>根据你的操作系统运行相应的命令来启动Chrome并指定代理为 <code>127.0.0.1:8080</code>（假设 <code>mitmproxy</code> 在本地运行并且使用默认端口）。</li>
+</ol>
+<p>对于Windows用户：</p>
+<pre><code>chrome --proxy-server=127.0.0.1:8080 --user-data-dir=&quot;C:/temp&quot;
+</code></pre>
+<p>对于Mac/Linux用户</p>
+<pre><code>google-chrome --proxy-server=127.0.0.1:8080 --user-data-dir=&quot;/tmp/mitmproxy&quot;
+</code></pre>
+<p>注意：这里的 --user-data-dir 参数用于创建一个新的用户目录，这样可以避免与现有的Chrome配置冲突</p>
+<h5 id="_6">方法二：通过系统网络设置配置代理</h5>
+<p>如果你希望更永久地更改代理设置，可以通过操作系统的网络设置来完成。</p>
+<p><strong>对于 Windows 用户：</strong></p>
+<ol>
+<li>打开“设置” -&gt; “网络和Internet” -&gt; “代理”。</li>
+<li>在“手动代理设置”部分，开启代理，并设置地址为 <code>127.0.0.1</code>，端口为 <code>8080</code>。</li>
+</ol>
+<p><strong>对于 macOS 用户：</strong></p>
+<ol>
+<li>打开“系统偏好设置” -&gt; “网络”。</li>
+<li>选择你正在使用的网络连接，点击“高级”按钮。</li>
+<li>转到“代理”标签页。</li>
+<li>勾选“Web代理(HTTP)”和“安全Web代理(HTTPS)”，然后输入 <code>127.0.0.1</code> 和端口号 <code>8080</code>。</li>
+</ol>
+<h4 id="3-mitmproxy-ca">步骤 3: 安装 <code>mitmproxy</code> 的 CA 证书</h4>
+<p>为了让 <code>mitmproxy</code> 能够解密HTTPS流量，你需要安装 <code>mitmproxy</code> 提供的根证书。</p>
+<ol>
+<li>打开浏览器访问 <code>http://mitm.it</code>。</li>
+<li>根据你的操作系统选择对应的链接下载并安装证书。</li>
+<li>对于大多数情况，按照提示安装证书即可。但在某些系统或浏览器中，可能需要手动将该证书标记为受信任的根证书颁发机构。</li>
+</ol>
+<p>例如，在Windows上，你可能需要通过“管理用户证书”工具导入证书，并将其放置于“受信任的根证书颁发机构”存储区。</p>
+<h4 id="4_6">步骤 4: 验证配置</h4>
+<p>完成上述步骤后，你应该能够在 <code>mitmproxy</code> 中看到通过Chrome发出的所有HTTP(S)请求。如果一切配置正确，当你浏览网页时，<code>mitmproxy</code> 应该能够捕获并显示这些请求和响应的内容。如果遇到HTTPS网站显示不安全警告，这通常意味着证书没有正确安装，请检查证书是否已正确添加至受信任的根证书存储中。</p>
+<h3 id="5pythonmitmproxy">5、python+mitmproxy</h3>
+<ul>
+<li>基本使用</li>
+</ul>
+<p>```python
+  from mitmproxy import http</p>
+<p>def request(flow: http.HTTPFlow):
+      if 'login.ashx' in flow.request.path:   # 如果当前地址在请求地址中则进行打印
+          print(type(flow.request))  # mitmproxy.http.Request
+          print(flow.request.path)
+          print(flow.request.query)</p>
+<p>def response(flow: http.HTTPFlow):
+      if 'login.ashx' in flow.request.path:   # 如果当前地址在请求地址中则进行打印与篡改响应
+          print(type(flow.response))  # mitmproxy.http.Response
+          print(flow.response.text)      # 响应文本内容
+          print(flow.response.content)   # 返回bytes
+          print(flow.response.json())    # 响应json内容
+          # 篡改响应
+          flow.response.text = '''{"returncode": 2040007,"message": "哈哈哈"}'''</p>
+<p># mitmdump  -s  mitmproxy的使用.py     # 显示详细的日志
+  # mitmdump  -s  mitmproxy的使用.py -q  # 不输出日志
+  ```</p>
+<p><strong>注意：</strong></p>
+<p>在使用mitmdump  -s  v1.py 的时候，需要关闭mitmweb的执行，否则端口冲突</p>
+<ul>
+<li>设置代理</li>
+</ul>
+<p>```python
+  from mitmproxy import http
+  from mitmproxy.net.server_spec import ServerSpec
+  import requests</p>
+<p>def request(flow: http.HTTPFlow):</p>
+<pre><code>      res = requests.get('http://192.168.1.12:5010/get/?type=http').json()
+
+      ip, port = res.get('proxy').split(':')
+      address = (ip, port)
+      print(address)
+
+      flow.server_conn.via = ServerSpec(("http", address))
+</code></pre>
+<p>def response(flow: http.HTTPFlow):</p>
+<pre><code>  print(flow.response.content)
+</code></pre>
+<p># mitmdump  -s  v1.py -q
+  # mitmdump -p 8080 -s v1.py --set block_global=false  --set upstream_cert=false --set connection_strategy=lazy -q
+  ```</p>
 
 
 </section>

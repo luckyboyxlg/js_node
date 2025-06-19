@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>1 云片滑块 - js node</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="generator" content="mkdocs-1.6.1, mkdocs-gitbook-1.0.7">
+
+<link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta rel="next" href="" />
+<link href="./css/style.min.css" rel="stylesheet"> 
+</head>
+
+<body>
+<div class="book">
+<div class="book-summary">
+<div id="book-search-input" role="search">
+<input type="text" placeholder="Type to search" />
+</div> <!-- end of book-search-input -->
+
+<nav role="navigation">
+<ul class="summary">
+<li>
+<a href="index.html" target="_blank" class="custom-link">js node</a>
+</li>
+<li class="divider"></li>
+<li class="chapter" data-path="index.html">
+<a href="index.html">Welcome to MkDocs</a>
+<li class="chapter" data-path="01%E3%80%81html.html">
+<a href="01%E3%80%81html.html">一、HTML</a>
+<li class="chapter" data-path="02%E3%80%81CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8.html">
+<a href="02%E3%80%81CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8.html">二、CSS层叠样式表</a>
+<li class="chapter" data-path="03%E3%80%81%E6%AD%A3%E5%88%99.html">
+<a href="03%E3%80%81%E6%AD%A3%E5%88%99.html">三、正则</a>
+<li class="chapter" data-path="04%E3%80%81BS4%E8%A7%A3%E6%9E%90%E5%AE%8C%E6%95%B4.html">
+<a href="04%E3%80%81BS4%E8%A7%A3%E6%9E%90%E5%AE%8C%E6%95%B4.html">四、beautifulsoup</a>
+<li class="chapter" data-path="05%E3%80%81xpath.html">
+<a href="05%E3%80%81xpath.html">五、xpath</a>
+<li class="chapter" data-path="06%E3%80%81%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E4%B8%8Eurllib%26requests.html">
+<a href="06%E3%80%81%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E4%B8%8Eurllib%26requests.html">六、爬虫入门</a>
+<li class="chapter" data-path="07%E3%80%81urllib%E4%B8%8Erequests.html">
+<a href="07%E3%80%81urllib%E4%B8%8Erequests.html">七、urllib与requests</a>
+<li class="chapter" data-path="08%E3%80%81%E5%A4%9A%E8%BF%9B%E7%A8%8B.html">
+<a href="08%E3%80%81%E5%A4%9A%E8%BF%9B%E7%A8%8B.html">八、多进程</a>
+<li class="chapter" data-path="09%E3%80%81%E7%BA%BF%E7%A8%8B.html">
+<a href="09%E3%80%81%E7%BA%BF%E7%A8%8B.html">九、线程</a>
+<li class="chapter" data-path="10%E3%80%81%E5%8D%8F%E7%A8%8B.html">
+<a href="10%E3%80%81%E5%8D%8F%E7%A8%8B.html">十、携程</a>
+<li class="chapter" data-path="11%E3%80%81selenium.html">
+<a href="11%E3%80%81selenium.html">十一、selenium</a>
+<li class="chapter" data-path="12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.html">
+<a href="12%E3%80%81MySQL%E6%95%B0%E6%8D%AE%E5%BA%93.html">十二、MySQL数据库</a>
+<li class="chapter" data-path="13%E3%80%81Mongodb.html">
+<a href="13%E3%80%81Mongodb.html">十三、Mongodb</a>
+<li class="chapter" data-path="14%E3%80%81redis.html">
+<a href="14%E3%80%81redis.html">十四、Redis数据库</a>
+<li class="chapter" data-path="15%E3%80%81%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.html">
+<a href="15%E3%80%81%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.html">十五、面向对象</a>
+<li class="chapter" data-path="16-Scrapy01-%E6%A1%86%E6%9E%B6%E5%88%9D%E8%AE%A4%E8%AF%86.html">
+<a href="16-Scrapy01-%E6%A1%86%E6%9E%B6%E5%88%9D%E8%AE%A4%E8%AF%86.html">十六、Scrapy框架初认识</a>
+<li class="chapter" data-path="16-Scrapy02%E6%B7%B1%E5%85%A5%E4%BD%BF%E7%94%A8-%E5%AD%98%E5%82%A8.html">
+<a href="16-Scrapy02%E6%B7%B1%E5%85%A5%E4%BD%BF%E7%94%A8-%E5%AD%98%E5%82%A8.html">十六、Scrapy深入使用-存储</a>
+<li class="chapter" data-path="16-Scrapy03-%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86%E4%BB%A5%E5%8F%8A%E5%88%86%E9%A1%B5.html">
+<a href="16-Scrapy03-%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86%E4%BB%A5%E5%8F%8A%E5%88%86%E9%A1%B5.html">十六、scrapy模拟登陆&amp;分页</a>
+<li class="chapter" data-path="16-Scrapy04-%E4%B8%AD%E9%97%B4%E4%BB%B6.html">
+<a href="16-Scrapy04-%E4%B8%AD%E9%97%B4%E4%BB%B6.html">十六、Scrapy中间件</a>
+<li class="chapter" data-path="16-Scrapy05-%E5%88%86%E9%A1%B5%E6%8A%93%E5%8F%96.html">
+<a href="16-Scrapy05-%E5%88%86%E9%A1%B5%E6%8A%93%E5%8F%96.html">十六、scrapy的crawlspider爬虫</a>
+<li class="chapter" data-path="16-Scrapy06-scrapy_redis.html">
+<a href="16-Scrapy06-scrapy_redis.html">十六、scrapy_redis</a>
+<li class="chapter" data-path="17%E3%80%81js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html">
+<a href="17%E3%80%81js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html">十七、js数据类型</a>
+<li class="chapter" data-path="18%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%8E%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6.html">
+<a href="18%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%8E%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6.html">十八、js运算符与流程控制</a>
+<li class="chapter" data-path="19%E3%80%81js%E6%95%B0%E7%BB%84.html">
+<a href="19%E3%80%81js%E6%95%B0%E7%BB%84.html">十九、js数组</a>
+<li class="chapter" data-path="20%E3%80%81js%E5%AD%97%E7%AC%A6%E4%B8%B2.html">
+<a href="20%E3%80%81js%E5%AD%97%E7%AC%A6%E4%B8%B2.html">二十、js字符串</a>
+<li class="chapter" data-path="21%E3%80%81js%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%97%B6%E9%97%B4.html">
+<a href="21%E3%80%81js%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%97%B6%E9%97%B4.html">二十一、js对象与时间</a>
+<li class="chapter" data-path="22%E3%80%81%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89.html">
+<a href="22%E3%80%81%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89.html">二十二、js函数</a>
+<li class="chapter" data-path="23%E3%80%81js%E8%BF%9B%E9%98%B6.html">
+<a href="23%E3%80%81js%E8%BF%9B%E9%98%B6.html">二十三、Javascript进阶</a>
+<li class="chapter" data-path="24%E3%80%81BOM%E6%93%8D%E4%BD%9C.html">
+<a href="24%E3%80%81BOM%E6%93%8D%E4%BD%9C.html">二十四、浏览器对象模型BOM</a>
+<li class="chapter" data-path="25%E3%80%81DOM%E6%93%8D%E4%BD%9C.html">
+<a href="25%E3%80%81DOM%E6%93%8D%E4%BD%9C.html">二十五、DOM操作</a>
+<li class="chapter" data-path="26%E3%80%81jQuery%E6%93%8D%E4%BD%9C.html">
+<a href="26%E3%80%81jQuery%E6%93%8D%E4%BD%9C.html">二十六、jQuery</a>
+<li class="chapter" data-path="27%E3%80%81%E9%80%86%E5%90%9101.html">
+<a href="27%E3%80%81%E9%80%86%E5%90%9101.html">二十七、高级逆向01</a>
+<li class="chapter" data-path="28%E3%80%81%E9%80%86%E5%90%9102.html">
+<a href="28%E3%80%81%E9%80%86%E5%90%9102.html">二十八、高级逆向02</a>
+<li class="chapter" data-path="29%E3%80%81%E9%80%86%E5%90%9103.html">
+<a href="29%E3%80%81%E9%80%86%E5%90%9103.html">二十九、高级逆向03</a>
+<li class="chapter" data-path="30%E3%80%81%E7%BD%91%E6%98%93%E6%BB%91%E5%9D%97.html">
+<a href="30%E3%80%81%E7%BD%91%E6%98%93%E6%BB%91%E5%9D%97.html">三十、网易易盾</a>
+<li class="chapter" data-path="31%E3%80%81rpc.html">
+<a href="31%E3%80%81rpc.html">三十一、RPC</a>
+<li class="chapter" data-path="32%E3%80%81TLS%E6%8C%87%E7%BA%B9%E7%BB%95%E8%BF%87.html">
+<a href="32%E3%80%81TLS%E6%8C%87%E7%BA%B9%E7%BB%95%E8%BF%87.html">三十二、TLS指纹和JA3指纹绕过</a>
+<li class="chapter" data-path="33%E3%80%81%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html">
+<a href="33%E3%80%81%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html">三十三、微信小程序逆向开发</a>
+<li class="chapter" data-path="34%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">
+<a href="34%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">三十四、高级逆向</a>
+<li class="chapter" data-path="35%E3%80%81AST.html">
+<a href="35%E3%80%81AST.html">Ast系列篇</a>
+<li class="chapter" data-path="36%E3%80%81Akamai%E5%88%9D%E7%BA%A7.html">
+<a href="36%E3%80%81Akamai%E5%88%9D%E7%BA%A7.html">了解akamai的执行过程</a>
+<li class="chapter active" data-path="37-%E4%BA%91%E7%89%87%E9%AA%8C%E8%AF%81%E7%A0%81.html">
+<a href="37-%E4%BA%91%E7%89%87%E9%AA%8C%E8%AF%81%E7%A0%81.html">1 云片滑块</a>
+<li class="chapter" data-path="apiv1search-flight.html">
+<a href="apiv1search-flight.html">Apiv1search flight</a>
+<li class="chapter" data-path="%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B%E7%AC%94%E8%AE%B0.html">
+<a href="%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B%E7%AC%94%E8%AE%B0.html">逆向实战案例笔记</a>
+<li class="header">Pyexecjs与npm配置</li>
+
+<li>
+<a href="pyexecjs%E4%B8%8Enpm%E9%85%8D%E7%BD%AE/execjs%E4%BB%8B%E7%BB%8D%E4%BB%A5%E5%8F%8A%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8.html" class="">Execjs介绍以及安装和使用</a>
+</li>
+
+<li>
+<a href="pyexecjs%E4%B8%8Enpm%E9%85%8D%E7%BD%AE/%E4%B8%80%E6%AC%A1%E6%80%A7%E8%A7%A3%E5%86%B3%E6%8E%89npm%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5%E7%9A%84%E9%97%AE%E9%A2%98.html" class="">更换npm为国内镜像</a>
+</li>
+
+<li class="header">补环境</li>
+
+<li>
+<a href="%E8%A1%A5%E7%8E%AF%E5%A2%83/1%E3%80%81%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8E%E4%BA%8B%E4%BB%B6.html" class="">补环境</a>
+</li>
+
+<li>
+<a href="%E8%A1%A5%E7%8E%AF%E5%A2%83/2%E3%80%81Proxy%E4%BB%A3%E7%90%86%E5%99%A8.html" class="">Proxy代理</a>
+</li>
+
+<li>
+<a href="%E8%A1%A5%E7%8E%AF%E5%A2%83/3%E3%80%81vm2%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83.html" class="">3、vm2运行环境</a>
+</li>
+
+<li class="divider"></li>
+
+
+
+<li><a href="http://www.mkdocs.org">
+Published with MkDocs
+</a></li>
+
+<li><a href="https://github.com/GitbookIO/theme-default">
+Theme by GitBook
+</a></li>
+</ul>
+
+</nav>
+
+</div> <!-- end of book-summary -->
+
+<div class="book-body">
+<div class="body-inner">
+<div class="book-header" role="navigation">
+
+<!-- Title -->
+<h1>
+<i class="fa fa-circle-o-notch fa-spin"></i>
+<a href="." ></a>
+</h1>
+
+</div> <!-- end of book-header -->
+
+<div class="page-wrapper" tabindex="-1" role="main">
+<div class="page-inner">
+<div id="book-search-results">
+<div class="search-noresults">
+
+<section class="normal markdown-section">
+
+
+
+<h1 id="1">1 云片滑块</h1>
+<ul>
+<li><strong>网址</strong>：<code>aHR0cHM6Ly93d3cueXVucGlhbi5jb20vcHJvZHVjdC9jYXB0Y2hh</code></li>
+</ul>
+<p><img alt="image-20250117220841552" src="imgs/37-%E4%BA%91%E7%89%87%E9%AA%8C%E8%AF%81%E7%A0%81.assets/image-20250117220841552.png" /></p>
+<h1 id="2">2 滑块问题思路分析</h1>
+<h2 id="21">2.1 获取初始化接口</h2>
+<ul>
+<li>验证类型<code>model</code>：<strong>滑块</strong>-<code>slide</code>，<strong>点选</strong>-<code>select</code></li>
+<li>验证图片信息：<strong>图片链接</strong>-<code>img_url</code>，<strong>图片数据</strong>-<code>img_base64</code></li>
+<li>唯一性参数：用于最终验证参数（哪一次的验证）</li>
+</ul>
+<h2 id="22">2.2 中间辅助接口</h2>
+<ul>
+<li>
+<p>根据具体网站确定即可，可有可无</p>
+</li>
+<li>
+<p>例如：极验3滑块，除了初始化接口，还要准备3个接口，缺一个就会验证失败</p>
+</li>
+</ul>
+<p>~~~python
+  # 1、https://www.geetest.com/demo/gt/register-slide-official，获取gt，challenge
+  gt, challenge = parse_register_slide_official_url()</p>
+<p># 2、https://api.geetest.com/get.php，获取"c": [12, 58, 98, 36, 43, 95, 62, 15, 12],"s": "2e4f506e",
+  parse_geetest_get_php_url(gt, challenge)</p>
+<p># 3、"https://api.geevisit.com/ajax.php"，获取验证类型:slide
+  parse_geevisit_ajax_php_url(gt, challenge)</p>
+<p># 4、https://api.geevisit.com/get.php，获取滑块图片
+  challenge, bg_url, slice_url, c, s = parse_geevisit_get_php(gt, challenge)
+  # print(challenge, bg_url, slice_url, c, s)
+  ~~~</p>
+<h2 id="23">2.3 滑块分析（两大参数）</h2>
+<ul>
+<li>滑动距离：缺口图片—&gt;背景图片，<strong>X轴</strong>距离，有时会需要<strong>Y轴</strong>距离（图片左上角为坐标原点）</li>
+</ul>
+<p>~~~python
+  # 利用Python第三方库，如ddddocr、OpenCV计算
+  # 利用打码平台计算
+  ~~~</p>
+<ul>
+<li>滑动轨迹</li>
+</ul>
+<p>~~~python
+  # 根据滑动距离，生成轨迹
+  # 分析轨迹组成结构，利用Python实现，一般需要3个参数x、y、t，x是横坐标（增量），y是纵坐标（增量），t是时间（增量）
+  # 滑块轨迹最终形成一个大的列表，对于不同网站，可能在轨迹的基础上，针对列表的每一项，再生成加密轨迹
+  ~~~</p>
+<h2 id="24">2.4 最终校验</h2>
+<ul>
+<li>提交上述过程中，产生的全部参数，并提交最终滑块验证接口，完成滑块验证</li>
+<li>验证成功后，返回一个验证成功参数</li>
+</ul>
+<h1 id="3">3 云片滑块分析</h1>
+<h2 id="31">3.1 抓包分析（两个接口）</h2>
+<p><img alt="image-20250117221436092" src="imgs/37-%E4%BA%91%E7%89%87%E9%AA%8C%E8%AF%81%E7%A0%81.assets/image-20250117221436092.png" /></p>
+<ul>
+<li><code>v1/jsonp/captcha/get</code>前置接口，含有4个请求参数，其中3个加密参数：</li>
+<li><code>cb</code>：加密值，待分析逆向</li>
+<li><code>i</code>：加密值，待分析逆向</li>
+<li>
+<p><code>k</code>：加密值，待分析逆向</p>
+</li>
+<li>
+<p><code>v1/jsonp/captcha/verify</code>验证接口，含有5个请求参数，其中3个加密参数：</p>
+</li>
+<li><code>cb</code>：加密值，待分析逆向</li>
+<li><code>i</code>：加密值，待分析逆向</li>
+<li><code>k</code>：加密值，待分析逆向</li>
+</ul>
+<h2 id="32-v1jsonpcaptchaget">3.2 <code>v1/jsonp/captcha/get</code>前置接口</h2>
+<ul>
+<li><code>v1/jsonp/captcha/get</code>前置接口，获取验证图片，及其它相关参数</li>
+</ul>
+<p><img alt="image-20250117222829261" src="imgs/37-%E4%BA%91%E7%89%87%E9%AA%8C%E8%AF%81%E7%A0%81.assets/image-20250117222829261.png" /></p>
+<ul>
+<li>请求地址</li>
+</ul>
+<p>~~~python
+  url = "https://captcha.yunpian.com/v1/jsonp/captcha/get"
+  ~~~</p>
+<ul>
+<li>请求参数分析：</li>
+</ul>
+<p>~~~python
+  params = {
+      "cb": "d9svmb82lg", # 加密参数
+      "i": "hBcR1vopdqc4c0Drr8/e31y63GWRjT70oyQv14C+xEgYcTKjoq4d930N8...", # 加密参数
+      "k": "KmQe2/doUcH7Vx93MANG1Lr29B8wToObcdwpn...", # 加密参数
+      "captchaId": "974cd565f11545b6a5006d10dc324281" # 网页Id，固定值
+  }
+  ~~~</p>
+<ul>
+<li>响应参数分析（先搁置，不用过分纠结，在逆向参数时回头再查看）：</li>
+</ul>
+<p>~~~python
+  ypjsonp({
+      "cb": "d9svmb82lg",
+      "code": 0,
+      "data": {
+          "bg": "https://captcha.yunpian.com/v1/image/76d627367a2747be82dc15b6ae42296d.jpg", # 背景图
+          "front": "https://captcha.yunpian.com/v1/image/3eda3ec36e444e3a883cb6cd1f4b9d00.png", # 缺口图
+          "height": 240,
+          "logoOptions": {
+              "chText": "由云片行为验证提供技术支持",
+              "customized": false,
+              "enText": "Powered by YunPian's CAPTCHA",
+              "href": "https://dx5.cn",
+              "logo": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADEAAAAlCAYAAADr2wGRAAAACX...",
+              "status": 1
+          },
+          "sliderWidth": 93,
+          "token": "3e4d78de619542e18882c47bf3033473",
+          "type": 1,
+          "width": 480
+      },
+      "msg": "ok"
+  })
+  ~~~</p>
+<h2 id="33-v1jsonpcaptchaverify">3.3 <code>v1/jsonp/captcha/verify</code>验证接口</h2>
+<ul>
+<li><code>v1/jsonp/captcha/verify</code>验证接口，提交滑块参数</li>
+</ul>
+<p><img alt="image-20250117223232761" src="imgs/37-%E4%BA%91%E7%89%87%E9%AA%8C%E8%AF%81%E7%A0%81.assets/image-20250117223232761.png" /></p>
+<ul>
+<li>请求地址</li>
+</ul>
+<p>~~~python
+  url = "https://captcha.yunpian.com/v1/jsonp/captcha/verify"
+  ~~~</p>
+<ul>
+<li>请求参数分析：</li>
+</ul>
+<p>~~~python
+  params = {
+      "cb": "kui4rg018fo", # 加密参数
+      "i": "IfC8rTHhj7IypKhGTEsLxbMK1ZoyestydH2IA55rfPeiUiUNGRtK3Zvb68lyDn...", # 加密参数
+      "k": "2Bs25fWzv2KUqZ0zUP80M4h/g9HBJpaC6VZS4HZL6RzIckMyUKCMqmCQHnJU7kkTunlZU...", # 加密参数
+      "token": "16f68a1a0d90442c96b9bd3538b20cd7", # 唯一性参数
+      "captchaId": "974cd565f11545b6a5006d10dc324281" # 网页Id，固定值
+  }
+  ~~~</p>
+<ul>
+<li>响应参数：</li>
+</ul>
+<p>~~~python
+  ypjsonp({
+      "cb": "kui4rg018fo",
+      "code": 0,
+      "data": {
+          "authenticate": "4406afd954ae48b0930e65c020f570a2",
+          "result": true,
+          "token": "16f68a1a0d90442c96b9bd3538b20cd7"
+      },
+      "msg": "ok"
+  })
+  ~~~</p>
+<h1 id="4">4 云片滑块详细步骤</h1>
+<h2 id="41">4.1 总体流程</h2>
+<pre><code class="language-python">def main():
+    # 0、准备参数
+    yp_riddler_id = str(uuid.uuid4())
+
+    # 1、https://captcha.yunpian.com/v1/jsonp/captcha/get，获取滑块图片
+    # 1.1、params参数分析：cb、i、k
+    get_params = parse_get_params(yp_riddler_id)
+    # print(get_params)
+    # 1.2、发送请求
+    bg, front, token = parse_captcha_get_url(get_params)
+    # print(bg, front, token)
+
+    # 2、滑块滑动距离分析
+    # 2.1、距离
+    slide_distance = parse_slide(bg, front)
+    # print('slide_distance---&gt;', slide_distance)
+    # 2.2、缺口front图片宽度
+    front_width = parse_front()
+    # print('front_width---&gt;', front_width)
+
+    # 3、轨迹
+    traceData = parse_traceData(slide_distance)
+    # print(traceData, len(traceData))
+
+    # 4、https://captcha.yunpian.com/v1/jsonp/captcha/verify，发送验证请求
+    # 4.1、params参数分析：cb、i、k
+    verify_params = parse_verify_params(
+        yp_riddler_id, slide_distance, front_width, traceData)
+    # print(verify_params)
+    # 4.2、发送请求
+    response = parse_captcha_verify_url(token, verify_params)
+    print(response)
+    return
+
+
+if __name__ == '__main__':
+    for i in range(5):
+        main()
+# https://www.yunpian.com/product/captcha
+</code></pre>
+<h2 id="42-v1jsonpcaptchaget">4.2 <code>v1/jsonp/captcha/get</code>前置接口</h2>
+<h3 id="421-cbik">4.2.1 <code>cb</code>、<code>i</code>、<code>k</code>分析</h3>
+<ul>
+<li>通过堆栈分析，查找加密参数，接口堆栈不多，可以逐个查看堆栈内容</li>
+</ul>
+<p><img alt="image-20250118205837435" src="imgs/37-%E4%BA%91%E7%89%87%E9%AA%8C%E8%AF%81%E7%A0%81.assets/image-20250118205837435.png" /></p>
+<ul>
+<li>
+<p>根据堆栈分析，不难看出，倒数第二、第三<code>value</code>堆栈有关键内容，可以直接找到加密位置</p>
+</li>
+<li>
+<p>先看倒数第二<code>value</code>堆栈，找到了<code>cb</code>、<code>i</code>、<code>k</code>三个加密参数，并且加密位置可以直接找到</p>
+<p><img alt="image-20250118210158025" src="imgs/37-%E4%BA%91%E7%89%87%E9%AA%8C%E8%AF%81%E7%A0%81.assets/image-20250118210158025.png" /></p>
+</li>
+<li>
+<p>此处发现一个<code>yp_riddler_id</code>，是获取<code>cookie.get</code>，发现类似uuid，为了确认，可以通过<code>cookie.set</code>查找</p>
+</li>
+<li>
+<p>回到堆栈，发现在倒数第三<code>value</code>堆栈，有相关信息，确认了就是创建了一个uuid</p>
+<p><img alt="image-20250118210548604" src="imgs/37-%E4%BA%91%E7%89%87%E9%AA%8C%E8%AF%81%E7%A0%81.assets/image-20250118210548604.png" /></p>
+</li>
+<li>
+<p>找到全部加密信息后，可以开始扣代码，在倒数第二<code>value</code>堆栈找到加密入口<code>var a = this.encrypt(e);</code>，进入函数发现类似AES加密，可以直接使用标准库，也可以直接使用webpack，本例采用后者</p>
+</li>
+</ul>
+<p><img alt="image-20250118211148297" src="imgs/37-%E4%BA%91%E7%89%87%E9%AA%8C%E8%AF%81%E7%A0%81.assets/image-20250118211148297.png" /></p>
+<ul>
+<li>加密参数</li>
+</ul>
+<p>~~~python
+  def parse_get_params(yp_riddler_id):
+      # yp_riddler_id = "c5e24b6d-40a0-4c28-9935-0fcad2cd4240"
+      with open('./2-params.js', 'r') as f:
+          js_file = f.read()
+      ctx = execjs.compile(js_file)
+      cb = ctx.call('preAdd')
+      get_params = {'cb': cb}
+      get_params.update(ctx.call('encrypt_get', yp_riddler_id))
+      return get_params</p>
+<p># 0、准备参数
+  yp_riddler_id = str(uuid.uuid4())
+  # 1、https://captcha.yunpian.com/v1/jsonp/captcha/get，获取滑块图片
+  # 1.1、params参数分析：cb、i、k
+  get_params = parse_get_params(yp_riddler_id)
+  # print(get_params)
+  ~~~</p>
+<h3 id="422">4.2.2 前置接口发送请求</h3>
+<ul>
+<li>破解加密参数后，发送前置接口请求</li>
+</ul>
+<p>~~~python
+  def parse_captcha_get_url(params):
+      url = "https://captcha.yunpian.com/v1/jsonp/captcha/get"
+      headers = {}
+      params["captchaId"] = "974cd565f11545b6a5006d10dc324281"
+      response = requests.get(url, headers=headers, params=params)
+      json_data = json.loads(response.text[8:-1])
+      bg = json_data['data']['bg']
+      front = json_data['data']['front']
+      token = json_data['data']['token']
+      return bg, front, token</p>
+<p># 1.2、发送请求
+  bg, front, token = parse_captcha_get_url(get_params)
+  # print(bg, front, token)
+  ~~~</p>
+<ul>
+<li>
+<p>在前置接口中，获取相关参数，用于下次请求</p>
+</li>
+<li>
+<p>获取背景图、滑块图，用于滑动距离分析</p>
+</li>
+</ul>
+<h2 id="43-v1jsonpcaptchaverify">4.3 <code>v1/jsonp/captcha/verify</code>验证接口</h2>
+<h3 id="431-cbik">4.3.1 <code>cb</code>、<code>i</code>、<code>k</code>分析</h3>
+<ul>
+<li>
+<p>通过堆栈分析，查找加密参数，接口堆栈不多，与前置接口类似</p>
+</li>
+<li>
+<p>根据堆栈分析，倒数第二、第四<code>value</code>堆栈有关键内容，可以直接找到加密位置</p>
+</li>
+<li>
+<p>先看倒数第四<code>value</code>堆栈，发现轨迹、滑动距离比例</p>
+<p><img alt="image-20250118212832221" src="imgs/37-%E4%BA%91%E7%89%87%E9%AA%8C%E8%AF%81%E7%A0%81.assets/image-20250118212832221.png" /></p>
+</li>
+<li>
+<p>针对滑动比例，注意观察，有缺口图宽度、滑动距离、背景图宽度</p>
+<p><img alt="image-20250118213146040" src="imgs/37-%E4%BA%91%E7%89%87%E9%AA%8C%E8%AF%81%E7%A0%81.assets/image-20250118213146040.png" /></p>
+</li>
+<li>
+<p>注意，缺口图宽度进行了缩放，原宽度在前置请求返回参数里，缩放比例为：<code>1.57</code></p>
+</li>
+<li>
+<p>回到堆栈，再看倒数第二<code>value</code>堆栈，发现与前置接口逻辑相同</p>
+<p><img alt="image-20250118213702409" src="imgs/37-%E4%BA%91%E7%89%87%E9%AA%8C%E8%AF%81%E7%A0%81.assets/image-20250118213702409.png" /></p>
+</li>
+<li>
+<p>整体加密逻辑与前置接口相同，开始扣代码逆向，可以先固定相关滑动参数，后续补充即可</p>
+</li>
+</ul>
+<h3 id="432">4.3.2 滑块距离分析</h3>
+<ul>
+<li>
+<p>在分析加密前，需计算滑块距离，并生成轨迹</p>
+</li>
+<li>
+<p>获取背景图<code>bg</code>、缺口图<code>front</code>，下载图片，计算滑动距离</p>
+</li>
+<li>
+<p>由于网页与实际图片可能存在误差或缩放问题，为了准确计算滑动距离，需通过比对确认</p>
+</li>
+</ul>
+<p><img alt="image-20250118214317907" src="imgs/37-%E4%BA%91%E7%89%87%E9%AA%8C%E8%AF%81%E7%A0%81.assets/image-20250118214317907.png" /></p>
+<p><img alt="image-20250118214705070" src="imgs/37-%E4%BA%91%E7%89%87%E9%AA%8C%E8%AF%81%E7%A0%81.assets/image-20250118214705070.png" /></p>
+<ul>
+<li>滑动距离代码</li>
+</ul>
+<p>~~~python
+  def parse_slide(bg_url, fg_url):
+      # bg_url = 'https://captcha.yunpian.com/v1/image/93473307fa47487f8111b36a5fda8f9e.jpg'
+      # fg_url = 'https://captcha.yunpian.com/v1/image/4a17cc9b19c644fe9910b2051525e573.png'
+      with open('./x1-bg.jpg', 'wb') as f:
+          f.write(requests.get(bg_url).content)
+      with open('./x2-fg.jpg', 'wb') as f:
+          f.write(requests.get(fg_url).content)
+      with open('./x1-bg.jpg', 'rb') as f:
+          bg_bytes = f.read()
+      with open('./x2-fg.jpg', 'rb') as f:
+          front_bytes = f.read()
+      ocr = ddddocr.DdddOcr(det=False, ocr=False, show_ad=False)
+      result = ocr.slide_match(target_bytes=front_bytes,
+                               background_bytes=bg_bytes, simple_target=True)
+      slide_distance = result['target'][0]
+      # print(slide_distance)
+      return int(slide_distance / 1.45)</p>
+<p># 2、滑块滑动距离分析
+  # 2.1、距离
+  slide_distance = parse_slide(bg, front)
+  # print('slide_distance---&gt;', slide_distance)
+  ~~~</p>
+<ul>
+<li>注意补充缺口front图片宽度，缩放比例为1.57，直接从前置接口获取缺口图原始宽度，也可以本地读取图片获取宽度</li>
+</ul>
+<p><img alt="image-20250118215102894" src="imgs/37-%E4%BA%91%E7%89%87%E9%AA%8C%E8%AF%81%E7%A0%81.assets/image-20250118215102894.png" /></p>
+<p>~~~python
+  def parse_front():
+      # 打开图片文件
+      image = Image.open('./x2-fg.jpg')
+      # 获取图片尺寸
+      # width, height = image.size
+      return int(image.size[0]/1.57)</p>
+<p># 2.2、缺口front图片宽度
+  front_width = parse_front()
+  # print('front_width---&gt;', front_width)
+  ~~~</p>
+<h3 id="433">4.3.3 滑块轨迹分析</h3>
+<ul>
+<li>
+<p>轨迹通过<code>i = this.reducePoints()</code>进行了处理，进入函数发现轨迹列表，此处后续处理需要扣代码</p>
+</li>
+<li>
+<p>生产轨迹前，先从网页获取轨迹，大致分析轨迹生成规则</p>
+</li>
+</ul>
+<p><img alt="image-20250118215544231" src="imgs/37-%E4%BA%91%E7%89%87%E9%AA%8C%E8%AF%81%E7%A0%81.assets/image-20250118215544231.png" /></p>
+<ul>
+<li>观察轨迹，<code>x</code>、<code>t</code>是变化的，<code>y</code>是滑块在网页上高度位置，可不做分析，通过脚本分析变化规律</li>
+</ul>
+<p>~~~python
+  track = [[1113, 1973, 132], [1113, 1973, 139], [1114, 1973, 146], ...]</p>
+<p>for index, item in enumerate(track[:-1]):
+      print(track[index+1][0]-item[0], track[index+1][2]-item[2])
+  ~~~</p>
+<p><img alt="image-20250118220345551" src="imgs/37-%E4%BA%91%E7%89%87%E9%AA%8C%E8%AF%81%E7%A0%81.assets/image-20250118220345551.png" /></p>
+<ul>
+<li>无复杂规律，生产轨迹</li>
+</ul>
+<p>~~~python
+  def parse_traceData(slide_distance):
+      start_x = random.randint(1100, 1120)
+      start_y = random.randint(1880, 1890)
+      start_t = random.randint(50, 60)
+      traceData = [[start_x, start_y, start_t]]
+      x = 0
+      t = 0
+      while x &lt; slide_distance:
+          x += random.randint(1, 5)
+          y = random.randint(-1, 1)
+          t += random.randint(10, 20)
+          point_x = start_x + x
+          point_y = start_y + y
+          point_t = start_t + t
+          if x &gt;= slide_distance:
+              point_x = start_x + slide_distance
+              trace = [point_x, point_y, point_t]
+              traceData.append(trace)
+              break
+          trace = [point_x, point_y, point_t]
+          traceData.append(trace)
+      for i in range(5):
+          t += random.randint(10, 20)
+          point_t = start_t + t
+          trace = [point_x, point_y, point_t]
+          traceData.append(trace)
+      return traceData</p>
+<p># 3、轨迹
+  traceData = parse_traceData(slide_distance)
+  # print(traceData, len(traceData))
+  ~~~</p>
+<h3 id="434">4.3.4 生产加密参数</h3>
+<ul>
+<li>传递参数：<code>yp_riddler_id</code>、<code>slide_distance</code>、<code>front_width</code>、<code>traceData</code></li>
+</ul>
+<p>~~~python
+  def parse_verify_params(yp_riddler_id, slide_distance, front_width, traceData):
+      with open('./2-params.js', 'r') as f:
+          js_file = f.read()
+      ctx = execjs.compile(js_file)
+      cb = ctx.call('preAdd')
+      verify_params = {'cb': cb}
+      verify_params.update(ctx.call('encrypt_verify', yp_riddler_id,
+                                    slide_distance, front_width, traceData))
+      return verify_params</p>
+<p># 4、https://captcha.yunpian.com/v1/jsonp/captcha/verify，发送验证请求
+  # 4.1、params参数分析：cb、i、k
+  verify_params = parse_verify_params(yp_riddler_id, slide_distance, front_width, traceData)
+  # print(verify_params)
+  ~~~</p>
+<h3 id="435">4.3.5 最终提交验证</h3>
+<pre><code class="language-python">def parse_captcha_verify_url(token, verify_params):
+    url = &quot;https://captcha.yunpian.com/v1/jsonp/captcha/verify&quot;
+    headers = {}
+    verify_params.update({
+        &quot;token&quot;: token,
+        &quot;captchaId&quot;: &quot;974cd565f11545b6a5006d10dc324281&quot;
+    })
+    response = requests.get(url, headers=headers, params=verify_params)
+    return response.text
+
+# 4.2、发送请求
+response = parse_captcha_verify_url(token, verify_params)
+print(response)
+</code></pre>
+<h1 id="5">5 滑块案例</h1>
+<ul>
+<li>竞技世界：<code>aHR0cHM6Ly9sb2dpbi5qai5jbi91c2VyL2xvZ2luLnBocA==</code></li>
+<li>安居客：<code>aHR0cHM6Ly9hcGkuYW5qdWtlLmNvbS93ZWIvZ2VuZXJhbC9jYXB0Y2hhTmV3Lmh0bWw=</code></li>
+<li>360牛盾：<code>aHR0cHM6Ly9pbmZvLnNvLmNvbS9jYWNoZV9yZW1vdmUuaHRtbA==</code></li>
+<li>ABC滑块：<code>aHR0cHM6Ly94eGdzLmNoaW5hbnBvLm1jYS5nb3YuY24vZ3N4dC9uZXdMaXN0</code></li>
+<li>有赞：<code>aHR0cHM6Ly9wYXNzcG9ydC55b3V6YW4uY29tL2xvZ2luL3Bhc3N3b3Jk</code></li>
+<li>房天下：<code>aHR0cHM6Ly9wYXNzcG9ydC5mYW5nLmNvbS8=</code></li>
+<li>中国邮政：<code>aHR0cHM6Ly9wYXNzcG9ydC4xMTE4NS5jbi9jYXMvbG9naW4=</code></li>
+<li>青青牧场：<code>aHR0cDovL3FxbWMuaHVpdHVpLnByby9wYWdlcy9yZWdpc3Rlci9pbmRleC5odG1s</code></li>
+<li>游卡：<code>aHR0cHM6Ly9zcGx1czIuZG9iZXN0LmNuL2xvZ2lu</code></li>
+<li>云南省建设监管公共服务平台：<code>aHR0cHM6Ly93d3cueW5qempnY3guY29tL2xvZ2lu</code></li>
+<li>指针平台：<code>aHR0cHM6Ly92OC5jaGFveGluZy5jb20v</code></li>
+<li>工业和信息化部：<code>aHR0cHM6Ly9iZWlhbi5taWl0Lmdvdi5jbi8/d209MTkxOSMvSW50ZWdyYXRlZC9pbmRleA==</code></li>
+<li>蝉妈妈：<code>aHR0cHM6Ly93d3cuY2hhbm1hbWEuY29tL3JlZ2lzdGVyLmh0bWw=</code></li>
+<li>189邮箱：<code>aHR0cHM6Ly93ZWJtYWlsMzAuMTg5LmNuL3cyL2luZGV4Lmh0bWw=</code></li>
+<li>39健康网：<code>aHR0cHM6Ly9wYXNzcG9ydC4zOS5uZXQvQWNjb3VudC9Mb2dpbg==</code></li>
+</ul>
+
+
+</section>
+</div> <!-- end of search-noresults -->
+<div class="search-results">
+<div class="has-results">
+
+<h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+<ul class="search-results-list"></ul>
+
+</div> <!-- end of has-results -->
+<div class="no-results">
+
+<h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+
+</div> <!-- end of no-results -->
+</div> <!-- end of search-results -->
+</div> <!-- end of book-search-results -->
+
+</div> <!-- end of page-inner -->
+</div> <!-- end of page-wrapper -->
+
+</div> <!-- end of body-inner -->
+
+</div> <!-- end of book-body -->
+<script src="./js/main.js"></script>
+<script src="search/main.js"></script>
+<script src="./js/gitbook.min.js"></script>
+<script src="./js/theme.min.js"></script>
+</body>
+</html>
