@@ -549,7 +549,10 @@ print(res.text)
 </code></pre>
 <h4 id="3-tls-client">(3) 使用 <code>tls-client</code>（重点推荐）</h4>
 <p>这是一个专门用于模拟浏览器 TLS 指纹的 Node.js / Python 兼容库：</p>
-<p>GitHub: https://github.com/tls-client/tls-client</p>
+<p>安装Python-TLS-Client</p>
+<pre><code class="language-python">pip install tls-client
+</code></pre>
+<p>打开终端或命令提示符，执行以下命令来安装Python-TLS-Client库：</p>
 <p>示例（Python 绑定）：</p>
 <pre><code class="language-python">import tls_client
 
@@ -563,7 +566,6 @@ response = session.get(
         &quot;User-Agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36&quot;
     }
 )
-
 print(response.json())
 </code></pre>
 <p><strong>特点：</strong></p>
@@ -573,6 +575,44 @@ print(response.json())
 <li>可以配合代理使用</li>
 <li>性能优于 Selenium</li>
 </ul>
+<h4 id="4-crawl4ai">(4) 使用crawl4ai</h4>
+<ul>
+<li><strong>github地址</strong></li>
+</ul>
+<p>https://github.com/unclecode/crawl4ai?tab=readme-ov-file</p>
+<ul>
+<li>文档</li>
+</ul>
+<p>https://docs.crawl4ai.com/advanced/hooks-auth/</p>
+<hr />
+<ul>
+<li><strong>安装</strong>(最好使用虚拟环境)</li>
+</ul>
+<p>```python
+  # Install the package
+  pip install -U crawl4ai</p>
+<p># For pre release versions
+  pip install crawl4ai --pre</p>
+<p># Run post-installation setup
+  crawl4ai-setup</p>
+<p># Verify your installation
+  crawl4ai-doctor
+  ```</p>
+<ul>
+<li>简单实用</li>
+</ul>
+<p>```python
+  import asyncio
+  from crawl4ai import *</p>
+<p>async def main():
+      async with AsyncWebCrawler() as crawler:
+          result = await crawler.arun(
+              url="https://ascii2d.net/",
+          )
+          print(result.html)</p>
+<p>if <strong>name</strong> == "<strong>main</strong>":
+      asyncio.run(main())
+  ```</p>
 
 
 </section>

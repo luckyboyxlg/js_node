@@ -276,8 +276,288 @@ console.log(window.loader(&quot;1001&quot;));
 </code></pre>
 <p><strong>重点</strong></p>
 <p>找到当前webpack的加载器的位置，然后传入参数函数就可以</p>
-<h3 id="3">3、酷我</h3>
-<h4 id="1_1">【1】网址与参数</h4>
+<h3 id="3webpack">3、数组形式的webpack案例</h3>
+<ul>
+<li>格式</li>
+</ul>
+<p><code>javascript
+  !function(n) {
+      var i = {};
+      拦截器
+  }([function(t, e, n){},...]);</code></p>
+<h4 id="1-">(1) 贝壳-登录密码加密</h4>
+<h5 id="1_1">【1】网址与参数</h5>
+<ul>
+<li>https://bj.ke.com/</li>
+</ul>
+<h5 id="2_1">【2】加密参数</h5>
+<ul>
+<li>登录</li>
+</ul>
+<p><img alt="image-20250627172457245" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250627172457245.png" /></p>
+<ul>
+<li>参数</li>
+</ul>
+<p>https://clogin.ke.com/authentication/authenticate</p>
+<p><img alt="image-20250627172524281" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250627172524281.png" /></p>
+<h5 id="3">【3】定位加密位置</h5>
+<ul>
+<li>定位加密位置</li>
+</ul>
+<p>通过搜素<code>encodeVersion</code> 进行定位</p>
+<p><img alt="image-20250627172800006" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250627172800006.png" /></p>
+<h5 id="4webpack">【4】查看webpack</h5>
+<ul>
+<li>发现当前为数组形式的webpack</li>
+</ul>
+<p><img alt="image-20250627173146998" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250627173146998.png" /></p>
+<h5 id="5webpack">【5】分析webpack</h5>
+<ul>
+<li>拦截器</li>
+</ul>
+<p><code>javascript
+  !function(n) {
+      var i = {};
+      function r(t) {
+          if (i[t])
+              return i[t].exports;
+          var e = i[t] = {
+              i: t,
+              l: !1,
+              exports: {}
+          };
+          return n[t].call(e.exports, e, e.exports, r),
+          e.l = !0,
+          e.exports
+      }
+      r.m = n,
+      r.c = i,
+      r.d = function(t, e, n) {
+          r.o(t, e) || Object.defineProperty(t, e, {
+              enumerable: !0,
+              get: n
+          })
+      }
+      ,
+      r.r = function(t) {
+          "undefined" != typeof Symbol &amp;&amp; Symbol.toStringTag &amp;&amp; Object.defineProperty(t, Symbol.toStringTag, {
+              value: "Module"
+          }),
+          Object.defineProperty(t, "__esModule", {
+              value: !0
+          })
+      }
+      ,
+      r.t = function(e, t) {
+          if (1 &amp; t &amp;&amp; (e = r(e)),
+          8 &amp; t)
+              return e;
+          if (4 &amp; t &amp;&amp; "object" == typeof e &amp;&amp; e &amp;&amp; e.__esModule)
+              return e;
+          var n = Object.create(null);
+          if (r.r(n),
+          Object.defineProperty(n, "default", {
+              enumerable: !0,
+              value: e
+          }),
+          2 &amp; t &amp;&amp; "string" != typeof e)
+              for (var i in e)
+                  r.d(n, i, function(t) {
+                      return e[t]
+                  }
+                  .bind(null, i));
+          return n
+      }
+      ,
+      r.n = function(t) {
+          var e = t &amp;&amp; t.__esModule ? function() {
+              return t.default
+          }
+          : function() {
+              return t
+          }
+          ;
+          return r.d(e, "a", e),
+          e
+      }
+      ,
+      r.o = function(t, e) {
+          return Object.prototype.hasOwnProperty.call(t, e)
+      }
+      ,
+      r.p = "/",
+      r(r.s = 21)
+  }([function(){}...]);</code></p>
+<ul>
+<li>
+<p>说明</p>
+</li>
+<li>
+<p>现在能够看到当前我们的自调用的函数是一个个函数，function、那么我们要拿到加密的算法是在哪个函数中，在拦截器中又怎样能够拿到这个函数，外部又要怎样调用呢？</p>
+</li>
+<li>
+<p>首先、我们看下拦截器的内部</p>
+<p>如果我们可以拿到r对象，就可以获取到n和i的值</p>
+<p><img alt="image-20250630100627031" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250630100627031.png" /></p>
+</li>
+<li>
+<p>我们接下来要添加一个全局变量，然后把r赋值给这个全局变量，我们就能够通过全局变量拿到r对象，接下来我们把这个js文件替换为本地文件，就行添加全局变量，添加完后进行刷新，然后重新加载我们的本地的js文件既可</p>
+</li>
+<li>
+<p>添加全局变量如下、添加完后刷新</p>
+<p><img alt="image-20250630101022429" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250630101022429.png" /></p>
+<p>​            </p>
+</li>
+<li>
+<p>打印luycky.m、luycky.c</p>
+<p><img alt="image-20250630101252941" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250630101252941.png" /></p>
+</li>
+<li>
+<p>展开查看</p>
+<p><img alt="image-20250630101510261" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250630101510261.png" /></p>
+</li>
+<li>
+<p>接下来排查一下，当前我们要的加密的代码，是在列表对应的哪一个索引中</p>
+</li>
+<li>
+<p>通过循环lucky.m，通过字符串查找，如果当前索引对应的函数中有o.ec.encrypt(t.password)、则返回索引位置，否则返回-1,则我们可以获取到当前加密对应的索引值</p>
+</li>
+</ul>
+<p>代码如下</p>
+<p><code>python
+  lucky.m.forEach(function(val, index) {
+    if(val.toString().indexOf("o.ec.encrypt(t.password)") != -1){
+      console.log(index);
+    }
+  })</code></p>
+<p>运行结果</p>
+<p><img alt="image-20250630102616735" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250630102616735.png" /></p>
+<ul>
+<li>现在知道了索引为62的函数就是我们的加密函数，那么怎么能在外部进行调用呢</li>
+</ul>
+<p><img alt="image-20250630103402209" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250630103402209.png" /></p>
+<ul>
+<li>
+<p>通过定义全局变量lucky_encrypt、然后将加密位置用到的对象O进行赋值，这样在外部就可以通过lucky_encrypt进行调用加密函数</p>
+</li>
+<li>
+<p>图例</p>
+</li>
+</ul>
+<p><img alt="image-20250630104211485" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250630104211485.png" /></p>
+<ul>
+<li>终端进行调用</li>
+</ul>
+<p><img alt="image-20250630112556934" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250630112556934.png" /></p>
+<ul>
+<li>
+<p>接下来把代码复制到编辑器中进行调用</p>
+</li>
+<li>
+<p>首先进行初始化 索引为62的函数</p>
+</li>
+</ul>
+<p>发现报错，设置属性错误，接下来查看r(r.s = 21)  21的代码里面在做什么</p>
+<p><img alt="image-20250630112647427" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250630112647427.png" /></p>
+<p>发现是在页面上的一些数据的校验，样式等设定</p>
+<p><img alt="image-20250630112842334" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250630112842334.png" /></p>
+<p>将r(r.s = 21) 这行初始化进行注释</p>
+<ul>
+<li>为防止环境问题，把公共补环境代码添加上</li>
+</ul>
+<p><code>javascript
+  const crypto = require('crypto');
+  window = globalThis = top = self = global;
+  document = {
+      createElement(ele) {
+          console.log("document createElement:", ele)
+          if (ele === 'div') {
+              return div
+          }
+      },
+      getElementById: function () {
+          console.log('document.getElementById', arguments)
+          return meta
+      },
+      getElementsByTagName: function () {
+          console.log('document.getElementsByTagName', arguments)
+          return {}
+      },
+      createEvent: function () {
+          return {'timeStamp': 61112691.6}
+      },
+      addEventListener: function () {
+      },
+      appendChild: function () {
+      },
+      removeChild: function () {
+      },
+  };
+  location = {"ancestorOrigins":{},"href":"https://bj.ke.com/","origin":"https://bj.ke.com","protocol":"https:","host":"bj.ke.com","hostname":"bj.ke.com","port":"","pathname":"/","search":"","hash":""};
+  window.crypto = crypto;
+  navigator = {
+      webdriver: false,
+      appCodeName: "Mozilla",
+      appName: "Netscape",
+      appVersion: "5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36",
+      userAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36",
+  };
+  proxy_array = ['top', 'self', 'document', 'window', 'location', 'navigator', 'history', 'screen', 'div', 'meta']
+  function getEnv(proxy_array) {
+      for (var i = 0; i &lt; proxy_array.length; i++) {
+          handler = `{\n
+              get: function(target, property, receiver) {\n
+                     console.log('方法：get','    对象：${proxy_array[i]}','    属性：',property,'    属性类型：',typeof property,'    属性值类型：',typeof target[property]);
+                     return target[property];
+              },
+              set: function(target, property, value, receiver){\n
+                      console.log('方法：set','    对象：${proxy_array[i]}','    属性：',property,'    属性类型：',typeof property, '    值为：',value);
+                      return Reflect.set(...arguments);
+              }
+          }`
+          eval(`
+              try {
+                  ${proxy_array[i]};
+                  ${proxy_array[i]} = new Proxy(${proxy_array[i]}, ${handler});
+              } catch (e) {
+                  ${proxy_array[i]} = {};
+                  ${proxy_array[i]} = new Proxy(${proxy_array[i]}, ${handler});
+              }
+          `)
+      }
+  }
+  getEnv(proxy_array)
+  var lucky;
+  var lucky_encrypt;
+  !function(n) {
+    ...</code></p>
+<ul>
+<li>再次运行  出现</li>
+</ul>
+<p><img alt="image-20250630135747701" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250630135747701.png" /></p>
+<ul>
+<li>定位到位置</li>
+</ul>
+<p><img alt="image-20250630140023099" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250630140023099.png" /></p>
+<ul>
+<li>发现当前是o对象，也就是我们加密的那个函数里， 接下来可以通过给当前位置打断点，查看当前值为什么、也可以进行注释，因为当前位置是加密下面，应该不影响加密，可以注释掉之后进行查看、当前注释后代码加密等一切正常，并且加密通过</li>
+</ul>
+<p><img alt="image-20250630140223955" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250630140223955.png" /></p>
+<ul>
+<li>最终结果</li>
+</ul>
+<p><img alt="image-20250630113259484" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250630113259484.png" /></p>
+<h3 id="4webpack_1">4、对象形式的webpack案例</h3>
+<ul>
+<li>格式</li>
+</ul>
+<p><code>javascript
+  (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["app"],{
+        001: fucntion(){},
+       ...                                              
+  }, [[0, "runtime", "chunk-elementUI", "chunk-libs"]]]);</code></p>
+<h4 id="1_2">(1) 酷我</h4>
+<h5 id="1_3">【1】网址与参数</h5>
 <ul>
 <li>网址</li>
 </ul>
@@ -287,7 +567,7 @@ console.log(window.loader(&quot;1001&quot;));
 </ul>
 <p>Reqid</p>
 <p><img alt="image-20250225114130058" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250225114130058.png" /></p>
-<h4 id="2_1">【2】定位加密入口</h4>
+<h5 id="2_2">【2】定位加密入口</h5>
 <ul>
 <li>搜索加密参数</li>
 </ul>
@@ -1053,8 +1333,8 @@ var ff;
 // 调用
 console.log(ff(113)())
 </code></pre>
-<h3 id="4">4、医保局案例案例</h3>
-<h4 id="1_2">【1】地址</h4>
+<h4 id="2_3">(2) 医保局案例案例</h4>
+<h5 id="1_4">【1】地址</h5>
 <pre><code class="language-bash"># 页面：
 `https://fuwu.nhsa.gov.cn/nationalHallSt/#/search/pharmacies?code=90000&amp;flag=false&amp;gbFlag=true` 
 # 接口：
@@ -1062,8 +1342,8 @@ console.log(ff(113)())
 </code></pre>
 <p><img alt="image-20250111下午52823371" src="imgs/33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.assets/image-20250111%E4%B8%8B%E5%8D%8852823371.png" /></p>
 <p><img alt="image-20250224161122249" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250224161122249.png" /></p>
-<h4 id="2_2">【2】响应解密</h4>
-<h4 id="3_1">【3】入口定位</h4>
+<h5 id="2_4">【2】响应解密</h5>
+<h5 id="3_1">【3】入口定位</h5>
 <p>搜索<code>interceptors.response.use</code></p>
 <p><img alt="image-20250111下午53324344" src="imgs/33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.assets/image-20250111%E4%B8%8B%E5%8D%8853324344-6588005.png" /></p>
 <p><img alt="image-20250111下午53651905" src="imgs/33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.assets/image-20250111%E4%B8%8B%E5%8D%8853651905-6588212.png" /></p>
@@ -1313,7 +1593,7 @@ console.log(ff(113)())
 })
 </code></pre>
 <p>可以进入u.b深入挖掘和复原，但是更简单的做法是直接构建u.b</p>
-<h4 id="4webpack">【4】基于webpack逆向响应解密</h4>
+<h5 id="4webpack_2">【4】基于webpack逆向响应解密</h5>
 <p>将当前代码文件中的代码复制到本地,构建main.js</p>
 <ol>
 <li>
@@ -1361,7 +1641,7 @@ console.log(ff(113)())
 <ol>
 <li>运行结果<img alt="image-20250111下午62029826" src="imgs/33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.assets/image-20250111%E4%B8%8B%E5%8D%8862029826-6590830.png" /></li>
 </ol>
-<h4 id="5">【5】入口定位</h4>
+<h5 id="5">【5】入口定位</h5>
 <ul>
 <li>入口定位</li>
 </ul>
@@ -1374,7 +1654,7 @@ console.log(ff(113)())
 <p><strong>或者搜索加密参数</strong>  </p>
 <p>一步到位直接定位到</p>
 <p><img alt="image-20250225113836622" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250225113836622.png" /></p>
-<h4 id="6webpack">【6】基于webpack逆向加密</h4>
+<h5 id="6webpack">【6】基于webpack逆向加密</h5>
 <p>发现这个u对象和上面响应解密的是一个,上面是u.b，这里是u.a</p>
 <pre><code class="language-js">function encrypt(page) {
     let source_data = {
@@ -1423,7 +1703,7 @@ console.log(ff(113)())
 
 console.log(encrypt(1))
 </code></pre>
-<h4 id="7">【7】完整实现</h4>
+<h5 id="7">【7】完整实现</h5>
 <p>上面的代码用的响应解密的，都不用动，就是同一个文件，响应解密调用b方法，响应请求调用a方法</p>
 <pre><code class="language-js">let data = {
     &quot;transformRequest&quot;: {},
@@ -1473,7 +1753,7 @@ console.log(encrypt(1))
 }
 console.log(dy(&quot;7d92&quot;).a(data));
 </code></pre>
-<h4 id="8python">【8】python请求</h4>
+<h5 id="8python">【8】python请求</h5>
 <p><code>main.py</code></p>
 <pre><code class="language-python">import json
 import time
@@ -1510,8 +1790,8 @@ for i in range(10):
         print(i.get(&quot;medinsName&quot;), i.get(&quot;addr&quot;))
     time.sleep(2)
 </code></pre>
-<h3 id="5_1">5、财新登录案例</h3>
-<h4 id="1_3">【1】网址与参数</h4>
+<h4 id="3_2">(3) 财新登录案例</h4>
+<h5 id="1_5">【1】网址与参数</h5>
 <ul>
 <li>网址</li>
 </ul>
@@ -1527,10 +1807,10 @@ for i in range(10):
 <ul>
 <li>图例<img alt="image-20250225145601198" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250225145601198.png" /></li>
 </ul>
-<h4 id="2_3">【2】注意</h4>
+<h5 id="2_5">【2】注意</h5>
 <p>以后见到chunk这种库是在加载第三方库，所以不用优先去看app.js是程序员自己写的代码</p>
 <p><img alt="image-20250225134327571" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250225134327571.png" /></p>
-<h4 id="3_2">【3】找到加密入口</h4>
+<h5 id="3_3">【3】找到加密入口</h5>
 <ul>
 <li>通过调用栈、打印断点找到加密入口位置</li>
 </ul>
@@ -1547,15 +1827,15 @@ for i in range(10):
 <ul>
 <li>按照上面案例的操作，接下断点打到n上、刷新、进入n、找到加载器、然后开始补环境、添加打印日志等</li>
 </ul>
-<h4 id="4_1">【4】补完结果</h4>
+<h5 id="4">【4】补完结果</h5>
 <p><img alt="image-20250225151253619" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250225151253619.png" /></p>
-<h4 id="5_2">【5】注意</h4>
+<h5 id="5_1">【5】注意</h5>
 <p>补完环境后的代码，和浏览器中代码函数的对应关系</p>
 <p><img alt="image-20250225151606681" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250225151606681.png" /></p>
 <p><img alt="image-20250225145208315" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250225145208315.png" /></p>
 <h2 id="js">二、JS逆向实战案例解析【补环境】</h2>
-<h3 id="1_4">1、前导</h3>
-<h4 id="1_5">【1】补环境的原理</h4>
+<h3 id="1_6">1、前导</h3>
+<h4 id="1_7">【1】补环境的原理</h4>
 <p>浏览器环境和node环境对比：</p>
 <p><img alt="image-20250113下午70540645" src="imgs/33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.assets/image-20250113%E4%B8%8B%E5%8D%8870540645-6766341.png" /></p>
 <p>浏览器下：</p>
@@ -2179,7 +2459,7 @@ console.log(yuan.age);
 </ul>
 <p><img alt="image-20250516113248607" src="imgs/29%E3%80%81%E9%80%86%E5%90%9103.assets/image-20250516113248607.png" /></p>
 <h3 id="34">3.4、瑞数案例解析</h3>
-<h4 id="1_6">【1】入口定位</h4>
+<h4 id="1_8">【1】入口定位</h4>
 <p>先定位入口，这里涉及一个VM环境</p>
 <ul>
 <li>
@@ -2202,7 +2482,7 @@ console.log(yuan.age);
 <p>最后在入口位置单步调试，即可进入到VM环境！</p>
 <p><img src="./imgs/33、高级逆向.assets/image-20240727下午60038606-2074439-5968741.png" alt="image-20240727下午60038606" style="zoom:50%;" /></p>
 <p>后面的断点调试就在这个环境中。</p>
-<h4 id="2_4">【2】补环境</h4>
+<h4 id="2_6">【2】补环境</h4>
 <p><img alt="image-20240727下午61624696" src="imgs/33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.assets/image-20240727%E4%B8%8B%E5%8D%8861624696-2075385-5968741.png" /></p>
 <blockquote>
 <p>注意content的值和auto.js是关联的，必须保持一致！</p>
@@ -2378,7 +2658,7 @@ print(res.response.body)  # 输出响应内容
 <h4 id="1get">【1】get方法</h4>
 <p>该方法用于跳转到一个网址。当连接失败时，程序会进行重试：</p>
 <p><img alt="image-20240922下午70100105" src="imgs/33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.assets/image-20240922%E4%B8%8B%E5%8D%8870100105-7002861.png" /></p>
-<h4 id="2_5">【2】元素查找</h4>
+<h4 id="2_7">【2】元素查找</h4>
 <pre><code class="language-python"># 根据属性查找，@ 后面可跟任意属性
 page.ele('@id:ele_id', timeout=2)  # 查找 id 为 ele_id 的元素，设置等待时间2秒  
 page.eles('@class')  # 查找所有拥有 class 属性的元素
@@ -2480,7 +2760,7 @@ ele2 = ele1('tag:li').next('some text')
 </tr>
 </tbody>
 </table>
-<h4 id="3_3">【3】元素操作</h4>
+<h4 id="3_4">【3】元素操作</h4>
 <pre><code class="language-python">element.click(by_js)  # 点击元素，可选择是否用 js 方式点击
 element.input(value)  # 输入文本
 element.run_script(js)  # 对元素运行 JavaScript 脚本
@@ -2495,7 +2775,7 @@ element.drag_to(ele_or_loc, speed, shake)  # 拖动元素到另一个元素或�
 element.hover()  # 在元素上悬停鼠标
 
 </code></pre>
-<h4 id="4_2">【4】元素属性和方法</h4>
+<h4 id="4_1">【4】元素属性和方法</h4>
 <pre><code class="language-python">element.html  # 返回元素 outerHTML
 element.inner_html  # 返回元素 innerHTML
 element.tag  # 返回元素 tag name
@@ -2553,7 +2833,7 @@ cp.quit()
 
 </code></pre>
 <h3 id="43">4.3、案例解析</h3>
-<h4 id="1_7">【1】招聘平台</h4>
+<h4 id="1_9">【1】招聘平台</h4>
 <pre><code class="language-python">import time
 
 from DrissionPage import ChromiumPage, ChromiumOptions
@@ -2637,7 +2917,7 @@ for i in range(100):
     cp.ele(&quot;.btn-next&quot;).click()
 
 </code></pre>
-<h4 id="4_3">【4】淘宝案例</h4>
+<h4 id="4_2">【4】淘宝案例</h4>
 <pre><code class="language-python">import re
 import time
 
