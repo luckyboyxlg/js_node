@@ -315,79 +315,79 @@ console.log(window.loader(&quot;1001&quot;));
 <ul>
 <li>拦截器</li>
 </ul>
-<pre><code>!function(n) {
-    var i = {};
-    function r(t) {
-        if (i[t])
-            return i[t].exports;
-        var e = i[t] = {
-            i: t,
-            l: !1,
-            exports: {}
-        };
-        return n[t].call(e.exports, e, e.exports, r),
-        e.l = !0,
-        e.exports
-    }
-    r.m = n,
-    r.c = i,
-    r.d = function(t, e, n) {
-        r.o(t, e) || Object.defineProperty(t, e, {
-            enumerable: !0,
-            get: n
-        })
-    }
-    ,
-    r.r = function(t) {
-        &quot;undefined&quot; != typeof Symbol &amp;&amp; Symbol.toStringTag &amp;&amp; Object.defineProperty(t, Symbol.toStringTag, {
-            value: &quot;Module&quot;
-        }),
-        Object.defineProperty(t, &quot;__esModule&quot;, {
-            value: !0
-        })
-    }
-    ,
-    r.t = function(e, t) {
-        if (1 &amp; t &amp;&amp; (e = r(e)),
-        8 &amp; t)
-            return e;
-        if (4 &amp; t &amp;&amp; &quot;object&quot; == typeof e &amp;&amp; e &amp;&amp; e.__esModule)
-            return e;
-        var n = Object.create(null);
-        if (r.r(n),
-        Object.defineProperty(n, &quot;default&quot;, {
-            enumerable: !0,
-            value: e
-        }),
-        2 &amp; t &amp;&amp; &quot;string&quot; != typeof e)
-            for (var i in e)
-                r.d(n, i, function(t) {
-                    return e[t]
-                }
-                .bind(null, i));
-        return n
-    }
-    ,
-    r.n = function(t) {
-        var e = t &amp;&amp; t.__esModule ? function() {
-            return t.default
-        }
-        : function() {
-            return t
-        }
-        ;
-        return r.d(e, &quot;a&quot;, e),
-        e
-    }
-    ,
-    r.o = function(t, e) {
-        return Object.prototype.hasOwnProperty.call(t, e)
-    }
-    ,
-    r.p = &quot;/&quot;,
-    r(r.s = 21)
-}([function(){}...]);
-</code></pre>
+<p><code>javascript
+  !function(n) {
+      var i = {};
+      function r(t) {
+          if (i[t])
+              return i[t].exports;
+          var e = i[t] = {
+              i: t,
+              l: !1,
+              exports: {}
+          };
+          return n[t].call(e.exports, e, e.exports, r),
+          e.l = !0,
+          e.exports
+      }
+      r.m = n,
+      r.c = i,
+      r.d = function(t, e, n) {
+          r.o(t, e) || Object.defineProperty(t, e, {
+              enumerable: !0,
+              get: n
+          })
+      }
+      ,
+      r.r = function(t) {
+          "undefined" != typeof Symbol &amp;&amp; Symbol.toStringTag &amp;&amp; Object.defineProperty(t, Symbol.toStringTag, {
+              value: "Module"
+          }),
+          Object.defineProperty(t, "__esModule", {
+              value: !0
+          })
+      }
+      ,
+      r.t = function(e, t) {
+          if (1 &amp; t &amp;&amp; (e = r(e)),
+          8 &amp; t)
+              return e;
+          if (4 &amp; t &amp;&amp; "object" == typeof e &amp;&amp; e &amp;&amp; e.__esModule)
+              return e;
+          var n = Object.create(null);
+          if (r.r(n),
+          Object.defineProperty(n, "default", {
+              enumerable: !0,
+              value: e
+          }),
+          2 &amp; t &amp;&amp; "string" != typeof e)
+              for (var i in e)
+                  r.d(n, i, function(t) {
+                      return e[t]
+                  }
+                  .bind(null, i));
+          return n
+      }
+      ,
+      r.n = function(t) {
+          var e = t &amp;&amp; t.__esModule ? function() {
+              return t.default
+          }
+          : function() {
+              return t
+          }
+          ;
+          return r.d(e, "a", e),
+          e
+      }
+      ,
+      r.o = function(t, e) {
+          return Object.prototype.hasOwnProperty.call(t, e)
+      }
+      ,
+      r.p = "/",
+      r(r.s = 21)
+  }([function(){}...]);</code></p>
 <ul>
 <li>
 <p>说明</p>
@@ -424,7 +424,8 @@ console.log(window.loader(&quot;1001&quot;));
 </li>
 </ul>
 <p>代码如下</p>
-<p><code>lucky.m.forEach(function(val, index) {
+<p><code>javascript
+  lucky.m.forEach(function(val, index) {
     if(val.toString().indexOf("o.ec.encrypt(t.password)") != -1){
       console.log(index);
     }
@@ -464,7 +465,8 @@ console.log(window.loader(&quot;1001&quot;));
 <ul>
 <li>为防止环境问题，把公共补环境代码添加上</li>
 </ul>
-<p><code>const crypto = require('crypto');
+<p><code>javascript
+  const crypto = require('crypto');
   window = globalThis = top = self = global;
   document = {
       createElement(ele) {
@@ -549,7 +551,8 @@ console.log(window.loader(&quot;1001&quot;));
 <ul>
 <li>格式</li>
 </ul>
-<p><code>(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["app"],{
+<p><code>javascript
+  (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["app"],{
         001: fucntion(){},
        ...                                              
   }, [[0, "runtime", "chunk-elementUI", "chunk-libs"]]]);</code></p>
