@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-<title>二十七、JS逆向01 - js node</title>
+<title>二十七、高级逆向01 - js node</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 <meta name="generator" content="mkdocs-1.6.1, mkdocs-gitbook-1.0.7">
@@ -95,21 +95,29 @@
 <li class="chapter" data-path="26%E3%80%81jQuery%E6%93%8D%E4%BD%9C.html">
 <a href="26%E3%80%81jQuery%E6%93%8D%E4%BD%9C.html">二十六、jQuery</a>
 <li class="chapter active" data-path="27%E3%80%81%E9%80%86%E5%90%9101.html">
-<a href="27%E3%80%81%E9%80%86%E5%90%9101.html">二十七、JS逆向01</a>
+<a href="27%E3%80%81%E9%80%86%E5%90%9101.html">二十七、高级逆向01</a>
 <li class="chapter" data-path="28%E3%80%81%E9%80%86%E5%90%9102.html">
-<a href="28%E3%80%81%E9%80%86%E5%90%9102.html">二十八、逆向02</a>
-<li class="chapter" data-path="29%E3%80%81%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html">
-<a href="29%E3%80%81%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html">二十九、微信小程序逆向开发</a>
+<a href="28%E3%80%81%E9%80%86%E5%90%9102.html">二十八、高级逆向02</a>
+<li class="chapter" data-path="29%E3%80%81%E9%80%86%E5%90%9103.html">
+<a href="29%E3%80%81%E9%80%86%E5%90%9103.html">二十九、高级逆向03</a>
 <li class="chapter" data-path="30%E3%80%81%E7%BD%91%E6%98%93%E6%BB%91%E5%9D%97.html">
 <a href="30%E3%80%81%E7%BD%91%E6%98%93%E6%BB%91%E5%9D%97.html">三十、网易易盾</a>
 <li class="chapter" data-path="31%E3%80%81rpc.html">
 <a href="31%E3%80%81rpc.html">三十一、RPC</a>
 <li class="chapter" data-path="32%E3%80%81TLS%E6%8C%87%E7%BA%B9%E7%BB%95%E8%BF%87.html">
-<a href="32%E3%80%81TLS%E6%8C%87%E7%BA%B9%E7%BB%95%E8%BF%87.html">三十二、TLS指纹绕过</a>
-<li class="chapter" data-path="33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">
-<a href="33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">三十三、高级逆向</a>
+<a href="32%E3%80%81TLS%E6%8C%87%E7%BA%B9%E7%BB%95%E8%BF%87.html">三十二、TLS指纹和JA3指纹绕过</a>
+<li class="chapter" data-path="33%E3%80%81%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html">
+<a href="33%E3%80%81%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html">三十三、微信小程序逆向开发</a>
 <li class="chapter" data-path="34%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">
 <a href="34%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">三十四、高级逆向</a>
+<li class="chapter" data-path="35%E3%80%81AST.html">
+<a href="35%E3%80%81AST.html">Ast系列篇</a>
+<li class="chapter" data-path="36%E3%80%81Akamai%E5%88%9D%E7%BA%A7.html">
+<a href="36%E3%80%81Akamai%E5%88%9D%E7%BA%A7.html">了解akamai的执行过程</a>
+<li class="chapter" data-path="37-%E4%BA%91%E7%89%87%E9%AA%8C%E8%AF%81%E7%A0%81.html">
+<a href="37-%E4%BA%91%E7%89%87%E9%AA%8C%E8%AF%81%E7%A0%81.html">1 云片滑块</a>
+<li class="chapter" data-path="apiv1search-flight.html">
+<a href="apiv1search-flight.html">Apiv1search flight</a>
 <li class="chapter" data-path="%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B%E7%AC%94%E8%AE%B0.html">
 <a href="%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B%E7%AC%94%E8%AE%B0.html">逆向实战案例笔记</a>
 <li class="header">Pyexecjs与npm配置</li>
@@ -174,7 +182,7 @@ Theme by GitBook
 
 
 
-<h1 id="js01">二十七、JS逆向01</h1>
+<h1 id="01">二十七、高级逆向01</h1>
 <h2 id="js">一、浏览器js调试功能说明</h2>
 <h3 id="1">1、调试工具栏按钮说明</h3>
 <p><strong>按钮：</strong></p>
@@ -196,9 +204,43 @@ Theme by GitBook
 </ul>
 <p>表示, 进入回到上一步（但是不好用）</p>
 <ul>
+<li>第五个按钮</li>
+</ul>
+<p>跳过异步调用”按钮</p>
+<ul>
 <li>最后一个按钮</li>
 </ul>
 <p>所有断点都不生效</p>
+<h4 id="_1">第五个按钮的详细说明</h4>
+<p>作用：</p>
+<p>这个按钮的作用是控制调试器是否应该暂停在异步函数调用之后的代码行上。当你点击这个按钮时，它会切换状态，决定调试器在遇到异步调用后的行为：</p>
+<ul>
+<li><strong>关闭状态</strong>：调试器会在异步调用之后立即继续执行，不会暂停在异步调用后的代码行上。</li>
+<li><strong>开启状态</strong>：调试器会在异步调用之后暂停在下一个可暂停的代码行上，允许你逐步执行异步调用之后的代码。</li>
+</ul>
+<p>使用场景：</p>
+<p>当你在调试包含异步操作（如 <code>Promise</code>、<code>async/await</code>、<code>setTimeout</code> 等）的代码时，这个按钮非常有用。例如，如果你有一个异步函数，并且你想查看该函数执行完毕后的代码执行情况，你可以启用这个按钮，这样调试器会在异步调用完成后暂停，让你可以检查变量状态和执行流程。</p>
+<p><strong>示例：</strong></p>
+<p>假设你有以下代码：</p>
+<pre><code>function asyncFunction() {
+    return new Promise((resolve) =&gt; {
+        setTimeout(() =&gt; {
+            console.log('Async operation completed');
+            resolve();
+        }, 1000);
+    });
+}
+
+async function main() {
+    await asyncFunction();
+    console.log('After async function');
+}
+
+main();
+</code></pre>
+<p>如果你在 <code>await asyncFunction();</code> 这一行设置了断点，并启用了“跳过异步调用”按钮，调试器会在异步操作完成并执行到 <code>console.log('After async function');</code> 这一行时暂停，让你可以检查此时的变量状态和执行上下文。</p>
+<p><strong>总结：</strong></p>
+<p>红框中的第五个按钮用于控制调试器在遇到异步调用后的行为，帮助你在调试异步代码时更好地理解程序的执行流程和状态变化。</p>
 <h3 id="2">2、右侧调试面板说明</h3>
 <ul>
 <li>英文面板</li>
@@ -257,10 +299,10 @@ Theme by GitBook
 <p><img alt="image-20230904162133574" src="imgs/27%E3%80%81%E9%80%86%E5%90%9101.assets/image-20230904162133574-9938173.png" /></p>
 <h3 id="3">3、浏览器配置</h3>
 <p><img alt="image-20230904163818431" src="imgs/27%E3%80%81%E9%80%86%E5%90%9101.assets/image-20230904163818431-9938173.png" /></p>
-<h2 id="_1">二、找加密参数方案</h2>
+<h2 id="_2">二、找加密参数方案</h2>
 <p><strong>URL：</strong> https://music.163.com/#/song?id=188451</p>
 <h3 id="1_1">1、从请求发出处进行查找</h3>
-<h4 id="_2">说明：</h4>
+<h4 id="_3">说明：</h4>
 <p>这种方式查找起来比较方便</p>
 <ul>
 <li>通过抓包找到当前url  携带参数为加密参数</li>
@@ -328,9 +370,9 @@ Theme by GitBook
 </ul>
 <p><img src="./imgs/27、逆向01.assets/image-20230831112458894-9938173.png" alt="image-20230831112458894" style="zoom:50%;" /></p>
 <h3 id="2url">2、搜索当前URL</h3>
-<h4 id="_3"><strong>说明：</strong></h4>
+<h4 id="_4"><strong>说明：</strong></h4>
 <p>搜索规则  当前url路径从后往前逐一去搜</p>
-<h4 id="_4">方式：</h4>
+<h4 id="_5">方式：</h4>
 <ul>
 <li>比如：当前url 为  https://music.163.com/weapi/song/enhance/player/url/v1?csrf_token=</li>
 </ul>
@@ -367,7 +409,7 @@ Theme by GitBook
 </ul>
 <p><img src="./imgs/27、逆向01.assets/image-20230831141807307-9938173.png" alt="image-20230831141807307" style="zoom:50%;" /></p>
 <h3 id="3_1">3、直接搜索加密参数名称</h3>
-<h4 id="_5"><strong>说明：</strong></h4>
+<h4 id="_6"><strong>说明：</strong></h4>
 <p>当前这种方式可能会有很多当前相同名字的代码的位置  需要自己逐一去排查</p>
 <p>根据提示的位置，下断点  让程序执行  </p>
 <ul>
@@ -410,8 +452,10 @@ Theme by GitBook
 </ul>
 <p><strong>headers.参数名</strong></p>
 <p><img alt="image-20231229112053561" src="imgs/27%E3%80%81%E9%80%86%E5%90%9101.assets/image-20231229112053561-9938173.png" /></p>
-<h3 id="5">5、在断点处想进入函数的方式</h3>
-<h4 id="_6">方式一 ： 选中函数</h4>
+<h3 id="5url">5、通过全局拦截器进行url拦截</h3>
+<p><img src="./imgs/27、逆向01.assets/image-20250617180758692.png" alt="image-20250617180758692" style="zoom:50%;" /></p>
+<h3 id="6">6、在断点处想进入函数的方式</h3>
+<h4 id="_7">方式一 ： 选中函数</h4>
 <ul>
 <li>选中函数  通过弹出框进行进入</li>
 </ul>
@@ -425,7 +469,7 @@ Theme by GitBook
 <li>进入到当前函数定义处的位置</li>
 </ul>
 <p><img src="./imgs/27、逆向01.assets/image-20230831145753619-9938173.png" alt="image-20230831145753619" style="zoom:50%;" /></p>
-<h4 id="_7">方式三 ：调试工具栏  第三个按钮</h4>
+<h4 id="_8">方式三 ：调试工具栏  第三个按钮</h4>
 <p>可以点击调试工具栏, 第三个按钮. 可以进入函数. 但是. 如果在本次调用过程中, 掺杂了其他函数、可能会有误差.</p>
 <ul>
 <li>实例</li>
@@ -913,7 +957,7 @@ with open('音乐.mp3', 'wb') as f:
 <p>响应</p>
 <pre><code class="language-python">{&quot;data&quot;:[{&quot;id&quot;:188451,&quot;url&quot;:&quot;http://m701.music.126.net/20230905150222/37727dd7d43e2e5d58c26bb1a525cfa1/jdyyaac/obj/w5rDlsOJwrLDjj7CmsOj/5637633350/e015/782a/b070/0001721641e4a098620da30fbb307bd6.m4a&quot;,&quot;br&quot;:96020,&quot;size&quot;:3706079,&quot;md5&quot;:&quot;0001721641e4a098620da30fbb307bd6&quot;,&quot;code&quot;:200,&quot;expi&quot;:1200,&quot;type&quot;:&quot;m4a&quot;,&quot;gain&quot;:0.0,&quot;peak&quot;:0.9521,&quot;fee&quot;:8,&quot;uf&quot;:null,&quot;payed&quot;:0,&quot;flag&quot;:260,&quot;canExtend&quot;:false,&quot;freeTrialInfo&quot;:null,&quot;level&quot;:&quot;standard&quot;,&quot;encodeType&quot;:&quot;aac&quot;,&quot;freeTrialPrivilege&quot;:{&quot;resConsumable&quot;:false,&quot;userConsumable&quot;:false,&quot;listenType&quot;:null,&quot;cannotListenReason&quot;:null},&quot;freeTimeTrialPrivilege&quot;:{&quot;resConsumable&quot;:false,&quot;userConsumable&quot;:false,&quot;type&quot;:0,&quot;remainTime&quot;:0},&quot;urlSource&quot;:0,&quot;rightSource&quot;:0,&quot;podcastCtrp&quot;:null,&quot;effectTypes&quot;:null,&quot;time&quot;:304293}],&quot;code&quot;:200}
 </code></pre>
-<h2 id="_8">四、针对网站加密的解决方式</h2>
+<h2 id="_9">四、针对网站加密的解决方式</h2>
 <h4 id="1js">1、仿照网页上的js, 完成本地代码编写.</h4>
 <p>原则：尽可能的不去改它的代码.</p>
 <h4 id="2_1">2、借助第三方库, 完成代码的拼写</h4>
@@ -938,7 +982,7 @@ with open('音乐.mp3', 'wb') as f:
 </li>
 </ul>
 <h4 id="5python">5、用python完成加密逻辑.</h4>
-<h4 id="_9"></h4>
+<h4 id="_10"></h4>
 <h2 id="pythonschedule">五、python中定时任务schedule库用法详解</h2>
 <p>schedule是一个第三方轻量级的任务调度模块，可以按照秒，分，小时，日期或者自定义事件执行时间。
     如果想执行多个任务，也可以添加多个task。</p>
@@ -1085,7 +1129,7 @@ while True:
 </code></pre>
 <p>运行结果：</p>
 <p><img src="./imgs/27、逆向01.assets/image-20240710152405865-9938173.png" alt="image-20240710152405865" style="zoom:50%;" /></p>
-<h3 id="5_1">5、取消定时任务</h3>
+<h3 id="5">5、取消定时任务</h3>
 <p>示例代码： </p>
 <pre><code class="language-python">import schedule
 
@@ -1108,7 +1152,7 @@ while True:
 </code></pre>
 <p>运行结果：</p>
 <p><img src="./imgs/27、逆向01.assets/image-20240710152434405-9938173.png" alt="image-20240710152434405" style="zoom:50%;" /></p>
-<h3 id="6">6、在指定时间执行一次任务</h3>
+<h3 id="6_1">6、在指定时间执行一次任务</h3>
 <p>示例代码：</p>
 <pre><code class="language-python">import time
 import schedule

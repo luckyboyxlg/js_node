@@ -309,20 +309,49 @@ Reflect是一个对象，字面意思是"反射"。
 我们对上面的代码做一下修改，使用Reflect代替一下
 
 ```javascript
-const objProxy = new Proxy(obj,{
-    get:function(target,key){
-        console.log(`监听到访问${key}属性`,target)
-        return Reflect.get(target,key)    //改为Reflect.get
+function obj_proxy(obj, name) {
+    var obj = new Proxy(obj, {
+        get(target, pro, receiver) {
+            value = Reflect.get(target, pro, receiver)
+            console.log(name, `获取属性===>key为 ${pro} ===》 值为`, value)
+            if (typeof value == "object") {
+                return obj_proxy(value, pro);
+            }
+            return value
+        },
+        set(target, pro, value, receiver) {
+            console.log(name, `设置属性===>key为 ${pro} ===》 值为`, value)
+            Reflect.set(target, pro, value, receiver)
+        },
+        apply(target, thisArg, arg_list) {
+            return Reflect.apply(target, thisArg, arg_list)
+        }
+    })
+    return obj
+}
+var window = {
+    name: 'lucky',
+    age: 18,
+    speak(age) {
+        return "我是说方法"
     },
-    set:function(target,key,newValue){
-        console.log(`监听到给${key}属性设置值`,target)
-        Reflect.set(target,key,newValue)    //改为Reflect.set
+}
+var navigator = {
+    userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36',
+    plugs:{
+        abc:{
+
+        }
     }
-})
- 
-console.log(objProxy.name)
- 
-objProxy.name = 'wx'
+}
+window = obj_proxy(window, "window")
+window.navigator = navigator;
+
+// console.log(window.name)
+// window.sex = "nan"
+// console.log(window.sex)
+console.log(window.navigator.plugs.abc.abc)
+// console.log(window.speak(1))
 ```
 
 示例
@@ -339,67 +368,84 @@ const result = istrue?'设置成功':"设置失败"
 代码
 
 ```javascript
-function myProxy(obj,name){
-    return new Proxy(obj,{
-        get(target, propKey, receiver){ //拦截对象属性的读取，比如proxy.foo和proxy['foo']。
-            let temp = Reflect.get(target,propKey,receiver);
-            console.log(`${name} -> get ${propKey.toString()} return -> ${temp}`);
-            if(typeof temp == 'object') {
-                temp = myProxy(temp,name + " => " + propKey)
+function myProxy(obj, name) {
+    return new Proxy(obj, {
+        get(target, propKey, receiver) { //拦截对象属性的读取，比如proxy.foo和proxy['foo']。
+            let temp = Reflect.get(target, propKey, receiver);
+            console.log(`${name} -> get ${propKey.toString()} return -> `,temp);
+            if (typeof temp == 'object') {
+                temp = myProxy(temp, name + " => " + propKey)
+            }else if(typeof temp == 'function'){
+                return func_proxy(temp, propKey)
             }
             return temp;
-        }, 
-        set(target, propKey, value, receiver){ //拦截对象属性的设置，比如proxy.foo = v或proxy['foo'] = v，返回一个布尔值。
-            const temp = Reflect.set(target,propKey,value,receiver);
-            console.log(`${name} -> set ${propKey} value -> ${value}`);
+        },
+        set(target, propKey, value, receiver) { //拦截对象属性的设置，比如proxy.foo = v或proxy['foo'] = v，返回一个布尔值。
+            const temp = Reflect.set(target, propKey, value, receiver);
+            console.log(`${name} -> set ${propKey} value -> `, value);
             return temp;
-        }, 
-        has(target, propKey){ //拦截propKey in proxy的操作，返回一个布尔值。
-            const temp = Reflect.has(target,propKey);
+        },
+        has(target, propKey) { //拦截propKey in proxy的操作，返回一个布尔值。
+            const temp = Reflect.has(target, propKey);
             console.log(`${name} -> has ${propKey}`);
             return temp;
-        }, 
-        deleteProperty(target, propKey){ //拦截delete proxy[propKey]的操作，返回一个布尔值。
-            const temp = Reflect.deleteProperty(target,propKey);
+        },
+        deleteProperty(target, propKey) { //拦截delete proxy[propKey]的操作，返回一个布尔值。
+            const temp = Reflect.deleteProperty(target, propKey);
             return temp;
-        }, 
-        ownKeys(target){ //拦截Object.getOwnPropertyNames(proxy)、Object.getOwnPropertySymbols(proxy)、Object.keys(proxy)、for...in循环，返回一个数组。该方法返回目标对象所有自身的属性的属性名，而Object.keys()的返回结果仅包括目标对象自身的可遍历属性。
+        },
+        ownKeys(target) { //拦截Object.getOwnPropertyNames(proxy)、Object.getOwnPropertySymbols(proxy)、Object.keys(proxy)、for...in循环，返回一个数组。该方法返回目标对象所有自身的属性的属性名，而Object.keys()的返回结果仅包括目标对象自身的可遍历属性。
             const temp = Reflect.ownKeys(target);
             return temp;
-        }, 
-        getOwnPropertyDescriptor(target, propKey){ //拦截Object.getOwnPropertyDescriptor(proxy, propKey)，返回属性的描述对象。
-            const temp = Reflect.getOwnPropertyDescriptor(target,propKey);
+        },
+        getOwnPropertyDescriptor(target, propKey) { //拦截Object.getOwnPropertyDescriptor(proxy, propKey)，返回属性的描述对象。
+            const temp = Reflect.getOwnPropertyDescriptor(target, propKey);
             return temp;
-        }, 
-        defineProperty(target, propKey, propDesc){ //拦截Object.defineProperty(proxy, propKey, propDesc）、Object.defineProperties(proxy, propDescs)，返回一个布尔值。
-            const temp = Reflect.defineProperty(target,propKey,propDesc);
+        },
+        defineProperty(target, propKey, propDesc) { //拦截Object.defineProperty(proxy, propKey, propDesc）、Object.defineProperties(proxy, propDescs)，返回一个布尔值。
+            const temp = Reflect.defineProperty(target, propKey, propDesc);
             return temp;
-        }, 
-        preventExtensions(target){ //拦截Object.preventExtensions(proxy)，返回一个布尔值。
+        },
+        preventExtensions(target) { //拦截Object.preventExtensions(proxy)，返回一个布尔值。
             const temp = Reflect.preventExtensions(target);
             return temp;
-        }, 
-        getPrototypeOf(target){ //拦截Object.getPrototypeOf(proxy)，返回一个对象。
+        },
+        getPrototypeOf(target) { //拦截Object.getPrototypeOf(proxy)，返回一个对象。
             const temp = Reflect.getPrototypeOf(target);
             return temp;
-        }, 
-        isExtensible(target){ //拦截Object.isExtensible(proxy)，返回一个布尔值。
+        },
+        isExtensible(target) { //拦截Object.isExtensible(proxy)，返回一个布尔值。
             const temp = Reflect.isExtensible(target);
             return temp;
-        }, 
-        setPrototypeOf(target, proto){ //拦截Object.setPrototypeOf(proxy, proto)，返回一个布尔值。如果目标对象是函数，那么还有两种额外操作可以拦截。
-            const temp = Reflect.setPrototypeOf(target,proto);
+        },
+        setPrototypeOf(target, proto) { //拦截Object.setPrototypeOf(proxy, proto)，返回一个布尔值。如果目标对象是函数，那么还有两种额外操作可以拦截。
+            const temp = Reflect.setPrototypeOf(target, proto);
             return temp;
-        }, 
-        apply(target, object, args){ //拦截 Proxy 实例作为函数调用的操作，比如proxy(...args)、proxy.call(object, ...args)、proxy.apply(...)。
-            const temp = Reflect.apply(target, object, args);
+        },
+        apply(target, propKey, args) { //拦截 Proxy 实例作为函数调用的操作，比如proxy(...args)、proxy.call(object, ...args)、proxy.apply(...)。
+            const temp = Reflect.apply(target, propKey, args);
             return temp;
-        }, 
-        construct(target, args){ //拦截 Proxy 实例作为构造函数调用的操作，比如new proxy(...args)。
+        },
+        construct(target, args) { //拦截 Proxy 实例作为构造函数调用的操作，比如new proxy(...args)。
             const temp = Reflect.construct(target, args);
             return temp;
-        } 
+        }
     })
+}
+// 如果当前调用返回值是函数，则进行调用
+function func_proxy(func, name){
+    return new Proxy(func, {
+        apply(target, object, args) { //拦截 Proxy 实例作为函数调用的操作，比如proxy(...args)、proxy.call(object, ...args)、proxy.apply(...)。
+            const temp = Reflect.apply(target, object, args);
+            console.log(`调用了===>${name}函数, 返回值是===>`,temp);
+            if (typeof temp == 'object') {
+                return myProxy(temp, name + " => 的返回值" )
+            }else if(typeof temp == 'function'){
+                return func_proxy(temp, name + " => 的返回值" )
+            }
+            return temp;
+        }
+    });
 }
 
 window = new myProxy(global,"window"); //代理器代理之后，会创建一个新对象
@@ -415,7 +461,6 @@ let abc = {
         this == abc // 在对象中，调用函数方法，进入函数局部作用域后，this指向父对象（abc）
     }
 }
-
 
 const window = myProxy(globalThis,"window");
 ```

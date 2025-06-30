@@ -95,21 +95,29 @@
 <li class="chapter" data-path="26%E3%80%81jQuery%E6%93%8D%E4%BD%9C.html">
 <a href="../26%E3%80%81jQuery%E6%93%8D%E4%BD%9C.html">二十六、jQuery</a>
 <li class="chapter" data-path="27%E3%80%81%E9%80%86%E5%90%9101.html">
-<a href="../27%E3%80%81%E9%80%86%E5%90%9101.html">二十七、JS逆向01</a>
+<a href="../27%E3%80%81%E9%80%86%E5%90%9101.html">二十七、高级逆向01</a>
 <li class="chapter" data-path="28%E3%80%81%E9%80%86%E5%90%9102.html">
-<a href="../28%E3%80%81%E9%80%86%E5%90%9102.html">二十八、逆向02</a>
-<li class="chapter" data-path="29%E3%80%81%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html">
-<a href="../29%E3%80%81%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html">二十九、微信小程序逆向开发</a>
+<a href="../28%E3%80%81%E9%80%86%E5%90%9102.html">二十八、高级逆向02</a>
+<li class="chapter" data-path="29%E3%80%81%E9%80%86%E5%90%9103.html">
+<a href="../29%E3%80%81%E9%80%86%E5%90%9103.html">二十九、高级逆向03</a>
 <li class="chapter" data-path="30%E3%80%81%E7%BD%91%E6%98%93%E6%BB%91%E5%9D%97.html">
 <a href="../30%E3%80%81%E7%BD%91%E6%98%93%E6%BB%91%E5%9D%97.html">三十、网易易盾</a>
 <li class="chapter" data-path="31%E3%80%81rpc.html">
 <a href="../31%E3%80%81rpc.html">三十一、RPC</a>
 <li class="chapter" data-path="32%E3%80%81TLS%E6%8C%87%E7%BA%B9%E7%BB%95%E8%BF%87.html">
-<a href="../32%E3%80%81TLS%E6%8C%87%E7%BA%B9%E7%BB%95%E8%BF%87.html">三十二、TLS指纹绕过</a>
-<li class="chapter" data-path="33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">
-<a href="../33%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">三十三、高级逆向</a>
+<a href="../32%E3%80%81TLS%E6%8C%87%E7%BA%B9%E7%BB%95%E8%BF%87.html">三十二、TLS指纹和JA3指纹绕过</a>
+<li class="chapter" data-path="33%E3%80%81%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html">
+<a href="../33%E3%80%81%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html">三十三、微信小程序逆向开发</a>
 <li class="chapter" data-path="34%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">
 <a href="../34%E3%80%81%E9%AB%98%E7%BA%A7%E9%80%86%E5%90%91.html">三十四、高级逆向</a>
+<li class="chapter" data-path="35%E3%80%81AST.html">
+<a href="../35%E3%80%81AST.html">Ast系列篇</a>
+<li class="chapter" data-path="36%E3%80%81Akamai%E5%88%9D%E7%BA%A7.html">
+<a href="../36%E3%80%81Akamai%E5%88%9D%E7%BA%A7.html">了解akamai的执行过程</a>
+<li class="chapter" data-path="37-%E4%BA%91%E7%89%87%E9%AA%8C%E8%AF%81%E7%A0%81.html">
+<a href="../37-%E4%BA%91%E7%89%87%E9%AA%8C%E8%AF%81%E7%A0%81.html">1 云片滑块</a>
+<li class="chapter" data-path="apiv1search-flight.html">
+<a href="../apiv1search-flight.html">Apiv1search flight</a>
 <li class="chapter" data-path="%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B%E7%AC%94%E8%AE%B0.html">
 <a href="../%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B%E7%AC%94%E8%AE%B0.html">逆向实战案例笔记</a>
 <li class="header">Pyexecjs与npm配置</li>
@@ -175,9 +183,45 @@ Theme by GitBook
 
 
 <h1 id="_1">补环境</h1>
-<p>pycharm设置</p>
+<h2 id="node-inspect">一、设置于node-inspect</h2>
+<h3 id="1pycharm">1、pycharm设置</h3>
 <p><img alt="image-20240218141152452" src="1%E3%80%81%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8E%E4%BA%8B%E4%BB%B6.assets/9uTVwcxb3mCXqrG.png" /></p>
-<h2 id="_2">一、浏览器与事件</h2>
+<h3 id="2node-inspect">2、node-inspect</h3>
+<h4 id="1">【1】安装</h4>
+<ul>
+<li>
+<p>新版本node默认已经安装了node-inspect</p>
+</li>
+<li>
+<p>安装</p>
+</li>
+</ul>
+<p><code>npm install node-inspect</code></p>
+<p>如果安装完找不到命令</p>
+<p><code>npm install -g node-inspect</code></p>
+<ul>
+<li>安装每次修改代码后不需要重启node-inspect</li>
+</ul>
+<p><code>sudo npm install -g nodemon</code></p>
+<h4 id="2">【2】使用</h4>
+<ul>
+<li>
+<p>node-inspect  文件.js</p>
+</li>
+<li>
+<p>nodemon --inspect-brk  文件.js  推荐使用  代码修改 ctrl+s 后自动重新运行</p>
+</li>
+</ul>
+<p><img alt="image-20250307131252327" src="imgs/1%E3%80%81%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8E%E4%BA%8B%E4%BB%B6.assets/image-20250307131252327.png" /></p>
+<ul>
+<li>点击</li>
+</ul>
+<p><img alt="image-20250307131427521" src="imgs/1%E3%80%81%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8E%E4%BA%8B%E4%BB%B6.assets/image-20250307131427521.png" /></p>
+<ul>
+<li>勾选</li>
+</ul>
+<p><img alt="image-20250307131532325" src="imgs/1%E3%80%81%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8E%E4%BA%8B%E4%BB%B6.assets/image-20250307131532325.png" /></p>
+<h2 id="_2">二、浏览器与事件</h2>
 <h3 id="1dombom">1、DOM与BOM</h3>
 <p>在 Web 开发中，JavaScript（JS）中的 DOM（文档对象模型）和 BOM（浏览器对象模型）是两个重要的概念，它们分别代表了网页文档结构和浏览器窗口的抽象表示。它们的主要区别在于它们所表示的对象以及它们的作用范围。</p>
 <p><strong>DOM（文档对象模型）：</strong></p>
@@ -205,8 +249,8 @@ Theme by GitBook
 </li>
 </ol>
 <p>常用浏览器事件与DOM事件，包括鼠标事件、键盘事件、框架/对象事件、表单事件、剪贴板事件、打印事件、拖动事件、媒体事件、动画事件、过渡事件。</p>
-<h3 id="2">2、各种事件</h3>
-<h4 id="1">(1) 加载相关</h4>
+<h3 id="2_1">2、各种事件</h3>
+<h4 id="1_1">(1) 加载相关</h4>
 <ul>
 <li>onbeforeunload: 该事将离开页面 (刷新或关闭)时触发onload: 文档加载完成后触发.</li>
 <li>onunload: 当窗口卸载其内容和资源时触发</li>
@@ -376,7 +420,7 @@ Theme by GitBook
 <p><img alt="image-20240218160058470" src="1%E3%80%81%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8E%E4%BA%8B%E4%BB%B6.assets/xhUAXMitBly74fc.png" /></p>
 <h3 id="4mousemove">4、补mousemove环境</h3>
 <h4 id="41">4.1 在浏览器中查看当前移动对象</h4>
-<h5 id="1_1">(1) 将当前打印的移动对象设置为全局对象</h5>
+<h5 id="1_2">(1) 将当前打印的移动对象设置为全局对象</h5>
 <p><img alt="image-20240218160610525" src="1%E3%80%81%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8E%E4%BA%8B%E4%BB%B6.assets/rt54Ayk2ZzLTxvC.png" /></p>
 <p>结果</p>
 <p><img alt="image-20240218160727338" src="1%E3%80%81%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8E%E4%BA%8B%E4%BB%B6.assets/BVkuPThp9RFMQWd.png" /></p>
