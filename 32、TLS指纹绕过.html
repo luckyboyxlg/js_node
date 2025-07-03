@@ -116,6 +116,8 @@
 <a href="36%E3%80%81Akamai%E5%88%9D%E7%BA%A7.html">了解akamai的执行过程</a>
 <li class="chapter" data-path="37-%E4%BA%91%E7%89%87%E9%AA%8C%E8%AF%81%E7%A0%81.html">
 <a href="37-%E4%BA%91%E7%89%87%E9%AA%8C%E8%AF%81%E7%A0%81.html">1 云片滑块</a>
+<li class="chapter" data-path="38%E3%80%81%E5%85%B6%E5%AE%83%E6%A1%88%E4%BE%8B.html">
+<a href="38%E3%80%81%E5%85%B6%E5%AE%83%E6%A1%88%E4%BE%8B.html">其它案例</a>
 <li class="chapter" data-path="apiv1search-flight.html">
 <a href="apiv1search-flight.html">Apiv1search flight</a>
 <li class="chapter" data-path="%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B%E7%AC%94%E8%AE%B0.html">
@@ -209,6 +211,11 @@ Theme by GitBook
 <li>https://www.bilibili.com/video/BV1H94y1p7ME?vd_source=87cd9028314be53c0d99d132ffe7796d&amp;spm_id_from=333.788.player.switch&amp;p=3</li>
 </ul>
 <h2 id="_2">一、常见指纹</h2>
+<h4 id="_3">指纹查看地址</h4>
+<ul>
+<li>https://tls.browserleaks.com/json</li>
+<li>https://tls.peet.ws/api/all</li>
+</ul>
 <h3 id="1ja3">1、JA3 指纹</h3>
 <p><strong>JA3</strong> 是一种用于生成 TLS 客户端指纹的方法。它通过收集 TLS 握手过程中的几个关键字段来创建一个独特的指纹，这些字段包括：</p>
 <ul>
@@ -465,6 +472,11 @@ print(response.content)
 <p><strong>总结</strong></p>
 <p>直接从Python代码内部无法直接获取到JA3或TLS指纹，因为这些指纹是基于外部观察者对TLS握手过程的分析得出的。但是，通过上述方法，你可以间接地了解到你的应用程序在发起HTTPS请求时可能产生的TLS指纹特性。对于安全测试或调试目的，这种方法可以帮助你更好地理解如何调整你的应用以适应特定的安全需求。</p>
 <h2 id="tlsja3_1">二、TLS指纹和Ja3指纹绕过</h2>
+<h4 id="_4">指纹查看地址</h4>
+<ul>
+<li>https://tls.browserleaks.com/json</li>
+<li>https://tls.peet.ws/api/all</li>
+</ul>
 <h3 id="1">1、案例</h3>
 <ul>
 <li>网站：https://ascii2d.net/</li>

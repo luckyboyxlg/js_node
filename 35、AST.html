@@ -116,6 +116,8 @@
 <a href="36%E3%80%81Akamai%E5%88%9D%E7%BA%A7.html">了解akamai的执行过程</a>
 <li class="chapter" data-path="37-%E4%BA%91%E7%89%87%E9%AA%8C%E8%AF%81%E7%A0%81.html">
 <a href="37-%E4%BA%91%E7%89%87%E9%AA%8C%E8%AF%81%E7%A0%81.html">1 云片滑块</a>
+<li class="chapter" data-path="38%E3%80%81%E5%85%B6%E5%AE%83%E6%A1%88%E4%BE%8B.html">
+<a href="38%E3%80%81%E5%85%B6%E5%AE%83%E6%A1%88%E4%BE%8B.html">其它案例</a>
 <li class="chapter" data-path="apiv1search-flight.html">
 <a href="apiv1search-flight.html">Apiv1search flight</a>
 <li class="chapter" data-path="%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B%E7%AC%94%E8%AE%B0.html">
@@ -1381,6 +1383,1199 @@ let {code} = generator(ast);
 // 保存代码
 fs.writeFile('decode.js', code, (err)=&gt;{});
 </code></pre>
+<h2 id="ast_4">三、AST进阶</h2>
+<p>网站：https://www.mps.gov.cn/
+内容：加速乐一键解混淆
+混淆代码</p>
+<pre><code class="language-js">var _0x2414 = ['wr7CksK8Uw==', 'wrbDosKFOQ==', 'woZNHCg=', 'w48zCBM=', 'wrbCnAka', 'bcOJKcO8', 'KCnDpMK3', 'w6F9FyY=', 'w5Rjw5xZ', 'WcKGGn4=', 'w7BVw6hs', 'M8OVwpc=', 'Ax7DscOB', 'IWjCh8K3', 'GsODeMK7', 'w6jCmVE0', 'eEguwpE=', 'wrcfd8Ow', 'FcOVcsKD', 'w5jDhcKWMQ==', 'w5oODT0=', 'NsOCAH4=', 'w7AwXMON', 'QA1hw50=', 'wrnCpWfDuA==', 'LyjDmcOo', 'MxspHQ==', 'wpTDgsKDCw==', 'w7pUw6Ni', 'w5gfw7s=', 'IEUwEw==', 'Q24CFw==', 'w6dodMOG', 'w69UFsKJ', 'wqDCsQIH', 'wp3DgcKTTw==', 'ccO1w7rDsQ==', 'MCDDosO+', 'asKPwpPCgg==', 'HcOhXsK8', 'OMOOwoPClg==', 'K3fCnTM=', 'w4EyFB0=', 'w4tWGw==', 'wp54Ggw=', 'bMOhW0g=', 'wr1XJy0=', 'OXDCrcKE', 'wpAPw5oq', 'H1LCpMKg', 'FjkCUA==', 'b0nDo3Y=', 'w7EQS20=', 'wogzExo=', 'wrYQccOt', 'ElfCocKf', 'KhA+eQ==', 'wofDmyTDvA==', 'w6HDpcK9LQ==', 'wqsJw480', 'w6rDmHbDgA==', 'w7Faw5VM', 'wrTCpcOcwoQ=', 'wrzDuSbDoA==', 'I8OpKUw=', 'w5IZw63Dvw==', 'wo/CqsKlaw==', 'w4ogAwY=', 'woc3ERE=', 'VMOBeWw=', 'woU1QsKs', 'wrPCsmbDsg==', 'c8OKW3I=', 'fTnCuMKG', 'w4c6BcOm', 'wqTDusKEWA==', 'w5sjw7jDgA==', 'wrs7UcO4', 'w7UaNh8=', 'dA3DnDE=', 'woY9w5Er', 'NsORIVc=', 'w5pebsOH', 'QhRmw50=', 'Q8OBSF8=', 'XsKfBV8=', 'AiUsJQ==', 'wrwAVMOR', 'P37CnCI=', 'QMOXdW8=', 'wq3DkMKYw7s=', 'wr0TT8OT', 'aEdocw==', 'YMOoIyI=', 'w5pUw6hs', 'wrXCu8K6VQ==', 'wogwb8Ku', 'wqE2ZcKu', 'ZEwtRA==', 'woLDmcKSUw==', 'woEyVsOb', 'IELCgMKn', 'w6lKCww=', 'EyPDjcKx', 'HQhoYA==', 'w75BLTk=', 'dMKROGA=', 'wpDDqhPDhQ==', 'wpXDr8K4KA==', 'XUh7wpY=', 'wqTCm8KYdA==', 'GgE9GQ==', 'wpojfg==', 'wq0+LhI=', 'w5wiw4HDkg==', 'N8Otb8Kh', 'wr4Pw6kh', 'w6oRFAQ=', 'wo11Fzk=', 'wpwDV8OY', 'IsOfWMKA', 'QkAQHg==', 'wrVhHjY=', 'wqjCn8KTRA==', 'SAjDgBc=', 'w58/w4/DjA==', 'PcOJBE8=', 'EjM6Tg==', 'woYiw6M3', 'wr/DmsKJLA==', 'w7fDj8KBJw==', 'ZlHDrHk=', 'woAqw6kL', 'Rw5ow4I=', 'WcOFw7TDng==', 'w4FwCww=', 'wrwOw6c4', 'w5jDiETDhA==', 'w50Kw7zDtg==', 'wq0zDAc=', 'w5R4CQY=', 'w7xNw61l', 'GzIfBg==', 'w5nDgXDDvw==', 'wrjCv8OQwpk=', 'w7kEw6zDvA==', 'RHkgwpA=', 'w6s8PB0=', 'HzzDrMKX', 'w5UtV8OF', 'IsOXwobCiA==', 'AyooVA==', 'wo3CgsK4Rw==', 'wp8hBRA=', 'wpHCl8OFwoI=', 'WUogNQ==', 'wrHDu8KxEw==', 'wr8Cw5U/', 'wqHDoMKKRw==', 'VcOdGsO7', 'wq4AVMOb', 'wqc2SsKC', 'wpMKEDc=', 'BA7DgMKb', 'a2MiJw==', 'bcO9Uw==', 'wqvDt8KLTQ==', 'wrLDkBJx', 'FcOSd8KU', 'KDjDg8Kp', 'wo8yQcO4', 'wr01ccKO', 'w6zCnVUw', 'YcOPCMO1', 'wp0hw40w', 'Vhllw4s=', 'd8KPFVs=', 'ezFGw7Y=', 'OsOVTcKm', 'KBoh', '6K6b5rOe6aus6K+P', 'w5/CjsKgOg==', 'S8OYHcO8', 'DTMCLw==', 'fMK3Hko=', 'w4zDtsKXMQ==', 'woHDtTDDiQ==', 'IhvDhMOk', 'P2jCoA0=', 'wpzCi8Oswpg=', 'wpIUTsOv', 'cQRiw4k=', 'WwvDjzY=', 'wqnDs8KTQw==', 'TTPCvcKR', 'wrTDjQ1g', 'KU3Coj4=', 'OkrDm8O1', 'ckkyMg==', 'wofDssK6w4Y=', 'fVnDl8Kj', 'w5AAEjo=', 'ElfCmTs=', 'SG8WwpA=', 'PVLCrcKv', 'NRMJKQ==', 'w57DuMKACg==', 'wrDCm8Kzdg==', 'WsO9Wl8=', 'w6dSwo1v', 'w4RcGRg=', 'worCqAg6', 'wrbDqhXDqQ==', 'ZsOIKTM=', 'UcOnw43Dpg==', 'JR3DgsKk', 'MMOGwqDCqA==', 'ZMOCPTE=', 'FHTCjzA=', 'w55oLDo=', 'wqHCqCnCog==', 'd8KIEEw=', 'wr3DlA7DuQ==', 'YMOKVXM=', 'wp/DtMKpw4o=', 'wqPCml/DjA==', 'wo/CvMOFwqM=', 'bMKqFlk=', 'FMOsworClA==', 'QgHDggw=', 'Y8KGwo7Dkg==', 'G0nCksKd', 'wr1jJBg=', 'w53CtMKUKg==', 'w73CuMKQPg==', 'BAQ0cw==', 'w5l9JAQ=', 'w43ChxXDkg==', 'DkvDhMKe', 'SW7DlGc=', 'w7nDv17Dkw==', 'Dk4cwp4=', 'XMO9SEk=', 'F8O7M2Y=', 'wofDtxRi', 'VVcuPw==', 'dsKQE3A=', 'w4InAAY=', 'AxA6Rw==', 'eTFlw58=', 'wqg9GxM=', 'JW7DpMKS', 'BMOWRho=', 'CE7Cuxw=', 'dcOOw7rDmQ==', 'wp/DscK4Og==', 'bXIdwpg=', 'w7BxHBs=', 'wo0gEBs=', 'wrvDgAJ1', 'WWkNwpg=', 'TXUYwo8=', 'wqJ2w61x', 'UsKVG0Q=', 'dsOPOcOG', 'JBLDhMOm', 'blE7IQ==', 'A23Cg8Kh', 'wqRtDQM=', 'wpbCqGjDrQ==', 'w4A+BwY=', 'eMOjWEg=', 'L8OcVsKk', 'wqHDrcKZDA==', 'wo8xe8KR', 'wpUZfsK7', 'aBhXw4A=', 'EcOiwrPCmQ==', 'ccOmKS8=', 'ci3DjSw=', 'w6pBZsOL', 'wrwew6gr', 'wqw+f8Kk', 'w6bDqFrDvA==', 'CMOUEG8=', 'wojDgAJp', 'woEyXcKP', 'Rm3DjHI=', 'woN/BS4=', 'QwxVw6c=', 'SRPCuMKS', 'wpEQw5wB', 'PMOXwoTCiQ==', 'w6hHw6g5', 'SMOpHMOj', 'wq8edcKg', 'w4dSGTA=', 'w5EOPyQ=', 'w7wKw7vDqA==', 'w7jCrsKaNQ==', 'QWQzwrA='];
+(function(_0x5594a6, _0x241477) {
+    var _0x3449b7 = function(_0x24ba2e) {
+        while (--_0x24ba2e) {
+            _0x5594a6['push'](_0x5594a6['shift']());
+        }
+    };
+    _0x3449b7(++_0x241477);
+}(_0x2414, 0x1cb));
+var _0x3449 = function(_0x5594a6, _0x241477) {
+    _0x5594a6 = _0x5594a6 - 0x0;
+    var _0x3449b7 = _0x2414[_0x5594a6];
+    if (_0x3449['HGmjND'] === undefined) {
+        (function() {
+            var _0x45cece;
+            try {
+                var _0x4f0f81 = Function('return\x20(function()\x20' + '{}.constructor(\x22return\x20this\x22)(\x20)' + ');');
+                _0x45cece = _0x4f0f81();
+            } catch (_0xccbb5f) {
+                _0x45cece = window;
+            }
+            var _0x401a4a = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
+            _0x45cece['atob'] || (_0x45cece['atob'] = function(_0x5bf526) {
+                var _0xba23d7 = String(_0x5bf526)['replace'](/=+$/, '');
+                var _0x1c58eb = '';
+                for (var _0x2f79bd = 0x0, _0x4612da, _0xade16b, _0x2774c6 = 0x0; _0xade16b = _0xba23d7['charAt'](_0x2774c6++); ~_0xade16b &amp;&amp; (_0x4612da = _0x2f79bd % 0x4 ? _0x4612da * 0x40 + _0xade16b : _0xade16b,
+                _0x2f79bd++ % 0x4) ? _0x1c58eb += String['fromCharCode'](0xff &amp; _0x4612da &gt;&gt; (-0x2 * _0x2f79bd &amp; 0x6)) : 0x0) {
+                    _0xade16b = _0x401a4a['indexOf'](_0xade16b);
+                }
+                return _0x1c58eb;
+            }
+            );
+        }());
+        var _0x5ee420 = function(_0x10263d, _0x50fdcb) {
+            var _0x5e6736 = [], _0xbeac97 = 0x0, _0xac985f, _0x5dd6e0 = '', _0x3c5742 = '';
+            _0x10263d = atob(_0x10263d);
+            for (var _0xcd13fd = 0x0, _0xf2a190 = _0x10263d['length']; _0xcd13fd &lt; _0xf2a190; _0xcd13fd++) {
+                _0x3c5742 += '%' + ('00' + _0x10263d['charCodeAt'](_0xcd13fd)['toString'](0x10))['slice'](-0x2);
+            }
+            _0x10263d = decodeURIComponent(_0x3c5742);
+            var _0x10e091;
+            for (_0x10e091 = 0x0; _0x10e091 &lt; 0x100; _0x10e091++) {
+                _0x5e6736[_0x10e091] = _0x10e091;
+            }
+            for (_0x10e091 = 0x0; _0x10e091 &lt; 0x100; _0x10e091++) {
+                _0xbeac97 = (_0xbeac97 + _0x5e6736[_0x10e091] + _0x50fdcb['charCodeAt'](_0x10e091 % _0x50fdcb['length'])) % 0x100;
+                _0xac985f = _0x5e6736[_0x10e091];
+                _0x5e6736[_0x10e091] = _0x5e6736[_0xbeac97];
+                _0x5e6736[_0xbeac97] = _0xac985f;
+            }
+            _0x10e091 = 0x0;
+            _0xbeac97 = 0x0;
+            for (var _0x27ba3b = 0x0; _0x27ba3b &lt; _0x10263d['length']; _0x27ba3b++) {
+                _0x10e091 = (_0x10e091 + 0x1) % 0x100;
+                _0xbeac97 = (_0xbeac97 + _0x5e6736[_0x10e091]) % 0x100;
+                _0xac985f = _0x5e6736[_0x10e091];
+                _0x5e6736[_0x10e091] = _0x5e6736[_0xbeac97];
+                _0x5e6736[_0xbeac97] = _0xac985f;
+                _0x5dd6e0 += String['fromCharCode'](_0x10263d['charCodeAt'](_0x27ba3b) ^ _0x5e6736[(_0x5e6736[_0x10e091] + _0x5e6736[_0xbeac97]) % 0x100]);
+            }
+            return _0x5dd6e0;
+        };
+        _0x3449['iFbsNq'] = _0x5ee420;
+        _0x3449['ErXFvw'] = {};
+        _0x3449['HGmjND'] = !![];
+    }
+    var _0x24ba2e = _0x3449['ErXFvw'][_0x5594a6];
+    if (_0x24ba2e === undefined) {
+        if (_0x3449['ghdvvH'] === undefined) {
+            _0x3449['ghdvvH'] = !![];
+        }
+        _0x3449b7 = _0x3449['iFbsNq'](_0x3449b7, _0x241477);
+        _0x3449['ErXFvw'][_0x5594a6] = _0x3449b7;
+    } else {
+        _0x3449b7 = _0x24ba2e;
+    }
+    return _0x3449b7;
+};
+function hash(_0x49894e) {
+    var _0x308d1d = {};
+    _0x308d1d[_0x3449('0x122', '41u^') + 's'] = function(_0x5a092c, _0x299a52) {
+        return _0x5a092c + _0x299a52;
+    }
+    ;
+    _0x308d1d[_0x3449('0x60', 'jzY2') + 'p'] = function(_0x1a6396, _0x26e68a) {
+        return _0x1a6396 &amp; _0x26e68a;
+    }
+    ;
+    _0x308d1d[_0x3449('0x95', 'UlUA') + 'X'] = function(_0x5e1452, _0x4c68f9) {
+        return _0x5e1452 + _0x4c68f9;
+    }
+    ;
+    _0x308d1d[_0x3449('0x115', 'jzY2') + 's'] = function(_0x31d08e, _0x55adce) {
+        return _0x31d08e &gt;&gt; _0x55adce;
+    }
+    ;
+    _0x308d1d[_0x3449('0x82', 'c636') + 'y'] = function(_0x248846, _0x475bb1) {
+        return _0x248846 &gt;&gt; _0x475bb1;
+    }
+    ;
+    _0x308d1d[_0x3449('0xf8', 'dwTK') + 'E'] = function(_0x382386, _0x269e18) {
+        return _0x382386 &lt;&lt; _0x269e18;
+    }
+    ;
+    _0x308d1d[_0x3449('0x1a', 'EJ@7') + 't'] = function(_0x3bb600, _0x2aaf1b) {
+        return _0x3bb600 &amp; _0x2aaf1b;
+    }
+    ;
+    _0x308d1d[_0x3449('0x66', '4R&amp;)') + 'h'] = function(_0x2b7a58, _0x1c952e) {
+        return _0x2b7a58 &gt;&gt;&gt; _0x1c952e;
+    }
+    ;
+    _0x308d1d[_0x3449('0x75', 'lac&amp;') + 'f'] = function(_0x19afb4, _0x4ac7a4) {
+        return _0x19afb4 ^ _0x4ac7a4;
+    }
+    ;
+    _0x308d1d[_0x3449('0xc2', 'vEjL') + 'z'] = function(_0x443576, _0x3ccc71) {
+        return _0x443576 &amp; _0x3ccc71;
+    }
+    ;
+    _0x308d1d[_0x3449('0xdf', 'WbrE') + 'X'] = function(_0x3479a4, _0x2bbfaa) {
+        return _0x3479a4 &amp; _0x2bbfaa;
+    }
+    ;
+    _0x308d1d[_0x3449('0x13', 'Q3YJ') + 'q'] = function(_0x4f9198, _0x5f57b7) {
+        return _0x4f9198 | _0x5f57b7;
+    }
+    ;
+    _0x308d1d[_0x3449('0x4e', 'dwTK') + 'p'] = function(_0x35f8a0, _0x139294) {
+        return _0x35f8a0 &amp; _0x139294;
+    }
+    ;
+    _0x308d1d[_0x3449('0x47', 'n5kp') + 'I'] = function(_0x337a17, _0x1ed04f) {
+        return _0x337a17 !== _0x1ed04f;
+    }
+    ;
+    _0x308d1d[_0x3449('0x127', 'abiX') + 'r'] = function(_0x199149, _0x57e3f6) {
+        return _0x199149 ^ _0x57e3f6;
+    }
+    ;
+    _0x308d1d[_0x3449('0x107', 'Vem%') + 'H'] = function(_0x355826, _0x32eb40, _0x5a5121) {
+        return _0x355826(_0x32eb40, _0x5a5121);
+    }
+    ;
+    _0x308d1d[_0x3449('0x42', 'EMZ#') + 'e'] = function(_0x396e07, _0x2f9fd5) {
+        return _0x396e07 ^ _0x2f9fd5;
+    }
+    ;
+    _0x308d1d[_0x3449('0x128', '$6!c') + 'e'] = function(_0x3d97f8, _0x552c5b, _0x527dba) {
+        return _0x3d97f8(_0x552c5b, _0x527dba);
+    }
+    ;
+    _0x308d1d[_0x3449('0x94', '%Q7T') + 'I'] = function(_0x1f326f, _0x3e74f2, _0x452cba) {
+        return _0x1f326f(_0x3e74f2, _0x452cba);
+    }
+    ;
+    _0x308d1d[_0x3449('0x85', 'WbrE') + 'm'] = function(_0x53561d, _0x423236, _0x15eb63) {
+        return _0x53561d(_0x423236, _0x15eb63);
+    }
+    ;
+    _0x308d1d[_0x3449('0x90', 'Qqtg') + 'u'] = function(_0x2d041a, _0x5b23e3) {
+        return _0x2d041a &lt;&lt; _0x5b23e3;
+    }
+    ;
+    _0x308d1d[_0x3449('0xbd', 'c636') + 'j'] = function(_0x538e6a, _0x57dfb5) {
+        return _0x538e6a &lt;&lt; _0x57dfb5;
+    }
+    ;
+    _0x308d1d[_0x3449('0xb4', 'abHc') + 'X'] = function(_0x366d51, _0x5cc096) {
+        return _0x366d51 + _0x5cc096;
+    }
+    ;
+    _0x308d1d[_0x3449('0x101', 'PkcW') + 'E'] = function(_0x263706, _0x1a9f4b) {
+        return _0x263706 &lt; _0x1a9f4b;
+    }
+    ;
+    _0x308d1d[_0x3449('0xf2', 'bvhT') + 't'] = _0x3449('0x48', '8rQq') + _0x3449('0xf9', 'hue5') + _0x3449('0xad', '0s&amp;B') + _0x3449('0xfc', 'Q3YJ') + _0x3449('0x27', 'UlUA') + '|1';
+    _0x308d1d[_0x3449('0x104', '41u^') + 'J'] = function(_0x3cefa8, _0x4a624c) {
+        return _0x3cefa8(_0x4a624c);
+    }
+    ;
+    _0x308d1d[_0x3449('0x41', 'nf0v') + 'R'] = function(_0x1b8dcb, _0x5db690, _0x4b15d3) {
+        return _0x1b8dcb(_0x5db690, _0x4b15d3);
+    }
+    ;
+    _0x308d1d[_0x3449('0xf3', 'Thp^') + 'n'] = function(_0x24fde5, _0x4a4a2a, _0x451643) {
+        return _0x24fde5(_0x4a4a2a, _0x451643);
+    }
+    ;
+    _0x308d1d[_0x3449('0x61', 'Qqtg') + 'I'] = function(_0x4a0161, _0xaa359d) {
+        return _0x4a0161 - _0xaa359d;
+    }
+    ;
+    _0x308d1d[_0x3449('0x77', '8rQq') + 'R'] = function(_0x434f31, _0x3d06d1) {
+        return _0x434f31 - _0x3d06d1;
+    }
+    ;
+    _0x308d1d[_0x3449('0x10', 'WbrE') + 'v'] = function(_0x358fa5, _0x4b931d) {
+        return _0x358fa5 &lt; _0x4b931d;
+    }
+    ;
+    _0x308d1d[_0x3449('0xfa', 'dXnw') + 'f'] = function(_0x5ac34c, _0x12f560) {
+        return _0x5ac34c &gt; _0x12f560;
+    }
+    ;
+    _0x308d1d[_0x3449('0x19', '%!oe') + 'X'] = function(_0x5d9489, _0x50759b) {
+        return _0x5d9489 | _0x50759b;
+    }
+    ;
+    _0x308d1d[_0x3449('0x34', 'dwTK') + 'G'] = function(_0x4f1ab1, _0x5e2a25) {
+        return _0x4f1ab1 | _0x5e2a25;
+    }
+    ;
+    _0x308d1d[_0x3449('0xd7', 'nf0v') + 'A'] = function(_0xfeff23, _0x2b55e6) {
+        return _0xfeff23 &amp; _0x2b55e6;
+    }
+    ;
+    _0x308d1d[_0x3449('0xd1', 'abiX') + 'i'] = function(_0x1b5c6b, _0x488fe0) {
+        return _0x1b5c6b | _0x488fe0;
+    }
+    ;
+    _0x308d1d[_0x3449('0xd4', 'nf0v') + 'R'] = _0x3449('0x5e', 'EJ@7') + _0x3449('0xe', '(Fdd') + _0x3449('0x17', 'Qqtg') + _0x3449('0x11d', '%!oe');
+    _0x308d1d[_0x3449('0xfd', 'abiX') + 'R'] = _0x3449('0x9e', '(Fdd') + _0x3449('0x33', 'WbrE') + _0x3449('0xb5', '8rQq') + _0x3449('0x39', 'UlUA');
+    _0x308d1d[_0x3449('0x1e', '^9JG') + 'O'] = function(_0x5d3777, _0x3a15c9) {
+        return _0x5d3777 * _0x3a15c9;
+    }
+    ;
+    _0x308d1d[_0x3449('0x8e', '4R&amp;)') + 'L'] = function(_0x3ac1e9, _0x2778b6) {
+        return _0x3ac1e9 + _0x2778b6;
+    }
+    ;
+    _0x308d1d[_0x3449('0x76', 'Q3YJ') + 'N'] = function(_0x10f5a4, _0x4d837c) {
+        return _0x10f5a4 * _0x4d837c;
+    }
+    ;
+    _0x308d1d[_0x3449('0x8b', '41u^') + 's'] = function(_0x216826, _0x2e2fc5) {
+        return _0x216826 - _0x2e2fc5;
+    }
+    ;
+    _0x308d1d[_0x3449('0x96', 'dwTK') + 'j'] = function(_0x16684d, _0x5b107e) {
+        return _0x16684d &gt;&gt; _0x5b107e;
+    }
+    ;
+    _0x308d1d[_0x3449('0x1d', 'abHc') + 'm'] = function(_0x1e0fc5, _0x26a2b7) {
+        return _0x1e0fc5 - _0x26a2b7;
+    }
+    ;
+    _0x308d1d[_0x3449('0x7d', 'u7a@') + 'p'] = function(_0x33ab5a, _0x42eff4) {
+        return _0x33ab5a % _0x42eff4;
+    }
+    ;
+    var _0x33f279 = _0x308d1d;
+    var _0x1ddc7a = 0x8;
+    var _0x4298f7 = 0x0;
+    function _0x47bf23(_0x3996dd, _0x2cb53d) {
+        if (_0x3449('0x10a', 'abiX') + 'y' === _0x3449('0x54', 'nf0v') + 's') {
+            return [tk, new Date() - t];
+        } else {
+            var _0x5e73b7 = _0x33f279[_0x3449('0x40', 'dXnw') + 's'](_0x33f279[_0x3449('0xc', 'Thp^') + 'p'](_0x3996dd, 0xffff), _0x2cb53d &amp; 0xffff);
+            var _0x456701 = _0x33f279[_0x3449('0x14', 'Vem%') + 'X'](_0x3996dd &gt;&gt; 0x10, _0x33f279[_0x3449('0x4', '$6!c') + 's'](_0x2cb53d, 0x10)) + _0x33f279[_0x3449('0x6', 'TAwE') + 'y'](_0x5e73b7, 0x10);
+            return _0x33f279[_0x3449('0x97', 'mioP') + 'E'](_0x456701, 0x10) | _0x33f279[_0x3449('0x105', 'c636') + 't'](_0x5e73b7, 0xffff);
+        }
+    }
+    function _0x212fee(_0x512e65, _0x45be89) {
+        return _0x512e65 &gt;&gt;&gt; _0x45be89 | _0x512e65 &lt;&lt; 0x20 - _0x45be89;
+    }
+    function _0xbda32a(_0x4fa3f8, _0x5bebad) {
+        return _0x33f279[_0x3449('0x2e', 'MH(H') + 'h'](_0x4fa3f8, _0x5bebad);
+    }
+    function _0x2957ab(_0x5221ed, _0x220deb, _0x594fa9) {
+        return _0x33f279[_0x3449('0xb1', 'h@xU') + 'f'](_0x33f279[_0x3449('0xc1', '0s&amp;B') + 'z'](_0x5221ed, _0x220deb), _0x33f279[_0x3449('0x55', 'ijUh') + 'X'](~_0x5221ed, _0x594fa9));
+    }
+    function _0x4305a3(_0x3faca7, _0x306468, _0x34ecda) {
+        return _0x33f279[_0x3449('0xb8', '^9JG') + 'f'](_0x3faca7 &amp; _0x306468, _0x33f279[_0x3449('0xf6', 'UlUA') + 'X'](_0x3faca7, _0x34ecda)) ^ _0x306468 &amp; _0x34ecda;
+    }
+    function _0x5aa36e(_0x5af9ee) {
+        if (_0x33f279[_0x3449('0x110', 'Qqtg') + 'I'](_0x3449('0x20', 'Thp^') + 'R', _0x3449('0xa4', 'ijUh') + 'Z')) {
+            return _0x33f279[_0x3449('0x21', 'Q3YJ') + 'r'](_0x212fee(_0x5af9ee, 0x2) ^ _0x33f279[_0x3449('0x43', 'MJIb') + 'H'](_0x212fee, _0x5af9ee, 0xd), _0x212fee(_0x5af9ee, 0x16));
+        } else {
+            utftext += String[_0x3449('0x69', 'EJ@7') + _0x3449('0x4b', '9HpK') + _0x3449('0x3f', 'EJ@7')](_0x33f279[_0x3449('0xe0', 'kwQO') + 'q'](c &gt;&gt; 0x6, 0xc0));
+            utftext += String[_0x3449('0x124', 'if[]') + _0x3449('0x2c', '^9JG') + _0x3449('0xa', 'LbiK')](_0x33f279[_0x3449('0x121', '4R&amp;)') + 'p'](c, 0x3f) | 0x80);
+        }
+    }
+    function _0xe0f4bd(_0x5eab34) {
+        return _0x33f279[_0x3449('0xcb', 'u7a@') + 'e'](_0x212fee(_0x5eab34, 0x6) ^ _0x33f279[_0x3449('0x12a', 'TAwE') + 'e'](_0x212fee, _0x5eab34, 0xb), _0x33f279[_0x3449('0x9f', '4R&amp;)') + 'I'](_0x212fee, _0x5eab34, 0x19));
+    }
+    function _0x6600d0(_0x3a92db) {
+        return _0x33f279[_0x3449('0x5', 'UlUA') + 'm'](_0x212fee, _0x3a92db, 0x7) ^ _0x212fee(_0x3a92db, 0x12) ^ _0xbda32a(_0x3a92db, 0x3);
+    }
+    function _0x8354c7(_0x20aa83) {
+        return _0x212fee(_0x20aa83, 0x11) ^ _0x212fee(_0x20aa83, 0x13) ^ _0x33f279[_0x3449('0xfe', '%!oe') + 'm'](_0xbda32a, _0x20aa83, 0xa);
+    }
+    function _0x5a4136(_0x38073e, _0x2b0ad9) {
+        var _0x5a73ec = new Array(0x428a2f98,0x71374491,0xb5c0fbcf,0xe9b5dba5,0x3956c25b,0x59f111f1,0x923f82a4,0xab1c5ed5,0xd807aa98,0x12835b01,0x243185be,0x550c7dc3,0x72be5d74,0x80deb1fe,0x9bdc06a7,0xc19bf174,0xe49b69c1,0xefbe4786,0xfc19dc6,0x240ca1cc,0x2de92c6f,0x4a7484aa,0x5cb0a9dc,0x76f988da,0x983e5152,0xa831c66d,0xb00327c8,0xbf597fc7,0xc6e00bf3,0xd5a79147,0x6ca6351,0x14292967,0x27b70a85,0x2e1b2138,0x4d2c6dfc,0x53380d13,0x650a7354,0x766a0abb,0x81c2c92e,0x92722c85,0xa2bfe8a1,0xa81a664b,0xc24b8b70,0xc76c51a3,0xd192e819,0xd6990624,0xf40e3585,0x106aa070,0x19a4c116,0x1e376c08,0x2748774c,0x34b0bcb5,0x391c0cb3,0x4ed8aa4a,0x5b9cca4f,0x682e6ff3,0x748f82ee,0x78a5636f,0x84c87814,0x8cc70208,0x90befffa,0xa4506ceb,0xbef9a3f7,0xc67178f2);
+        var _0x53679d = new Array(0x6a09e667,0xbb67ae85,0x3c6ef372,0xa54ff53a,0x510e527f,0x9b05688c,0x1f83d9ab,0x5be0cd19);
+        var _0x35fbfb = new Array(0x40);
+        var _0x208879, _0x107956, _0x1d6e2a, _0x430c99, _0x3d5b9a, _0x4ecbb2, _0x3c094e, _0x47b092, _0x553d70, _0x3f4cd2;
+        var _0x1d8721, _0x2fa7ef;
+        _0x38073e[_0x33f279[_0x3449('0x129', 'MR*f') + 'y'](_0x2b0ad9, 0x5)] |= _0x33f279[_0x3449('0x10d', 'kwQO') + 'u'](0x80, 0x18 - _0x2b0ad9 % 0x20);
+        _0x38073e[_0x33f279[_0x3449('0x26', '^9JG') + 'j'](_0x33f279[_0x3449('0x38', 'jzY2') + 'X'](_0x2b0ad9, 0x40) &gt;&gt; 0x9, 0x4) + 0xf] = _0x2b0ad9;
+        for (var _0x553d70 = 0x0; _0x33f279[_0x3449('0x89', 'LeYc') + 'E'](_0x553d70, _0x38073e[_0x3449('0x8', 'bvhT') + 'th']); _0x553d70 += 0x10) {
+            _0x208879 = _0x53679d[0x0];
+            _0x107956 = _0x53679d[0x1];
+            _0x1d6e2a = _0x53679d[0x2];
+            _0x430c99 = _0x53679d[0x3];
+            _0x3d5b9a = _0x53679d[0x4];
+            _0x4ecbb2 = _0x53679d[0x5];
+            _0x3c094e = _0x53679d[0x6];
+            _0x47b092 = _0x53679d[0x7];
+            for (var _0x3f4cd2 = 0x0; _0x3f4cd2 &lt; 0x40; _0x3f4cd2++) {
+                var _0x28eab0 = _0x33f279[_0x3449('0x3c', '^9JG') + 't'][_0x3449('0xe1', '9cn7') + 't']('|');
+                var _0x4c7885 = 0x0;
+                while (!![]) {
+                    switch (_0x28eab0[_0x4c7885++]) {
+                    case '0':
+                        _0x3c094e = _0x4ecbb2;
+                        continue;
+                    case '1':
+                        _0x208879 = _0x47bf23(_0x1d8721, _0x2fa7ef);
+                        continue;
+                    case '2':
+                        _0x1d8721 = _0x47bf23(_0x33f279[_0x3449('0x58', 'EJ@7') + 'm'](_0x47bf23, _0x33f279[_0x3449('0x49', '3Isw') + 'm'](_0x47bf23, _0x47bf23(_0x47b092, _0x33f279[_0x3449('0xce', 'dXnw') + 'J'](_0xe0f4bd, _0x3d5b9a)), _0x2957ab(_0x3d5b9a, _0x4ecbb2, _0x3c094e)), _0x5a73ec[_0x3f4cd2]), _0x35fbfb[_0x3f4cd2]);
+                        continue;
+                    case '3':
+                        _0x1d6e2a = _0x107956;
+                        continue;
+                    case '4':
+                        _0x3d5b9a = _0x47bf23(_0x430c99, _0x1d8721);
+                        continue;
+                    case '5':
+                        _0x4ecbb2 = _0x3d5b9a;
+                        continue;
+                    case '6':
+                        _0x47b092 = _0x3c094e;
+                        continue;
+                    case '7':
+                        _0x107956 = _0x208879;
+                        continue;
+                    case '8':
+                        _0x2fa7ef = _0x33f279[_0x3449('0xa3', '41u^') + 'R'](_0x47bf23, _0x5aa36e(_0x208879), _0x4305a3(_0x208879, _0x107956, _0x1d6e2a));
+                        continue;
+                    case '9':
+                        _0x430c99 = _0x1d6e2a;
+                        continue;
+                    case '10':
+                        if (_0x3f4cd2 &lt; 0x10)
+                            _0x35fbfb[_0x3f4cd2] = _0x38073e[_0x3f4cd2 + _0x553d70];
+                        else
+                            _0x35fbfb[_0x3f4cd2] = _0x33f279[_0x3449('0xb2', 'bvhT') + 'n'](_0x47bf23, _0x33f279[_0x3449('0xf', '%Q7T') + 'n'](_0x47bf23, _0x47bf23(_0x8354c7(_0x35fbfb[_0x33f279[_0x3449('0x118', 'u7a@') + 'I'](_0x3f4cd2, 0x2)]), _0x35fbfb[_0x33f279[_0x3449('0x4a', 'c636') + 'I'](_0x3f4cd2, 0x7)]), _0x6600d0(_0x35fbfb[_0x33f279[_0x3449('0x112', 'vEjL') + 'R'](_0x3f4cd2, 0xf)])), _0x35fbfb[_0x3f4cd2 - 0x10]);
+                        continue;
+                    }
+                    break;
+                }
+            }
+            _0x53679d[0x0] = _0x47bf23(_0x208879, _0x53679d[0x0]);
+            _0x53679d[0x1] = _0x33f279[_0x3449('0x6d', '3Isw') + 'n'](_0x47bf23, _0x107956, _0x53679d[0x1]);
+            _0x53679d[0x2] = _0x47bf23(_0x1d6e2a, _0x53679d[0x2]);
+            _0x53679d[0x3] = _0x33f279[_0x3449('0xe5', '%!oe') + 'n'](_0x47bf23, _0x430c99, _0x53679d[0x3]);
+            _0x53679d[0x4] = _0x47bf23(_0x3d5b9a, _0x53679d[0x4]);
+            _0x53679d[0x5] = _0x33f279[_0x3449('0xe3', 'nf0v') + 'n'](_0x47bf23, _0x4ecbb2, _0x53679d[0x5]);
+            _0x53679d[0x6] = _0x33f279[_0x3449('0x6d', '3Isw') + 'n'](_0x47bf23, _0x3c094e, _0x53679d[0x6]);
+            _0x53679d[0x7] = _0x47bf23(_0x47b092, _0x53679d[0x7]);
+        }
+        return _0x53679d;
+    }
+    function _0x561a77(_0x3a1a73) {
+        var _0x543905 = Array();
+        var _0x13072b = _0x33f279[_0x3449('0xe9', 'EMZ#') + 'j'](0x1, _0x1ddc7a) - 0x1;
+        for (var _0x55ece5 = 0x0; _0x55ece5 &lt; _0x3a1a73[_0x3449('0x12c', 'WbrE') + 'th'] * _0x1ddc7a; _0x55ece5 += _0x1ddc7a) {
+            _0x543905[_0x55ece5 &gt;&gt; 0x5] |= _0x33f279[_0x3449('0xf4', 'MH(H') + 'p'](_0x3a1a73[_0x3449('0x65', '(Fdd') + _0x3449('0x7a', '9cn7') + 'At'](_0x55ece5 / _0x1ddc7a), _0x13072b) &lt;&lt; _0x33f279[_0x3449('0x36', 'dXnw') + 'R'](0x18, _0x55ece5 % 0x20);
+        }
+        return _0x543905;
+    }
+    function _0x28a3b7(_0x51fd65) {
+        var _0x20ae02 = new RegExp('\x0a','g');
+        _0x51fd65 = _0x51fd65[_0x3449('0xc8', 'dXnw') + _0x3449('0x9a', '8rQq')](_0x20ae02, '\x0a');
+        var _0x3b43c2 = '';
+        for (var _0x2574fd = 0x0; _0x33f279[_0x3449('0x9d', 'Vem%') + 'v'](_0x2574fd, _0x51fd65[_0x3449('0xd3', '$6!c') + 'th']); _0x2574fd++) {
+            var _0x1b1335 = _0x51fd65[_0x3449('0x8f', 'abiX') + _0x3449('0xa5', 'if[]') + 'At'](_0x2574fd);
+            if (_0x33f279[_0x3449('0x10e', '0s&amp;B') + 'v'](_0x1b1335, 0x80)) {
+                _0x3b43c2 += String[_0x3449('0x8d', '9HpK') + _0x3449('0x91', 'c636') + _0x3449('0xed', 'mioP')](_0x1b1335);
+            } else if (_0x33f279[_0x3449('0x10c', 'PkcW') + 'f'](_0x1b1335, 0x7f) &amp;&amp; _0x33f279[_0x3449('0xaf', '9cn7') + 'v'](_0x1b1335, 0x800)) {
+                _0x3b43c2 += String[_0x3449('0xd6', 'MJIb') + _0x3449('0x6c', 'TAwE') + _0x3449('0x7c', 'lac&amp;')](_0x33f279[_0x3449('0xc9', 'SyH)') + 'X'](_0x1b1335 &gt;&gt; 0x6, 0xc0));
+                _0x3b43c2 += String[_0x3449('0x114', 'Q3YJ') + _0x3449('0x4b', '9HpK') + _0x3449('0x111', 'SyH)')](_0x33f279[_0x3449('0x10f', 'WbrE') + 'X'](_0x33f279[_0x3449('0xd5', 'lac&amp;') + 'p'](_0x1b1335, 0x3f), 0x80));
+            } else {
+                _0x3b43c2 += String[_0x3449('0x2d', '4R&amp;)') + _0x3449('0x12', 'EJ@7') + _0x3449('0x62', '4R&amp;)')](_0x33f279[_0x3449('0x84', 'Mxq4') + 'G'](_0x33f279[_0x3449('0x73', 'Qqtg') + 'y'](_0x1b1335, 0xc), 0xe0));
+                _0x3b43c2 += String[_0x3449('0x8d', '9HpK') + _0x3449('0x63', 'dwTK') + _0x3449('0x120', 'PkcW')](_0x33f279[_0x3449('0x30', 'SyH)') + 'A'](_0x33f279[_0x3449('0x46', '8rQq') + 'y'](_0x1b1335, 0x6), 0x3f) | 0x80);
+                _0x3b43c2 += String[_0x3449('0xea', 'Thp^') + _0x3449('0x6f', 'MJIb') + _0x3449('0x5c', '$6!c')](_0x33f279[_0x3449('0x29', 'EMZ#') + 'i'](_0x1b1335 &amp; 0x3f, 0x80));
+            }
+        }
+        return _0x3b43c2;
+    }
+    function _0x2cc7b5(_0x58c5b1) {
+        var _0x44d0a4 = _0x4298f7 ? _0x33f279[_0x3449('0x6a', '%Q7T') + 'R'] : _0x33f279[_0x3449('0x72', 'LbiK') + 'R'];
+        var _0x43315b = '';
+        for (var _0x5955b6 = 0x0; _0x5955b6 &lt; _0x33f279[_0x3449('0xae', 'TAwE') + 'O'](_0x58c5b1[_0x3449('0x7b', 'wURp') + 'th'], 0x4); _0x5955b6++) {
+            _0x43315b += _0x44d0a4[_0x3449('0xcd', 'MR*f') + 'At'](_0x58c5b1[_0x5955b6 &gt;&gt; 0x2] &gt;&gt; _0x33f279[_0x3449('0x108', 'TAwE') + 'L'](_0x33f279[_0x3449('0x5d', 'la[N') + 'N'](_0x33f279[_0x3449('0xfb', 'Qqtg') + 's'](0x3, _0x5955b6 % 0x4), 0x8), 0x4) &amp; 0xf) + _0x44d0a4[_0x3449('0xe2', 'Q3YJ') + 'At'](_0x33f279[_0x3449('0x10b', 'n5kp') + 'j'](_0x58c5b1[_0x33f279[_0x3449('0xd', 'lac&amp;') + 'j'](_0x5955b6, 0x2)], _0x33f279[_0x3449('0x50', 'la[N') + 'm'](0x3, _0x33f279[_0x3449('0x74', 'LeYc') + 'p'](_0x5955b6, 0x4)) * 0x8) &amp; 0xf);
+        }
+        return _0x43315b;
+    }
+    _0x49894e = _0x28a3b7(_0x49894e);
+    return _0x2cc7b5(_0x33f279[_0x3449('0xf5', 'dwTK') + 'n'](_0x5a4136, _0x561a77(_0x49894e), _0x33f279[_0x3449('0xb6', 'Vem%') + 'N'](_0x49894e[_0x3449('0x25', '(Fdd') + 'th'], _0x1ddc7a)));
+}
+;function go(_0x342ef8) {
+    var _0x42003d = {};
+    _0x42003d[_0x3449('0x79', 'n5kp') + 'Z'] = function(_0xd481ae, _0x1a4680) {
+        return _0xd481ae | _0x1a4680;
+    }
+    ;
+    _0x42003d[_0x3449('0x1b', 'SyH)') + 'x'] = function(_0x1f4c87, _0x2ed419) {
+        return _0x1f4c87 &gt;&gt; _0x2ed419;
+    }
+    ;
+    _0x42003d[_0x3449('0x3a', '8rQq') + 'h'] = function(_0x573db8, _0x59df88) {
+        return _0x573db8 &amp; _0x59df88;
+    }
+    ;
+    _0x42003d[_0x3449('0xb7', '8rQq') + 'E'] = function(_0x2ef88f, _0x5cf278) {
+        return _0x2ef88f &gt;&gt; _0x5cf278;
+    }
+    ;
+    _0x42003d[_0x3449('0xdb', 'PkcW') + 'w'] = function(_0x30f5bf, _0x1d8324) {
+        return _0x30f5bf &lt; _0x1d8324;
+    }
+    ;
+    _0x42003d[_0x3449('0xa8', 'abHc') + 'G'] = function(_0x44668f, _0x21ab67) {
+        return _0x44668f != _0x21ab67;
+    }
+    ;
+    _0x42003d[_0x3449('0xe8', 'nf0v') + 'F'] = _0x3449('0xca', 'WbrE') + 'X';
+    _0x42003d[_0x3449('0xdd', '41u^') + 'X'] = function(_0x5cd553, _0x2524aa) {
+        return _0x5cd553 + _0x2524aa;
+    }
+    ;
+    _0x42003d[_0x3449('0xa6', 'Q3YJ') + 's'] = function(_0x4d6e70, _0x175468) {
+        return _0x4d6e70(_0x175468);
+    }
+    ;
+    _0x42003d[_0x3449('0x100', '$6!c') + 'S'] = function(_0x104976, _0x28b977) {
+        return _0x104976 + _0x28b977;
+    }
+    ;
+    _0x42003d[_0x3449('0x1', '%Q7T') + 'l'] = function(_0x494eac, _0xeb6189) {
+        return _0x494eac + _0xeb6189;
+    }
+    ;
+    _0x42003d[_0x3449('0x3d', 'dwTK') + 'e'] = _0x3449('0x2a', 'UlUA') + _0x3449('0x3e', 'MJIb') + '\x20/';
+    _0x42003d[_0x3449('0x98', 'EJ@7') + 'J'] = _0x3449('0x87', 'WbrE') + _0x3449('0x2f', '%!oe') + _0x3449('0xd9', 'if[]') + _0x3449('0xa9', '0s&amp;B') + _0x3449('0x53', '4R&amp;)') + _0x3449('0xff', 'lac&amp;');
+    _0x42003d[_0x3449('0xc6', 'MH(H') + 'p'] = function(_0x230fbd, _0x42c12d) {
+        return _0x230fbd + _0x42c12d;
+    }
+    ;
+    _0x42003d[_0x3449('0x78', 'hue5') + 'F'] = _0x3449('0xf7', 'TAwE') + _0x3449('0xc3', 'c636') + _0x3449('0xf1', '0s&amp;B') + _0x3449('0x4c', '9HpK');
+    _0x42003d[_0x3449('0x1c', 'dXnw') + 'o'] = function(_0x45c2a9, _0x1dbd87) {
+        return _0x45c2a9 &gt;&gt; _0x1dbd87;
+    }
+    ;
+    _0x42003d[_0x3449('0x11a', '$6!c') + 'B'] = function(_0x36caf1, _0x14106) {
+        return _0x36caf1 + _0x14106;
+    }
+    ;
+    _0x42003d[_0x3449('0xf0', 'LeYc') + 'E'] = function(_0x502e3e, _0x33d995) {
+        return _0x502e3e * _0x33d995;
+    }
+    ;
+    _0x42003d[_0x3449('0x51', 'vEjL') + 'c'] = function(_0x1d1a70, _0x103ecb) {
+        return _0x1d1a70 - _0x103ecb;
+    }
+    ;
+    _0x42003d[_0x3449('0x1f', 'MR*f') + 'K'] = function(_0x48984b, _0x2601d4) {
+        return _0x48984b % _0x2601d4;
+    }
+    ;
+    _0x42003d[_0x3449('0x113', 'wURp') + 'I'] = function(_0x1a4518, _0x5bf98d) {
+        return _0x1a4518 - _0x5bf98d;
+    }
+    ;
+    _0x42003d[_0x3449('0x18', '%Q7T') + 't'] = function(_0x42f186, _0x468987) {
+        return _0x42f186 % _0x468987;
+    }
+    ;
+    _0x42003d[_0x3449('0x5b', 'Q3YJ') + 'B'] = function(_0x5a316a, _0x53f6bf, _0x2ae2df) {
+        return _0x5a316a(_0x53f6bf, _0x2ae2df);
+    }
+    ;
+    _0x42003d[_0x3449('0x7e', 'kwQO') + 'd'] = _0x3449('0x2b', '41u^') + 'u';
+    _0x42003d[_0x3449('0xdc', '*Y#0') + 'D'] = function(_0x42d194, _0x584d12) {
+        return _0x42d194 &gt; _0x584d12;
+    }
+    ;
+    _0x42003d[_0x3449('0x5f', '^9JG') + 'D'] = function(_0xbed589, _0x20c24a, _0x550441) {
+        return _0xbed589(_0x20c24a, _0x550441);
+    }
+    ;
+    var _0x51a9e6 = _0x42003d;
+    function _0x369f77() {
+        var _0xd8cd68 = window[_0x3449('0x3', 'LeYc') + _0x3449('0xe6', 'Thp^') + 'r'][_0x3449('0xbc', 'nf0v') + _0x3449('0x22', 'n5kp') + 't']
+          , _0x21958c = [_0x3449('0xb3', 'jzY2') + _0x3449('0x7', 'nf0v')];
+        for (var _0x2dd5b9 = 0x0; _0x51a9e6[_0x3449('0x6e', 'c636') + 'w'](_0x2dd5b9, _0x21958c[_0x3449('0xa7', 'MJIb') + 'th']); _0x2dd5b9++) {
+            if (_0x51a9e6[_0x3449('0x11f', 'MR*f') + 'G'](_0xd8cd68[_0x3449('0x99', 'mioP') + _0x3449('0xba', 'dwTK')](_0x21958c[_0x2dd5b9]), -0x1)) {
+                if (_0x51a9e6[_0x3449('0x123', 'UlUA') + 'F'] !== _0x3449('0x57', 'TAwE') + 'X') {
+                    utftext += String[_0x3449('0x0', 'bvhT') + _0x3449('0xbf', 'WbrE') + _0x3449('0xed', 'mioP')](_0x51a9e6[_0x3449('0xec', 'hue5') + 'Z'](_0x51a9e6[_0x3449('0x9c', '3Isw') + 'x'](c, 0xc), 0xe0));
+                    utftext += String[_0x3449('0x64', '$6!c') + _0x3449('0xa1', 'LbiK') + _0x3449('0xd8', 'Mxq4')](_0x51a9e6[_0x3449('0xee', 'abiX') + 'Z'](_0x51a9e6[_0x3449('0x83', 'Q3YJ') + 'h'](_0x51a9e6[_0x3449('0x9', '(Fdd') + 'E'](c, 0x6), 0x3f), 0x80));
+                    utftext += String[_0x3449('0x69', 'EJ@7') + _0x3449('0x12', 'EJ@7') + _0x3449('0x32', 'nf0v')](c &amp; 0x3f | 0x80);
+                } else {
+                    return !![];
+                }
+            }
+        }
+        if (window[_0x3449('0xc4', '$6!c') + _0x3449('0x7f', '(Fdd') + _0x3449('0x15', '0s&amp;B')] || window[_0x3449('0x28', 'TAwE') + _0x3449('0x103', 'wURp')] || window[_0x3449('0x80', 'LeYc') + _0x3449('0xa2', 'SyH)')] || window[_0x3449('0x23', 'bvhT') + _0x3449('0x11b', 'dwTK') + 'r'][_0x3449('0x11', 'Q3YJ') + _0x3449('0x116', 'dwTK') + 'r'] || window[_0x3449('0x86', '8rQq') + _0x3449('0x119', 'PkcW') + 'r'][_0x3449('0x126', '0s&amp;B') + _0x3449('0xd2', '41u^') + _0x3449('0x5a', '0s&amp;B') + _0x3449('0x117', 'wURp') + 'e'] || window[_0x3449('0xde', 'n5kp') + _0x3449('0xef', 'lac&amp;') + 'r'][_0x3449('0x56', '(Fdd') + _0x3449('0xb9', '41u^') + _0x3449('0xc7', '0s&amp;B') + _0x3449('0x11c', 'mioP') + _0x3449('0x2', 'Thp^')]) {
+            return !![];
+        }
+    }
+    ;if (_0x369f77()) {
+        return;
+    }
+    var _0x29f4c8 = new Date();
+    function _0x2a3a8a(_0x3b105a, _0x47a1a6) {
+        var _0x5f4cdb = _0x342ef8[_0x3449('0x67', '4R&amp;)') + 's'][_0x3449('0x93', 'h@xU') + 'th'];
+        for (var _0x146242 = 0x0; _0x146242 &lt; _0x5f4cdb; _0x146242++) {
+            for (var _0x4286e7 = 0x0; _0x51a9e6[_0x3449('0xcf', 'ijUh') + 'w'](_0x4286e7, _0x5f4cdb); _0x4286e7++) {
+                var _0x8ed897 = _0x51a9e6[_0x3449('0x12b', 'Qqtg') + 'X'](_0x47a1a6[0x0] + _0x342ef8[_0x3449('0x102', 'Vem%') + 's'][_0x3449('0xaa', 'Qqtg') + 'tr'](_0x146242, 0x1) + _0x342ef8[_0x3449('0x70', '41u^') + 's'][_0x3449('0x88', '%Q7T') + 'tr'](_0x4286e7, 0x1), _0x47a1a6[0x1]);
+                if (_0x51a9e6[_0x3449('0x71', 'nf0v') + 's'](hash, _0x8ed897) == _0x3b105a) {
+                    return [_0x8ed897, new Date() - _0x29f4c8];
+                }
+            }
+        }
+    }
+    ;var _0x468804 = _0x51a9e6[_0x3449('0x45', 'EJ@7') + 'B'](_0x2a3a8a, _0x342ef8['ct'], _0x342ef8[_0x3449('0xac', 'PkcW')]);
+    if (_0x468804) {
+        if (_0x3449('0xbe', 'MH(H') + 'u' === _0x51a9e6[_0x3449('0x6b', 'abHc') + 'd']) {
+            var _0x873293;
+            if (_0x342ef8['wt']) {
+                _0x873293 = _0x51a9e6[_0x3449('0x106', 'Thp^') + 'D'](parseInt(_0x342ef8['wt']), _0x468804[0x1]) ? _0x51a9e6[_0x3449('0x59', '41u^') + 's'](parseInt, _0x342ef8['wt']) - _0x468804[0x1] : 0x1f4;
+            } else {
+                _0x873293 = 0x5dc;
+            }
+            _0x51a9e6[_0x3449('0x52', 'u7a@') + 'D'](setTimeout, function() {
+                var _0x3682be = _0x51a9e6[_0x3449('0xc0', '3Isw') + 'S'](_0x51a9e6[_0x3449('0xe7', '^9JG') + 'l'](_0x342ef8['tn'] + '=' + _0x468804[0x0] + (_0x3449('0x68', 'mioP') + _0x3449('0xbb', 'dwTK') + '='), _0x342ef8['vt']), _0x51a9e6[_0x3449('0xc5', 'Thp^') + 'e']);
+                if (_0x342ef8['is']) {
+                    _0x3682be = _0x51a9e6[_0x3449('0xb', 'UlUA') + 'l'](_0x3682be, _0x51a9e6[_0x3449('0x31', 'abiX') + 'J']);
+                }
+                document[_0x3449('0xab', 'mioP') + 'ie'] = _0x3682be;
+                location[_0x3449('0xd0', 'PkcW')] = _0x51a9e6[_0x3449('0x4d', '0s&amp;B') + 'p'](location[_0x3449('0x125', '8rQq') + _0x3449('0x37', 'hue5')], location[_0x3449('0x24', 'Mxq4') + 'ch']);
+            }, _0x873293);
+        } else {
+            var _0x4218ab = hexcase ? _0x3449('0xeb', '%!oe') + _0x3449('0xb0', 'Thp^') + _0x3449('0x4f', 'dXnw') + _0x3449('0x9b', 'abHc') : _0x51a9e6[_0x3449('0x11e', 'u7a@') + 'F'];
+            var _0x283fe2 = '';
+            for (var _0x66ae7c = 0x0; _0x66ae7c &lt; binarray[_0x3449('0x92', '41u^') + 'th'] * 0x4; _0x66ae7c++) {
+                _0x283fe2 += _0x51a9e6[_0x3449('0x44', 'MR*f') + 'p'](_0x4218ab[_0x3449('0x81', 'vEjL') + 'At'](_0x51a9e6[_0x3449('0xe4', 'EJ@7') + 'E'](binarray[_0x51a9e6[_0x3449('0x8a', 'dwTK') + 'o'](_0x66ae7c, 0x2)], _0x51a9e6[_0x3449('0x8c', 'PkcW') + 'B'](_0x51a9e6[_0x3449('0xcc', 'mioP') + 'E'](_0x51a9e6[_0x3449('0x3b', 'hue5') + 'c'](0x3, _0x51a9e6[_0x3449('0xa0', '*Y#0') + 'K'](_0x66ae7c, 0x4)), 0x8), 0x4)) &amp; 0xf), _0x4218ab[_0x3449('0xda', 'bvhT') + 'At'](binarray[_0x66ae7c &gt;&gt; 0x2] &gt;&gt; _0x51a9e6[_0x3449('0x35', 'h@xU') + 'I'](0x3, _0x51a9e6[_0x3449('0x109', 'c636') + 't'](_0x66ae7c, 0x4)) * 0x8 &amp; 0xf));
+            }
+            return _0x283fe2;
+        }
+    } else {
+        alert(_0x3449('0x16', 'kwQO') + '失败');
+    }
+}
+;go({
+    &quot;bts&quot;: [&quot;1749385222.991|0|tzS&quot;, &quot;%2BPdcCKfj02GnbxXP3ANAWo%3D&quot;],
+    &quot;chars&quot;: &quot;MlPxEmMElLQxMJIIrdqxuY&quot;,
+    &quot;ct&quot;: &quot;9d692417b9d3e7a54e00c8be48b13ecf74b6c9f44d8991e7f60ed590909d7958&quot;,
+    &quot;ha&quot;: &quot;sha256&quot;,
+    &quot;is&quot;: true,
+    &quot;tn&quot;: &quot;__jsl_clearance_s&quot;,
+    &quot;vt&quot;: &quot;3600&quot;,
+    &quot;wt&quot;: &quot;1500&quot;
+})
+
+</code></pre>
+<h3 id="pathscope">Path和scope</h3>
+<p>在 Babel 中，<code>path</code> 和 <code>scope</code> 是操作 AST（抽象语法树）的两个重要模块，尤其是在编写 Babel 插件时常会用到。它们帮助开发者更加高效地遍历、分析和修改 AST 节点。以下是相关内容的总结以及 <code>path</code> 的 API。</p>
+<hr />
+<h3 id="1babel-path-scope">1、Babel 中的 <code>path</code> 和 <code>scope</code> 简介</h3>
+<h4 id="path"><strong>Path</strong></h4>
+<p><code>Path</code> 是 Babel 的核心概念之一，它表示 AST 上的某个具体节点的位置和上下文，你可以认为它是操作 AST 节点的工具。通过 <code>path</code>，你可以：</p>
+<ul>
+<li>获取和修改某个 AST 节点本身。</li>
+<li>同步导航到其他的节点（如父节点、子节点等）。</li>
+<li>检查节点的类型。</li>
+<li>替换节点、插入节点、移除节点等。</li>
+</ul>
+<h4 id="scope"><strong>Scope</strong></h4>
+<p><code>Scope</code> 是在 AST 上追踪变量作用域的工具。它可以帮助你理解：</p>
+<ul>
+<li>一个变量声明或标识符的作用范围。</li>
+<li>变量是否被引用。</li>
+<li>两个不同作用域之间的关系（例如父作用域和子作用域）。</li>
+</ul>
+<p>通过 <code>scope</code>，你可以在 AST 层面检查和修改代码的范围和引用关系。</p>
+<hr />
+<h3 id="2babel-path-api">2、Babel Path 的常见 API</h3>
+<p><code>path</code> 提供了许多方法和属性，用来操作和分析 AST 节点。以下是一些最常见的 API：</p>
+<h4 id="_4"><strong>获取和修改节点</strong></h4>
+<ul>
+<li><code>path.node</code>: 获取当前路径所指向的 AST 节点对象。</li>
+<li><code>path.replaceWith(newNode)</code>: 替换当前路径的节点。</li>
+<li><code>path.replaceWithMultiple([node1, node2, ...])</code>: 替换当前节点并插入多个节点。</li>
+<li><code>path.insertBefore(newNode)</code>: 在当前路径的节点之前插入新节点。</li>
+<li><code>path.insertAfter(newNode)</code>: 在当前路径的节点之后插入新节点。</li>
+<li><code>path.remove()</code>: 移除当前节点。</li>
+</ul>
+<h4 id="_5"><strong>导航节点</strong></h4>
+<ul>
+<li><code>path.parent</code>: 获取父路径对象。</li>
+<li><code>path.parentPath</code>: 获取父的路径。</li>
+<li><code>path.getSibling(index)</code>: 获取兄弟节点的路径。</li>
+<li><code>path.get(key)</code>: 获取特定字段的子节点路径（如 <code>body</code>、<code>arguments</code> 等）。</li>
+</ul>
+<h4 id="_6"><strong>校验节点类型</strong></h4>
+<ul>
+<li><code>path.isIdentifier()</code>: 判断当前路径的节点是否是 <code>Identifier</code> 类型。</li>
+<li><code>path.isLiteral()</code>: 判断是否为字面量节点。</li>
+<li><code>path.isMemberExpression()</code>: 判断是否为成员表达式。</li>
+<li>更多可见：<a href="https://babeljs.io/docs/babel-types#isnode">Babel 节点类型校验</a></li>
+</ul>
+<h4 id="_7"><strong>路径的上下文和信息</strong></h4>
+<ul>
+<li><code>path.scope</code>: 获取 AST 中的变量作用域。</li>
+<li><code>path.hub</code>: 用于访问插件和编译过程中的上下文信息。</li>
+<li><code>path.type</code>: 当前路径节点的类型（如 <code>Identifier</code>、<code>Literal</code> 等）。</li>
+</ul>
+<h4 id="_8"><strong>作用于节点的操作</strong></h4>
+<ul>
+<li><code>path.traverse(visitor)</code>: 遍历当前路径的节点以及子节点。</li>
+<li><code>path.findParent(callback)</code>: 查找满足条件的父路径。</li>
+<li><code>path.find(callback)</code>: 从当前路径向上查找满足条件的路径。</li>
+<li><code>path.inType(...)</code>: 判断当前路径是否在指定的父级类型路径中。</li>
+</ul>
+<hr />
+<h3 id="3babel-scope-api">3、Babel Scope 的常见 API</h3>
+<p><code>Scope</code> 和变量的声明、引用、绑定有关。以下列出一些常用方法：</p>
+<ul>
+<li><code>scope.hasBinding(name)</code>: 检查当前作用域是否绑定了某个特定名字的变量。</li>
+<li><code>scope.getBinding(name)</code>: 获取绑定变量的信息，返回 <code>Binding</code> 对象。</li>
+<li><code>scope.rename(oldName, newName)</code>: 在当前范围及子作用域中，对变量进行重命名。</li>
+<li><code>scope.generateUidIdentifier(baseName)</code>: 在当前作用域生成唯一的标识符。</li>
+<li><code>scope.generateUid(baseName)</code>: 生成唯一字符串以确保名称不冲突。</li>
+</ul>
+<p><strong>常见用途</strong>：
+- 避免变量命名冲突。
+- 查找特定标识符绑定的位置。
+- 修改绑定引用。</p>
+<hr />
+<h3 id="4-babel-path-scope">4、示例：简单 Babel 插件使用 <code>path</code> 和 <code>scope</code></h3>
+<p>以下是一个简单的例子，用于将所有的 <code>console.log</code> 替换成 <code>console.error</code>：</p>
+<pre><code class="language-javascript">module.exports = function ({ types: t }) {
+  return {
+    visitor: {
+      CallExpression(path) {
+        // 判断是否是 console.log
+        const callee = path.get(&quot;callee&quot;);
+        if (
+          callee.isMemberExpression() &amp;&amp;
+          callee.get(&quot;object&quot;).isIdentifier({ name: &quot;console&quot; }) &amp;&amp;
+          callee.get(&quot;property&quot;).isIdentifier({ name: &quot;log&quot; })
+        ) {
+          // 替换为 console.error
+          callee.get(&quot;property&quot;).replaceWith(t.identifier(&quot;error&quot;));
+        }
+      },
+    },
+  };
+};
+</code></pre>
+<hr />
+<h3 id="5">5、深入学习的资源</h3>
+<p>以下是一些推荐阅读的资料：</p>
+<ol>
+<li><strong>官方文档</strong></li>
+<li>Babel 插件手册：https://babeljs.io/docs/en/plugins</li>
+<li>Babel Types：https://babeljs.io/docs/en/babel-types</li>
+<li>AST Explorer（用于查看 AST）：https://astexplorer.net/</li>
+<li><strong>Path 和 Scope 相关教程</strong></li>
+<li><a href="https://github.com/jamiebuilds/babel-handbook">babel-handbook - 插件开发</a></li>
+<li>Babel Scope &amp; Path 解读：https://babel.dev/docs/en/scopes-paths/</li>
+</ol>
+<hr />
+<h3 id="6_1">6、总结</h3>
+<p>理解 <code>path</code> 和 <code>scope</code> 是高效操作 AST 的关键。在 Babel 插件开发中，<code>path</code> 用于访问和修改某个具体节点，而 <code>scope</code> 则是分析和操控作用域的重要工具。通过实践和阅读文档，相信你能掌握这些强大的工具！</p>
+<h2 id="scope_1">Scope</h2>
+<p>在 Babel 中，作用域（<code>Scope</code>）是一个非常关键的概念，用来跟踪变量和它们的绑定关系。Scope 提供了 <code>bindings</code> 属性，它是一个对象，存储了与当前作用域相关的所有绑定（变量）。每一个绑定对象（<code>Binding</code>）存储了与该变量相关的详细信息和方法，可以帮助你检查和操作变量的绑定。</p>
+<h3 id="1scope-bindings">1、Scope 的 Bindings 概念</h3>
+<ul>
+<li>
+<p><strong>何为 Binding</strong>：
+  <code>Binding</code> 是 Babel 用来存储变量信息的对象。每个绑定对象对应一个变量声明，并且记录该变量的作用域、引用、声明位置等详细信息。</p>
+</li>
+<li>
+<p><strong>Scope.bindings</strong>：
+  Scope 的 <code>bindings</code> 属性是一个对象，键是变量名（字符串），值是对应的 <code>Binding</code> 对象。例如：</p>
+</li>
+</ul>
+<p><code>javascript
+  scope.bindings = {
+    myVariable: Binding {
+      identifier: &lt;Node&gt;,
+      scope: &lt;Scope&gt;,
+      path: &lt;NodePath&gt;,
+      referenced: true,
+      references: 3,
+      constant: false,
+      constantViolations: [&lt;paths&gt;],
+    }
+  };</code></p>
+<hr />
+<h3 id="2binding">2、Binding 对象中的属性和方法</h3>
+<p>以下是 <code>Binding</code> 对象的常见属性和方法，帮助我们分析和操作变量相关的信息：</p>
+<h4 id="_9"><strong>属性</strong></h4>
+<ol>
+<li><strong><code>identifier</code></strong></li>
+<li>当前绑定的标识符（即 <code>Identifier</code> 节点）。</li>
+<li>
+<p>节点代表变量的名称，如：
+     <code>javascript
+     let x = 10;
+     // x 就是 identifier</code></p>
+</li>
+<li>
+<p>示例：
+     <code>javascript
+     const binding = scope.getBinding('myVariable');
+     console.log(binding.identifier); // &lt;Node: Identifier 'myVariable'&gt;</code></p>
+</li>
+<li>
+<p><strong><code>scope</code></strong></p>
+</li>
+<li>
+<p>记录当前变量绑定所在的作用域（<code>Scope</code> 对象）。</p>
+</li>
+<li>
+<p>示例：如果当前变量是全局变量，则 <code>scope</code> 是当前文件的顶级作用域。</p>
+</li>
+<li>
+<p><strong><code>path</code></strong></p>
+</li>
+<li>变量声明的 <code>NodePath</code> 对象。</li>
+<li>
+<p>可以通过它直接操作变量的声明节点。例如，如果变量是 <code>FunctionDeclaration</code> 或 <code>VariableDeclarator</code>，<code>path</code> 会指向具体的声明路径。</p>
+</li>
+<li>
+<p><strong><code>referenced</code></strong></p>
+</li>
+<li>一个布尔值，表示该变量是否在代码中被引用。</li>
+<li>
+<p>如果变量声明了但未使用，则 <code>referenced</code> 是 <code>false</code>。</p>
+</li>
+<li>
+<p><strong><code>references</code></strong></p>
+</li>
+<li>
+<p>一个数字，表示该变量在代码中被引用的次数。</p>
+</li>
+<li>
+<p><strong><code>constant</code></strong></p>
+</li>
+<li>一个布尔值，表示该变量是否为常量（值不可能改变）。</li>
+<li>
+<p>示例：对于 <code>const</code> 声明的变量，<code>constant</code> 为 <code>true</code>；对于 <code>let</code> 或 <code>var</code>，如果值可能随代码改变，则为 <code>false</code>。</p>
+</li>
+<li>
+<p><strong><code>constantViolations</code></strong></p>
+</li>
+<li>一个数组，包含所有对当前变量的“值改变”路径。</li>
+<li>
+<p>当某个变量是常量但试图修改它的值时，会记录这些违规路径。例如：</p>
+<p><code>javascript
+ const x = 5;
+ x = 10; // 引发常量违规</code></p>
+</li>
+<li>
+<p><strong><code>kind</code></strong></p>
+</li>
+<li>声明类型的字符串（<code>var</code>、<code>let</code>、<code>const</code>）。</li>
+<li>示例：
+     <code>javascript
+     const binding = scope.getBinding('myVariable');
+     console.log(binding.kind); // 输出 "const"</code></li>
+</ol>
+<h4 id="_10"><strong>方法</strong></h4>
+<ol>
+<li><strong><code>binding.referencePaths</code></strong></li>
+<li>一个数组，包含所有引用该变量的 <code>NodePath</code> 对象。</li>
+<li>
+<p>可以用来定位变量被使用的位置，并操作这些引用。例如，查看变量在函数调用中的使用：
+     <code>javascript
+     binding.referencePaths.forEach(path =&gt; {
+       console.log(path.node); // 输出引用 `myVariable` 的节点
+     });</code></p>
+</li>
+<li>
+<p><strong><code>binding.constantViolations</code></strong></p>
+</li>
+<li>
+<p>提供所有“修改常量值”的路径（和 <code>constantViolations</code> 属性一致）。</p>
+</li>
+<li>
+<p><strong><code>binding.referencedPaths</code></strong></p>
+</li>
+<li>返回被引用的路径的详细信息（类似于 <code>referencePaths</code>）。</li>
+</ol>
+<hr />
+<h3 id="3-scope-bindings">3、使用案例 —— 操作 Scope 的 Bindings</h3>
+<p>一个常见例子是从作用域中找到绑定变量，检查引用情况，或者修改声明和引用。例如：</p>
+<h4 id="1_3"><strong>例 1：检查未使用的变量</strong></h4>
+<p>我们可以通过 <code>scope.bindings</code> 遍历作用域中的绑定，并移除未使用的变量：</p>
+<pre><code class="language-javascript">module.exports = function ({ types: t }) {
+  return {
+    visitor: {
+      BlockStatement(path) {
+        const scope = path.scope;
+
+        // 遍历当前作用域的绑定
+        Object.keys(scope.bindings).forEach((bindingName) =&gt; {
+          const binding = scope.getBinding(bindingName);
+
+          // 如果变量未被引用（即声明了但没使用），我们移除它
+          if (!binding.referenced) {
+            binding.path.remove();
+          }
+        });
+      },
+    },
+  };
+};
+</code></pre>
+<h4 id="2_4"><strong>例 2：重命名变量</strong></h4>
+<p>通过 <code>scope.getBinding</code> 拿到某变量的绑定，并重命名它：</p>
+<pre><code class="language-javascript">module.exports = function ({ types: t }) {
+  return {
+    visitor: {
+      Identifier(path) {
+        const scope = path.scope;
+
+        // 检查当前 scope 是否有绑定
+        const binding = scope.getBinding(path.node.name);
+        if (binding) {
+          // 重命名绑定变量
+          scope.rename(path.node.name, &quot;newName&quot;);
+        }
+      },
+    },
+  };
+};
+</code></pre>
+<h4 id="3_2"><strong>例 3：发现常量值违规</strong></h4>
+<p>查找并打印试图修改常量的所有路径：</p>
+<pre><code class="language-javascript">module.exports = function ({ types: t }) {
+  return {
+    visitor: {
+      Program(path) {
+        const scope = path.scope;
+
+        // 遍历当前作用域的绑定
+        Object.keys(scope.bindings).forEach((bindingName) =&gt; {
+          const binding = scope.getBinding(bindingName);
+
+          // 如果是常量并且有违规修改记录
+          if (binding.constant &amp;&amp; binding.constantViolations.length &gt; 0) {
+            console.log(`常量 ${bindingName} 被非法修改`);
+            console.log(binding.constantViolations); // 输出修改路径
+          }
+        });
+      },
+    },
+  };
+};
+</code></pre>
+<hr />
+<h3 id="4_1">4、总结</h3>
+<p>Scope 的 <code>bindings</code> 属性为我们提供了非常多的信息，<code>Binding</code> 对象不仅包含变量声明的节点，还包含如何引用、被引用次数等内容。通过这些 API，我们可以对变量的作用域和引用关系做详细检查。</p>
+<p>常用的属性和方法包括：
+- <code>identifier</code>: 标识符节点。
+- <code>scope</code>: 当前绑定的作用域。
+- <code>path</code>: 声明路径。
+- <code>referenced</code>: 是否被引用。
+- <code>references</code>: 被引用次数。
+- <code>constant</code>: 是否为常量。
+- <code>constantViolations</code>: 常量违规情况。
+- <code>referencePaths</code>: 引用路径。</p>
+<p>通过这些 API，你可以完成非常丰富的插件功能，比如代码优化、变量重命名、未使用变量移除等。建议结合 <a href="https://babeljs.io/docs/en/babel-types">官方文档</a> 和 <a href="https://astexplorer.net/">AST Explorer</a> 进行实践学习。</p>
+<h2 id="binding">Binding</h2>
+<p>Binding案例</p>
+<p>在 Babel 中，将代码解析为 AST 并检查其中的绑定（<code>Binding</code>）是一个非常重要的步骤。通过作用域（<code>Scope</code>）中的 <code>bindings</code> 属性，我们可以访问当前作用域的绑定变量以及相关信息。</p>
+<p>以下是一个完整的实例，包括如何将代码解析为 AST、访问作用域中的绑定，以及使用 <code>Binding</code> 的关键 API。</p>
+<hr />
+<h3 id="1ast">1、AST 的解析和绑定检查</h3>
+<p>假设我们有以下代码，并想从中获取变量绑定信息：</p>
+<pre><code class="language-javascript">const x = 10;
+let y = 20;
+function foo() {
+  const z = 30;
+  console.log(x + y + z);
+}
+</code></pre>
+<p>目标：
+- 找到作用域中的绑定（例如 <code>x</code>, <code>y</code>, <code>z</code>）。
+- 查看这些变量的信息，比如引用次数、类型，以及是否被修改。</p>
+<p>以下是代码：</p>
+<pre><code class="language-javascript">const babelParser = require('@babel/parser');
+const traverse = require(&quot;@babel/traverse&quot;).default;
+
+// 解析代码成 AST
+const code = `
+const x = 10;
+let y = 20;
+function foo() {
+  const z = 30;
+  console.log(x + y + z);
+}
+`;
+
+const ast = babelParser.parse(code, {
+  sourceType: &quot;module&quot;, // 解析 ES 模块
+});
+
+// 访问 AST 节点并检查作用域绑定
+traverse(ast, {
+  FunctionDeclaration(path) {
+    // 获取当前函数的作用域
+    const scope = path.scope;
+
+    console.log(`作用域中的绑定变量:`);
+    Object.keys(scope.bindings).forEach((bindingName) =&gt; {
+      const binding = scope.getBinding(bindingName);
+
+      // 输出变量的绑定信息
+      console.log(`变量名: ${bindingName}`);
+      console.log(`是否被引用: ${binding.referenced}`);
+      console.log(`引用次数: ${binding.references}`);
+      console.log(`声明类型: ${binding.kind}`);
+      console.log(`是否为常量: ${binding.constant}`);
+      console.log(`常量违规修改路径:`, binding.constantViolations);
+    });
+  },
+});
+</code></pre>
+<p>运行后输出结果如下：</p>
+<pre><code class="language-plaintext">作用域中的绑定变量:
+变量名: z
+是否被引用: true
+引用次数: 1
+声明类型: const
+是否为常量: true
+常量违规修改路径: []
+</code></pre>
+<hr />
+<h3 id="2_5">2、代码分解与解释</h3>
+<h4 id="_11"><strong>代码解析</strong></h4>
+<p><code>babelParser.parse(code)</code> 将代码解析为 AST。<code>sourceType: "module"</code> 表示我们正在解析 ES 模块，如果你的代码是普通脚本，可以使用 <code>"script"</code>。</p>
+<h4 id="_12"><strong>节点遍历</strong></h4>
+<p><code>traverse(ast, visitor)</code> 是 Babel 的工具，用来对 AST 节点进行遍历。我们在这里使用了 <code>FunctionDeclaration</code> 的 visitor 来捕捉函数的声明节点。</p>
+<h4 id="_13"><strong>获取作用域</strong></h4>
+<p>在 Babel 中，作用域信息通过 <code>path.scope</code> 提供。一个作用域包含了当前节点（如函数、块级作用域等）下的所有绑定。</p>
+<h4 id="_14"><strong>绑定信息</strong></h4>
+<p>通过 <code>scope.bindings</code> 获取到当前作用域内的所有绑定变量。这是一个以变量名为键的对象，键值为对应的 <code>Binding</code> 对象。</p>
+<h4 id="binding_1"><strong>Binding 详情</strong></h4>
+<p>绑定的详细信息包括：
+- <code>bindingName</code>: 绑定的变量名称（如 <code>z</code>）。
+- <code>referenced</code>: 变量是否被代码引用（布尔值）。
+- <code>references</code>: 变量的引用次数。
+- <code>kind</code>: 声明类型（例如 <code>const</code>、<code>let</code>、<code>var</code>）。
+- <code>constant</code>: 变量是否为常量（<code>const</code> 通常为 <code>true</code>）。
+- <code>constantViolations</code>: 存在违规修改时，此属性会包含所有违规的路径。</p>
+<h4 id="_15"><strong>示例代码的作用域绑定关系</strong></h4>
+<p>具体到上述代码：
+- 顶层作用域中有 <code>x</code> 和 <code>y</code>：
+  - <code>x</code>: 声明类型为 <code>const</code>，被 <code>foo</code> 函数引用。
+  - <code>y</code>: 声明类型为 <code>let</code>，同样被 <code>foo</code> 引用。
+- 函数作用域中有 <code>z</code>：
+  - <code>z</code>: 声明类型为 <code>const</code>，且只在函数内部被引用。</p>
+<hr />
+<h3 id="3-binding-api">3、如何使用 Binding API</h3>
+<p>以下是常见的 <code>Binding</code> API 用法：</p>
+<h4 id="_16"><strong>检查未使用的变量</strong></h4>
+<p>移除未使用的变量：</p>
+<pre><code class="language-javascript">traverse(ast, {
+  Program(path) {
+    const scope = path.scope;
+
+    Object.keys(scope.bindings).forEach((bindingName) =&gt; {
+      const binding = scope.getBinding(bindingName);
+
+      if (!binding.referenced) {
+        // 移除绑定的声明
+        binding.path.remove();
+        console.log(`移除了未使用的变量: ${bindingName}`);
+      }
+    });
+  },
+});
+</code></pre>
+<h4 id="_17"><strong>定位引用路径</strong></h4>
+<p>输出变量引用的位置：</p>
+<pre><code class="language-javascript">traverse(ast, {
+  FunctionDeclaration(path) {
+    const scope = path.scope;
+    const binding = scope.getBinding(&quot;z&quot;); // 获取 z 的绑定
+
+    if (binding &amp;&amp; binding.referenced) {
+      binding.referencePaths.forEach((referencePath) =&gt; {
+        console.log(`引用位置:`, referencePath.node.loc);
+      });
+    }
+  },
+});
+</code></pre>
+<hr />
+<h3 id="4_2">4、输出顶层作用域绑定</h3>
+<p>如果你需要检查整个程序的顶层作用域，你可以在 <code>Program</code> 节点访问 <code>scope</code>：</p>
+<pre><code class="language-javascript">traverse(ast, {
+  Program(path) {
+    const scope = path.scope; // 顶层作用域
+
+    console.log(`顶层作用域中的绑定变量:`);
+    Object.keys(scope.bindings).forEach((bindingName) =&gt; {
+      const binding = scope.getBinding(bindingName);
+
+      console.log(`变量名: ${bindingName}`);
+      console.log(`引用次数: ${binding.references}`);
+    });
+  },
+});
+</code></pre>
+<p>输出结果会包括 <code>x</code> 和 <code>y</code> 的绑定信息。</p>
+<hr />
+<h3 id="5ast-explorer">5、AST Explorer 工具</h3>
+<p>如果你想交互式地查看代码解析成的 AST，可以使用 <a href="https://astexplorer.net/">AST Explorer</a> 工具：
+1. 打开 AST Explorer。
+2. 选择「JavaScript」作为语言。
+3. 选择 Babel 作为解析器。
+4. 输入你的代码，并实时查看 AST 结构。</p>
+<hr />
+<h3 id="6_2">6、总结</h3>
+<ol>
+<li><strong>解析 AST</strong>：用 <code>@babel/parser</code> 将代码转换为 AST。</li>
+<li><strong>遍历 AST</strong>：用 <code>traverse()</code> 遍历节点。</li>
+<li><strong>作用域和绑定</strong>：通过 <code>scope.bindings</code> 访问绑定信息，并使用 <code>Binding</code> 的属性和方法进行交互，例如 <code>referenced</code>、<code>constantViolations</code> 等。</li>
+<li><strong>应用场景</strong>：可以用来优化代码、警告未使用变量、标记引用等。</li>
+</ol>
+<p>建议结合 AST Explorer 实际操作，能更直观地理解 AST 和绑定的关系。</p>
+<h2 id="_18">祖先节点</h2>
+<p>在 Babel 中，<code>VariableDeclaration</code> 和 <code>VariableDeclarator</code> 是两个不同的节点类型，并且存在祖先与子节点的关系。<code>VariableDeclaration</code> 表示变量声明语句的整体——比如 <code>let x = 10</code> 或 <code>const y = 20</code>，而 <code>VariableDeclarator</code> 则表示具体的变量声明，通常是 <code>x = 10</code> 或 <code>y = 20</code> 一部分。</p>
+<p>通过 Babel 的 <code>NodePath</code> 操作工具，我们可以访问节点的祖先（<code>ancestors</code>）以及分析节点之间的结构关系。</p>
+<hr />
+<h3 id="1_4">1、新代码例子</h3>
+<p>考虑以下代码，我们希望解析并分析其 AST：</p>
+<pre><code class="language-javascript">let x = 10;
+const y = 20;
+function foo() {
+  let z = 30;
+}
+</code></pre>
+<p>解析这个代码时：
+- <code>VariableDeclaration</code> 会是 <code>let x = 10;</code> 或 <code>const y = 20;</code> 的顶层声明节点。
+- <code>VariableDeclarator</code> 会是单个变量的声明部分，比如 <code>x = 10</code> 或 <code>y = 20</code> 的组成部分。</p>
+<p>我们将在代码中检查每一个 <code>VariableDeclarator</code> 节点，并获取它的 <code>VariableDeclaration</code> 祖先节点，以及其他更高一级的祖先节点（如 <code>Program</code> 或 <code>FunctionDeclaration</code>）。</p>
+<hr />
+<h3 id="2_6">2、代码实现：获取祖先节点</h3>
+<p>以下是实现代码：</p>
+<pre><code class="language-javascript">const babelParser = require('@babel/parser');
+const traverse = require('@babel/traverse').default;
+
+// 待解析的代码
+const code = `
+let x = 10;
+const y = 20;
+function foo() {
+  let z = 30;
+}
+`;
+
+// 解析代码到 AST
+const ast = babelParser.parse(code, {
+  sourceType: &quot;module&quot;, // 解析代码作为 ES 模块
+});
+
+// 遍历 AST 节点
+traverse(ast, {
+  VariableDeclarator(path) {
+    // 分析当前的 VariableDeclarator 节点
+    console.log(`当前节点 VariableDeclarator: ${path.node.id.name}`);
+
+    // 获取最近一级祖先（Parent）
+    const parent = path.parent;
+    console.log(`最近一级祖先是 VariableDeclaration:`, parent.type);
+
+    // 获取整个祖先链
+    const ancestors = [];
+    let tempPath = path.parentPath; // 从父节点开始追溯到顶级节点
+    while (tempPath) {
+      ancestors.push(tempPath.node.type);
+      tempPath = tempPath.parentPath; // 向上递归
+    }
+    console.log(`完整的祖先链:`, ancestors.join(&quot; -&gt; &quot;));
+  },
+});
+</code></pre>
+<hr />
+<h3 id="3_3">3、结果解析</h3>
+<p>运行上述代码后会输出如下信息：</p>
+<pre><code>当前节点 VariableDeclarator: x
+最近一级祖先是 VariableDeclaration: VariableDeclaration
+完整的祖先链: VariableDeclaration -&gt; Program
+
+当前节点 VariableDeclarator: y
+最近一级祖先是 VariableDeclaration: VariableDeclaration
+完整的祖先链: VariableDeclaration -&gt; Program
+
+当前节点 VariableDeclarator: z
+最近一级祖先是 VariableDeclaration: VariableDeclaration
+完整的祖先链: VariableDeclaration -&gt; BlockStatement -&gt; FunctionDeclaration -&gt; Program
+</code></pre>
+<hr />
+<h3 id="4_3">4、代码分析</h3>
+<h4 id="1-nodepath-parent-parentpath"><strong>(1) <code>NodePath</code> 的 <code>parent</code> 和 <code>parentPath</code></strong></h4>
+<p>每个节点都有 <code>parent</code> 和 <code>parentPath</code> 属性，可直接访问当前节点的父节点数据：
+- <code>parent</code> 是父节点的 AST 对象。
+- <code>parentPath</code> 是父节点的路径，包含更多操作方法。</p>
+<p>在代码中，我们通过 <code>path.parent.type</code> 获取了最近一级祖先的节点类型（通常是 <code>VariableDeclaration</code>）。</p>
+<h4 id="2_7"><strong>(2) 递归查询所有祖先节点</strong></h4>
+<p>通过 <code>parentPath</code>，我们不断向上追溯直到顶级的 <code>Program</code> 节点。这可以帮助我们理解每级的嵌套结构：
+- 如果节点属于顶层，它的祖先链是 <code>VariableDeclaration -&gt; Program</code>。
+- 如果节点在函数作用域内，它的祖先链包括 <code>FunctionDeclaration</code>。</p>
+<p>这显示了每个节点的类型以及它在 AST 树中的位置。</p>
+<h4 id="3variabledeclaration-variabledeclarator"><strong>(3)<code>VariableDeclaration</code> 与 <code>VariableDeclarator</code> 的关系</strong></h4>
+<p>在 AST 中，<code>VariableDeclaration</code> 是声明语句的整体节点，包含一个 <code>declarations</code> 数组，里面存储了多个 <code>VariableDeclarator</code>。例如：</p>
+<pre><code class="language-javascript">const x = 10, y = 20;
+</code></pre>
+<p>对应的 AST 结构如下：</p>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;VariableDeclaration&quot;,
+  &quot;declarations&quot;: [
+    {
+      &quot;type&quot;: &quot;VariableDeclarator&quot;,
+      &quot;id&quot;: { &quot;type&quot;: &quot;Identifier&quot;, &quot;name&quot;: &quot;x&quot; },
+      &quot;init&quot;: { &quot;type&quot;: &quot;NumericLiteral&quot;, &quot;value&quot;: 10 }
+    },
+    {
+      &quot;type&quot;: &quot;VariableDeclarator&quot;,
+      &quot;id&quot;: { &quot;type&quot;: &quot;Identifier&quot;, &quot;name&quot;: &quot;y&quot; },
+      &quot;init&quot;: { &quot;type&quot;: &quot;NumericLiteral&quot;, &quot;value&quot;: 20 }
+    }
+  ]
+}
+</code></pre>
+<p>在这个结构中：
+- <code>VariableDeclaration</code> 是祖先节点。
+- 每个 <code>VariableDeclarator</code> 都是子节点。</p>
+<hr />
+<h3 id="5_1">5、更复杂的案例</h3>
+<p>我们扩展上述代码，添加嵌套的结构，并再次分析 AST：</p>
+<pre><code class="language-javascript">const a = 1;
+function bar() {
+  let x = 2;
+  {
+    const y = 3;
+    let z = 4;
+  }
+}
+</code></pre>
+<p>如果运行相同的分析代码，祖先链会显示嵌套层级：</p>
+<pre><code>当前节点 VariableDeclarator: a
+最近一级祖先是 VariableDeclaration: VariableDeclaration
+完整的祖先链: VariableDeclaration -&gt; Program
+
+当前节点 VariableDeclarator: x
+最近一级祖先是 VariableDeclaration: VariableDeclaration
+完整的祖先链: VariableDeclaration -&gt; BlockStatement -&gt; FunctionDeclaration -&gt; Program
+
+当前节点 VariableDeclarator: y
+最近一级祖先是 VariableDeclaration: VariableDeclaration
+完整的祖先链: VariableDeclaration -&gt; BlockStatement -&gt; BlockStatement -&gt; FunctionDeclaration -&gt; Program
+
+当前节点 VariableDeclarator: z
+最近一级祖先是 VariableDeclaration: VariableDeclaration
+完整的祖先链: VariableDeclaration -&gt; BlockStatement -&gt; BlockStatement -&gt; FunctionDeclaration -&gt; Program
+</code></pre>
+<p>这里可以看到：
+- 顶层变量 <code>a</code> 的祖先链较短，因为它直接属于 <code>Program</code> 的子节点。
+- 嵌套作用域中的 <code>y</code> 和 <code>z</code> 的祖先链更深，反映了 <code>BlockStatement</code> 的嵌套层级。</p>
+<hr />
+<h3 id="5_2">5、总结</h3>
+<p>通过 <code>parent</code> 和 <code>parentPath</code>:
+- 我们可以轻松获取某个节点的直接父节点。
+- 如果需要完整的祖先链，可以通过递归 <code>parentPath</code> 向上查询，直到到达顶级节点（通常是 <code>Program</code>）。</p>
+<p>这些工具非常实用，尤其在处理嵌套代码结构（如块级作用域或函数嵌套）时。结合 AST Explorer 可以实时查看嵌套关系，辅助开发 Babel 插件或 AST 操作工具。</p>
+<p>相关工具和资源：
+- <a href="https://astexplorer.net/">AST Explorer</a> — 交互式 AST 浏览工具。
+- <a href="https://babeljs.io/docs/babel-types/">Babel Types 文档</a> — 节点类型参考。</p>
 
 
 </section>
