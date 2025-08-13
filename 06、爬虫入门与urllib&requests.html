@@ -44,8 +44,8 @@
 <a href="05%E3%80%81xpath.html">五、xpath</a>
 <li class="chapter active" data-path="06%E3%80%81%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E4%B8%8Eurllib%26requests.html">
 <a href="06%E3%80%81%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E4%B8%8Eurllib%26requests.html">六、爬虫入门</a>
-<li class="chapter" data-path="07%E3%80%81urllib%E4%B8%8Erequests.html">
-<a href="07%E3%80%81urllib%E4%B8%8Erequests.html">七、urllib与requests</a>
+<li class="chapter" data-path="07%E3%80%81%E8%AF%B7%E6%B1%82%E6%A8%A1%E5%9D%97%28urllib-requests-httpx%29.html">
+<a href="07%E3%80%81%E8%AF%B7%E6%B1%82%E6%A8%A1%E5%9D%97%28urllib-requests-httpx%29.html">七、网络请求模块</a>
 <li class="chapter" data-path="08%E3%80%81%E5%A4%9A%E8%BF%9B%E7%A8%8B.html">
 <a href="08%E3%80%81%E5%A4%9A%E8%BF%9B%E7%A8%8B.html">八、多进程</a>
 <li class="chapter" data-path="09%E3%80%81%E7%BA%BF%E7%A8%8B.html">
@@ -113,7 +113,7 @@
 <li class="chapter" data-path="35%E3%80%81AST.html">
 <a href="35%E3%80%81AST.html">Ast系列篇</a>
 <li class="chapter" data-path="36%E3%80%81Akamai%E5%88%9D%E7%BA%A7.html">
-<a href="36%E3%80%81Akamai%E5%88%9D%E7%BA%A7.html">了解akamai的执行过程</a>
+<a href="36%E3%80%81Akamai%E5%88%9D%E7%BA%A7.html">AKAMAI</a>
 <li class="chapter" data-path="37-%E4%BA%91%E7%89%87%E9%AA%8C%E8%AF%81%E7%A0%81.html">
 <a href="37-%E4%BA%91%E7%89%87%E9%AA%8C%E8%AF%81%E7%A0%81.html">1 云片滑块</a>
 <li class="chapter" data-path="38%E3%80%81%E5%85%B6%E5%AE%83%E6%A1%88%E4%BE%8B.html">
@@ -691,108 +691,6 @@ https://www.cnblogs.com/10158wsj/p/6762848.html</p>
 <p>503：服务器由于临时的服务器过载或者是维护，无法解决当前的请求，以上http状态码是服务器经常返回的状态代码，用户只能通过浏览器的状态了解服务器是否正常运行，一般除了错误的状态码，都不会看到服务器的状态码的，新SEOer你们了解到了吗？内容编辑来自51特色购SEO优化人员，想了解更过状态码的知识可以加我好友，一起相互交流学习</p>
 </li>
 </ul>
-<h2 id="_5">六、爬虫准备工作</h2>
-<h3 id="1-fiddler">1、 fiddler</h3>
-<p>一个网页的呈现，中间不止一次http请求，平均一个网页差不多10-15个http请求</p>
-<ul>
-<li>配置https</li>
-</ul>
-<p>点击Tools--&gt;options---&gt;https---&gt;选中面板下</p>
-<p>Capture Https CONNECTS</p>
-<p>Decrypt Https Traffic</p>
-<p>Ignore</p>
-<p>复选框后，将Fiddler重启即可</p>
-<ul>
-<li>
-<p>fiddler界面介绍</p>
-</li>
-<li>
-<p>Fiddler菜单栏</p>
-<p>包括捕获http请求，停止捕获请求，保存http请求，载入本地session、设置捕获规则等功能</p>
-</li>
-<li>
-<p>Fiddler的工具栏</p>
-<p>包括Fiddler针对当前view的操作（暂停，清除session,decode模式、清除缓存等）</p>
-</li>
-<li>
-<p>Web Session面板</p>
-<p>主要是Fiddler抓取到的每条http请求（每一条称为一个session）,主要包含了请求的url，协议，状态码，body等信息</p>
-</li>
-<li>
-<p>详情和数据统计板</p>
-<p>针对每条http请求的具体统计（例如发送/接受字节数，发送/接收时间，还有粗略统计世界各地访问该服务器所花费的时间）和数据包分析。如inspector面板下，提供headers、textview、hexview,Raw等多种方式查看单条http请求的请求报文的信息</p>
-<ul>
-<li>Inspector</li>
-</ul>
-<p>提供供headers、textview、hexview,Raw等多种方式查看单条http请求的请求报文的信息,分为上下两个部分，上半部分是请求头部分，下半部分是响应头部分。</p>
-<ul>
-<li>ImageView标签 </li>
-</ul>
-<p>JPG 格式使用 ImageView 就可以看到图片</p>
-<ul>
-<li>TextView 标签</li>
-</ul>
-<p>HTML/JS/CSS 使用 TextView 可以看到响应的内容。选择一条Content-Type是text/html的会话</p>
-<ul>
-<li>Raw标签</li>
-</ul>
-<p>Raw标签可以查看响应报文和响应正文,但是不包含请求报文</p>
-<ul>
-<li>Cookies标签</li>
-</ul>
-<p>Cookies标签可以看到请求的cookie和响应的set-cookie头信息。</p>
-<ul>
-<li>WebForms</li>
-</ul>
-<p>post请求所有表单数据</p>
-<ul>
-<li>Headers</li>
-</ul>
-<p>请求头和响应头信息</p>
-<ul>
-<li>Json\XML</li>
-</ul>
-<p>Json或XML格式的数据</p>
-<ul>
-<li>Statistics面板</li>
-</ul>
-<p>HTTP请求的性能和其他数据分析</p>
-<ul>
-<li>composer面板</li>
-</ul>
-<p>可以模拟向相应的服务器发送数据的过程</p>
-<ul>
-<li>Filters面板</li>
-</ul>
-<p>Filter标签则可以设置Fiddler的过滤规则，来达到过滤http请求的目的。最简单如：过滤内网http请求而只抓取internet的http请求，或则过滤相应域名的http请求。Fiddler的过滤器非常强大，可以过滤特定http状态码的请求，可以过滤特定请求类型的http请求（如css请求，image请求，js请求等），可以过滤请求报文大于或则小于指定大小（byte）的请求</p>
-</li>
-<li>
-<p>关闭fiddler</p>
-</li>
-</ul>
-<p>左上角File,反选Capture Traffic</p>
-<ul>
-<li>WebSession过滤功能</li>
-</ul>
-<p>点击工具栏中的X符号</p>
-<ul>
-<li>WebSession选择功能</li>
-</ul>
-<p>左下角的黑色对话框</p>
-<ul>
-<li>select json\html\image</li>
-<li>cls清除所有请求</li>
-<li>
-<p>?xxx搜索</p>
-</li>
-<li>
-<p>谷歌浏览器</p>
-</li>
-<li>
-<p>mac 青花瓷</p>
-</li>
-</ul>
-<p>mac版安装：http://www.cocoachina.com/apple/20170704/19729.html</p>
 
 
 </section>

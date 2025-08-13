@@ -44,8 +44,8 @@
 <a href="05%E3%80%81xpath.html">五、xpath</a>
 <li class="chapter" data-path="06%E3%80%81%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E4%B8%8Eurllib%26requests.html">
 <a href="06%E3%80%81%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E4%B8%8Eurllib%26requests.html">六、爬虫入门</a>
-<li class="chapter" data-path="07%E3%80%81urllib%E4%B8%8Erequests.html">
-<a href="07%E3%80%81urllib%E4%B8%8Erequests.html">七、urllib与requests</a>
+<li class="chapter" data-path="07%E3%80%81%E8%AF%B7%E6%B1%82%E6%A8%A1%E5%9D%97%28urllib-requests-httpx%29.html">
+<a href="07%E3%80%81%E8%AF%B7%E6%B1%82%E6%A8%A1%E5%9D%97%28urllib-requests-httpx%29.html">七、网络请求模块</a>
 <li class="chapter" data-path="08%E3%80%81%E5%A4%9A%E8%BF%9B%E7%A8%8B.html">
 <a href="08%E3%80%81%E5%A4%9A%E8%BF%9B%E7%A8%8B.html">八、多进程</a>
 <li class="chapter" data-path="09%E3%80%81%E7%BA%BF%E7%A8%8B.html">
@@ -113,7 +113,7 @@
 <li class="chapter" data-path="35%E3%80%81AST.html">
 <a href="35%E3%80%81AST.html">Ast系列篇</a>
 <li class="chapter" data-path="36%E3%80%81Akamai%E5%88%9D%E7%BA%A7.html">
-<a href="36%E3%80%81Akamai%E5%88%9D%E7%BA%A7.html">了解akamai的执行过程</a>
+<a href="36%E3%80%81Akamai%E5%88%9D%E7%BA%A7.html">AKAMAI</a>
 <li class="chapter" data-path="37-%E4%BA%91%E7%89%87%E9%AA%8C%E8%AF%81%E7%A0%81.html">
 <a href="37-%E4%BA%91%E7%89%87%E9%AA%8C%E8%AF%81%E7%A0%81.html">1 云片滑块</a>
 <li class="chapter" data-path="38%E3%80%81%E5%85%B6%E5%AE%83%E6%A1%88%E4%BE%8B.html">
@@ -508,7 +508,7 @@ print(res.text)
 <h4 id="4-tls">(4) 查看代码/浏览器发送请求的TLS指纹</h4>
 <p><img alt="image-20250218173618501" src="imgs/32%E3%80%81TLS%E6%8C%87%E7%BA%B9%E7%BB%95%E8%BF%87.assets/image-20250218173618501.png" /></p>
 <h3 id="2tls_1">2、绕过TLS指纹</h3>
-<h4 id="1_2">(1) 方式一</h4>
+<h4 id="1-urllib3">(1) urllib3解决</h4>
 <p>urllib3解决（有的可能不过，因为还会检测别的值）</p>
 <p>requests发送请求依赖于 -&gt; urllib3  那么当前代码中生成指纹的位置</p>
 <p>注意版本(如果你当前的版本搜不到、那么尝试降低版本安装以下版本在查找)</p>
@@ -540,46 +540,115 @@ print(res.json())
 </code></pre>
 <p><strong>说明：</strong></p>
 <p>注释掉一些内容，使当前的值发生更改，以绕过SSL指纹</p>
-<h4 id="2_3">(2) 方式二</h4>
-<p>curl-cffi 解决（推荐）</p>
+<h4 id="2-curl-cffi">(2) curl-cffi</h4>
+<ul>
+<li>github地址</li>
+</ul>
+<p>https://github.com/lexiforest/curl_cffi</p>
+<ul>
+<li>curl-cffi 解决（推荐）</li>
+</ul>
 <p><strong>模块地址：</strong> https://pypi.org/project/curl-cffi/#description</p>
 <ul>
+<li>说明</li>
 <li>curl是一个可以发送网络请求的工具</li>
 <li>curl-impersonate是一个基于curl基础上进行开发的一个工具，可以完美的模拟主流的浏览器</li>
 <li>curl_cffi，是套壳curl-impersonate，让此工具可以更方便的应用在Python中。</li>
 </ul>
 <p><strong>安装</strong></p>
 <ul>
-<li>pip install curl-cffi</li>
-</ul>
+<li>
+<p>pip install curl-cffi</p>
+</li>
+<li>
 <p><strong>使用</strong></p>
-<pre><code class="language-python">from curl_cffi import requests
-# TLS检测网站
-url = &quot;https://ascii2d.net/&quot;
-res = requests.get(url,headers={'user-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac os x 10_15_7) ApplewebKit/537.36 (KHTML, like Gecko)Chrome/96.0.4664.93 safari/537.36'},impersonate=&quot;chrome101&quot;)
-print(res.text)
-</code></pre>
-<h4 id="3-tls-client">(3) 使用 <code>tls-client</code>（重点推荐）</h4>
+</li>
+</ul>
+<p><code>python
+  from curl_cffi import requests
+  # TLS检测网站
+  url = "https://ascii2d.net/"
+  res = requests.get(url,headers={'user-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac os x 10_15_7) ApplewebKit/537.36 (KHTML, like Gecko)Chrome/96.0.4664.93 safari/537.36'},impersonate="chrome101")
+  print(res.text)</code></p>
+<ul>
+<li>
+<p>什么是 curl_cffi？
+  curl_cffi 是一个通过 CFFI 为 curl-impersonate 分支提供 Python 绑定的库。换句话说，它是一个能够模拟浏览器 TLS/JA3/HTTP2 指纹的 HTTP 客户端。因此，对于基于 TLS 指纹检测的反爬虫屏蔽来说，该库是一个非常优秀的解决方案。</p>
+</li>
+<li>
+<p>特性</p>
+</li>
+<li>
+<p>支持 JA3/TLS 和 HTTP2 指纹伪装，包括最新浏览器及自定义指纹</p>
+</li>
+<li>
+<p>比 requests 和 httpx 更快，速度与 aiohttp 相当</p>
+</li>
+<li>
+<p>模仿 requests 的 API</p>
+</li>
+<li>
+<p>支持 asyncio 进行异步 HTTP 请求</p>
+</li>
+<li>
+<p>支持在每次请求时进行代理轮换</p>
+</li>
+<li>
+<p>支持 HTTP/2.0</p>
+</li>
+<li>
+<p>支持 WebSocket</p>
+</li>
+<li>
+<p>工作原理</p>
+<p>curl_cffi 基于 cURL Impersonate，它是一个能够生成与真实浏览器匹配的 TLS 指纹的库。</p>
+</li>
+<li>
+<p>当你发送 HTTPS 请求时，会发生一次 TLS 握手，从而产生一个独特的 TLS 指纹。由于普通 HTTP 客户端与浏览器存在差异，这些指纹可能会暴露自动化行为，进而触发反爬虫防护。</p>
+</li>
+<li>cURL Impersonate 会对 cURL 进行修改，使其匹配真实的浏览器 TLS 指纹：</li>
+<li>TLS 库调整：使用浏览器所用的 TLS 库而不是 cURL 本身的库。</li>
+<li>配置变更：调整 TLS 扩展和 SSL 选项以模仿浏览器。</li>
+<li>HTTP/2 定制：匹配浏览器的握手方式。</li>
+<li>自定义 cURL 参数：使用 --ciphers、--curves 以及自定义头部信息来实现更精准的模拟。</li>
+<li>
+<p>这样的改动使得请求更接近浏览器的行为，从而帮助绕过反爬虫检测。欲了解更多信息，请参阅我们关于 cURL Impersonate 的指南。</p>
+</li>
+<li>
+<p>原文链接：https://blog.csdn.net/ryanding_brd/article/details/145919985</p>
+</li>
+</ul>
+<h4 id="3-tls-client">(3) tls-client</h4>
+<ul>
+<li>Github 地址</li>
+</ul>
+<p>https://github.com/FlorianREGAZ/Python-Tls-Client</p>
+<ul>
+<li>说明</li>
+</ul>
 <p>这是一个专门用于模拟浏览器 TLS 指纹的 Node.js / Python 兼容库：</p>
-<p>安装Python-TLS-Client</p>
-<pre><code class="language-python">pip install tls-client
-</code></pre>
-<p>打开终端或命令提示符，执行以下命令来安装Python-TLS-Client库：</p>
-<p>示例（Python 绑定）：</p>
-<pre><code class="language-python">import tls_client
-
-session = tls_client.Session(
-    client_identifier=&quot;chrome_103&quot;  # 模拟 Chrome 103 的 TLS 指纹
-)
-
-response = session.get(
-    &quot;https://tls.peet.ws/api/all&quot;,
-    headers={
-        &quot;User-Agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36&quot;
-    }
-)
-print(response.json())
-</code></pre>
+<ul>
+<li>安装Python-TLS-Client</li>
+</ul>
+<p><code>pytHon
+  pip install tls-client</code></p>
+<p>​   打开终端或命令提示符，执行以下命令来安装Python-TLS-Client库：</p>
+<ul>
+<li>示例（Python 绑定）：</li>
+</ul>
+<p>```python
+  import tls_client</p>
+<p>session = tls_client.Session(
+      client_identifier="chrome_103"  # 模拟 Chrome 103 的 TLS 指纹
+  )</p>
+<p>response = session.get(
+      "https://tls.peet.ws/api/all",
+      headers={
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
+      }
+  )
+  print(response.json())
+  ```</p>
 <p><strong>特点：</strong></p>
 <ul>
 <li>支持多种浏览器指纹（Chrome、Firefox、Edge 等）</li>
@@ -587,7 +656,7 @@ print(response.json())
 <li>可以配合代理使用</li>
 <li>性能优于 Selenium</li>
 </ul>
-<h4 id="4-crawl4ai">(4) 使用crawl4ai</h4>
+<h4 id="4-crawl4ai">(4)  crawl4ai</h4>
 <ul>
 <li><strong>github地址</strong></li>
 </ul>
@@ -625,6 +694,99 @@ print(response.json())
 <p>if <strong>name</strong> == "<strong>main</strong>":
       asyncio.run(main())
   ```</p>
+<ul>
+<li>模块升级</li>
+</ul>
+<p>python3 -m pip install --upgrade 模块名</p>
+<h4 id="5-rnet">(5) rnet绕过 （重点推荐）</h4>
+<ul>
+<li>
+<p>github地址 https://github.com/0x676e67/rnet/</p>
+</li>
+<li>
+<p>安装</p>
+</li>
+</ul>
+<p>pip install asyncio rnet</p>
+<ul>
+<li>代码</li>
+</ul>
+<p>```python
+  import asyncio
+  from rnet import Impersonate, Client</p>
+<p>async def main():
+      # Build a client
+      client = Client(impersonate=Impersonate.Chrome137)
+      # Use the API you're already familiar with
+      resp = await client.get("https://ascii2d.net/")</p>
+<pre><code>  # Print the response
+  print(await resp.text())
+</code></pre>
+<p>if <strong>name</strong> == "<strong>main</strong>":
+      asyncio.run(main())
+  ```</p>
+<h4 id="6-pycurl">(6) pycurl（重点推荐）</h4>
+<ul>
+<li>文档地址</li>
+</ul>
+<p>https://pycurl.io/docs/latest/quickstart.html</p>
+<ul>
+<li>安装</li>
+</ul>
+<p>pip install pycurl</p>
+<ul>
+<li>get请求代码</li>
+</ul>
+<p>```python3
+  import pycurl
+  import certifi
+  from io import BytesIO</p>
+<p>buffer = BytesIO()
+  c = pycurl.Curl()
+  c.setopt(c.URL, 'https://ascii2d.net/')
+  c.setopt(c.HTTPHEADER, [
+      'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36',
+  ])
+  c.setopt(c.WRITEDATA, buffer)
+  c.setopt(c.CAINFO, certifi.where())
+  c.perform()
+  c.close()</p>
+<p>body = buffer.getvalue()
+  # Body is a byte string.
+  # We have to know the encoding in order to print it to a text file
+  # such as standard output.
+  print(body.decode())
+  ```</p>
+<ul>
+<li>post请求</li>
+</ul>
+<p>```python
+  import pycurl
+  from io import BytesIO
+  import json</p>
+<p>buffer = BytesIO()</p>
+<p>c = pycurl.Curl()
+  c.setopt(c.URL, 'https://httpbin.org/post')
+  c.setopt(c.POSTFIELDS, json.dumps({'name': 'qwen', 'age': 2}))
+  c.setopt(c.HTTPHEADER, ['Content-Type: application/json'])
+  c.setopt(c.WRITEDATA, buffer)</p>
+<p>c.perform()</p>
+<p>status_code = c.getinfo(c.RESPONSE_CODE)
+  response = buffer.getvalue().decode('utf-8')</p>
+<p>print("状态码:", status_code)
+  print("响应:", response)</p>
+<p>c.close()
+  ```</p>
+<ul>
+<li>设置代理与cookie</li>
+</ul>
+<p><code>python
+  c.setopt(c.COOKIE, 'cf_clearance=NDXN67Em6R4FPnb1.D8quu7cm1f3X7x0VqqdMgMCRUI-1750324070-1.2.1.1')  # 设置 Cookie
+  c.setopt(c.PROXY, '127.0.0.1') # 设置代理
+  c.setopt(c.PROXYPORT, 8080)  # 设置代理
+  c.setopt(c.SSL_VERIFYPEER, False)  # 不验证 HTTPS 证书（测试用）
+  c.setopt(c.SSL_VERIFYHOST, False) # 不验证 HTTPS 证书（测试用）
+  c.setopt(c.TIMEOUT, 30)  # 超时 30 秒</code></p>
 
 
 </section>

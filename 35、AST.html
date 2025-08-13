@@ -44,8 +44,8 @@
 <a href="05%E3%80%81xpath.html">五、xpath</a>
 <li class="chapter" data-path="06%E3%80%81%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E4%B8%8Eurllib%26requests.html">
 <a href="06%E3%80%81%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E4%B8%8Eurllib%26requests.html">六、爬虫入门</a>
-<li class="chapter" data-path="07%E3%80%81urllib%E4%B8%8Erequests.html">
-<a href="07%E3%80%81urllib%E4%B8%8Erequests.html">七、urllib与requests</a>
+<li class="chapter" data-path="07%E3%80%81%E8%AF%B7%E6%B1%82%E6%A8%A1%E5%9D%97%28urllib-requests-httpx%29.html">
+<a href="07%E3%80%81%E8%AF%B7%E6%B1%82%E6%A8%A1%E5%9D%97%28urllib-requests-httpx%29.html">七、网络请求模块</a>
 <li class="chapter" data-path="08%E3%80%81%E5%A4%9A%E8%BF%9B%E7%A8%8B.html">
 <a href="08%E3%80%81%E5%A4%9A%E8%BF%9B%E7%A8%8B.html">八、多进程</a>
 <li class="chapter" data-path="09%E3%80%81%E7%BA%BF%E7%A8%8B.html">
@@ -113,7 +113,7 @@
 <li class="chapter active" data-path="35%E3%80%81AST.html">
 <a href="35%E3%80%81AST.html">Ast系列篇</a>
 <li class="chapter" data-path="36%E3%80%81Akamai%E5%88%9D%E7%BA%A7.html">
-<a href="36%E3%80%81Akamai%E5%88%9D%E7%BA%A7.html">了解akamai的执行过程</a>
+<a href="36%E3%80%81Akamai%E5%88%9D%E7%BA%A7.html">AKAMAI</a>
 <li class="chapter" data-path="37-%E4%BA%91%E7%89%87%E9%AA%8C%E8%AF%81%E7%A0%81.html">
 <a href="37-%E4%BA%91%E7%89%87%E9%AA%8C%E8%AF%81%E7%A0%81.html">1 云片滑块</a>
 <li class="chapter" data-path="38%E3%80%81%E5%85%B6%E5%AE%83%E6%A1%88%E4%BE%8B.html">
@@ -232,6 +232,7 @@ Theme by GitBook
 </li>
 <li>comments：用于存储存储源代码中的注释信息</li>
 </ul>
+<p><img alt="image-20250703103944066" src="imgs/35%E3%80%81AST.assets/image-20250703103944066.png" /></p>
 <h4 id="2_1">(2) 前置准备</h4>
 <ol>
 <li>具备一些javascript基础和nodejs基础</li>
@@ -392,13 +393,11 @@ traverse(ast,visitor)
 <p>visitor 对象中的方法接收一个参数，traverse在遍历的时候会把当前节点的Path对象传给它，传进去的Path对象不是节点node</p>
 </li>
 </ol>
-<p>```
-   path参数/对象</p>
+<p><strong>path参数/对象</strong></p>
 <ul>
 <li>path参数，表示当前正在遍历的节点路径，<strong>path</strong> 包含有关节点相关信息的对象。</li>
 <li>
-<p>通过 <strong>path</strong> 对象，可以访问和操作节点的属性和关系，<strong>path</strong> 对象中又提供提供了很多内置方法供我们使用。
-   ```</p>
+<p>通过 <strong>path</strong> 对象，可以访问和操作节点的属性和关系，<strong>path</strong> 对象中又提供了很多内置方法供我们使用。</p>
 </li>
 <li>
 <p>最后把visitor作为第二个参数传入traverse中，传给traverse的第一个参数是整个ast。
@@ -847,18 +846,18 @@ var arr = '3,4,0,5,1,2'['split'](',')
 let ast = parse.parse(jscode);
 traverse(ast, {
     //遍历函数调用节点（split函数）
-   CallExpression(path) {
+    CallExpression(path) {
         //获取函数调用节点的调用者callee和函数参数arguments
-       let {callee, arguments} = path.node
+        let {callee, arguments} = path.node
        // 通过打印节点的树结构决定访问哪些属性
        //console.log(callee.object.value,arguments[0].value)
-       let data = callee.object.value //获取split函数调用者
-       let func = callee.property.value //获取函数名
-       let arg = arguments[0].value //获取split函数参数
-       var res = data[func](arg) //调用函数获取返回值
+        let data = callee.object.value //获取split函数调用者
+        let func = callee.property.value //获取函数名
+        let arg = arguments[0].value //获取split函数参数
+        var res = data[func](arg) //调用函数获取返回值
        //用于替换当前节点
-       path.replaceWith(types.valueToNode(res))
-  }
+        path.replaceWith(types.valueToNode(res))
+    }
 })
 // 将ast还原成JavaScript代码
 let {code} = generator(ast);

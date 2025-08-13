@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-<title>七、urllib与requests - js node</title>
+<title>七、网络请求模块 - js node</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 <meta name="generator" content="mkdocs-1.6.1, mkdocs-gitbook-1.0.7">
@@ -44,8 +44,8 @@
 <a href="05%E3%80%81xpath.html">五、xpath</a>
 <li class="chapter" data-path="06%E3%80%81%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E4%B8%8Eurllib%26requests.html">
 <a href="06%E3%80%81%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8%E4%B8%8Eurllib%26requests.html">六、爬虫入门</a>
-<li class="chapter active" data-path="07%E3%80%81urllib%E4%B8%8Erequests.html">
-<a href="07%E3%80%81urllib%E4%B8%8Erequests.html">七、urllib与requests</a>
+<li class="chapter active" data-path="07%E3%80%81%E8%AF%B7%E6%B1%82%E6%A8%A1%E5%9D%97%28urllib-requests-httpx%29.html">
+<a href="07%E3%80%81%E8%AF%B7%E6%B1%82%E6%A8%A1%E5%9D%97%28urllib-requests-httpx%29.html">七、网络请求模块</a>
 <li class="chapter" data-path="08%E3%80%81%E5%A4%9A%E8%BF%9B%E7%A8%8B.html">
 <a href="08%E3%80%81%E5%A4%9A%E8%BF%9B%E7%A8%8B.html">八、多进程</a>
 <li class="chapter" data-path="09%E3%80%81%E7%BA%BF%E7%A8%8B.html">
@@ -113,7 +113,7 @@
 <li class="chapter" data-path="35%E3%80%81AST.html">
 <a href="35%E3%80%81AST.html">Ast系列篇</a>
 <li class="chapter" data-path="36%E3%80%81Akamai%E5%88%9D%E7%BA%A7.html">
-<a href="36%E3%80%81Akamai%E5%88%9D%E7%BA%A7.html">了解akamai的执行过程</a>
+<a href="36%E3%80%81Akamai%E5%88%9D%E7%BA%A7.html">AKAMAI</a>
 <li class="chapter" data-path="37-%E4%BA%91%E7%89%87%E9%AA%8C%E8%AF%81%E7%A0%81.html">
 <a href="37-%E4%BA%91%E7%89%87%E9%AA%8C%E8%AF%81%E7%A0%81.html">1 云片滑块</a>
 <li class="chapter" data-path="38%E3%80%81%E5%85%B6%E5%AE%83%E6%A1%88%E4%BE%8B.html">
@@ -184,9 +184,14 @@ Theme by GitBook
 
 
 
-<h1 id="urllibrequests">七、urllib与requests</h1>
+<h1 id="_1">七、网络请求模块</h1>
+<ul>
+<li>urllib</li>
+<li>requests</li>
+<li>httpx</li>
+</ul>
 <h2 id="urllib">一、urllib的学习</h2>
-<h5 id="_1">学习目标</h5>
+<h5 id="_2">学习目标</h5>
 <p>了解urllib的基本使用 </p>
 <hr />
 <h3 id="1urllib">1、urllib介绍</h3>
@@ -263,7 +268,7 @@ print(html_str)
 </ol>
 <h1 id="requests">requests模块的入门使用</h1>
 <h2 id="requests_1">一、requests模块的入门使用</h2>
-<h5 id="_2">学习目标：</h5>
+<h5 id="_3">学习目标：</h5>
 <ol>
 <li>了解 requests模块的介绍</li>
 <li>掌握 requests的基本使用</li>
@@ -504,7 +509,7 @@ print(response.request.headers)
 <li>掌握 requests模块发送带参数的get请求：<code>requests.get(url, params={})</code></li>
 </ol>
 <h2 id="requests_2">二、requests模块的深入使用</h2>
-<h5 id="_3">学习目标：</h5>
+<h5 id="_4">学习目标：</h5>
 <ol>
 <li>能够应用requests发送post请求的方法</li>
 <li>能够应用requests模块使用代理的方法</li>
@@ -532,7 +537,7 @@ print(response.request.headers)
 <h5 id="12-post">1.2 POST请求练习</h5>
 <p>下面面我们通过金山翻译的例子看看post请求如何使用：</p>
 <p>地址：https://www.iciba.com/fy</p>
-<h5 id="_4">思路分析</h5>
+<h5 id="_5">思路分析</h5>
 <ol>
 <li>抓包确定请求的url地址</li>
 </ol>
@@ -746,7 +751,7 @@ print(response.request.headers)
 
 requests.get(url,headers=headers)
 </code></pre>
-<h5 id="_5">注意：</h5>
+<h5 id="_6">注意：</h5>
 <p>cookie有过期时间 ，所以直接复制浏览器中的cookie可能意味着下一程序继续运行的时候需要替换代码中的cookie，对应的我们也可以通过一个程序专门来获取cookie供其他程序使用；当然也有很多网站的cookie过期时间很长，这种情况下，直接复制cookie来使用更加简单</p>
 <h3 id="3cookiescookie">3、使用cookies参数接收字典形式的cookie</h3>
 <ul>
@@ -877,7 +882,7 @@ for i in req.json()['items']:
 </li>
 </ul>
 <p>图鉴   http://www.ttshitu.com/</p>
-<h5 id="_6">思路分析</h5>
+<h5 id="_7">思路分析</h5>
 <ol>
 <li>准备url地址和请求参数</li>
 <li>构造session发送post请求</li>
@@ -890,7 +895,7 @@ for i in req.json()['items']:
 <li>使用requests提供的session模块，能够自动实现cookie的处理，包括请求的时候携带cookie，获取响应的时候保存cookie</li>
 </ol>
 <h2 id="requests_3">四、requests模块的其他方法</h2>
-<h5 id="_7">学习目标</h5>
+<h5 id="_8">学习目标</h5>
 <ol>
 <li>掌握requests中cookirJar的处理方法</li>
 <li>掌握requests解决https证书错误的问题</li>
@@ -922,7 +927,7 @@ print(cookies)
 <pre><code class="language-python">&lt;class 'requests.cookies.RequestsCookieJar'&gt;
 {'BDORZ': '27315'}
 </code></pre>
-<h5 id="_8">注意：</h5>
+<h5 id="_9">注意：</h5>
 <p>在前面的requests的session类中，我们不需要处理cookie的任何细节，如果有需要，我们可以使用上述方法来解决</p>
 <h3 id="2requests_1">2、requests处理证书错误</h3>
 <blockquote>
@@ -956,7 +961,7 @@ response = requests.get(url,verify=False)
 <pre><code class="language-python">response = requests.get(url,timeout=3)
 </code></pre>
 <p>通过添加timeout参数，能够保证在3秒钟内返回响应，否则会报错</p>
-<h5 id="_9">注意：</h5>
+<h5 id="_10">注意：</h5>
 <p>这个方法还能够拿来检测代理ip的质量，如果一个代理ip在很长时间没有响应，那么添加超时之后也会报错，对应的这个ip就可以从代理ip池中删除</p>
 <h3 id="4retrying">4、retrying模块的使用</h3>
 <blockquote>
@@ -1263,6 +1268,239 @@ print(ua.chrome)
 <li>请求方法中添加timeout能够实现强制程序返回结果的能够，否则会报错</li>
 <li>retrying模块能够实现捕获函数的异常，反复执行函数的效果，和timeout配合使用，能够解决网络波动带来的请求不成功的问题</li>
 </ol>
+<h2 id="httpx">五、异步高性能httpx</h2>
+<p><code>httpx</code> 是 Python 中一个现代、高效、功能强大的 <strong>HTTP 客户端库</strong>，被誉为 <code>requests</code> 的“下一代”替代者。它支持同步和异步请求、HTTP/2、代理、流式传输等高级功能，非常适合构建高性能网络应用、爬虫、API 调用等。</p>
+<hr />
+<h3 id="1-httpx">1、为什么选择 <code>httpx</code>？</h3>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅ 兼容 <code>requests</code> API</td>
+<td>你熟悉 <code>requests</code>？<code>httpx</code> 几乎完全兼容！</td>
+</tr>
+<tr>
+<td>✅ 支持异步（<code>async/await</code>）</td>
+<td>可以并发发送大量请求，性能极高</td>
+</tr>
+<tr>
+<td>✅ 支持 HTTP/2</td>
+<td>提升现代 Web API 的性能</td>
+</tr>
+<tr>
+<td>✅ 支持 HTTP/1.1 和 HTTP/2 自动协商</td>
+<td>智能选择最佳协议</td>
+</tr>
+<tr>
+<td>✅ 内置连接池、超时、重试、代理等</td>
+<td>功能齐全</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="2_2">2、安装</h3>
+<p>bash深色版本</p>
+<pre><code>pip install httpx
+</code></pre>
+<blockquote>
+<p>如果你想使用 HTTP/2，额外安装：</p>
+<p>bash深色版本</p>
+<p><code>pip install httpx[http2]</code></p>
+</blockquote>
+<hr />
+<h3 id="3_2">3、基本用法</h3>
+<h4 id="31-requests">3.1 同步请求（像 <code>requests</code> 一样简单）</h4>
+<pre><code class="language-python">import httpx
+
+# GET 请求
+response = httpx.get('https://httpbin.org/get')
+print(response.status_code)
+print(response.json())
+
+# POST 请求（JSON）
+response = httpx.post('https://httpbin.org/post', json={'name': 'qwen'})
+print(response.json())
+</code></pre>
+<h4 id="32_1">3.2. 异步请求（高并发必备）</h4>
+<pre><code class="language-python">import httpx
+import asyncio
+
+async def main():
+    async with httpx.AsyncClient() as client:
+        response = await client.get('https://httpbin.org/get')
+        print(response.json())
+
+asyncio.run(main())
+</code></pre>
+<h3 id="4_2">4、并发异步请求（性能飞起）</h3>
+<pre><code class="language-python">import httpx
+import asyncio
+
+async def fetch(client, url):
+    response = await client.get(url)
+    return response.status_code
+
+async def main():
+    async with httpx.AsyncClient() as client:
+        tasks = [
+            fetch(client, 'https://httpbin.org/get') for _ in range(10)
+        ]
+        results = await asyncio.gather(*tasks)
+        print(results)
+
+asyncio.run(main())
+</code></pre>
+<blockquote>
+<p>⚡ 可轻松并发 100+ 请求，比同步快几十倍！</p>
+</blockquote>
+<hr />
+<h3 id="5_2">5、高级功能</h3>
+<h4 id="51-http2-http2">5.1. 支持 HTTP/2（需安装 <code>[http2]</code>）</h4>
+<pre><code class="language-python">import httpx
+
+client = httpx.Client(http2=True)
+response = client.get('https://http2.cloudflare.com')
+print(response.http_version)  # 输出: HTTP/2
+</code></pre>
+<h4 id="52-headerscookies">5.2. 设置 headers、cookies、代理</h4>
+<pre><code class="language-python">headers = {'User-Agent': 'Mozilla/5.0'}
+cookies = {'sessionid': 'abc123'}
+proxies = {'https://': 'http://127.0.0.1:8080'}
+
+client = httpx.Client(
+    headers=headers,
+    cookies=cookies,
+    proxies=proxies,
+    timeout=10.0
+)
+</code></pre>
+<h4 id="53_1">5.3. 流式下载（大文件）</h4>
+<pre><code class="language-python">with httpx.stream('GET', 'https://example.com/large-file.zip') as r:
+    for chunk in r.iter_bytes():
+        print(f&quot;下载了 {len(chunk)} 字节&quot;)
+</code></pre>
+<h4 id="54_1">5.4. 自定义连接池和超时</h4>
+<pre><code class="language-python">client = httpx.Client(
+    limits=httpx.Limits(max_connections=100),
+    timeout=httpx.Timeout(10.0, connect=5.0)
+)
+</code></pre>
+<hr />
+<h3 id="6-requests">6、与 <code>requests</code> 对比</h3>
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th><code>requests</code></th>
+<th><code>httpx</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>同步请求</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>异步请求</td>
+<td>❌（需 <code>aiohttp</code>）</td>
+<td>✅ 原生支持</td>
+</tr>
+<tr>
+<td>HTTP/2</td>
+<td>❌</td>
+<td>✅（可选）</td>
+</tr>
+<tr>
+<td>API 兼容性</td>
+<td>-</td>
+<td>✅ 几乎完全兼容</td>
+</tr>
+<tr>
+<td>性能（并发）</td>
+<td>一般</td>
+<td>⚡ 非常高</td>
+</tr>
+<tr>
+<td>社区生态</td>
+<td>极大</td>
+<td>快速增长</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>✅ 推荐：新项目直接用 <code>httpx</code>，老项目可逐步替换 <code>requests</code></p>
+</blockquote>
+<hr />
+<h3 id="_11">七、常见问题</h3>
+<h4 id="71-httpxhttpstatuserror-404-not-found">7.1. httpx.HTTPStatusError: 404 Not Found</h4>
+<pre><code class="language-python">try:
+    response = httpx.get('https://example.com/404')
+    response.raise_for_status()
+except httpx.HTTPStatusError as e:
+    print(f&quot;请求失败: {e}&quot;)
+</code></pre>
+<h4 id="2_3">2. 代理设置不生效？</h4>
+<p>确保格式正确：</p>
+<pre><code class="language-python">proxies = {&quot;https://&quot;: &quot;http://127.0.0.1:8080&quot;}
+</code></pre>
+<p>注意：<code>httpx</code> 不支持 socks 代理（需用 <code>httpx[socks]</code> 或改用 <code>aiohttp</code> + <code>aiosocks</code>）</p>
+<hr />
+<h3 id="_12">总结</h3>
+<table>
+<thead>
+<tr>
+<th>使用场景</th>
+<th>推荐方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>普通爬虫、API 调用</td>
+<td><code>httpx.get()</code> / <code>post()</code></td>
+</tr>
+<tr>
+<td>高并发请求</td>
+<td><code>AsyncClient</code> + <code>async/await</code></td>
+</tr>
+<tr>
+<td>大文件下载</td>
+<td><code>stream=True</code></td>
+</tr>
+<tr>
+<td>需要 HTTP/2</td>
+<td>启用 <code>http2=True</code></td>
+</tr>
+<tr>
+<td>替代 <code>requests</code></td>
+<td>直接替换，几乎无需改代码</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h4 id="_13">推荐模板（异步高并发）</h4>
+<pre><code class="language-python">import httpx
+import asyncio
+
+async def fetch(url):
+    async with httpx.AsyncClient() as client:
+        resp = await client.get(url)
+        return resp.text
+
+async def main():
+    urls = ['https://httpbin.org/get'] * 5
+    tasks = [fetch(url) for url in urls]
+    results = await asyncio.gather(*tasks)
+    for r in results:
+        print(len(r))
+
+asyncio.run(main())
+</code></pre>
 
 
 </section>
